@@ -12,7 +12,20 @@ feature "Pets", %q{
     end
 
     scenario 'can register new pet' do
-      
+      visit homepage
+      click_link('Add a new pet')
+      fill_in('Name', :with => 'Scroophy')
+      select('Dog', :from => 'Animal')
+      select('Crossbred', :from => 'Breed')
+      fill_in('Address', :with => 'Fuente el Saz de Jarama, Madrid')
+      fill_in('Birthday', :with => 4.years.ago)
+      fill_in('Limit date', :with => 15.days.since)
+      check('Urgent')
+      check('Docile')
+      check('Playful')
+      check('Obedient')
+      select('Medium', :from => 'Size')
+      click_button('Submit')
     end
   end
 

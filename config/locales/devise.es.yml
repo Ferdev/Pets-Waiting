@@ -1,0 +1,39 @@
+es:
+  errors:
+    messages:
+      not_found: "no encontrado"
+      already_confirmed: "ya fue confirmado"
+      not_locked: "no estaba bloqueado"
+
+  devise:
+    failure:
+      unauthenticated: 'Necesitas identificarte o registrarte para poder continuar.'
+      unconfirmed: 'Tienes que confirmar tu cuenta para poder continuar.'
+      locked: 'Tu cuenta está bloqueada.'
+      invalid: 'Email o contraseña incorrectos.'
+      invalid_token: 'Código de autentificación incorrecto.'
+      timeout: 'Tu sesión ha expirado, por favor identifícate de nuevo para continuar.'
+      inactive: 'Tu cuenta no ha sido activada todavía.'
+    sessions:
+      signed_in: 'Sesión iniciada correctamente.'
+      signed_out: 'Sesión cerrada correctamente.'
+    passwords:
+      send_instructions: 'Recibirás un email con las instruciones para restablecer tu contraseña en unos minutos.'
+      updated: 'Tu contraseña fue modificada correctamente. Tu sesión ha sido iniciada.'
+    confirmations:
+      send_instructions: 'Recibirás un email con las instrucciones para confirmar tu cuenta en unos minutos.'
+      confirmed: 'Tu cuenta fue confirmada correctamente. Tu sesión ha sido iniciada.'
+    registrations:
+      signed_up: 'Tu registro se ha realizado correctamente.'
+      updated: 'Has actualizado tu cuenta correctamente.'
+      destroyed: '¡Hasta pronto! Tu cuenta se ha cancelado correctamente. Esperamos verte de nuevo pronto.'
+    unlocks:
+      send_instructions: 'Recibirás un email con las instrucciones para desbloquear tu cuenta en unos minutos.'
+      unlocked: 'Tu cuenta se desbloqueó correctamente. Tu sesión ha sido iniciada.'
+    mailer:
+      confirmation_instructions: 
+        subject: 'Instrucciones de confirmación de tu cuenta'
+      reset_password_instructions: 
+        subject: 'Instrucciones para el restablecer tu contraseña'
+      unlock_instructions: 
+        subject: 'Instrucciones para desbloquear tu cuenta.'

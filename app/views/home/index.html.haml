@@ -1,0 +1,33 @@
+.pets.add_pet
+  %a.button.add_pet{:href => '#'}
+    %span.plus +
+    = I18n.t('index.add_pet')
+.pets.filters
+  %ul
+    %li
+      %a.button.add_pet{:href => '#'} Urgent
+    %li
+      %a.button.add_pet{:href => '#'} Dogs
+    %li
+      %a.button.add_pet{:href => '#'} Cats
+    %li
+      %a.button.add_pet{:href => '#'} Birds
+    %li
+      %a.button.add_pet{:href => '#'} Rodents
+    %li
+      %a.button.add_pet{:href => '#'} Reptiles
+    %li
+      %a.button.add_pet{:href => '#'} Other species
+    %li
+      %a.button.add_pet{:href => '#'} Males
+    %li
+      %a.button.add_pet{:href => '#'} Females
+.pets.place
+  %label Search pets at:
+  %input.where{:type => "text", :placeholder => "Country, state, province, city..."}
+.pets.results
+  .grid
+    %br/
+    %br/
+    %br/
+    %br/

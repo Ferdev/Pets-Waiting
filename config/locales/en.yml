@@ -2,4 +2,39 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  title: 'Pets Waiting'
+  loading: 'Loading...'
+  project_by: 'Developed by Fernando Espinosa'
+  index:
+    authentication:
+      signin: 'Sign in'
+      or: 'or'
+      signup: 'Sign up'
+      logout: 'Logout'
+    my_profile: 'My profile'
+    add_pet: 'Add a new pet'
+  footer:
+    colaborate: 'Colaborate'
+    about: 'About us'
+    donations: 'Donations'
+    contact: 'Contact us'
+  activemodel:
+    models:
+      user: 'User'
+    attributes:
+      created_at: 'Created at'
+      updated_at: 'Updated at'
+      user:
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        remember_me: 'Remember me'
+    submit:
+      create: 'Create {{model}}'
+      update: 'Update {{model}}'
+  devise:
+    sign_up: 'Sign up'
+    sign_in: 'Sign in'
+    forgot_password: 'Forgot your password?'
+    didnt_receive_confirmation: "Didn't receive confirmation instructions?"
+    didnt_receive_unlock: "Didn't receive unlock instructions?"

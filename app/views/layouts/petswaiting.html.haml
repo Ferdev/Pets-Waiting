@@ -1,0 +1,47 @@
+!!!
+%html
+
+  %head
+    %title
+      = t('title')
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag "reset", "petswaiting", :cache => true
+    = javascript_include_tag "jquery/jquery-1.4.1.js", "rails", :cache => true
+    %script{:type => "text/javascript", :src => "http://use.typekit.com/gvk4sry.js"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+    = csrf_meta_tag
+    = yield(:head)
+
+  %body
+    %header
+      .title
+        %a.pets{:href => '#', :title => I18n.t('title')} Pets
+        %br/
+        %a.waiting{:href => '#', :title => I18n.t('title')} Waiting
+      .auth
+        - unless user_signed_in?
+          = link_to t('index.authentication.signin'), new_user_session_path
+          = t('index.authentication.or')
+          = link_to t('index.authentication.signup'), new_user_registration_path
+        - else
+          %ul
+            %li= link_to t('index.my_profile')
+            %li= link_to t('index.authentication.logout'), destroy_user_session_path
+
+    #content
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+      = yield
+
+    %footer
+      .content
+        %ul
+          %li
+            %a.colaborate{:href => '#', :title => I18n.t('footer.colaborate')}= I18n.t('footer.colaborate')
+          %li
+            %a.about{:href => '#', :title => I18n.t('footer.about')}= I18n.t('footer.about')
+          %li
+            %a.donations{:href => '#', :title => I18n.t('footer.donations')}= I18n.t('footer.donations')
+          %li
+            %a.contact{:href => '#', :title => I18n.t('footer.contact')}= I18n.t('footer.contact')
