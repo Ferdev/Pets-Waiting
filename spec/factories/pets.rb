@@ -1,0 +1,2 @@
+Pet.blueprint do
+end

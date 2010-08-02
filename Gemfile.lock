@@ -1,3 +1,13 @@
+GIT
+  remote: http://github.com/justinfrench/formtastic.git
+  revision: 5156877
+  branch: rails3
+  specs:
+    formtastic (1.0.0.rc)
+      actionpack (>= 2.3.0)
+      activesupport (>= 2.3.0)
+      i18n (>= 0.4.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -86,6 +96,7 @@ GEM
       activesupport (= 3.0.0.rc)
       bundler (>= 1.0.0.rc.1)
       railties (= 3.0.0.rc)
+    rails3-generators (0.11.0)
     railties (3.0.0.rc)
       actionpack (= 3.0.0.rc)
       activesupport (= 3.0.0.rc)
@@ -136,10 +147,12 @@ DEPENDENCIES
   capybara-envjs
   database_cleaner
   devise (>= 1.1.rc.2)
+  formtastic!
   haml
   launchy
   machinist
   rails (= 3.0.0.rc)
+  rails3-generators
   rspec-rails (>= 2.0.0.beta.16)
   ruby-debug
   sqlite3-ruby
