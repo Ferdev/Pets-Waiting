@@ -16,9 +16,9 @@
   %body
     %header
       .title
-        %a.pets{:href => '#', :title => I18n.t('title')} Pets
+        %a.pets{:href => '/', :title => I18n.t('title')} Pets
         %br/
-        %a.waiting{:href => '#', :title => I18n.t('title')} Waiting
+        %a.waiting{:href => '/', :title => I18n.t('title')} Waiting
       .auth
         - unless user_signed_in?
           = link_to t('index.authentication.signin'), new_user_session_path
