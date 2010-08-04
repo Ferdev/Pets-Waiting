@@ -1,6 +1,6 @@
 module GlobalizeUtils
 
-  def add_locale( locale, translations = {} )
+  def add_translation( locale, translations = {} )
     I18n.locale = locale
     self.update_attributes!(translations)
     self.reload

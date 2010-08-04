@@ -83,6 +83,7 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
+    mysql (2.8.1)
     nokogiri (1.4.3.1)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -126,7 +127,6 @@ GEM
       ffi (>= 0.6.1)
       json_pure
       rubyzip
-    sqlite3-ruby (1.3.1)
     stackdeck (0.2.0)
     steak (0.4.0.beta.1)
       rspec (>= 2.0.0.beta.9)
@@ -154,9 +154,9 @@ DEPENDENCIES
   haml
   launchy
   machinist
+  mysql
   rails (= 3.0.0.rc)
   rails3-generators
   rspec-rails (>= 2.0.0.beta.16)
   ruby-debug
-  sqlite3-ruby
   steak (>= 0.4.0.beta.1)

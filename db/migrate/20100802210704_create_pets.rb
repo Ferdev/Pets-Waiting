@@ -8,6 +8,7 @@ class CreatePets < ActiveRecord::Migration
       t.date :limit_date
       t.integer :size_id
       t.boolean :urgent
+      t.text :description
 
       # Pet's character flags
       t.boolean :docile
