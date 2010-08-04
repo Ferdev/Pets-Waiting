@@ -4,20 +4,25 @@
 en:
   title: 'Pets Waiting'
   loading: 'Loading...'
-  project_by: 'Developed by Fernando Espinosa'
-  index:
-    authentication:
-      signin: 'Sign in'
-      or: 'or'
-      signup: 'Sign up'
-      logout: 'Logout'
-    my_profile: 'My profile'
-    add_pet: 'Add a new pet'
-  footer:
-    colaborate: 'Colaborate'
-    about: 'About us'
-    donations: 'Donations'
-    contact: 'Contact us'
+  layouts:
+    petswaiting:
+      authentication:
+        signin: 'Sign in'
+        or: 'or'
+        signup: 'Sign up'
+        logout: 'Sign out'
+      my_profile: 'My profile'
+      footer:
+        colaborate: 'Colaborate'
+        about: 'About us'
+        donations: 'Donations'
+        contact: 'Contact us'
+  home:
+    index:
+      add_pet: 'Add a new pet'
+  pets:
+    _form:
+      select_animal_first: 'Please, select a kind of animal first'
   activemodel:
     models:
       user: 'User'

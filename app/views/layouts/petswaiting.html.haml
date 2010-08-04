@@ -21,13 +21,13 @@
         %a.waiting{:href => '/', :title => I18n.t('title')} Waiting
       .auth
         - unless user_signed_in?
-          = link_to t('index.authentication.signin'), new_user_session_path
-          = t('index.authentication.or')
-          = link_to t('index.authentication.signup'), new_user_registration_path
+          = link_to t('layouts.petswaiting.authentication.signin'), new_user_session_path
+          = t('layouts.petswaiting.authentication.or')
+          = link_to t('layouts.petswaiting.authentication.signup'), new_user_registration_path
         - else
           %ul
-            %li= link_to t('index.my_profile')
-            %li= link_to t('index.authentication.logout'), destroy_user_session_path
+            %li= link_to t('layouts.petswaiting.my_profile')
+            %li= link_to t('layouts.petswaiting.authentication.logout'), destroy_user_session_path
 
     #content
       - flash.each do |name, msg|
@@ -38,10 +38,10 @@
       .content
         %ul
           %li
-            %a.colaborate{:href => '#', :title => I18n.t('footer.colaborate')}= I18n.t('footer.colaborate')
+            %a.colaborate{:href => '#', :title => I18n.t('layouts.petswaiting.footer.colaborate')}= I18n.t('layouts.petswaiting.footer.colaborate')
           %li
-            %a.about{:href => '#', :title => I18n.t('footer.about')}= I18n.t('footer.about')
+            %a.about{:href => '#', :title => I18n.t('layouts.petswaiting.footer.about')}= I18n.t('layouts.petswaiting.footer.about')
           %li
-            %a.donations{:href => '#', :title => I18n.t('footer.donations')}= I18n.t('footer.donations')
+            %a.donations{:href => '#', :title => I18n.t('layouts.petswaiting.footer.donations')}= I18n.t('layouts.petswaiting.footer.donations')
           %li
-            %a.contact{:href => '#', :title => I18n.t('footer.contact')}= I18n.t('footer.contact')
+            %a.contact{:href => '#', :title => I18n.t('layouts.petswaiting.footer.contact')}= I18n.t('layouts.petswaiting.footer.contact')

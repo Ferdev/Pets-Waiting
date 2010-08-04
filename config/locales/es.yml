@@ -189,20 +189,25 @@ es:
       last_word_connector: " y "
   title: 'Pets Waiting'
   loading: 'Cargando...'
-  project_by: 'Desarrollado por Fernando Espinosa'
-  index:
-    authentication:
-      signin: 'Identificate'
-      or: 'o'
-      signup: 'Date de alta'
-      logout: 'Cerrar sesión'
-    my_profile: 'Mi perfil'
-    add_pet: 'Añadir una mascota'
-  footer:
-    colaborate: 'Colabora'
-    about: 'Sobre nosotros'
-    donations: 'Donaciones'
-    contact: 'Contáctanos'
+  layouts:
+    petswaiting:
+      authentication:
+        signin: 'Identificate'
+        or: 'o'
+        signup: 'Date de alta'
+        logout: 'Cerrar sesión'
+      my_profile: 'Mi perfil'
+      footer:
+        colaborate: 'Colabora'
+        about: 'Sobre nosotros'
+        donations: 'Donaciones'
+        contact: 'Contáctanos'
+  home:
+    index:
+      add_pet: 'Añadir una nueva mascota'
+  pets:
+    _form:
+      select_animal_first: 'Por favor, selecciona antes un tipo de animal'
   activemodel:
     models:
       user: 'Usuario'
