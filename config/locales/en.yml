@@ -19,10 +19,14 @@ en:
         contact: 'Contact us'
   home:
     index:
+      give_adoption: 'Do you want to give a pet up for adoption?'
       add_pet: 'Add a new pet'
+      show: 'Show...'
+      looking_place: 'Are you looking at some particular place?'
   pets:
     _form:
       select_animal_first: 'Please, select a kind of animal first'
+      its_character: 'Its character'
   activemodel:
     models:
       user: 'User'

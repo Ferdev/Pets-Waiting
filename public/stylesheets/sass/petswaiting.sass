@@ -37,27 +37,78 @@ $fonts_size: 16px
 //////////////////
 // Base
 html, body
-  background: none repeat fixed 0 0 #FFFFFF
-  @include gradient(#264366, #5ea7ff)
+  background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
   font-family: $fonts
   font-size: $fonts_size
+  color: #124462
+  text-shadow: 0 1px 1px #cce5f4
+
+a
+  color: #a04249
+  font-size: 1.5em
+  line-height: 1.5em
+  
+a:hover
+  text-decoration: none
+  
+a:visited
+  color: #124462
+
+//Headings
+h1
+  font-size: 2em
+  margin: .5em 0
+
+h2
+  font-size: 1.5em
+  margin: .5em 0
 
 //Forms
 label
-  color: #000000
-  text-shadow: 0 1px 0 #CCCCCC
-  
-input[type=text]
-  border: 1px none
-  @include border-radius(1em)
-  padding: .2em .5em
-  
-  font-size: 1em  
-  
-  @include box-shadow(inset 1px 1px 1px rgba(0,0,0,1))
-  
-select
+  color: #1a6692
+  line-height: 1.5em
+  font-size: 1.2em
+  font-weight: bold
+  vertical-align: middle
+input[type=text], input[type=password], textarea, select
+  @include border-radius(5px)
+  background-color: #DFF7FF
+  border: 2px solid #1A6692
+  color: #124462
+  font-weight: bold
+  padding: 0.2em 0.5em
   font-size: 1em
+
+textarea
+  padding: .5em
+  font-family: inherit
+  
+form
+  p
+    margin: 1em
+
+form.formtastic
+  fieldset
+    margin: 0 0 2em
+    legend span
+      font-size: 1.3em
+    ol
+      li
+        margin: .5em 1em
+        label
+          display: block
+      li.boolean
+        label
+          display: inline
+        p
+          margin: 0
+          display: inline
+      li.date
+        fieldset
+          margin: 0
+          ol li
+          @include inline-block
+
 // Buttons
 a.button,
 button,
@@ -77,11 +128,14 @@ input[type=reset]
   text-align: center
   text-shadow: 0 -1px 0 rgba(0,0,0,.3)
   text-decoration: none
+  font-size: 1.2em
+  font-weight: normal
+  line-height: 1em
 
   @include border-radius(1000px)
 
-  background: #237fd7
-  @include gradient(#52a8e8, #2e76cf)
+  background: #888
+  @include gradient(#888, #444)
 
   -webkit-box-shadow: inset 0 1px 0 rgba(34,57,100,0.6), inset 1px 0 0 rgba(34,57,100,0.4), inset -1px 0 0 rgba(34,57,100,0.5), inset 0 -1px 0 rgba(34,57,100,0.6), inset 0 2px 0 rgba(255,255,255,.3), inset 0 0 4px rgba(255,255,255,.3), 0 1px 2px rgba(0,0,0,.29)
   -moz-box-shadow: inset 0 1px 0 rgba(34,57,100,0.6), inset 1px 0 0 rgba(34,57,100,0.4), inset -1px 0 0 rgba(34,57,100,0.5), inset 0 -1px 0 rgba(34,57,100,0.6), inset 0 2px 0 rgba(255,255,255,.3), inset 0 0 4px rgba(255,255,255,.3), 0 1px 2px rgba(0,0,0,.29)
@@ -95,7 +149,7 @@ input[type=reset]:hover,
 a.button:hover,
 a.button.hover
   background: #0073d2
-  @include gradient(#3e9ee5, #1666ca)
+  @include gradient(#999, #444)
 
 
 button:active,
@@ -132,48 +186,62 @@ a
 
 // Pets-Waiting
 header
+  background-color: #1A6692
+  @include gradient(#2388c3, #1A6692)
   display: block
-  width: 960px
-  margin: 0.5em auto
+  border-bottom: 1px solid #CCE5F4
+  .title_and_auth
+    width: 960px
+    margin: 0 auto
+    position: relative
+    .title
+      position: absolute
+      top: 14px
+      a
+        font-size: 3em
+        text-decoration: none
+        text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 0 0 white, 0 2px 0 white, -2px 0 0 white, 0 -2px 0 white, 3px 3px 2px black
+      a.pets
+        color: #7ad1ff
+      a.waiting
+        color: #ff8420
 
-  .title
-    @include inline-block
-    width: 725px
-    padding: .5em 1em
-    a
-      font-size: 2.5em
-      text-decoration: none
-      text-shadow: 1px 1px 1px #000
-    a.pets
-      color: #2dc9ff
-    a.waiting
-      color: #f2700a
-
-  .auth
-    @include inline-block
-    line-height: 3.5em
-    text-shadow: 0 1px 0 #000000
-    color: #FFF
-    font-size: 1.5em
-    a
-      color: #92f20a
+    .auth
+      color: #FFFFFF
+      font-size: 1.5em
+      text-shadow: 0 1px 0 #000000
+      text-align: right
+      a
+        color: #ffd850
+        font-size: 1em
+        line-height: 2em
+        font-weight: bold
+        @include border-radius(3px)
+      a:hover
+        text-decoration: none
 
 #content
   width: 960px
-  margin: 0.5em auto 4em
-  @include border-radius(5px)
-  @include gradient(#aaa, #777)
-  @include box-shadow(0 0 1px rgba(0,0,0,1))
+  margin: 3em auto 5em
+
   .pets
-    padding: .5em
-    border-top: 1px solid #ccc
-    border-bottom: 1px solid #333
+    margin: 1em 0
   .pets.add_pet
-    border-top: 0 none
+    padding: .5em
+    text-align: center
+    h1
+      display: inline-block
+      line-height: 1.2em
+      margin: 0.5em 0
+      vertical-align: middle
+      text-align: justify
+
     a.button
       font-size: 1.5em
+      margin: .2em
+      vertical-align: middle
       .plus
-        color: #92f20a
+        color: #69dd00
         font-weight: bold
         text-shadow: 0 -1px 0 #000000
   .pets.filters
@@ -183,41 +251,75 @@ header
         margin-right: .4em
     a.button:active,
     a.button.active
-      @include gradient(#f2700a, #914306)
+      @include gradient(#f48a2c, #92531a)
   .pets.place
+    display: none
     .where
       width: 600px
   .pets.results
-    border-bottom: 0 none
-    .grid
-      @include border-radius(5px)
-      @include box-shadow(inset 1px 1px 1px rgba(0,0,0,1))
-      background-color: #FFF
+    text-align: center
+    ul
+      li
+        a
+          @include inline-block
+          padding: 10px
+          text-decoration: none
+          color: #124462
+          text-shadow: 0 1px 0 #CCE5F4
+          img
+            height: 200px
+            padding: 4px
+            width: 200px
+            @include box-shadow(0px 0px 2px #000000)
+            background-color: #092230
+            border: 1px solid #CCE5F4
+          span
+            font-weight: bold
+            line-height: 2em
+        a:hover
+          @include border-radius(5px)
+          -moz-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
+          -webkit-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
+          box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
+          background-color: #2388C3
+          border-color: #1A6692
+          border-style: solid
+          border-width: 0 1px
+          color: #cce5f4
+          text-shadow: 0 1px 0 #124462
+          padding: 10px 9px
+      li.spinner
+        text-align: center
+        height: 50px
+        background: url('/images/extra/spinner.gif') no-repeat scroll 50% 50% transparent
+  fieldset.character
+    @include inline-block
 
 footer
+  background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
   position: fixed
-  background-color: #444
-  @include gradient(#666, #444)
-  border-top: 1px solid #999999
-  outline: 1px solid black
   width: 100%
-  height: 50px
   bottom: 0px
-  .content
+  padding: 1em 0
+
+  .footer_links
     width: 960px
-    margin: 0.5em auto
-    padding: .5em
-    a
-      color: #333
-      font-size: 1.5em
-      text-shadow: 0 1px 0 #999
-      text-decoration: none
-    a:hover
-      color: #FFF
-      text-shadow: 0 1px 0 #000
-    ul
-      text-align: center
-      li
-        display: inline
-        margin: 0 2em
+    margin: 0 auto
+  a
+    color: #124462
+    font-size: 1.5em
+    text-shadow: 0 1px 0 #cce5f4
+    text-decoration: none
+    padding: 10px 9px
+  a:hover
+    @include border-radius(5px)
+    background-color: #1a6692
+    color: #cce5f4
+    text-shadow: 0 1px 0 #124462
+
+  ul
+    text-align: center
+    li
+      display: inline
+      margin: 0 2em
         

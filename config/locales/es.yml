@@ -204,10 +204,14 @@ es:
         contact: 'Contáctanos'
   home:
     index:
+      give_adoption: '¿Quieres dar una animal en adopción?'
       add_pet: 'Añadir una nueva mascota'
+      show: 'Mostrar...'
+      looking_place: '¿Quieres buscar de alguna zona en concreto?'
   pets:
     _form:
       select_animal_first: 'Por favor, selecciona antes un tipo de animal'
+      its_character: 'Su carácter'
   activemodel:
     models:
       user: 'Usuario'

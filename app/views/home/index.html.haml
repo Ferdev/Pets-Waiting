@@ -1,33 +1,67 @@
 .pets.add_pet
+  %h1
+    = I18n.t('home.index.give_adoption')
   %a.button.add_pet{:href => new_pet_url}
     %span.plus +
     = I18n.t('home.index.add_pet')
 .pets.filters
+  %h1= I18n.t('home.index.show')
   %ul
     %li
-      %a.button.add_pet{:href => '#'} Urgent
-    %li
-      %a.button.add_pet{:href => '#'} Dogs
-    %li
-      %a.button.add_pet{:href => '#'} Cats
-    %li
-      %a.button.add_pet{:href => '#'} Birds
-    %li
-      %a.button.add_pet{:href => '#'} Rodents
-    %li
-      %a.button.add_pet{:href => '#'} Reptiles
-    %li
-      %a.button.add_pet{:href => '#'} Other species
-    %li
-      %a.button.add_pet{:href => '#'} Males
-    %li
-      %a.button.add_pet{:href => '#'} Females
+      %a.button{:href => '#'} Urgent
+    %li        
+      %a.button{:href => '#'} Dogs
+    %li        
+      %a.button{:href => '#'} Cats
+    %li        
+      %a.button{:href => '#'} Birds
+    %li        
+      %a.button{:href => '#'} Rodents
+    %li        
+      %a.button{:href => '#'} Reptiles
+    %li        
+      %a.button{:href => '#'} Other species
+    %li        
+      %a.button{:href => '#'} Males
+    %li        
+      %a.button{:href => '#'} Females
 .pets.place
-  %label Search pets at:
+  %h1= I18n.t('home.index.looking_place')
   %input.where{:type => "text", :placeholder => "Country, state, province, city..."}
 .pets.results
-  .grid
-    %br/
-    %br/
-    %br/
-    %br/
+  %ul
+    %li
+      %a{:href => '#'}
+        = image_tag('dog1.jpg')
+        %br/
+        %span Wadus 1
+      %a{:href => '#'}
+        = image_tag('dog2.jpg')
+        %br/
+        %span Wadus 2
+      %a{:href => '#'}
+        = image_tag('dog3.jpg')
+        %br/
+        %span Wadus 3
+      %a{:href => '#'}
+        = image_tag('dog4.jpg')
+        %br/
+        %span Wadus 4
+    %li
+      %a{:href => '#'}
+        = image_tag('dog5.jpg')
+        %br/
+        %span Wadus 5
+      %a{:href => '#'}
+        = image_tag('dog6.jpg')
+        %br/
+        %span Wadus 6
+      %a{:href => '#'}
+        = image_tag('dog7.jpg')
+        %br/
+        %span Wadus 7
+      %a{:href => '#'}
+        = image_tag('dog8.jpg')
+        %br/
+        %span Wadus 8
+    %li.spinner

@@ -15,19 +15,19 @@
 
   %body
     %header
-      .title
-        %a.pets{:href => '/', :title => I18n.t('title')} Pets
-        %br/
-        %a.waiting{:href => '/', :title => I18n.t('title')} Waiting
-      .auth
-        - unless user_signed_in?
-          = link_to t('layouts.petswaiting.authentication.signin'), new_user_session_path
-          = t('layouts.petswaiting.authentication.or')
-          = link_to t('layouts.petswaiting.authentication.signup'), new_user_registration_path
-        - else
-          %ul
-            %li= link_to t('layouts.petswaiting.my_profile')
-            %li= link_to t('layouts.petswaiting.authentication.logout'), destroy_user_session_path
+      .title_and_auth
+        .title
+          %a.pets{:href => '/', :title => I18n.t('title')} Pets
+          %a.waiting{:href => '/', :title => I18n.t('title')} Waiting
+        .auth
+          - unless user_signed_in?
+            = link_to t('layouts.petswaiting.authentication.signin'), new_user_session_path
+            = t('layouts.petswaiting.authentication.or')
+            = link_to t('layouts.petswaiting.authentication.signup'), new_user_registration_path
+          - else
+            %ul
+              %li= link_to t('layouts.petswaiting.my_profile')
+              %li= link_to t('layouts.petswaiting.authentication.logout'), destroy_user_session_path
 
     #content
       - flash.each do |name, msg|
@@ -35,7 +35,7 @@
       = yield
 
     %footer
-      .content
+      .footer_links
         %ul
           %li
             %a.colaborate{:href => '#', :title => I18n.t('layouts.petswaiting.footer.colaborate')}= I18n.t('layouts.petswaiting.footer.colaborate')
