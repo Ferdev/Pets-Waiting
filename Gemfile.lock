@@ -1,4 +1,10 @@
 GIT
+  remote: http://github.com/iain/http_accept_language.git
+  revision: 0b78aa7
+  specs:
+    http_accept_language (1.0.1)
+
+GIT
   remote: http://github.com/justinfrench/formtastic.git
   revision: 5156877
   branch: rails3
@@ -152,6 +158,7 @@ DEPENDENCIES
   formtastic!
   globalize3
   haml
+  http_accept_language!
   launchy
   machinist
   mysql

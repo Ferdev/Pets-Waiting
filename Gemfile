@@ -15,6 +15,7 @@ gem 'haml'
 gem 'devise', '>= 1.1.rc.2'
 gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
 gem 'globalize3'
+gem 'http_accept_language', :git => 'http://github.com/iain/http_accept_language.git'
 
 group :test do
 	gem 'rspec-rails', '>= 2.0.0.beta.16'

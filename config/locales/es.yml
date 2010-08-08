@@ -204,7 +204,7 @@ es:
         contact: 'Contáctanos'
   home:
     index:
-      give_adoption: '¿Quieres dar una animal en adopción?'
+      give_adoption: '¿Quieres dar un animal en adopción?'
       add_pet: 'Añadir una nueva mascota'
       show: 'Mostrar...'
       looking_place: '¿Quieres buscar de alguna zona en concreto?'
