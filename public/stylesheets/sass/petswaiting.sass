@@ -106,8 +106,9 @@ form.formtastic
       li.date
         fieldset
           margin: 0
-          ol li
-          @include inline-block
+          ol
+            li
+              @include inline-block
 
 // Buttons
 a.button,
@@ -205,6 +206,11 @@ header
         color: #7ad1ff
       a.waiting
         color: #ff8420
+      a.subtitle
+        font-size: 1em
+        margin: 0 .5em
+        text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 0 0 white, 0 1px 0 white, -1px 0 0 white, 0 -1px 0 white, 2px 2px 1px black
+        vertical-align: bottom
 
     .auth
       color: #FFFFFF
@@ -223,7 +229,17 @@ header
 #content
   width: 960px
   margin: 3em auto 5em
-
+  position: relative
+  .count
+    @include box-shadow(0 1px 1px #666666)
+    background-color: white
+    font-size: 0.8em
+    font-weight: bold
+    padding: 0.5em
+    position: absolute
+    right: 0
+    top: -3.8em
+    background-color: #FFFFFF
   .pets
     margin: 1em 0
   .pets.add_pet

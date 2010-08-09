@@ -1,5 +1,5 @@
 = semantic_form_for @pet do |form|
-  - form.inputs do
+  = form.inputs do
     = form.input :name
     = form.input :animal
     = form.input :breed, :collection => I18n.t('pets._form.select_animal_first')
@@ -7,28 +7,28 @@
     / = form.input :size
     = form.input :urgent
   %h2= I18n.t('pets._form.its_character')  
-  - form.inputs :class => 'character' do
+  = form.inputs :class => 'character' do
     = form.input :docile
     = form.input :calm
     = form.input :agressive_people
     = form.input :agressive_animals
     = form.input :dominant
     = form.input :affectionate
-  - form.inputs :class => 'character' do
+  = form.inputs :class => 'character' do
     = form.input :independent
     = form.input :dependent
     = form.input :possessive
     = form.input :playful
     = form.input :tireless
     = form.input :obedient
-  - form.inputs :class => 'character' do
+  = form.inputs :class => 'character' do
     = form.input :disobedient
     = form.input :trained
     = form.input :sleepyhead
     = form.input :friendly_people
     = form.input :friendly_animals
 
-  - form.inputs do
+  = form.inputs do
     = form.input :description
 
   = form.buttons

@@ -3,7 +3,7 @@
 
 en:
   title: 'Pets Waiting'
-  loading: 'Loading...'
+  subtitle: 'Tons of pets are waiting for you!'
   layouts:
     petswaiting:
       authentication:

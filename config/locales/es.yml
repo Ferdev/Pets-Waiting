@@ -188,7 +188,7 @@ es:
       two_words_connector: " y "
       last_word_connector: " y "
   title: 'Pets Waiting'
-  loading: 'Cargando...'
+  subtitle: '¡Un montón de mascotas están esperándote!'
   layouts:
     petswaiting:
       authentication:

@@ -19,6 +19,7 @@
         .title
           %a.pets{:href => '/', :title => I18n.t('title')} Pets
           %a.waiting{:href => '/', :title => I18n.t('title')} Waiting
+          %a.subtitle{:href => '/'}= I18n.t('subtitle')
         .auth
           - unless user_signed_in?
             = link_to t('layouts.petswaiting.authentication.signin'), new_user_session_path
@@ -30,6 +31,8 @@
               %li= link_to t('layouts.petswaiting.authentication.logout'), destroy_user_session_path
 
     #content
+      .count
+        12 adopted of 1000 pets
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
       = yield
