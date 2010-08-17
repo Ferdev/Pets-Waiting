@@ -1,1 +1,1 @@
-rvm --create use ree@petswaiting > /dev/null
+rvm use ree@petswaiting --create

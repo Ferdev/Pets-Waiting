@@ -1,2 +1,0 @@
-Pet.blueprint do
-end

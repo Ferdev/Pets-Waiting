@@ -283,15 +283,17 @@ header {
       text-shadow: 0 1px 0 #124462;
       padding: 10px 9px; }
     #content .pets.results ul li.spinner {
-      text-align: center;
-      height: 50px;
-      background: url("/images/extra/spinner.gif") no-repeat scroll 50% 50% transparent; }
+      text-align: center; }
   #content fieldset.character {
     display: -moz-inline-stack;
     display: inline-block;
     vertical-align: top;
     zoom: 1;
     *display: inline; }
+
+span.spinner {
+  padding: 50px;
+  background: url("/images/extra/spinner.gif") no-repeat scroll 50% 50% transparent; }
 
 footer {
   background: url("/images/bg/bg_body.png") repeat fixed 0 0 #a4d6f4;

@@ -1,13 +1,12 @@
 require File.dirname(__FILE__) + "/../spec_helper"
 require "steak"
 require 'capybara/rails'
-require 'capybara/envjs'
 require 'database_cleaner'
 
-DatabaseCleaner.strategy = :truncation
 Capybara.default_host = 'test.petswaiting.com'
-Capybara.default_driver = :envjs
+Capybara.default_driver = :selenium
 Capybara.default_selector = :css
+DatabaseCleaner.strategy = :truncation
 
 Rspec.configure do |config|
   config.include Capybara
@@ -16,7 +15,20 @@ Rspec.configure do |config|
   config.before(:each) do
     Rails.cache.clear
     DatabaseCleaner.clean
-    DatabaseCleaner.start
+  end
+end
+
+Capybara::Driver::Selenium.class_eval do
+  class << self
+    def driver
+      @driver ||= begin
+        profile = Selenium::WebDriver::Firefox::Profile.new 
+        profile['intl.accept_languages'] = 'en'
+        driver = Selenium::WebDriver.for :firefox, :profile => profile
+        at_exit { driver.quit }
+        driver
+      end
+    end
   end
 end
 

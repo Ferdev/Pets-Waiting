@@ -6,7 +6,9 @@
       = t('title')
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     = stylesheet_link_tag "reset", "petswaiting", :cache => true
-    = javascript_include_tag "jquery/jquery-1.4.1.js", "rails", :cache => true
+    - if Rails.env == 'development'
+      = javascript_include_tag "utils.js"
+    = javascript_include_tag "jquery/jquery-1.4.1.js", "rails", "application", "pw/pw.init.js", "pw/pw.home.js", :cache => true
     %script{:type => "text/javascript", :src => "http://use.typekit.com/gvk4sry.js"}
     :javascript
       try{Typekit.load();}catch(e){}

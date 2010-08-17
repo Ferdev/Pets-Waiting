@@ -38,7 +38,6 @@ module PetsWaiting
       g.template_engine :haml
       g.form_builder :formtastic
       g.test_framework  :rspec
-      g.fixture_replacement :machinist, :dir => 'spec/factories'
     end
 
     # Configure the default encoding used in templates for Ruby 1.9.
