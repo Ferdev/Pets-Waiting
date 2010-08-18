@@ -24,7 +24,9 @@ feature "Pets", %q{
         page.execute_script("$('.ui-menu-item a:contains(Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain)').mouseenter().click();")
       end
       should_fill_address_fields
-      fill_in('Birthday', :with => 4.years.ago)
+      select(4.years.ago.strftime("%Y") , :from => 'Year')
+      select(4.years.ago.strftime("%B") , :from => 'Month')
+      select(4.years.ago.strftime("%d") , :from => 'Day')
       check('Urgent')
       check('Docile')
       check('Playful')
