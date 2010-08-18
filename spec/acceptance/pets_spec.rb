@@ -18,7 +18,12 @@ feature "Pets", %q{
       fill_in('Name', :with => 'Scroophy')
       select('Dog', :from => 'Animal')
       select('Crossbred', :from => 'Breed')
-      fill_in('Address', :with => 'Fuente el Saz de Jarama, Madrid')
+      fill_in('Address', :with => 'calle de torrelavega 62, fuente')
+      within('.ui-autocomplete') do
+        page.should have_css('a:text("Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain")')
+        page.execute_script("$('.ui-menu-item a:contains(Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain)').mouseenter().click();")
+      end
+      should_fill_address_fields
       fill_in('Birthday', :with => 4.years.ago)
       check('Urgent')
       check('Docile')

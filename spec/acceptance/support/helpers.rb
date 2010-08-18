@@ -16,6 +16,19 @@ module HelperMethods
   def load_master_tables
     Breed.make
   end
+  
+  def should_fill_address_fields
+    find_field('Address').value.should eq("Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain")
+    find('#pet_address_attributes_street').value.should eq('Calle de Torrelavega, 62')
+    find('#pet_address_attributes_postal_code').value.should eq('28140')
+    find('#pet_address_attributes_lat').value.should eq('40.637086')
+    find('#pet_address_attributes_lon').value.should eq('-3.510735')
+    find('#pet_address_attributes_country').value.should eq('Spain')
+    find('#pet_address_attributes_country_code').value.should eq('ES')
+    find('#pet_address_attributes_state').value.should eq('Madrid')
+    find('#pet_address_attributes_substate').value.should eq('Madrid')
+    find('#pet_address_attributes_city').value.should eq('Fuente el Saz de Jarama')
+  end
 end
 
 Rspec.configuration.include(HelperMethods)

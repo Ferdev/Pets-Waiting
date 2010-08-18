@@ -3,6 +3,17 @@
     = form.input :name
     = form.input :animal
     = form.input :breed, :collection => I18n.t('pets._form.select_animal_first')
+    = form.semantic_fields_for :address do |address|
+      = address.input :address
+      = address.input :street, :as => :hidden
+      = address.input :postal_code, :as => :hidden
+      = address.input :lat, :as => :hidden
+      = address.input :lon, :as => :hidden
+      = address.input :country, :as => :hidden
+      = address.input :country_code, :as => :hidden
+      = address.input :state, :as => :hidden
+      = address.input :substate, :as => :hidden
+      = address.input :city, :as => :hidden
     = form.input :birthday
     / = form.input :size
     = form.input :urgent
