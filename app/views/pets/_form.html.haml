@@ -15,7 +15,7 @@
       = address.input :substate, :as => :hidden
       = address.input :city, :as => :hidden
     = form.input :birthday
-    / = form.input :size
+    = form.input :size
     = form.input :urgent
   %h2= I18n.t('pets._form.its_character')  
   = form.inputs :class => 'character' do
@@ -40,6 +40,6 @@
     = form.input :friendly_animals
 
   = form.inputs do
-    = form.input :description
+    = form.input :description, :input_html => {:cols => 70, :rows => 15}
 
   = form.buttons

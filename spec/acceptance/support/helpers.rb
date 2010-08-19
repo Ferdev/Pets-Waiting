@@ -15,9 +15,17 @@ module HelperMethods
   
   def load_master_tables
     Breed.make
+    Size.make
   end
   
   def should_fill_address_fields
+    fill_in('Address', :with => 'calle de torrelavega 62, fuente')
+    within('.ui-autocomplete') do
+      address = 'Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain'
+      page.should have_css("a:text('#{address}')")
+      page.execute_script("$('.ui-menu-item a:contains(#{address})').mouseenter().click();")
+    end
+
     find_field('Address').value.should eq("Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain")
     find('#pet_address_attributes_street').value.should eq('Calle de Torrelavega, 62')
     find('#pet_address_attributes_postal_code').value.should eq('28140')

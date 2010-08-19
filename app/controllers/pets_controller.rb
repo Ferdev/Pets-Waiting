@@ -44,11 +44,9 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to(@pet, :notice => 'Pet was successfully created.') }
-        format.xml  { render :xml => @pet, :status => :created, :location => @pet }
+        format.html { redirect_to(@pet, :notice => 'Pet was successfully saved.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @pet.errors, :status => :unprocessable_entity }
       end
     end
   end

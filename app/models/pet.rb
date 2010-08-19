@@ -3,6 +3,7 @@ class Pet < ActiveRecord::Base
   
   belongs_to :animal
   belongs_to :breed
+  belongs_to :size
   has_one :address
   
   accepts_nested_attributes_for :address

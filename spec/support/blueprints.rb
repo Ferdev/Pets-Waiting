@@ -10,6 +10,10 @@ Breed.blueprint do
   animal
 end
 
+Size.blueprint do
+  name { "Medium" }
+end
+
 User.blueprint do
   email { 'wadus@wadus.com' }
   password { 'waduswadus' }

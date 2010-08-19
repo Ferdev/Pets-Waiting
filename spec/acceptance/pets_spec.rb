@@ -15,26 +15,22 @@ feature "Pets", %q{
     scenario 'can register a new pet' do
       visit homepage
       click_link('Add a new pet')
-      fill_in('Name', :with => 'Scroophy')
-      select('Dog', :from => 'Animal')
+      fill_in("Pet's name", :with => 'Scroophy')
+      select('Dog', :from => 'Kind of animal')
       select('Crossbred', :from => 'Breed')
-      fill_in('Address', :with => 'calle de torrelavega 62, fuente')
-      within('.ui-autocomplete') do
-        page.should have_css('a:text("Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain")')
-        page.execute_script("$('.ui-menu-item a:contains(Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain)').mouseenter().click();")
-      end
       should_fill_address_fields
       select(4.years.ago.strftime("%Y") , :from => 'Year')
       select(4.years.ago.strftime("%B") , :from => 'Month')
       select(4.years.ago.strftime("%d") , :from => 'Day')
-      check('Urgent')
+      check('Is this an urgent adoption?')
       check('Docile')
       check('Playful')
       check('Obedient')
       select('Medium', :from => 'Size')
+      fill_in('Description', :with => Faker::Lorem.paragraphs)
       assert_difference "Pet.count", 1 do
-        click_button('Submit')
-        page.should have_content('Pet created successfully.')
+        click_button('Save Pet')
+        page.should have_content('Pet was successfully saved.')
       end
     end
   end

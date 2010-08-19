@@ -27,7 +27,7 @@ en:
     _form:
       select_animal_first: 'Please, select a kind of animal first'
       its_character: 'Its character'
-  activemodel:
+  activerecord:
     models:
       user: 'User'
     attributes:
@@ -38,12 +38,57 @@ en:
         password: 'Password'
         password_confirmation: 'Password confirmation'
         remember_me: 'Remember me'
+        nick: 'Nick'
+        firstname: 'Firstname'
+        lastname: 'Lastname'
+        phone: 'Phone'
+      address:
+        address: 'Address'
+        street: 'Street'
+        postal_code: 'Postal code'
+        lat: 'Latitude'
+        lon: 'Longitude'
+        country: 'Country'
+        country_code: 'Country code'
+        state: 'State'
+        substate: 'Substate'
+        city: 'City'
+      pet:
+        name: 'Pet''s name'
+        animal: 'Kind of animal'
+        breed: 'Breed'
+        birthday: 'Birthday'
+        size: 'Size'
+        urgent: 'Is this an urgent adoption?'
+        description: 'Description'
+        docile: 'Docile'
+        calm: 'Calm'
+        agressive_people: 'Agressive with people'
+        agressive_animals: 'Agressive with animals'
+        dominant: 'Dominant'
+        affectionate: 'Affectionate'
+        independent: 'Independent'
+        dependent: 'Dependent'
+        possessive: 'Possessive'
+        playful: 'Playful'
+        tireless: 'Tireless'
+        obedient: 'Obedient'
+        disobedient: 'Disobedient'
+        trained: 'Is a trained pet'
+        sleepyhead: 'Sleepyhead'
+        friendly_people: 'Friendly with people'
+        friendly_animals: 'Friendly with animals'
     submit:
-      create: 'Create {{model}}'
-      update: 'Update {{model}}'
+      create: 'Save %{model}'
+      update: 'Update %{model}'
   devise:
     sign_up: 'Sign up'
     sign_in: 'Sign in'
     forgot_password: 'Forgot your password?'
     didnt_receive_confirmation: "Didn't receive confirmation instructions?"
     didnt_receive_unlock: "Didn't receive unlock instructions?"
+  formtastic:
+    actions:
+      create: 'Save %{model}'
+      update: 'Update %{model}'
+      delete: 'Delete %{model}'
