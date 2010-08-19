@@ -202,13 +202,12 @@ es:
         about: 'Sobre nosotros'
         donations: 'Donaciones'
         contact: 'Contáctanos'
-  home:
+  pets:
     index:
       give_adoption: '¿Quieres dar un animal en adopción?'
       add_pet: 'Añadir una nueva mascota'
       show: 'Mostrar...'
       looking_place: '¿Quieres buscar de alguna zona en concreto?'
-  pets:
     _form:
       select_animal_first: 'Por favor, selecciona antes un tipo de animal'
       its_character: 'Su carácter'

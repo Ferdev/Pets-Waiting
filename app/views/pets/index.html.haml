@@ -1,17 +1,68 @@
-%h1 Listing pets
-
-%table
-  %tr
-    %th
-    %th
-    %th
-
-  - @pets.each do |pet|
-    %tr
-      %td= link_to 'Show', pet
-      %td= link_to 'Edit', edit_pet_path(pet)
-      %td= link_to 'Destroy', pet, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New pet', new_pet_path
+.pets.add_pet
+  %h1
+    = I18n.t('pets.index.give_adoption')
+  %a.button.add_pet{:href => new_pet_url}
+    %span.plus +
+    = I18n.t('pets.index.add_pet')
+.pets.filters
+  %h1= I18n.t('pets.index.show')
+  %ul
+    %li
+      %a.button{:href => '#'} Urgent
+    %li        
+      %a.button{:href => '#'} Dogs
+    %li        
+      %a.button{:href => '#'} Cats
+    %li        
+      %a.button{:href => '#'} Birds
+    %li        
+      %a.button{:href => '#'} Rodents
+    %li        
+      %a.button{:href => '#'} Reptiles
+    %li        
+      %a.button{:href => '#'} Other species
+    %li        
+      %a.button{:href => '#'} Males
+    %li        
+      %a.button{:href => '#'} Females
+.pets.place
+  %h1= I18n.t('pets.index.looking_place')
+  %input.where{:type => "text", :placeholder => "Country, state, province, city..."}
+.pets.results
+  %ul
+    %li
+      %a{:href => '#'}
+        = image_tag('dog1.jpg')
+        %br/
+        %span Wadus 1
+      %a{:href => '#'}
+        = image_tag('dog2.jpg')
+        %br/
+        %span Wadus 2
+      %a{:href => '#'}
+        = image_tag('dog3.jpg')
+        %br/
+        %span Wadus 3
+      %a{:href => '#'}
+        = image_tag('dog4.jpg')
+        %br/
+        %span Wadus 4
+    %li
+      %a{:href => '#'}
+        = image_tag('dog5.jpg')
+        %br/
+        %span Wadus 5
+      %a{:href => '#'}
+        = image_tag('dog6.jpg')
+        %br/
+        %span Wadus 6
+      %a{:href => '#'}
+        = image_tag('dog7.jpg')
+        %br/
+        %span Wadus 7
+      %a{:href => '#'}
+        = image_tag('dog8.jpg')
+        %br/
+        %span Wadus 8
+    %li.spinner
+      %span.spinner
