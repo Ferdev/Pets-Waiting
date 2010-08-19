@@ -24,12 +24,12 @@
           %a.waiting{:href => '/', :title => I18n.t('title')} Waiting
           %a.subtitle{:href => '/'}= I18n.t('subtitle')
         .auth
-          - unless user_signed_in?
-            = link_to t('layouts.petswaiting.authentication.signin'), new_user_session_path
-            = t('layouts.petswaiting.authentication.or')
-            = link_to t('layouts.petswaiting.authentication.signup'), new_user_registration_path
-          - else
-            %ul
+          %ul
+            - unless user_signed_in?
+              %li= link_to t('layouts.petswaiting.authentication.signin'), new_user_session_path
+              %li= t('layouts.petswaiting.authentication.or')
+              %li= link_to t('layouts.petswaiting.authentication.signup'), new_user_registration_path
+            - else
               %li= link_to t('layouts.petswaiting.my_profile')
               %li= link_to t('layouts.petswaiting.authentication.logout'), destroy_user_session_path
 
@@ -37,7 +37,7 @@
       .count
         12 adopted of 1000 pets
       - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
+        = content_tag :div, msg, :id => "flash_#{name}", :class => %W{ flash #{name} }
       = yield
 
     %footer

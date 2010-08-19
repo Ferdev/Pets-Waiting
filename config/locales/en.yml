@@ -18,6 +18,9 @@ en:
         donations: 'Donations'
         contact: 'Contact us'
   pets:
+    new:
+      title: 'New pet'
+      back: 'Back'
     index:
       give_adoption: 'Do you want to give a pet up for adoption?'
       add_pet: 'Add a new pet'

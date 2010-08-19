@@ -185,6 +185,19 @@ input::-moz-focus-inner
 a
   outline: none
 
+// Flash messages
+
+.flash
+  font-size: 1.2em
+  font-weight: bold
+
+.flash.notice
+  color: #F48A2C
+  text-shadow: 0 1px 0 #623712
+.flash.error
+  color: #F42C65
+  text-shadow: 0 1px 0 #621229
+
 // Pets-Waiting
 header
   background-color: #1A6692
@@ -217,6 +230,9 @@ header
       font-size: 1.5em
       text-shadow: 0 1px 0 #000000
       text-align: right
+      ul li
+        display: inline
+        margin: .2em
       a
         color: #ffd850
         font-size: 1em

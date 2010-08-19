@@ -150,6 +150,14 @@ input::-moz-focus-inner {
 a {
   outline: none; }
 
+.flash {
+  font-size: 1.2em;
+  font-weight: bold; }
+
+.flash.notice {
+  color: #f48a2c;
+  text-shadow: 0 1px 0 #623712; }
+
 header {
   background-color: #1a6692;
   background-image: -moz-linear-gradient(top, #2388c3, #1a6692);
@@ -183,6 +191,9 @@ header {
       font-size: 1.5em;
       text-shadow: 0 1px 0 black;
       text-align: right; }
+      header .title_and_auth .auth ul li {
+        display: inline;
+        margin: 0.2em; }
       header .title_and_auth .auth a {
         color: #ffd850;
         font-size: 1em;

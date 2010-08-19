@@ -203,6 +203,9 @@ es:
         donations: 'Donaciones'
         contact: 'Contáctanos'
   pets:
+    new:
+      title: 'Nueva mascota'
+      back: 'Volver'
     index:
       give_adoption: '¿Quieres dar un animal en adopción?'
       add_pet: 'Añadir una nueva mascota'
