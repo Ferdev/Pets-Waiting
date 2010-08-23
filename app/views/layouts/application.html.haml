@@ -5,14 +5,14 @@
     %title
       = t('title')
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    = stylesheet_link_tag "reset", "petswaiting", "jquery/jquery-ui-1.8.4.custom.css", :cache => true
+    = stylesheet_link_tag "reset", "application", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css", :cache => true
     :javascript
       var RAILS_ENV = "#{Rails.env}";
     %script{:type => "text/javascript", :src => "http://maps.google.com/maps/api/js?sensor=true"}
     %script{:type => "text/javascript", :src => "http://use.typekit.com/gvk4sry.js"}
     :javascript
       try{Typekit.load();}catch(e){}
-    = javascript_include_tag "jquery/jquery-1.4.1.js", "jquery/jquery-ui-1.8.4.custom.min.js", "rails", "application", "pw/pw.init.js", "pw/pw.new_pet.js", "utils.js", :cache => true
+    = javascript_include_tag "jquery/jquery-1.4.1.js", "jquery/jquery-ui-1.8.4.custom.min.js", "rails", "application", "pw/pw.init.js", "utils.js", :cache => true
     = csrf_meta_tag
     = yield(:head)
 

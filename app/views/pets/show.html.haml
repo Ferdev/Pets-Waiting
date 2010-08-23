@@ -1,8 +1,31 @@
+- content_for :head do
+  = javascript_include_tag "pw/pw.pets.js", "pw/pw.pets.show.js", "jquery/jquery.ad-gallery.js", :cache => true
+  = stylesheet_link_tag "pw.pets.show", "jquery/jquery.ad-gallery", :cache => true
+
+= render 'show.nav'
+
 %ul.pet.detail
   %li.name= @pet.name.capitalize
+  
+  %li.photos
+    .ad-gallery
+      .ad-image-wrapper
+      .ad-nav
+        .ad-thumbs
+          %ul.ad-thumb-list
+            %li
+              %a{:href => image_path('dog1.jpg')}
+                = image_tag('dog1.jpg')
+            %li
+              %a{:href => image_path('dog2.jpg')}
+                = image_tag('dog2.jpg')
+            %li
+              %a{:href => image_path('dog3.jpg')}
+                = image_tag('dog3.jpg')
 
   - if @pet.urgent
-    %li.urgent= Pet.human_attribute_name(:urgent)
+    %li.urgent
+      %span= Pet.human_attribute_name(:urgent)
 
   - if @pet.animal
     %li.animal
@@ -39,6 +62,4 @@
       %span.label= "#{Pet.human_attribute_name(:description)}: "
       %p= @pet.description
 
-= link_to 'Edit', edit_pet_path(@pet)
-\|
-= link_to 'Back', pets_path
+= render 'show.nav'

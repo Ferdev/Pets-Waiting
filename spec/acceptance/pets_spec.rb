@@ -75,6 +75,14 @@ feature "Pets", %q{
         within('li.name') do
           page.should have_content('Wadus')
         end
+        within('li.photos') do
+          page.should have_css('.ad-gallery')
+          page.should have_css('.ad-gallery .ad-image-wrapper')
+          page.should have_css('.ad-gallery .ad-controls')
+          page.should have_css('.ad-gallery .ad-nav')
+          page.should have_css('.ad-gallery .ad-nav .ad-thumbs')
+          page.should have_css('.ad-gallery .ad-nav .ad-thumbs ul.ad-thumb-list')
+        end
         within('li.urgent') do
           page.should have_content('Urgent adoption')
         end

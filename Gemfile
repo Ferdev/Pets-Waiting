@@ -12,6 +12,7 @@ gem 'devise', '>= 1.1.rc.2'
 gem 'formtastic', :git => "http://github.com/justinfrench/formtastic.git", :branch => "rails3"
 gem 'globalize3'
 gem 'http_accept_language', :git => 'http://github.com/iain/http_accept_language.git'
+gem 'carrierwave', '~> 0.5.0.beta2'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => "sqlite3"

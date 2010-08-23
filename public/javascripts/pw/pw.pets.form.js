@@ -1,10 +1,10 @@
-$.extend($.pw, {
-  new_pet: {
+$.extend($.pw.pets, {
+  form: {
     init: function(){
-      $.pw.new_pet.form();
+      $.pw.pets.form.fields();
     },
     
-    form: function(){
+    fields: function(){
       $('#pet_animal_id').change(function() {
         var breeds_select = $('#pet_breed_id');
         breeds_select.after($('<span class="spinner"/>'));
@@ -38,7 +38,7 @@ $.extend($.pw, {
             return;
           };
 
-          $.pw.new_pet.geocoder.geocode({'address': request.term}, function(results, status){
+          $.pw.pets.form.geocoder.geocode({'address': request.term}, function(results, status){
 
             if(status == google.maps.GeocoderStatus.OK){
               results = $.map(results, function(element, index){

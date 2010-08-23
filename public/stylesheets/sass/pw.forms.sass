@@ -1,0 +1,62 @@
+@import 'pw.vars'
+@import 'pw.mixins'
+
+//Forms
+label
+  color: #1a6692
+  line-height: 1.5em
+  font-size: 1.2em
+  font-weight: bold
+  vertical-align: middle
+  
+input[type=text], input[type=password], textarea, select
+  @include border-radius(5px)
+  background-color: #DFF7FF
+  border: 2px solid #1A6692
+  color: #124462
+  font-weight: bold
+  padding: 0.2em 0.5em
+  font-size: 1em
+
+.error
+  input[type=text], input[type=password], textarea, select
+    background-color: #F4E4E8
+    border-color: #F42C65
+    color: #F42C65
+  p
+    color: #F42C65
+
+textarea
+  padding: .5em
+  font-family: inherit
+  
+form
+  p
+    margin: 1em
+
+form.formtastic
+  fieldset
+    margin: 0 0 2em
+    legend span
+      font-size: 1.3em
+    ol
+      li
+        margin: .5em 1em
+        label
+          display: block
+        p
+          display: inline
+      li.boolean
+        label
+          display: inline
+        p
+          margin: 0
+      li.date
+        fieldset
+          margin: 0
+          ol
+            li
+              @include inline-block
+              
+  fieldset.character
+    @include inline-block
