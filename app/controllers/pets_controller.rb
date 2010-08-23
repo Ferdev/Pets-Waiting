@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+  
   def index
     @pets = Pet.all
 
@@ -32,7 +34,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to(@pet, :notice => 'Pet was successfully saved.') }
+        format.html { redirect_to(@pet, :notice => I18n.t('pets.create.success')) }
       else
         format.html { render :action => "new" }
       end
@@ -44,7 +46,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.update_attributes(params[:pet])
-        format.html { redirect_to(@pet, :notice => 'Pet was successfully updated.') }
+        format.html { redirect_to(@pet, :notice => I18n.t('pets.create.success')) }
       else
         format.html { render :action => "edit" }
       end

@@ -1,6 +1,5 @@
 # Spanish translations for Rails
 # by Francisco Fernando García Nieto (ffgarcianieto@gmail.com)
-
 es:
   number:
     # Used in number_with_delimiter()
@@ -106,48 +105,47 @@ es:
       minute: "Minutos"
       second: "Segundos"
 
-  activerecord:
-    errors:
-      template:
-        header:
-          one:   "No se pudo guardar este/a %{model} porque se encontró 1 error"
-          other:  "No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
-        # The variable :count is also available
-        body: "Se encontraron problemas con los siguientes campos:"
+  errors:
+    template:
+      header:
+        one:   "No se pudo guardar este/a %{model} porque se encontró 1 error"
+        other:  "No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
+      # The variable :count is also available
+      body: "Se encontraron problemas con los siguientes campos:"
 
-      # The values :model, :attribute and :value are always available for interpolation
-      # The value :count is available when applicable. Can be used for pluralization.
-      messages:
-        inclusion: "no está incluido en la lista"
-        exclusion: "está reservado"
-        invalid: "no es válido"
-        confirmation: "no coincide con la confirmación"
-        accepted: "debe ser aceptado"
-        empty: "no puede estar vacío"
-        blank: "no puede estar en blanco"
-        too_long: "es demasiado largo (%{count} caracteres máximo)"
-        too_short: "es demasiado corto (%{count} caracteres mínimo)"
-        wrong_length: "no tiene la longitud correcta (%{count} caracteres exactos)"
-        taken: "ya está en uso"
-        not_a_number: "no es un número"
-        greater_than: "debe ser mayor que %{count}"
-        greater_than_or_equal_to: "debe ser mayor que o igual a %{count}"
-        equal_to: "debe ser igual a %{count}"
-        less_than: "debe ser menor que %{count}"
-        less_than_or_equal_to: "debe ser menor que o igual a %{count}"
-        odd: "debe ser impar"
-        even: "debe ser par"
-        record_invalid: "La validación falló: %{errors}"
-        # Append your own errors here or at the model/attributes scope.
+    # The values :model, :attribute and :value are always available for interpolation
+    # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      inclusion: "no está incluido en la lista"
+      exclusion: "está reservado"
+      invalid: "no es válido"
+      confirmation: "no coincide con la confirmación"
+      accepted: "debe ser aceptado"
+      empty: "no puede estar vacío"
+      blank: "no puede estar en blanco"
+      too_long: "es demasiado largo (%{count} caracteres máximo)"
+      too_short: "es demasiado corto (%{count} caracteres mínimo)"
+      wrong_length: "no tiene la longitud correcta (%{count} caracteres exactos)"
+      taken: "ya está en uso"
+      not_a_number: "no es un número"
+      greater_than: "debe ser mayor que %{count}"
+      greater_than_or_equal_to: "debe ser mayor que o igual a %{count}"
+      equal_to: "debe ser igual a %{count}"
+      less_than: "debe ser menor que %{count}"
+      less_than_or_equal_to: "debe ser menor que o igual a %{count}"
+      odd: "debe ser impar"
+      even: "debe ser par"
+      record_invalid: "La validación falló: %{errors}"
+      # Append your own errors here or at the model/attributes scope.
 
-      full_messages:
-        format: "%{attribute} %{message}"
+    full_messages:
+      format: "%{attribute} %{message}"
 
-      models:
-        # Overrides default messages
+    models:
+      # Overrides default messages
 
-      attributes:
-        # Overrides model and default messages.
+    attributes:
+      # Overrides model and default messages.
 
   date:
     formats:
@@ -203,6 +201,10 @@ es:
         donations: 'Donaciones'
         contact: 'Contáctanos'
   pets:
+    create:
+      success: 'La mascota se ha guardado correctamente.'
+    update:
+      success: 'La mascota se ha actualizado correctamente.'
     new:
       title: 'Nueva mascota'
       back: 'Volver'
@@ -252,7 +254,7 @@ es:
         breed: 'Raza'
         birthday: 'Fecha de nacimiento'
         size: 'Tamaño'
-        urgent: '¿Es una adopción urgente?'
+        urgent: 'Adopción urgente'
         description: 'Descripción'
         docile: 'Dócil'
         calm: 'Tranquilo/a'

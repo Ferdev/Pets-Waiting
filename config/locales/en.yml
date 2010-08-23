@@ -18,6 +18,10 @@ en:
         donations: 'Donations'
         contact: 'Contact us'
   pets:
+    create:
+      success: 'Pet was successfully saved.'
+    update:
+      success: 'Pet was successfully updated.'
     new:
       title: 'New pet'
       back: 'Back'
@@ -61,7 +65,7 @@ en:
         breed: 'Breed'
         birthday: 'Birthday'
         size: 'Size'
-        urgent: 'Is this an urgent adoption?'
+        urgent: 'Urgent adoption'
         description: 'Description'
         docile: 'Docile'
         calm: 'Calm'

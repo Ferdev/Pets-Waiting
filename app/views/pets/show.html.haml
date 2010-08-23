@@ -1,3 +1,43 @@
+%ul.pet.detail
+  %li.name= @pet.name.capitalize
+
+  - if @pet.urgent
+    %li.urgent= Pet.human_attribute_name(:urgent)
+
+  - if @pet.animal
+    %li.animal
+      %span.label= "#{Pet.human_attribute_name(:animal)}: "
+      = @pet.animal.name
+
+  - if @pet.breed
+    %li.breed
+      %span.label= "#{Pet.human_attribute_name(:breed)}: "
+      = @pet.breed.name
+
+  - if @pet.birthday
+    %li.age
+      %span.label= "#{Pet.human_attribute_name(:age)}: "
+      = time_ago_in_words(@pet.birthday).capitalize
+
+  - if @pet.place
+    %li.place
+      %span.label= "#{Pet.human_attribute_name(:place)}: "
+      = @pet.place
+
+  - if @pet.has_character_attributes?
+    %li.character
+      %span.label= "#{Pet.human_attribute_name(:character)}: "
+      = @pet.character.to_sentence.capitalize
+
+  - if @pet.size
+    %li.size
+      %span.label= "#{Pet.human_attribute_name(:size)}: "
+      = @pet.size.name
+
+  - if @pet.description
+    %li.description
+      %span.label= "#{Pet.human_attribute_name(:description)}: "
+      %p= @pet.description
 
 = link_to 'Edit', edit_pet_path(@pet)
 \|

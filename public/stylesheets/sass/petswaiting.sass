@@ -70,6 +70,7 @@ label
   font-size: 1.2em
   font-weight: bold
   vertical-align: middle
+  
 input[type=text], input[type=password], textarea, select
   @include border-radius(5px)
   background-color: #DFF7FF
@@ -78,6 +79,14 @@ input[type=text], input[type=password], textarea, select
   font-weight: bold
   padding: 0.2em 0.5em
   font-size: 1em
+
+.error
+  input[type=text], input[type=password], textarea, select
+    background-color: #F4E4E8
+    border-color: #F42C65
+    color: #F42C65
+  p
+    color: #F42C65
 
 textarea
   padding: .5em
@@ -97,12 +106,13 @@ form.formtastic
         margin: .5em 1em
         label
           display: block
+        p
+          display: inline
       li.boolean
         label
           display: inline
         p
           margin: 0
-          display: inline
       li.date
         fieldset
           margin: 0
@@ -195,8 +205,8 @@ a
   color: #F48A2C
   text-shadow: 0 1px 0 #623712
 .flash.error
-  color: #F42C65
-  text-shadow: 0 1px 0 #621229
+  color: #DC4228
+  text-shadow: 0 1px 0 #581a10
 
 // Pets-Waiting
 header
@@ -291,14 +301,18 @@ header
   .pets.results
     text-align: center
     ul
-      li
+      text-align: left
+      li.pet
+        display: inline
         a
           @include inline-block
           padding: 10px
-          text-decoration: none
           color: #124462
+          font-size: .8em
+          text-decoration: none
           text-shadow: 0 1px 0 #CCE5F4
           img
+            display: block
             height: 200px
             padding: 4px
             width: 200px
@@ -306,8 +320,26 @@ header
             background-color: #092230
             border: 1px solid #CCE5F4
           span
+            display: block
+            span.label
+              font-weight: bold
+              display: inline
+          span.name
+            font-size: 1.5em
+            text-align: center
+            line-height: 1.5em
+            font-weight: bold
+          span.urgent
+            @include border-radius(5px)
+            background-color: #DC4228
+            color: white
+            display: inline
+            font-size: 1.2em
             font-weight: bold
             line-height: 2em
+            padding: 5px
+            text-shadow: 0 1px 0 #333333
+            text-transform: uppercase
         a:hover
           @include border-radius(5px)
           -moz-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
@@ -321,6 +353,7 @@ header
           text-shadow: 0 1px 0 #124462
           padding: 10px 9px
       li.spinner
+        display: none
         text-align: center
   fieldset.character
     @include inline-block
@@ -328,6 +361,10 @@ header
 span.spinner
   padding: 50px
   background: url('/images/extra/spinner.gif') no-repeat scroll 50% 50% transparent
+  
+span.order
+  color: #FF8420
+  text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 0 0 white, 0 2px 0 white, -2px 0 0 white, 0 -2px 0 white, 3px 3px 2px black
 
 
 footer

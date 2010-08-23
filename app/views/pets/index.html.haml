@@ -30,39 +30,24 @@
   %input.where{:type => "text", :placeholder => "Country, state, province, city..."}
 .pets.results
   %ul
-    %li
-      %a{:href => '#'}
-        = image_tag('dog1.jpg')
-        %br/
-        %span Wadus 1
-      %a{:href => '#'}
-        = image_tag('dog2.jpg')
-        %br/
-        %span Wadus 2
-      %a{:href => '#'}
-        = image_tag('dog3.jpg')
-        %br/
-        %span Wadus 3
-      %a{:href => '#'}
-        = image_tag('dog4.jpg')
-        %br/
-        %span Wadus 4
-    %li
-      %a{:href => '#'}
-        = image_tag('dog5.jpg')
-        %br/
-        %span Wadus 5
-      %a{:href => '#'}
-        = image_tag('dog6.jpg')
-        %br/
-        %span Wadus 6
-      %a{:href => '#'}
-        = image_tag('dog7.jpg')
-        %br/
-        %span Wadus 7
-      %a{:href => '#'}
-        = image_tag('dog8.jpg')
-        %br/
-        %span Wadus 8
+    - @pets.each do |pet|
+      %li.pet
+        %a{:href => url_for(pet)}
+          = image_tag('dog1.jpg')
+          %span.name= pet.name.capitalize
+          - if pet.animal
+            %span.animal
+              %span.label="#{Pet.human_attribute_name(:animal)}:"
+              = pet.animal.name
+          - if pet.birthday
+            %span.age
+              %span.label="#{Pet.human_attribute_name(:age)}:"                
+              = time_ago_in_words(pet.birthday)
+          - if pet.place
+            %span.place
+              %span.label="#{Pet.human_attribute_name(:place)}:"
+              = pet.place
+          - if pet.urgent
+            %span.urgent= Pet.human_attribute_name(:urgent)
     %li.spinner
       %span.spinner
