@@ -49,6 +49,14 @@
         padding: 5px
         text-shadow: 0 1px 0 #333333
         text-transform: uppercase
+    li.character
+      ul
+        @include inline-block
+        list-style-position: inside
+        list-style-type: disc
+        li
+          font-size: 1em
+          margin: 0 0 .5em
     li.description
       p
         @include inline-block

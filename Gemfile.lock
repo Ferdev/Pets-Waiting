@@ -159,7 +159,7 @@ DEPENDENCIES
   launchy
   machinist
   mysql
-  rails (~> 3.0.0.rc)
+  rails (~> 3.0.0.rc2)
   rails3-generators
   rspec-rails (~> 2.0.0.beta.16)
   ruby-debug

@@ -8,7 +8,7 @@ module HelperMethods
   end
 
   def create_and_sign_in_user
-    User.make
+    @current_user = User.make
     visit homepage
     click_link('Sign in')
     fill_in('Email', :with => 'wadus@wadus.com')
@@ -18,9 +18,13 @@ module HelperMethods
   end
   
   def load_master_tables
-    Breed.make
+    @breed = Breed.make
     Sex.make
     Size.make
+  end
+  
+  def create_pet
+    @pet = Pet.make(:address => Address.make, :user => @current_user, :animal => @breed.animal, :breed => @breed)
   end
   
   def should_fill_address_fields

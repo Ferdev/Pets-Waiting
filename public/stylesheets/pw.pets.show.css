@@ -55,6 +55,17 @@
       padding: 5px;
       text-shadow: 0 1px 0 #333333;
       text-transform: uppercase; }
+  #content ul.pet.detail li.character ul {
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    *display: inline;
+    list-style-position: inside;
+    list-style-type: disc; }
+    #content ul.pet.detail li.character ul li {
+      font-size: 1em;
+      margin: 0 0 0.5em; }
   #content ul.pet.detail li.description p {
     display: -moz-inline-stack;
     display: inline-block;

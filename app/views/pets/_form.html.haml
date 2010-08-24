@@ -5,7 +5,7 @@
   = form.inputs do
     = form.input :name
     = form.input :animal
-    = form.input :breed, :collection => I18n.t('pets._form.select_animal_first')
+    = form.input :breed, :collection => breed_for_animal(@pet)
     = form.input :sex
     = form.semantic_fields_for :address do |address|
       = address.input :address

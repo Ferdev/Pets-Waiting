@@ -37,7 +37,6 @@ Pet.blueprint do
   playful { true }
   obedient { true }
   description
-  user
 end
 
 Sex.blueprint do

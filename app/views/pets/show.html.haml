@@ -55,7 +55,9 @@
   - if @pet.has_character_attributes?
     %li.character
       %span.label= "#{Pet.human_attribute_name(:character)}: "
-      = @pet.character.to_sentence.capitalize
+      %ul
+        - @pet.character.each do |character|
+          %li= character
 
   - if @pet.size
     %li.size

@@ -48,6 +48,19 @@ feature "Pets", %q{
         page.should have_css('#pet_birthday_input.required.error p', :text => "can't be blank")
       end
     end
+    
+    scenario 'can edit a previously created pet' do
+      create_pet
+      visit homepage
+      click_link('Wadus')
+      click_link('Edit')
+      # Since breed depends on kind of animal, we check if the breed combo is populated right
+      page.find(:css, '#pet_breed_id option[selected]').text.should eq('Crossbred')
+      fill_in("Pet's name", :with => 'Scooby')
+      click_button('Update Pet')
+      page.should have_css('ul.pet.detail li.name', :text => 'Scooby')
+    end
+    
   end
   
   context "Everyone" do
@@ -73,7 +86,7 @@ feature "Pets", %q{
     
     scenario "can see a pet's detail" do
       visit homepage
-      find_link('Wadus').click
+      click_link('Wadus')
       within('ul.pet.detail') do
         within('li.name') do
           page.should have_content('Wadus')
@@ -110,7 +123,10 @@ feature "Pets", %q{
         end
         within('li.character') do
           page.should have_css('span.label', :text => 'Character:')
-          page.should have_content('Docile, playful, and obedient')
+          all('ul li')[0].text.should eq('Docile')
+          all('ul li')[1].text.should eq('Playful')
+          all('ul li')[2].text.should eq('Obedient')
+          # page.should have_css('ul li', :text => 'Docile Playful Obedient')
         end
         within('li.size') do
           page.should have_css('span.label', :text => 'Size:')
@@ -140,11 +156,10 @@ feature "Pets", %q{
     scenario "can't edit an existing pet" do
       Pet.make(:address => Address.make)
       visit homepage
-      find_link('Wadus').click
+      click_link('Wadus')
       page.should have_no_content('Edit')
       
     end
   end
-
 
 end
