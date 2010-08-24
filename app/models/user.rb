@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   # attr_accessible :email, :remember_me
   
   has_one :address
+  has_many :pets
 end

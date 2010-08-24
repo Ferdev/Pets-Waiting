@@ -23,6 +23,13 @@
     text-align: center; }
   #content ul.pet.detail li.photos {
     margin: 0; }
+    #content ul.pet.detail li.photos img.ad-loader {
+      display: inline;
+      background-color: transparent;
+      border: 0;
+      -moz-box-shadow: 0 0 0;
+      -webkit-box-shadow: 0 0 0;
+      box-shadow: 0 0 0; }
     #content ul.pet.detail li.photos img {
       display: block;
       -moz-box-shadow: 0px 0px 2px black;

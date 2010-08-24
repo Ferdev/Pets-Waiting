@@ -5,7 +5,7 @@
     %title
       = t('title')
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    = stylesheet_link_tag "reset", "application", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css", :cache => true
+    = stylesheet_link_tag "reset", "application", "pw.forms", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css", :cache => true
     :javascript
       var RAILS_ENV = "#{Rails.env}";
     %script{:type => "text/javascript", :src => "http://maps.google.com/maps/api/js?sensor=true"}
@@ -26,16 +26,16 @@
         .auth
           %ul
             - unless user_signed_in?
-              %li= link_to t('layouts.petswaiting.authentication.signin'), new_user_session_path
-              %li= t('layouts.petswaiting.authentication.or')
-              %li= link_to t('layouts.petswaiting.authentication.signup'), new_user_registration_path
+              %li= link_to t('layouts.application.authentication.signin'), new_user_session_path
+              %li= t('layouts.application.authentication.or')
+              %li= link_to t('layouts.application.authentication.signup'), new_user_registration_path
             - else
-              %li= link_to t('layouts.petswaiting.my_profile')
-              %li= link_to t('layouts.petswaiting.authentication.logout'), destroy_user_session_path
+              %li= link_to t('layouts.application.my_profile')
+              %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
 
     #content
       .count
-        12 adopted of 1000 pets
+        =I18n.t('layouts.application.counter.adopted', :count => 1 ) + I18n.t('layouts.application.counter.pets', :count => Pet.count )
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}", :class => %W{ flash #{name} }
       = yield
@@ -44,10 +44,10 @@
       .footer_links
         %ul
           %li
-            %a.colaborate{:href => '#', :title => I18n.t('layouts.petswaiting.footer.colaborate')}= I18n.t('layouts.petswaiting.footer.colaborate')
+            %a.colaborate{:href => '#', :title => I18n.t('layouts.application.footer.colaborate')}= I18n.t('layouts.application.footer.colaborate')
           %li
-            %a.about{:href => '#', :title => I18n.t('layouts.petswaiting.footer.about')}= I18n.t('layouts.petswaiting.footer.about')
+            %a.about{:href => '#', :title => I18n.t('layouts.application.footer.about')}= I18n.t('layouts.application.footer.about')
           %li
-            %a.donations{:href => '#', :title => I18n.t('layouts.petswaiting.footer.donations')}= I18n.t('layouts.petswaiting.footer.donations')
+            %a.donations{:href => '#', :title => I18n.t('layouts.application.footer.donations')}= I18n.t('layouts.application.footer.donations')
           %li
-            %a.contact{:href => '#', :title => I18n.t('layouts.petswaiting.footer.contact')}= I18n.t('layouts.petswaiting.footer.contact')
+            %a.contact{:href => '#', :title => I18n.t('layouts.application.footer.contact')}= I18n.t('layouts.application.footer.contact')

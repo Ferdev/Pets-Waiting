@@ -47,7 +47,7 @@ feature "Pets", %q{
       end
     end
   end
-
+  
   context "Everyone" do
     background do
       # For some reason, creating the address association in the pet's blueprint doesn't work
@@ -78,7 +78,6 @@ feature "Pets", %q{
         within('li.photos') do
           page.should have_css('.ad-gallery')
           page.should have_css('.ad-gallery .ad-image-wrapper')
-          page.should have_css('.ad-gallery .ad-controls')
           page.should have_css('.ad-gallery .ad-nav')
           page.should have_css('.ad-gallery .ad-nav .ad-thumbs')
           page.should have_css('.ad-gallery .ad-nav .ad-thumbs ul.ad-thumb-list')
@@ -117,5 +116,28 @@ feature "Pets", %q{
       end
     end
   end
+  
+  context "Guests" do
+    background do
+      load_master_tables
+    end
+    
+    scenario "can't register a new pet" do
+      visit homepage
+      click_link('Add a new pet')
+      page.should have_content('You need to sign in or sign up before continuing.')
+      page.should have_no_css('h1', :text => 'New pet')
+      page.should have_no_css('form#new_pet')
+    end
+    
+    scenario "can't edit an existing pet" do
+      Pet.make(:address => Address.make)
+      visit homepage
+      find_link('Wadus').click
+      page.should have_no_content('Edit')
+      
+    end
+  end
+
 
 end

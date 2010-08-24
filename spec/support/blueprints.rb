@@ -36,6 +36,7 @@ Pet.blueprint do
   playful { true }
   obedient { true }
   description
+  user
 end
 
 Size.blueprint do

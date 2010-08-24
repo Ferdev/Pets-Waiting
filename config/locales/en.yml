@@ -5,13 +5,20 @@ en:
   title: 'Pets Waiting'
   subtitle: 'Tons of pets are waiting for you!'
   layouts:
-    petswaiting:
+    application:
       authentication:
         signin: 'Sign in'
         or: 'or'
         signup: 'Sign up'
         logout: 'Sign out'
       my_profile: 'My profile'
+      counter:
+        adopted:
+          one: '%{count} adoption of '
+          other: '%{count} adoptions of '
+        pets: 
+          one: '%{count} pet'
+          other: '%{count} pets'
       footer:
         colaborate: 'Colaborate'
         about: 'About us'

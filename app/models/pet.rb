@@ -5,6 +5,7 @@ class Pet < ActiveRecord::Base
   belongs_to :breed
   belongs_to :size
   has_one :address
+  belongs_to :user
   
   accepts_nested_attributes_for :address
   

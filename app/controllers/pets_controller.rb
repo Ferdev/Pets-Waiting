@@ -31,6 +31,7 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(params[:pet])
+    @pet.user = current_user
 
     respond_to do |format|
       if @pet.save
@@ -43,6 +44,7 @@ class PetsController < ApplicationController
 
   def update
     @pet = Pet.find(params[:id])
+    @pet.user = current_user
 
     respond_to do |format|
       if @pet.update_attributes(params[:pet])

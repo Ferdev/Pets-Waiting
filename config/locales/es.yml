@@ -188,13 +188,20 @@ es:
   title: 'Pets Waiting'
   subtitle: '¡Un montón de mascotas están esperándote!'
   layouts:
-    petswaiting:
+    application:
       authentication:
         signin: 'Identificate'
         or: 'o'
         signup: 'Date de alta'
         logout: 'Cerrar sesión'
       my_profile: 'Mi perfil'
+      counter:
+        adopted:
+          one: '%{count} adopción de '
+          other: '%{count} adopciones de '
+        pets: 
+          one: '%{count} mascota'
+          other: '%{count} mascotas'
       footer:
         colaborate: 'Colabora'
         about: 'Sobre nosotros'
