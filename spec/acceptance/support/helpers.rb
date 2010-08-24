@@ -19,6 +19,7 @@ module HelperMethods
   
   def load_master_tables
     Breed.make
+    Sex.make
     Size.make
   end
   

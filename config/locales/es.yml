@@ -259,6 +259,7 @@ es:
         name: 'Nombre de la mascota'
         animal: 'Tipo de animal'
         breed: 'Raza'
+        sex: 'Sexo'
         age: 'Edad'
         birthday: 'Fecha de nacimiento'
         place: 'Lugar'

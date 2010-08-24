@@ -6,6 +6,7 @@
     = form.input :name
     = form.input :animal
     = form.input :breed, :collection => I18n.t('pets._form.select_animal_first')
+    = form.input :sex
     = form.semantic_fields_for :address do |address|
       = address.input :address
       = address.input :street, :as => :hidden

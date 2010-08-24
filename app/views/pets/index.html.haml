@@ -42,6 +42,10 @@
             %span.animal
               %span.label="#{Pet.human_attribute_name(:animal)}:"
               = pet.animal.name
+          - if pet.sex
+            %span.sex
+              %span.label="#{Pet.human_attribute_name(:sex)}:"
+              = pet.sex.name
           - if pet.birthday
             %span.age
               %span.label="#{Pet.human_attribute_name(:age)}:"                

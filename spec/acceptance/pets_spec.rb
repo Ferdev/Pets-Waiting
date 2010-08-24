@@ -18,6 +18,7 @@ feature "Pets", %q{
       fill_in("Pet's name", :with => 'Scroophy')
       select('Dog', :from => 'Kind of animal')
       select('Crossbred', :from => 'Breed')
+      select('Male', :from => 'Sex')
       should_fill_address_fields
       select(4.years.ago.strftime("%Y") , :from => 'Year')
       select(4.years.ago.strftime("%B") , :from => 'Month')
@@ -42,6 +43,7 @@ feature "Pets", %q{
         page.should have_css('#pet_name_input.required.error p', :text => "can't be blank")
         page.should have_css('#pet_animal_input.required.error p', :text => "can't be blank")
         page.should have_css('#pet_breed_input.required.error p', :text => "can't be blank")
+        page.should have_css('#pet_sex_input.required.error p', :text => "can't be blank")
         page.should have_css('#pet_address_attributes_address_input.required.error p', :text => "can't be blank")
         page.should have_css('#pet_birthday_input.required.error p', :text => "can't be blank")
       end
@@ -62,6 +64,7 @@ feature "Pets", %q{
       within('.pets.results ul li.pet a') do
         find('span.name').text.should eq('Wadus')
         find('span.animal').text.should eq('Kind of animal: Dog')
+        find('span.sex').text.should eq('Sex: Male')
         find('span.age').text.should eq('Age: about 4 years')
         find('span.place').text.should eq('Place: Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain')
         find('span.urgent').text.should eq('Urgent adoption')
@@ -92,6 +95,10 @@ feature "Pets", %q{
         within('li.breed') do
           page.should have_css('span.label', :text => 'Breed:')
           page.should have_content('Crossbred')
+        end
+        within('li.sex') do
+          page.should have_css('span.label', :text => 'Sex:')
+          page.should have_content('Male')
         end
         within('li.age') do
           page.should have_css('span.label', :text => 'Age:')

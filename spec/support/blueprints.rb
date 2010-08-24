@@ -29,6 +29,7 @@ Pet.blueprint do
   name { 'Wadus' }
   animal
   breed
+  sex
   birthday { 4.years.ago }
   size
   urgent { true }
@@ -37,6 +38,10 @@ Pet.blueprint do
   obedient { true }
   description
   user
+end
+
+Sex.blueprint do
+  name { "Male" }
 end
 
 Size.blueprint do

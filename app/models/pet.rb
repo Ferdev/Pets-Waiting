@@ -3,6 +3,7 @@ class Pet < ActiveRecord::Base
   
   belongs_to :animal
   belongs_to :breed
+  belongs_to :sex
   belongs_to :size
   has_one :address
   belongs_to :user
@@ -12,6 +13,7 @@ class Pet < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :animal
   validates_presence_of :breed
+  validates_presence_of :sex
   validates_presence_of :birthday
   
   def init_address

@@ -70,6 +70,7 @@ en:
         name: 'Pet''s name'
         animal: 'Kind of animal'
         breed: 'Breed'
+        sex: 'Sex'
         age: 'Age'
         birthday: 'Birthday'
         place: 'Place'

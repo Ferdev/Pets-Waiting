@@ -37,6 +37,11 @@
       %span.label= "#{Pet.human_attribute_name(:breed)}: "
       = @pet.breed.name
 
+  - if @pet.sex
+    %li.sex
+      %span.label= "#{Pet.human_attribute_name(:sex)}: "
+      = @pet.sex.name
+
   - if @pet.birthday
     %li.age
       %span.label= "#{Pet.human_attribute_name(:age)}: "
