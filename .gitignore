@@ -7,3 +7,5 @@ config/database.yml
 .DS_Store
 *.tmproj
 capybara*
+public/uploads
+test

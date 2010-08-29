@@ -1,6 +1,8 @@
 %ul.nav
   - if user_signed_in? && current_user == @pet.user
     %li
-      = link_to 'Edit', edit_pet_path(@pet), :class => 'button'
+      = link_to I18n.t('pets.show.nav.edit', :pet => @pet.name), edit_pet_path(@pet), :class => 'button'
+    %li
+      = link_to I18n.t('pets.show.nav.add_photos', :pet => @pet.name), pet_photos_url(@pet), :class => 'button'
   %li.back
-    = link_to 'Back', pets_path
+    = link_to I18n.t('pets.show.nav.back'), pets_path, :class => 'button'

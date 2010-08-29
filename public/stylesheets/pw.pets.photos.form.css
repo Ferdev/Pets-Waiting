@@ -1,0 +1,28 @@
+#photo {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+  width: 600px;
+  -moz-box-shadow: 0px 0px 2px black;
+  -webkit-box-shadow: 0px 0px 2px black;
+  box-shadow: 0px 0px 2px black;
+  background-color: #092230;
+  border: 1px solid #cce5f4; }
+
+#thumbnail {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin: 0 2em;
+  -moz-box-shadow: 0px 0px 2px black;
+  -webkit-box-shadow: 0px 0px 2px black;
+  box-shadow: 0px 0px 2px black;
+  background-color: #092230;
+  border: 1px solid #cce5f4; }

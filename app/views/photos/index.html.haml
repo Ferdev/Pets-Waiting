@@ -1,0 +1,14 @@
+- content_for :head do
+  = stylesheet_link_tag "pw.pets.photos.index", :cache => true
+%h1= I18n.t('pets.photos.index.title', :pet => @pet.name)
+
+=link_to I18n.t('pets.photos.index.add_photo'), new_pet_photo_path, :class => 'button'
+
+%ul.photos
+  - @photos.each do |photo|
+    - if photo.image && photo.image.url
+      %li
+        = link_to image_tag(photo.image.url), edit_pet_photo_path(@pet, photo)
+        = link_to I18n.t('pets.photos.index.delete'), pet_photo_path(@pet, photo), :confirm => I18n.t('pets.photos.index.delete_confirm'), :method => :delete
+
+=link_to I18n.t('pets.photos.index.add_photo'), new_pet_photo_path, :class => 'button'

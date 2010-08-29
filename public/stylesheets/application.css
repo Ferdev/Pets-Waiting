@@ -106,7 +106,8 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0px;
-  padding: 1em 0; }
+  padding: 1em 0;
+  z-index: 10; }
   footer .footer_links {
     width: 960px;
     margin: 0 auto; }

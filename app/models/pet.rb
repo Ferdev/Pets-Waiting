@@ -5,8 +5,10 @@ class Pet < ActiveRecord::Base
   belongs_to :breed
   belongs_to :sex
   belongs_to :size
-  has_one :address
   belongs_to :user
+  
+  has_one :address
+  has_many :photos
   
   accepts_nested_attributes_for :address
   

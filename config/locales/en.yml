@@ -26,9 +26,9 @@ en:
         contact: 'Contact us'
   pets:
     create:
-      success: 'Pet was successfully saved.'
+      success: 'The pet was successfully saved.'
     update:
-      success: 'Pet was successfully updated.'
+      success: 'The pet was successfully updated.'
     new:
       title: 'New pet'
       back: 'Back'
@@ -37,9 +37,43 @@ en:
       add_pet: 'Add a new pet'
       show: 'Show...'
       looking_place: 'Are you looking at some particular place?'
+    show:
+      nav:
+        edit: 'Edit %{pet}''s data'
+        add_photos: 'Add %{pet}''s photos'
+        back: 'Back'
     _form:
       select_animal_first: 'Please, select a kind of animal first'
       its_character: 'Its character'
+    photos:
+      create:
+        success: 'The photo was successfully saved.'
+        error: 'There was an error saving the photo.'
+      update:
+        success: 'The photo was successfully updated.'
+        error: 'There was an error updating the photo.'
+      new:
+        title: 'Add a photo'
+      edit:
+        title: 'Add a thumbnail to the photo'
+      index:
+        title: '%{pet}''s photos'
+        add_photo: 'Add a photo'
+        delete: 'Delete photo'
+        delete_confirm: 'Are you sure?'
+      _form:
+        uploader:
+          texts:
+            template:
+              drop: 'Drop files here to upload'
+              button: 'Select photo'
+            file_template:
+              cancel: 'Cancel'
+              failed: 'Failed'
+          messages:
+            type_error: '{file} has invalid extension. Only {extensions} are allowed.'
+            size_error: '{file} is too large. Maximum file size is {sizeLimit}.'
+            empty_error: '{file} is empty. Please select files again without it.'
   activerecord:
     models:
       user: 'User'
@@ -95,6 +129,8 @@ en:
         sleepyhead: 'Sleepyhead'
         friendly_people: 'Friendly with people'
         friendly_animals: 'Friendly with animals'
+      photo:
+        image: 'Select a photo'
     submit:
       create: 'Save %{model}'
       update: 'Update %{model}'
@@ -109,3 +145,7 @@ en:
       create: 'Save %{model}'
       update: 'Update %{model}'
       delete: 'Delete %{model}'
+  carrierwave:
+    errors:
+      integrity: 'Not an image.'
+      processing: 'Cannot resize image.'

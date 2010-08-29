@@ -3,6 +3,10 @@ module HelperMethods
     save_and_open_page
   end
   
+  def enable_javascript
+    Capybara.current_driver = :selenium
+  end
+  
   def lorem
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   end
@@ -45,6 +49,16 @@ module HelperMethods
     find('#pet_address_attributes_state').value.should eq('Madrid')
     find('#pet_address_attributes_substate').value.should eq('Madrid')
     find('#pet_address_attributes_city').value.should eq('Fuente el Saz de Jarama')
+  end
+  
+  def image_to_upload
+    File.dirname(__FILE__) + '/../../fixtures/dog1.jpg'
+  end
+  
+  def create_photo
+    photo = Photo.make(:pet => @pet)
+    photo.image = File.open(image_to_upload)
+    photo.save!
   end
 end
 

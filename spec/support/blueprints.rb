@@ -39,6 +39,10 @@ Pet.blueprint do
   description
 end
 
+Photo.blueprint do
+  
+end
+
 Sex.blueprint do
   name { "Male" }
 end

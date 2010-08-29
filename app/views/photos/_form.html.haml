@@ -1,0 +1,17 @@
+- content_for :head do
+  = javascript_include_tag "pw/pw.pets.js", "pw/pw.pets.photos.js", "pw/pw.pets.photos.form.js", "jquery/jquery.imgareaselect.js", :cache => true
+  = stylesheet_link_tag "pw.pets.photos.form", "jquery/jquery.imgareaselect", :cache => true
+
+= semantic_form_for [@pet, @photo], {:html => { :multipart => true }} do |form|
+  = form.inputs do
+    - if @photo.image && @photo.image.url
+      = form.input :crop_x, :as => :hidden
+      = form.input :crop_y, :as => :hidden
+      = form.input :crop_w, :as => :hidden
+      = form.input :crop_h, :as => :hidden
+      = image_tag(@photo.image.url, :id => 'photo')
+      #thumbnail
+        = image_tag(@photo.image.url)
+    - else
+      = form.input :image, :as => :file
+  = form.buttons

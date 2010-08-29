@@ -26,3 +26,8 @@ RSpec.configure do |config|
   # instead of true.
   # config.use_transactional_fixtures = true
 end
+
+CarrierWave.configure do |config|
+  config.storage = :file
+  config.enable_processing = false
+end

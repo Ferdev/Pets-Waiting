@@ -13,15 +13,14 @@
       .ad-nav
         .ad-thumbs
           %ul.ad-thumb-list
-            %li
-              %a{:href => image_path('dog1.jpg')}
-                = image_tag('dog1.jpg')
-            %li
-              %a{:href => image_path('dog2.jpg')}
-                = image_tag('dog2.jpg')
-            %li
-              %a{:href => image_path('dog3.jpg')}
-                = image_tag('dog3.jpg')
+            - if @pet.photos.empty?
+              - random_thumbnails
+            - else
+              - @pet.photos.each do |photo|
+                - if photo.image && photo.image.url
+                  %li
+                    %a{:href => image_path(photo.image.url)}
+                      = image_tag(photo.image.thumb.url)
 
   - if @pet.urgent
     %li.urgent

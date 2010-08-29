@@ -220,9 +220,43 @@ es:
       add_pet: 'Añadir una nueva mascota'
       show: 'Mostrar...'
       looking_place: '¿Quieres buscar de alguna zona en concreto?'
+    show:
+      nav:
+        edit: 'Editar los datos de %{pet}'
+        add_photos: 'Añadir fotos de %{pet}'
+        back: 'Volver'
     _form:
       select_animal_first: 'Por favor, selecciona antes un tipo de animal'
       its_character: 'Su carácter'
+    photos:
+      create:
+        success: 'La foto se ha guardado correctamente.'
+        error: 'Se ha producido un error al guardar la foto.'
+      update:
+        success: 'La foto se ha actualizado correctamente.'
+        error: 'Se ha producido un error al actualizar la foto.'
+      new:
+        title: 'Añade una foto'
+      edit:
+        title: 'Añade una miniatura a la foto'
+      index:
+        title: 'Fotos de %{pet}'
+        add_photo: 'Añadir una foto'
+        delete: 'Eliminar foto'
+        delete_confirm: '¿Estás seguro?'
+      _form:
+        uploader:
+          texts:
+            template:
+              drop: 'Arrastra archivos aquí para subirlos'
+              button: 'Seleccionar una foto'
+            file_template:
+              cancel: 'Cancelar'
+              failed: 'Fallido'
+          messages:
+            type_error: '{file} no tiene una extensión válida. Sólo las extensiones {extensions} estan permitidas.'
+            size_error: '{file} es demasiado grande. El tamaño máximo de un archivo es {sizeLimit}.'
+            empty_error: '{file} está vacío. Por favor, elimina ese archivo de la selección.'
   activerecord:
     models:
       user: 'Usuario'
@@ -243,7 +277,6 @@ es:
         firstname: 'Nombre'
         lastname: 'Apellidos'
         phone: 'Teléfono'
-
       address:
         address: 'Dirección'
         street: 'Calle'
@@ -284,7 +317,8 @@ es:
         sleepyhead: 'Dormilón'
         friendly_people: 'Amistoso/a con las personas'
         friendly_animals: 'Amistoso/a con los animales'
-
+      photo:
+        image: 'Selecciona una foto'
     submit:
       create: 'Guardar %{model}'
       update: 'Modificar %{model}'
@@ -298,3 +332,7 @@ es:
       create: 'Guardar %{model}'
       update: 'Actualizar %{model}'
       delete: 'Eliminar %{model}'
+  carrierwave:
+    errors:
+      integrity: 'No es una imagen.'
+      processing: 'No se pudo redimensionar la imagen.'

@@ -1,5 +1,9 @@
 PetsWaiting::Application.routes.draw do
-  resources :pets, :breeds
+  resources :pets do
+    resources :photos
+  end
+
+  resources :breeds
 
   devise_for :users
 

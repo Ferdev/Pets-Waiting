@@ -8,6 +8,7 @@ feature "Pets", %q{
 
   context "Signed in users" do
     background do
+      enable_javascript
       load_master_tables
       create_and_sign_in_user
     end
@@ -31,7 +32,7 @@ feature "Pets", %q{
       fill_in('Description', :with => Faker::Lorem.paragraphs)
       assert_difference "Pet.count", 1 do
         click_button('Save Pet')
-        page.should have_content('Pet was successfully saved.')
+        page.should have_content('The pet was successfully saved.')
       end
     end
     
@@ -55,7 +56,7 @@ feature "Pets", %q{
       click_link('Wadus')
       click_link('Edit')
       # Since breed depends on kind of animal, we check if the breed combo is populated right
-      page.find(:css, '#pet_breed_id option[selected]').text.should eq('Crossbred')
+      page.should have_css('#pet_breed_id option[selected]', :text => 'Crossbred')
       fill_in("Pet's name", :with => 'Scooby')
       click_button('Update Pet')
       page.should have_css('ul.pet.detail li.name', :text => 'Scooby')
@@ -75,12 +76,13 @@ feature "Pets", %q{
       page.should have_css('.pets.filters')
       page.should have_css('.pets.results')
       within('.pets.results ul li.pet a') do
-        find('span.name').text.should eq('Wadus')
-        find('span.animal').text.should eq('Kind of animal: Dog')
-        find('span.sex').text.should eq('Sex: Male')
-        find('span.age').text.should eq('Age: about 4 years')
-        find('span.place').text.should eq('Place: Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain')
-        find('span.urgent').text.should eq('Urgent adoption')
+        page.should have_css('span.name', :text => 'Wadus')
+        # page.should have_css('span.animal', :text => 'Kind of animal: Dog')
+        page.should have_css('span.animal', :text => "\nKind of animal:\nDog\n")
+        page.should have_css('span.sex', :text => "\nSex:\nMale\n")
+        page.should have_css('span.age', :text => "\nAge:\nabout 4 years\n")
+        page.should have_css('span.place', :text => "\nPlace:\nCalle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain\n")
+        page.should have_css('span.urgent', :text => "Urgent adoption")
       end
     end
     
@@ -141,10 +143,7 @@ feature "Pets", %q{
   end
   
   context "Guests" do
-    background do
-      load_master_tables
-    end
-    
+
     scenario "can't register a new pet" do
       visit homepage
       click_link('Add a new pet')
@@ -158,7 +157,6 @@ feature "Pets", %q{
       visit homepage
       click_link('Wadus')
       page.should have_no_content('Edit')
-      
     end
   end
 
