@@ -61,4 +61,10 @@ class Pet < ActiveRecord::Base
   def place
     address.address unless address.nil? || address.address.blank?
   end
+  
+  def thumbnail
+    unless photos.empty?
+      photos.reject { |photo| photo.image.nil? || photo.image.thumb.nil? || photo.image.thumb.url.blank? }.choice.image.thumb
+    end
+  end
 end

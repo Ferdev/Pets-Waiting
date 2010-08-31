@@ -77,7 +77,6 @@ feature "Pets", %q{
       page.should have_css('.pets.results')
       within('.pets.results ul li.pet a') do
         page.should have_css('span.name', :text => 'Wadus')
-        # page.should have_css('span.animal', :text => 'Kind of animal: Dog')
         page.should have_css('span.animal', :text => "\nKind of animal:\nDog\n")
         page.should have_css('span.sex', :text => "\nSex:\nMale\n")
         page.should have_css('span.age', :text => "\nAge:\nabout 4 years\n")

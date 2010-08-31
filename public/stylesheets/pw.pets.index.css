@@ -43,6 +43,7 @@
         zoom: 1;
         *display: inline;
         padding: 10px;
+        width: 202px;
         color: #124462;
         font-size: 0.8em;
         text-decoration: none;
@@ -73,13 +74,14 @@
           border-radius: 5px;
           background-color: #dc4228;
           color: white;
-          display: inline;
           font-size: 1.2em;
           font-weight: bold;
-          line-height: 2em;
-          padding: 5px;
+          padding: 2px 5px;
+          width: 170px;
+          margin: 0 auto;
           text-shadow: 0 1px 0 #333333;
-          text-transform: uppercase; }
+          text-transform: uppercase;
+          text-align: center; }
       #content .pets.results ul li.pet a:hover {
         -moz-border-radius: 5px;
         -ms-border-radius: 5px;

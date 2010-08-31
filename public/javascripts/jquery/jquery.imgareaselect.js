@@ -120,7 +120,7 @@ $.imgAreaSelect = function (img, options) {
 
         selection.width = selection.x2 - selection.x1;
         selection.height = selection.y2 - selection.y1;
-        options.onSelectEnd($img, selection);
+        options.onSelectChange($img, selection);
     }
 
     function adjust() {

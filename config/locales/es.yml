@@ -245,18 +245,8 @@ es:
         delete: 'Eliminar foto'
         delete_confirm: '¿Estás seguro?'
       _form:
-        uploader:
-          texts:
-            template:
-              drop: 'Arrastra archivos aquí para subirlos'
-              button: 'Seleccionar una foto'
-            file_template:
-              cancel: 'Cancelar'
-              failed: 'Fallido'
-          messages:
-            type_error: '{file} no tiene una extensión válida. Sólo las extensiones {extensions} estan permitidas.'
-            size_error: '{file} es demasiado grande. El tamaño máximo de un archivo es {sizeLimit}.'
-            empty_error: '{file} está vacío. Por favor, elimina ese archivo de la selección.'
+        select_file: 'Selecciona un archivo'
+        browse: 'Buscar'
   activerecord:
     models:
       user: 'Usuario'

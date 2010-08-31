@@ -62,18 +62,8 @@ en:
         delete: 'Delete photo'
         delete_confirm: 'Are you sure?'
       _form:
-        uploader:
-          texts:
-            template:
-              drop: 'Drop files here to upload'
-              button: 'Select photo'
-            file_template:
-              cancel: 'Cancel'
-              failed: 'Failed'
-          messages:
-            type_error: '{file} has invalid extension. Only {extensions} are allowed.'
-            size_error: '{file} is too large. Maximum file size is {sizeLimit}.'
-            empty_error: '{file} is empty. Please select files again without it.'
+        select_file: 'Select a file'
+        browse: 'Browse'
   activerecord:
     models:
       user: 'User'

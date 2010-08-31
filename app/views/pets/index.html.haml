@@ -36,7 +36,7 @@
     - @pets.each do |pet|
       %li.pet
         %a{:href => url_for(pet)}
-          = image_tag('dog1.jpg')
+          = thumbnail(pet)
           %span.name= pet.name.capitalize
           - if pet.animal
             %span.animal

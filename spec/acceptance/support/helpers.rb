@@ -22,13 +22,13 @@ module HelperMethods
   end
   
   def load_master_tables
-    @breed = Breed.make
+    Breed.make
     Sex.make
     Size.make
   end
   
   def create_pet
-    @pet = Pet.make(:address => Address.make, :user => @current_user, :animal => @breed.animal, :breed => @breed)
+    @pet = Pet.make(:address => Address.make, :user => @current_user)
   end
   
   def should_fill_address_fields

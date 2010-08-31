@@ -6,12 +6,15 @@ $.extend($.pw.pets.photos, {
 
     fields: function(){
       var update_thumbnail = function(img, selection){
-        var scaleX = 200 / (selection.width || 1);
-        var scaleY = 200 / (selection.height || 1);
+        var 
+          scaleX = 200 / (selection.width || 1),
+          scaleY = 200 / (selection.height || 1),
+          img_width = $(img).width(),
+          img_height = $(img).height();
 
         $('#thumbnail img').css({
-            width: Math.round(scaleX * 400) + 'px',
-            height: Math.round(scaleY * 400) + 'px',
+            width: Math.round(scaleX * img_width) + 'px',
+            height: Math.round(scaleY * img_height) + 'px',
             marginLeft: '-' + Math.round(scaleX * selection.x1) + 'px',
             marginTop: '-' + Math.round(scaleY * selection.y1) + 'px'
         });
@@ -33,9 +36,11 @@ $.extend($.pw.pets.photos, {
         show: true
       });
       if ($.pw.pets.photos.form.ias) {
-        $.pw.pets.photos.form.ias.setSelection(0, 0, 200, 200, true);
+        $.pw.pets.photos.form.ias.setSelection(0, 0, 200, 200);
         $.pw.pets.photos.form.ias.update();
       };
+      
+      $('#photo_image').prettyfile({html: $('#prettyfile_tmp').contents()});
     }
   }
 });

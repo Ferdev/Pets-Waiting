@@ -41,25 +41,28 @@ class PhotosController < ApplicationController
         @photo.save!
         format.html { redirect_to(edit_pet_photo_path(@pet, @photo), :notice => I18n.t('pets.photos.create.success')) }
       rescue Exception => e
-        format.html { render :action => "new", :error => I18n.t('pets.photos.create.error') }
+        flash.now[:error] = I18n.t('pets.photos.create.error')
+        format.html { render :action => "new" }
       end
     end
   end
 
   def update
-    @photo = Photo.find(params[:id])
+    @photo = @pet.photos.find(params[:id])
 
     respond_to do |format|
-      if @photo.update_attributes(params[:photo])
+      begin
+        @photo.update_attributes(params[:photo])
         format.html { redirect_to(pet_photos_url, :notice => I18n.t('pets.photos.update.success')) }
-      else
-        format.html { render :action => "edit", :error => I18n.t('pets.photos.update.error') }
+      rescue Exception => e
+        flash.now[:error] = I18n.t('pets.photos.update.error')
+        format.html { render :action => "edit" }
       end
     end
   end
 
   def destroy
-    @photo = Photo.find(params[:id])
+    @photo = @pet.photos.find(params[:id])
     @photo.destroy
 
     respond_to do |format|

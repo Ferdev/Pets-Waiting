@@ -4,8 +4,8 @@ module PetsHelper
     Breed.by_animal_id(pet.animal_id)
   end
   
-  def random_thumbnails
-    critters = %w{
+  def critters
+    %w{
       batty.png
       dog2.png
       elephant.png
@@ -20,7 +20,9 @@ module PetsHelper
       panda.png
       ratty.png
     }
-    
+  end
+  
+  def random_thumbnails
     critters.shuffle.each do |critter|
       haml_tag :li do
         haml_tag :a, :href => image_path("icons/critters/#{critter}") do
@@ -28,5 +30,11 @@ module PetsHelper
         end
       end
     end
+  end
+  
+  def thumbnail(pet)
+    thumbnail = pet.thumbnail
+    img_src = thumbnail ? thumbnail.url : "icons/critters/#{critters.choice}"
+    image_tag(img_src)
   end
 end
