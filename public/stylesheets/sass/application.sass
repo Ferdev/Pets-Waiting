@@ -1,0 +1,135 @@
+@import 'pw.vars'
+@import 'pw.mixins'
+
+//////////////////
+// Styles
+//////////////////
+// Base
+html, body
+  background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
+  font-family: $fonts
+  font-size: $fonts_size
+  color: #124462
+  text-shadow: 0 1px 1px #cce5f4
+
+a
+  color: #a04249
+  font-size: 1.5em
+  line-height: 1.5em
+  
+a:hover
+  text-decoration: none
+  
+a:visited
+  color: #124462
+
+//Headings
+h1
+  font-size: 2em
+  margin: .5em 0
+
+h2
+  font-size: 1.5em
+  margin: .5em 0
+
+// Flash messages
+
+.flash
+  font-size: 1.2em
+  font-weight: bold
+
+.flash.notice, .flash.alert
+  color: #F48A2C
+  text-shadow: 0 1px 0 #623712
+.flash.error
+  color: #DC4228
+  text-shadow: 0 1px 0 #581a10
+
+// Pets-Waiting
+header
+  background-color: #1A6692
+  @include gradient(#2388c3, #1A6692)
+  display: block
+  border-bottom: 1px solid #CCE5F4
+  .title_and_auth
+    width: 960px
+    margin: 0 auto
+    position: relative
+    .title
+      position: absolute
+      top: 14px
+      a
+        font-size: 3em
+        text-decoration: none
+        text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 0 0 white, 0 2px 0 white, -2px 0 0 white, 0 -2px 0 white, 3px 3px 2px black
+      a.pets
+        color: #7ad1ff
+      a.waiting
+        color: #ff8420
+      a.subtitle
+        font-size: 1em
+        margin: 0 .5em
+        text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 0 0 white, 0 1px 0 white, -1px 0 0 white, 0 -1px 0 white, 2px 2px 1px black
+        vertical-align: bottom
+
+    .auth
+      color: #FFFFFF
+      font-size: 1.5em
+      text-shadow: 0 1px 0 #000000
+      text-align: right
+      ul li
+        display: inline
+        margin: .2em
+      a
+        color: #ffd850
+        font-size: 1em
+        line-height: 2em
+        font-weight: bold
+        @include border-radius(3px)
+      a:hover
+        text-decoration: none
+
+#content
+  width: 960px
+  margin: 3em auto 5em
+  position: relative
+  .count
+    @include box-shadow(0 1px 1px #666666)
+    background-color: white
+    font-size: 0.8em
+    font-weight: bold
+    padding: 0.5em
+    position: absolute
+    right: 0
+    top: -3.8em
+    background-color: #FFFFFF
+
+footer
+  background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
+  position: fixed
+  width: 100%
+  bottom: 0px
+  padding: 1em 0
+  z-index: 10
+
+  .footer_links
+    width: 960px
+    margin: 0 auto
+  a
+    color: #124462
+    font-size: 1.5em
+    text-shadow: 0 1px 0 #cce5f4
+    text-decoration: none
+    padding: 10px 9px
+  a:hover
+    @include border-radius(5px)
+    background-color: #1a6692
+    color: #cce5f4
+    text-shadow: 0 1px 0 #124462
+
+  ul
+    text-align: center
+    li
+      display: inline
+      margin: 0 2em
+        

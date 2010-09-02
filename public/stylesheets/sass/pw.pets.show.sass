@@ -1,0 +1,57 @@
+@import 'pw.mixins'
+
+#content
+  ul.pet.detail
+    width: 600px
+    margin: 0 auto
+    li
+      font-size: 1.3em
+      margin: .5em 0
+      span.label
+        font-weight: bold
+        @include inline-block
+        width: 8em
+    li.name
+      margin: .2em
+      font-size: 2.5em
+      font-weight: bold
+      text-align: center
+    li.photos
+      margin: 0
+      img.ad-loader
+        display: inline
+        background-color: transparent
+        border: 0
+        @include box-shadow(0 0 0)
+      img
+        display: block
+        @include decorate_image
+      .ad-thumb-list
+        img
+          height: 100px
+    li.urgent 
+      text-align: center
+      span
+        @include border-radius(5px)
+        background-color: #DC4228
+        color: white
+        display: inline
+        font-size: 1em
+        font-weight: bold
+        line-height: 2em
+        padding: 5px
+        text-shadow: 0 1px 0 #333333
+        text-transform: uppercase
+    li.character
+      ul
+        @include inline-block
+        list-style-position: inside
+        list-style-type: disc
+        li
+          font-size: 1em
+          margin: 0 0 .5em
+    li.description
+      p
+        @include inline-block
+        width: 20em
+        text-align: justify

@@ -2,4 +2,142 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  title: 'Pets Waiting'
+  subtitle: 'Tons of pets are waiting for you!'
+  layouts:
+    application:
+      authentication:
+        signin: 'Sign in'
+        or: 'or'
+        signup: 'Sign up'
+        logout: 'Sign out'
+      my_profile: 'My profile'
+      counter:
+        adopted:
+          one: '%{count} adoption of '
+          other: '%{count} adoptions of '
+        pets: 
+          one: '%{count} pet'
+          other: '%{count} pets'
+      footer:
+        colaborate: 'Colaborate'
+        about: 'About us'
+        donations: 'Donations'
+        contact: 'Contact us'
+  pets:
+    create:
+      success: 'The pet was successfully saved.'
+    update:
+      success: 'The pet was successfully updated.'
+    new:
+      title: 'New pet'
+    edit:
+      title: 'Edit pet'
+    index:
+      give_adoption: 'Do you want to give a pet up for adoption?'
+      add_pet: 'Add a new pet'
+      show: 'Show...'
+      looking_place: 'Are you looking at some particular place?'
+    nav:
+      show: '%{pet}''s data'
+      edit: 'Edit %{pet}''s data'
+      add_photos: 'Add %{pet}''s photos'
+      pets_list: 'Pets list'
+    _form:
+      select_animal_first: 'Please, select a kind of animal first'
+      its_character: 'Its character'
+    photos:
+      create:
+        success: 'The photo was successfully saved.'
+        error: 'There was an error saving the photo.'
+      update:
+        success: 'The photo was successfully updated.'
+        error: 'There was an error updating the photo.'
+      new:
+        title: 'Add a photo'
+      edit:
+        title: 'Add a thumbnail to the photo'
+      index:
+        title: '%{pet}''s photos'
+        add_photo: 'Add a photo'
+        delete: 'Delete photo'
+        delete_confirm: 'Are you sure?'
+        without_thumbnail: 'Generate thumbnail'
+      _form:
+        select_file: 'Select a file'
+        browse: 'Browse'
+  activerecord:
+    models:
+      user: 'User'
+    attributes:
+      created_at: 'Created at'
+      updated_at: 'Updated at'
+      user:
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        remember_me: 'Remember me'
+        nick: 'Nick'
+        firstname: 'Firstname'
+        lastname: 'Lastname'
+        phone: 'Phone'
+      address:
+        address: 'Address'
+        street: 'Street'
+        postal_code: 'Postal code'
+        lat: 'Latitude'
+        lon: 'Longitude'
+        country: 'Country'
+        country_code: 'Country code'
+        state: 'State'
+        substate: 'Substate'
+        city: 'City'
+      pet:
+        name: 'Pet''s name'
+        animal: 'Kind of animal'
+        breed: 'Breed'
+        sex: 'Sex'
+        age: 'Age'
+        birthday: 'Birthday'
+        place: 'Place'
+        size: 'Size'
+        urgent: 'Urgent adoption'
+        description: 'Description'
+        character: 'Character'
+        docile: 'Docile'
+        calm: 'Calm'
+        agressive_people: 'Agressive with people'
+        agressive_animals: 'Agressive with animals'
+        dominant: 'Dominant'
+        affectionate: 'Affectionate'
+        independent: 'Independent'
+        dependent: 'Dependent'
+        possessive: 'Possessive'
+        playful: 'Playful'
+        tireless: 'Tireless'
+        obedient: 'Obedient'
+        disobedient: 'Disobedient'
+        trained: 'Is a trained pet'
+        sleepyhead: 'Sleepyhead'
+        friendly_people: 'Friendly with people'
+        friendly_animals: 'Friendly with animals'
+      photo:
+        image: 'Select a photo'
+    submit:
+      create: 'Save %{model}'
+      update: 'Update %{model}'
+  devise:
+    sign_up: 'Sign up'
+    sign_in: 'Sign in'
+    forgot_password: 'Forgot your password?'
+    didnt_receive_confirmation: "Didn't receive confirmation instructions?"
+    didnt_receive_unlock: "Didn't receive unlock instructions?"
+  formtastic:
+    actions:
+      create: 'Save %{model}'
+      update: 'Update %{model}'
+      delete: 'Delete %{model}'
+  carrierwave:
+    errors:
+      integrity: 'Not an image.'
+      processing: 'Cannot resize image.'

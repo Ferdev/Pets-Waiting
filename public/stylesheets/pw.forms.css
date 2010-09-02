@@ -1,0 +1,61 @@
+label {
+  color: #1a6692;
+  line-height: 1.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  vertical-align: middle; }
+
+input[type=text], input[type=password], textarea, select {
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #dff7ff;
+  border: 2px solid #1a6692;
+  color: #124462;
+  font-weight: bold;
+  padding: 0.2em 0.5em;
+  font-size: 1em; }
+
+.error input[type=text], .error input[type=password], .error textarea, .error select {
+  background-color: #f4e4e8;
+  border-color: #f42c65;
+  color: #f42c65; }
+.error p {
+  color: #f42c65; }
+
+textarea {
+  padding: 0.5em;
+  font-family: inherit; }
+
+form p {
+  margin: 1em; }
+
+form.formtastic fieldset {
+  margin: 0 0 2em; }
+  form.formtastic fieldset legend span {
+    font-size: 1.3em; }
+  form.formtastic fieldset ol li {
+    margin: 0.5em 1em; }
+    form.formtastic fieldset ol li label {
+      display: block; }
+    form.formtastic fieldset ol li p {
+      display: inline; }
+  form.formtastic fieldset ol li.boolean label {
+    display: inline; }
+  form.formtastic fieldset ol li.boolean p {
+    margin: 0; }
+  form.formtastic fieldset ol li.date fieldset {
+    margin: 0; }
+    form.formtastic fieldset ol li.date fieldset ol li {
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      *display: inline; }
+form.formtastic fieldset.character {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline; }

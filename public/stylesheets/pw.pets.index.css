@@ -1,0 +1,110 @@
+#content .pets {
+  margin: 1em 0; }
+#content .pets.add_pet {
+  padding: 0 0.5em;
+  text-align: center; }
+  #content .pets.add_pet h1 {
+    display: inline-block;
+    line-height: 1.2em;
+    margin: 0.5em 0;
+    vertical-align: middle;
+    text-align: justify; }
+  #content .pets.add_pet a.button {
+    font-size: 1.5em;
+    margin: 0.2em;
+    vertical-align: middle; }
+    #content .pets.add_pet a.button .plus {
+      color: #69dd00;
+      font-weight: bold;
+      text-shadow: 0 -1px 0 black; }
+#content .pets.filters ul li {
+  display: inline;
+  margin-right: 0.4em; }
+#content .pets.filters a.button:active,
+#content .pets.filters a.button.active {
+  background-image: -moz-linear-gradient(top, #f48a2c, #92531a);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f48a2c), color-stop(1, #92531a));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+#content .pets.place {
+  display: none; }
+  #content .pets.place .where {
+    width: 600px; }
+#content .pets.results {
+  text-align: center; }
+  #content .pets.results ul {
+    text-align: left; }
+    #content .pets.results ul li.pet {
+      display: inline; }
+      #content .pets.results ul li.pet a {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+        *display: inline;
+        padding: 10px;
+        width: 202px;
+        color: #124462;
+        font-size: 0.8em;
+        text-decoration: none;
+        text-shadow: 0 1px 0 #cce5f4; }
+        #content .pets.results ul li.pet a img {
+          display: block;
+          height: 200px;
+          width: 200px;
+          -moz-box-shadow: 0px 0px 2px black;
+          -webkit-box-shadow: 0px 0px 2px black;
+          box-shadow: 0px 0px 2px black;
+          background-color: #092230;
+          border: 1px solid #cce5f4; }
+        #content .pets.results ul li.pet a span {
+          display: block; }
+          #content .pets.results ul li.pet a span span.label {
+            font-weight: bold;
+            display: inline; }
+        #content .pets.results ul li.pet a span.name {
+          font-size: 1.5em;
+          text-align: center;
+          line-height: 1.5em;
+          font-weight: bold; }
+        #content .pets.results ul li.pet a span.urgent {
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          background-color: #dc4228;
+          color: white;
+          font-size: 1.2em;
+          font-weight: bold;
+          padding: 2px 5px;
+          width: 170px;
+          margin: 0.5em auto;
+          text-shadow: 0 1px 0 #333333;
+          text-transform: uppercase;
+          text-align: center; }
+      #content .pets.results ul li.pet a:hover {
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        -moz-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #cce5f4;
+        -webkit-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #cce5f4;
+        box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #cce5f4;
+        background-color: #2388c3;
+        border-color: #1a6692;
+        border-style: solid;
+        border-width: 0 1px;
+        color: #cce5f4;
+        text-shadow: 0 1px 0 #124462;
+        padding: 10px 9px; }
+    #content .pets.results ul li.spinner {
+      display: none;
+      text-align: center; }
+
+span.spinner {
+  padding: 50px;
+  background: url("/images/extra/spinner.gif") no-repeat scroll 50% 50% transparent; }
+
+span.order {
+  color: #ff8420;
+  text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 0 0 white, 0 2px 0 white, -2px 0 0 white, 0 -2px 0 white, 3px 3px 2px black; }

@@ -1,0 +1,14 @@
+@import 'pw.mixins'
+
+ul.photos
+  margin: 2em 0
+  li
+    text-align: center
+    width: 200px
+    a
+      display: block
+    a.delete
+      display: inline
+    img
+      @include decorate_image
+      width: 200px

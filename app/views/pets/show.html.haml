@@ -1,0 +1,62 @@
+- content_for :head do
+  = javascript_include_tag "pw/pw.pets.js", "pw/pw.pets.show.js", "jquery/jquery.ad-gallery.js", :cache => true
+  = stylesheet_link_tag "pw.pets.show", "jquery/jquery.ad-gallery", :cache => true
+
+= render 'nav'
+
+%ul.pet.detail
+  %li.name= @pet.name.capitalize
+  
+  %li.photos
+    .ad-gallery
+      .ad-image-wrapper
+      .ad-nav
+        .ad-thumbs
+          %ul.ad-thumb-list
+            - thumbnail_list(@pet)
+
+  - if @pet.urgent
+    %li.urgent
+      %span= Pet.human_attribute_name(:urgent)
+
+  - if @pet.animal
+    %li.animal
+      %span.label= "#{Pet.human_attribute_name(:animal)}: "
+      = @pet.animal.name
+
+  - if @pet.breed
+    %li.breed
+      %span.label= "#{Pet.human_attribute_name(:breed)}: "
+      = @pet.breed.name
+
+  - if @pet.sex
+    %li.sex
+      %span.label= "#{Pet.human_attribute_name(:sex)}: "
+      = @pet.sex.name
+
+  - if @pet.birthday
+    %li.age
+      %span.label= "#{Pet.human_attribute_name(:age)}: "
+      = time_ago_in_words(@pet.birthday).capitalize
+
+  - if @pet.place
+    %li.place
+      %span.label= "#{Pet.human_attribute_name(:place)}: "
+      = @pet.place
+
+  - if @pet.has_character_attributes?
+    %li.character
+      %span.label= "#{Pet.human_attribute_name(:character)}: "
+      %ul
+        - @pet.character.each do |character|
+          %li= character
+
+  - if @pet.size
+    %li.size
+      %span.label= "#{Pet.human_attribute_name(:size)}: "
+      = @pet.size.name
+
+  - if @pet.description
+    %li.description
+      %span.label= "#{Pet.human_attribute_name(:description)}: "
+      %p= @pet.description

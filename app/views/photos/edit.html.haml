@@ -1,0 +1,7 @@
+%h1= I18n.t('pets.photos.edit.title')
+
+= render 'form'
+
+= link_to 'Show', [@pet, @photo]
+\|
+= link_to 'Back', pet_photos_path

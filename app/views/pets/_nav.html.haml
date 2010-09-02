@@ -1,0 +1,18 @@
+- content_for :head do
+  = stylesheet_link_tag "pw.pets.nav", :cache => true
+
+%ul.nav
+  - case request[:action]
+  - when "index"
+  - when "show"
+    - if user_signed_in? && current_user == @pet.user
+      %li
+        = link_to I18n.t('pets.nav.edit', :pet => @pet.name), edit_pet_path(@pet), :class => 'button'
+      %li
+        = link_to I18n.t('pets.nav.add_photos', :pet => @pet.name), pet_photos_url(@pet), :class => 'button'
+  - when "new"
+  - when "edit"
+    %li
+      = link_to I18n.t('pets.nav.show', :pet => @pet.name), root_url, :class => 'button'
+  %li.back
+    = link_to I18n.t('pets.nav.pets_list'), root_url, :class => 'button'

@@ -1,0 +1,52 @@
+!!! 5
+%html
+
+  %head
+    %title
+      = t('title')
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag "reset", "application", "pw.forms", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css", :cache => true
+    :javascript
+      var RAILS_ENV = "#{Rails.env}";
+    = javascript_include_tag "jquery/jquery-1.4.1.js", "rails", "application", "pw/pw.init.js", "utils.js", :cache => true
+    = yield(:head)
+    %script{:type => "text/javascript", :src => "http://use.typekit.com/gvk4sry.js"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+    = csrf_meta_tag
+
+  %body
+    %header
+      .title_and_auth
+        .title
+          %a.pets{:href => '/', :title => I18n.t('title')} Pets
+          %a.waiting{:href => '/', :title => I18n.t('title')} Waiting
+          %a.subtitle{:href => '/'}= I18n.t('subtitle')
+        .auth
+          %ul
+            - unless user_signed_in?
+              %li= link_to t('layouts.application.authentication.signin'), new_user_session_path
+              %li= t('layouts.application.authentication.or')
+              %li= link_to t('layouts.application.authentication.signup'), new_user_registration_path
+            - else
+              %li= link_to t('layouts.application.my_profile')
+              %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
+
+    #content
+      .count
+        =I18n.t('layouts.application.counter.adopted', :count => 1 ) + I18n.t('layouts.application.counter.pets', :count => Pet.count )
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}", :class => %W{ flash #{name} }
+      = yield
+
+    %footer
+      .footer_links
+        %ul
+          %li
+            %a.colaborate{:href => '#', :title => I18n.t('layouts.application.footer.colaborate')}= I18n.t('layouts.application.footer.colaborate')
+          %li
+            %a.about{:href => '#', :title => I18n.t('layouts.application.footer.about')}= I18n.t('layouts.application.footer.about')
+          %li
+            %a.donations{:href => '#', :title => I18n.t('layouts.application.footer.donations')}= I18n.t('layouts.application.footer.donations')
+          %li
+            %a.contact{:href => '#', :title => I18n.t('layouts.application.footer.contact')}= I18n.t('layouts.application.footer.contact')
