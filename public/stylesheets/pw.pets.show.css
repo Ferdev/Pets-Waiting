@@ -1,12 +1,3 @@
-#content ul.nav {
-  padding: 1em 0 3em;
-  font-size: 0.7em; }
-  #content ul.nav li {
-    display: inline;
-    margin-right: 0.5em; }
-  #content ul.nav li.back {
-    float: right;
-    font-size: 1.5em; }
 #content ul.pet.detail {
   width: 600px;
   margin: 0 auto; }

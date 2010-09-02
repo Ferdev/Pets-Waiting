@@ -214,17 +214,18 @@ es:
       success: 'La mascota se ha actualizado correctamente.'
     new:
       title: 'Nueva mascota'
-      back: 'Volver'
+    edit:
+      title: 'Editar mascota'
     index:
       give_adoption: '¿Quieres dar un animal en adopción?'
       add_pet: 'Añadir una nueva mascota'
       show: 'Mostrar...'
       looking_place: '¿Quieres buscar de alguna zona en concreto?'
-    show:
-      nav:
-        edit: 'Editar los datos de %{pet}'
-        add_photos: 'Añadir fotos de %{pet}'
-        back: 'Volver'
+    nav:
+      show: 'Datos de %{pet}'
+      edit: 'Editar los datos de %{pet}'
+      add_photos: 'Añadir fotos de %{pet}'
+      pets_list: 'Lista de mascotas'
     _form:
       select_animal_first: 'Por favor, selecciona antes un tipo de animal'
       its_character: 'Su carácter'
@@ -244,6 +245,7 @@ es:
         add_photo: 'Añadir una foto'
         delete: 'Eliminar foto'
         delete_confirm: '¿Estás seguro?'
+        without_thumbnail: 'Crear miniatura'
       _form:
         select_file: 'Selecciona un archivo'
         browse: 'Buscar'

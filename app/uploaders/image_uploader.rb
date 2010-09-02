@@ -8,14 +8,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded
-  #     def default_url
-  #       "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  #     end
-
   process :resize_to_fit => [600, 1000]
 
   version :thumb do
+    process :crop_image
   end
 
   def extension_white_list
@@ -28,8 +24,18 @@ class ImageUploader < CarrierWave::Uploader::Base
         img.crop!(model.crop_x.to_i, model.crop_y.to_i, model.crop_w.to_i, model.crop_h.to_i)
         img
       end
+      model.update_attribute(:cropped, true)
     else
-      resize_to_fit(400, 400)
+      resize_to_fill(200, 200)
+      convert_image_to_black_and_white
     end
   end
+  
+  def convert_image_to_black_and_white
+    manipulate! do |img|
+      img.colorspace = Magick::GRAYColorspace
+      img
+    end
+  end
+
 end

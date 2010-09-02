@@ -85,11 +85,11 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
-    mysql (2.8.1)
     nokogiri (1.4.3.1)
+    pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
-    rack-mount (0.6.12)
+    rack-mount (0.6.13)
       rack (>= 1.0.0)
     rack-test (0.5.4)
       rack (>= 1.0)
@@ -156,7 +156,7 @@ DEPENDENCIES
   http_accept_language!
   launchy
   machinist
-  mysql
+  pg
   rails (~> 3.0.0.rc2)
   rails3-generators
   rmagick

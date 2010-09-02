@@ -24,3 +24,8 @@
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, $top_color),color-stop(1, $bottom_color))
   filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"
+
+@mixin decorate_image
+  @include box-shadow(0px 0px 2px #000000)
+  background-color: #092230
+  border: 1px solid #CCE5F4

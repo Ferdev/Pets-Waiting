@@ -18,15 +18,6 @@ Rspec.configure do |config|
     Rails.cache.clear
     DatabaseCleaner.clean
   end
-  
-  config.after(:all) do
-    # clean disk of uploaded photos
-    uploads_photo_dir = File.dirname(__FILE__) + '/../../public/uploads/photo'
-    uploads_tmp_dir = File.dirname(__FILE__) + '/../../public/uploads/tmp'
-    FileUtils.rm_r(uploads_photo_dir) if File.directory?(uploads_photo_dir)
-    FileUtils.rm_r(uploads_tmp_dir) if File.directory?(uploads_tmp_dir)
-  end
-  
 end
 
 Capybara::Driver::Selenium.class_eval do

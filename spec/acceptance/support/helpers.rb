@@ -55,10 +55,20 @@ module HelperMethods
     File.dirname(__FILE__) + '/../../fixtures/dog1.jpg'
   end
   
-  def create_photo
+  def create_photo(crop = nil)
     photo = Photo.make(:pet => @pet)
     photo.image = File.open(image_to_upload)
+    if crop
+      photo.crop_x = crop[:crop_x]
+      photo.crop_y = crop[:crop_y]
+      photo.crop_w = crop[:crop_w]
+      photo.crop_h = crop[:crop_h]
+    end
     photo.save!
+  end
+  
+  def create_photo_with_thumbnail
+    create_photo({:crop_x => 50, :crop_y => 50, :crop_w => 200, :crop_h => 200})
   end
 end
 

@@ -52,7 +52,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       begin
-        @photo.update_attributes(params[:photo])
+        @photo.update_and_crop(params[:photo])
         format.html { redirect_to(pet_photos_url, :notice => I18n.t('pets.photos.update.success')) }
       rescue Exception => e
         flash.now[:error] = I18n.t('pets.photos.update.error')

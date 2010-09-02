@@ -22,19 +22,29 @@ module PetsHelper
     }
   end
   
-  def random_thumbnails
-    critters.shuffle.each do |critter|
-      haml_tag :li do
-        haml_tag :a, :href => image_path("icons/critters/#{critter}") do
-          haml_tag :img, :src => image_path("icons/critters/#{critter}"), :alt => 'Critter'
-        end
-      end
-    end
+  def random_critter
+    "icons/critters/#{critters.choice}"
   end
   
   def thumbnail(pet)
-    thumbnail = pet.thumbnail
-    img_src = thumbnail ? thumbnail.url : "icons/critters/#{critters.choice}"
+    thumbnail = pet.random_thumbnail
+    img_src = thumbnail ? thumbnail.url : random_critter
     image_tag(img_src)
+  end
+  
+  def thumbnail_list(pet)
+    thumbnails = pet.thumbnails
+    unless thumbnails.nil? || thumbnails.empty?
+      thumbnails.each do |photo|
+        haml_tag :li do
+          haml_concat(link_to(image_tag(photo.image.thumb.url), photo.image.url))
+        end
+      end
+    else
+      critter_src = random_critter
+      haml_tag :li do
+        haml_concat(link_to(image_tag(critter_src), image_path(critter_src)))
+      end
+    end
   end
 end

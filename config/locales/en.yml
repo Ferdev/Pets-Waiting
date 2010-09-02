@@ -31,17 +31,18 @@ en:
       success: 'The pet was successfully updated.'
     new:
       title: 'New pet'
-      back: 'Back'
+    edit:
+      title: 'Edit pet'
     index:
       give_adoption: 'Do you want to give a pet up for adoption?'
       add_pet: 'Add a new pet'
       show: 'Show...'
       looking_place: 'Are you looking at some particular place?'
-    show:
-      nav:
-        edit: 'Edit %{pet}''s data'
-        add_photos: 'Add %{pet}''s photos'
-        back: 'Back'
+    nav:
+      show: '%{pet}''s data'
+      edit: 'Edit %{pet}''s data'
+      add_photos: 'Add %{pet}''s photos'
+      pets_list: 'Pets list'
     _form:
       select_animal_first: 'Please, select a kind of animal first'
       its_character: 'Its character'
@@ -61,6 +62,7 @@ en:
         add_photo: 'Add a photo'
         delete: 'Delete photo'
         delete_confirm: 'Are you sure?'
+        without_thumbnail: 'Generate thumbnail'
       _form:
         select_file: 'Select a file'
         browse: 'Browse'

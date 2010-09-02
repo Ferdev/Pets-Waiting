@@ -62,9 +62,13 @@ class Pet < ActiveRecord::Base
     address.address unless address.nil? || address.address.blank?
   end
   
-  def thumbnail
+  def thumbnails
     unless photos.empty?
-      photos.reject { |photo| photo.image.nil? || photo.image.thumb.nil? || photo.image.thumb.url.blank? }.choice.image.thumb
+      photos.select { |photo| photo.has_thumbnail? }
     end
+  end
+  
+  def random_thumbnail
+    thumbnails.choice.image.thumb unless thumbnails.nil? || thumbnails.empty?
   end
 end
