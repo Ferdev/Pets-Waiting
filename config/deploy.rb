@@ -1,9 +1,6 @@
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 require "rvm/capistrano"
-require 'capistrano/ext/multistage'
-require 'config/boot'
-
 
 ssh_options[:paranoid]      = false
 ssh_options[:forward_agent] = true
@@ -33,6 +30,10 @@ set :branch,        'master'
 set :git_enable_submodules, 1
 
 set :rails_env,     'production'
+
+role :app, "178.79.135.197"
+role :web, "178.79.135.197"
+role :db,  "178.79.135.197", :primary => true
 
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do 
@@ -68,32 +69,32 @@ end
 namespace :god do
   
   task :restart_unicorn, :roles => :app do
-    sudo "system_god restart pw_unicorn"
+    run "system_god restart pw_unicorn"
   end
   
   desc "Reload config"
   task :reload, :roles => :app do
-    sudo "system_god load #{deploy_to}/current/config/god/unicorn.god"
+    run "system_god load /etc/god/config.god"
   end  
 
   desc "Start god"
   task :start, :roles => :app do
-    sudo "system_god -c /etc/god/config.god"
+    run "system_god -c /etc/god/config.god"
   end
   
   desc "Quit god, but not the processes it's monitoring"
   task :quit, :roles => :app do
-    sudo "system_god quit"
+    run "system_god quit"
   end
 
   desc "Terminate god and all monitored processes"
   task :terminate, :roles => :app do
-    sudo "system_god terminate"
+    run "system_god terminate"
   end
 
   desc "Describe the status of the running tasks"
   task :status, :roles => :app do
-    sudo "system_god status"
+    run "system_god status"
   end
 end
 
