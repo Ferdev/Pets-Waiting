@@ -4,6 +4,7 @@ db/schema.rb
 log/*.log
 tmp/**/*
 config/database.yml
+config/database.yml.example
 .DS_Store
 *.tmproj
 capybara*
