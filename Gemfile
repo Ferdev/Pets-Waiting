@@ -12,7 +12,7 @@ gem 'haml'
 gem 'devise', '~> 1.1.rc.2'
 gem 'formtastic', '~> 1.1.0.beta'
 gem 'globalize3'
-gem 'http_accept_language', :git => 'http://github.com/iain/http_accept_language.git'
+gem 'rack-contrib', :require => 'rack/contrib'
 gem 'carrierwave', '~> 0.5.0.beta2'
 gem 'rmagick'
 
