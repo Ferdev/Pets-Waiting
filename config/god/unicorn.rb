@@ -16,7 +16,6 @@ God.watch do |w|
   w.pid_file = "#{PID_DIR}/unicorn.pid"
 
   w.uid = 'fer'
-  w.gid = 'fer'
 
   w.behavior(:clean_pid_file)
 
