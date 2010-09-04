@@ -1,9 +1,3 @@
-GIT
-  remote: http://github.com/iain/http_accept_language.git
-  revision: 0b78aa7
-  specs:
-    http_accept_language (1.0.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -100,6 +94,8 @@ GEM
     pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
+    rack-contrib (1.0.1)
+      rack (>= 0.9.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
     rack-test (0.5.4)
@@ -167,10 +163,10 @@ DEPENDENCIES
   globalize3
   god
   haml
-  http_accept_language!
   launchy
   machinist
   pg
+  rack-contrib
   rails (~> 3.0.0.rc2)
   rails3-generators
   rmagick
