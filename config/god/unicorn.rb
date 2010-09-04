@@ -1,5 +1,3 @@
-# http://unicorn.bogomips.org/SIGNALS.html
-
 God.watch do |w|
   w.name = "pw_unicorn"
   w.interval = 30.seconds # default
