@@ -4,16 +4,6 @@ GIT
   specs:
     http_accept_language (1.0.1)
 
-GIT
-  remote: http://github.com/justinfrench/formtastic.git
-  revision: e42d256
-  branch: rails3
-  specs:
-    formtastic (1.1.0.beta)
-      actionpack (>= 2.3.0)
-      activesupport (>= 2.3.0)
-      i18n (>= 0.4.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -78,6 +68,10 @@ GEM
     faker (0.3.1)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    formtastic (1.1.0.beta)
+      actionpack (>= 2.3.0)
+      activesupport (>= 2.3.0)
+      i18n (>= 0.4.0)
     globalize3 (0.0.7)
       activerecord (>= 3.0.0.rc)
     god (0.11.0)
@@ -169,7 +163,7 @@ DEPENDENCIES
   database_cleaner
   devise (~> 1.1.rc.2)
   faker
-  formtastic!
+  formtastic (~> 1.1.0.beta)
   globalize3
   god
   haml
