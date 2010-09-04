@@ -68,32 +68,32 @@ end
 namespace :god do
   
   task :restart_unicorn, :roles => :app do
-    run "system_god restart pw_unicorn"
+    run "god restart pw_unicorn"
   end
   
   desc "Reload config"
   task :reload, :roles => :app do
-    run "system_god load /etc/god/config.god"
+    run "god load /etc/god/config.god"
   end  
 
   desc "Start god"
   task :start, :roles => :app do
-    run "system_god -c /etc/god/config.god"
+    run "god -c /etc/god/config.god"
   end
   
   desc "Quit god, but not the processes it's monitoring"
   task :quit, :roles => :app do
-    run "system_god quit"
+    run "god quit"
   end
 
   desc "Terminate god and all monitored processes"
   task :terminate, :roles => :app do
-    run "system_god terminate"
+    run "god terminate"
   end
 
   desc "Describe the status of the running tasks"
   task :status, :roles => :app do
-    run "system_god status"
+    run "god status"
   end
 end
 
