@@ -1,5 +1,5 @@
 - content_for :head do
-  = stylesheet_link_tag "pw.pets.photos.index", :cache => true
+  = stylesheet_link_tag "pw.pets.photos.index"
 %h1= I18n.t('pets.photos.index.title', :pet => @pet.name)
 
 =link_to I18n.t('pets.photos.index.add_photo'), new_pet_photo_path, :class => 'button'
