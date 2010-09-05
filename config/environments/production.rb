@@ -38,15 +38,6 @@ PetsWaiting::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { :host => 'www.petswaiting.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => APP_CONFIG[:production][:smtp][:address],
-    :port                 => APP_CONFIG[:production][:smtp][:port],
-    :domain               => APP_CONFIG[:production][:smtp][:domain],
-    :user_name            => APP_CONFIG[:production][:smtp][:user_name],
-    :password             => APP_CONFIG[:production][:smtp][:password],
-    :authentication       => APP_CONFIG[:production][:smtp][:authentication],
-    :enable_starttls_auto => APP_CONFIG[:production][:smtp][:enable_starttls_auto]
-  }
 
   # Enable threaded mode
   # config.threadsafe!
