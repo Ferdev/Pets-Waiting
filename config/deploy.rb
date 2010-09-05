@@ -55,6 +55,11 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
   end
   
+  desc "Symlinks the app_config.yml"
+  task :symlink_app_config, :roles => :app do
+    run "ln -nfs #{deploy_to}/shared/config/app_config.yml #{release_path}/config/app_config.yml"
+  end
+  
 end
 
 namespace :db do
@@ -62,6 +67,14 @@ namespace :db do
   task :database_yml, :roles => :app do
     run "mkdir #{deploy_to}/shared/config ; true"
     upload("config/database.yml.example", "#{deploy_to}/shared/config/database.yml")
+  end
+end
+
+namespace :config do
+  desc "Copy local app_config.yml to server"
+  task :app_config, :roles => :app do
+    run "mkdir #{deploy_to}/shared/config ; true"
+    upload("config/app_config.yml", "#{deploy_to}/shared/config/app_config.yml")
   end
 end
 
@@ -124,6 +137,7 @@ end
 
 after "deploy:update_code" do
   deploy.symlink_db
+  deploy.symlink_app_config
   deploy.bundle
   deploy.migrate
 end
