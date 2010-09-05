@@ -5,6 +5,7 @@ log/*.log
 tmp/**/*
 config/database.yml
 config/database.yml.example
+config/app_config.yml
 .DS_Store
 *.tmproj
 capybara*

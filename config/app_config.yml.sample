@@ -1,0 +1,27 @@
+development:
+  smtp:
+    address: 'smtp.gmail.com'
+    port: 587
+    domain: 'petswaiting.com'
+    user_name: 'fur'
+    password: ''
+    authentication: 'plain'
+    enable_starttls_auto: true
+test:
+  smtp:
+    address: 'smtp.gmail.com'
+    port: 587
+    domain: 'petswaiting.com'
+    user_name: 'fur'
+    password: ''
+    authentication: 'plain'
+    enable_starttls_auto: true
+production:
+  smtp:
+    address: 'smtp.gmail.com'
+    port: 587
+    domain: 'petswaiting.com'
+    user_name: 'fur'
+    password: ''
+    authentication: 'plain'
+    enable_starttls_auto: true
