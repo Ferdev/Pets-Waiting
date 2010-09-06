@@ -1,1 +1,1 @@
-ActionMailer::Base.smtp_settings = APP_CONFIG[:smtp_settings].to_options!
+ActionMailer::Base.smtp_settings = APP_CONFIG[:smtp_settings].to_options! unless APP_CONFIG[:smtp_settings].nil?
