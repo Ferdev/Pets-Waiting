@@ -60,6 +60,12 @@ namespace :deploy do
     run "ln -nfs #{deploy_to}/shared/config/app_config.yml #{release_path}/config/app_config.yml"
   end
   
+  desc "Symlinks uploads folder"
+  task :symlink_uploads_folder, :roles => :app do
+    run "mkdir -m 777 #{deploy_to}/shared/uploads ; true"
+    run "ln -nf #{deploy_to}/shared/uploads/ #{release_path}/public/uploads"
+  end
+  
 end
 
 namespace :db do
@@ -138,6 +144,7 @@ end
 after "deploy:update_code" do
   deploy.symlink_db
   deploy.symlink_app_config
+  deploy.symlink_uploads_folder
   deploy.bundle
   deploy.migrate
 end
