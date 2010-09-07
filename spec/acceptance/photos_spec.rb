@@ -30,7 +30,7 @@ feature "Images upload", %q{
       page.should have_content("Add a thumbnail to the photo")
       page.should have_css('#photo')
       page.should have_css('#thumbnail')
-      page.execute_script('$.pw.pets.photos.form.ias.setSelection(50, 50, 250, 250, true);$.pw.pets.photos.form.ias.update();')
+      page.execute_script('$.pw.pets.photos.form.jcrop.setSelect([50, 50, 250, 250]);')
       find('#photo_crop_x').value.should eq('50')
       find('#photo_crop_y').value.should eq('50')
       find('#photo_crop_w').value.should eq('200')
@@ -80,7 +80,7 @@ feature "Images upload", %q{
         find('img')[:src].should match(/uploads\/photo\/image\/\d*\/thumb_dog1\.jpg.*/)
         click_link('Generate thumbnail')
       end
-      page.execute_script('$.pw.pets.photos.form.ias.setSelection(50, 50, 250, 250, true);$.pw.pets.photos.form.ias.update();')
+      page.execute_script('$.pw.pets.photos.form.jcrop.setSelect([50, 50, 250, 250]);')
       click_button('Update Photo')
       page.should have_css('ul.photos li img')
       page.should have_no_content('Generate thumbnail')

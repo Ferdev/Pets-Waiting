@@ -23,7 +23,7 @@ feature "Pets", %q{
       should_fill_address_fields
       select(4.years.ago.strftime("%Y") , :from => 'Year')
       select(4.years.ago.strftime("%B") , :from => 'Month')
-      select(4.years.ago.strftime("%d") , :from => 'Day')
+      select(4.years.ago.strftime("%d").to_i.to_s , :from => 'Day')
       check('Urgent adoption')
       check('Docile')
       check('Playful')
