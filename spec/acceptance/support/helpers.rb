@@ -28,7 +28,8 @@ module HelperMethods
   end
   
   def create_pet
-    @pet = Pet.make(:address => Address.make, :user => @current_user)
+    breed = Breed.exists? ? Breed.first : Breed.make
+    @pet = Pet.make(:address => Address.make, :user => @current_user, :animal => breed.animal, :breed => breed)
   end
   
   def should_fill_address_fields
