@@ -27,8 +27,6 @@ end
 
 Pet.blueprint do
   name { 'Wadus' }
-  animal
-  breed
   sex
   birthday { 4.years.ago }
   size

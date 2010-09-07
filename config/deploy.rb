@@ -63,7 +63,7 @@ namespace :deploy do
   desc "Symlinks uploads folder"
   task :symlink_uploads_folder, :roles => :app do
     run "mkdir -m 777 #{deploy_to}/shared/uploads ; true"
-    run "ln -nf #{deploy_to}/shared/uploads/ #{release_path}/public/uploads"
+    run "ln -nfs #{deploy_to}/shared/uploads/ #{release_path}/public/uploads"
   end
   
 end

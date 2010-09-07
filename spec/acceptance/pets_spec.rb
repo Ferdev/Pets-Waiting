@@ -23,7 +23,7 @@ feature "Pets", %q{
       should_fill_address_fields
       select(4.years.ago.strftime("%Y") , :from => 'Year')
       select(4.years.ago.strftime("%B") , :from => 'Month')
-      select(4.years.ago.strftime("%d") , :from => 'Day')
+      select(4.years.ago.strftime("%d").to_i.to_s , :from => 'Day')
       check('Urgent adoption')
       check('Docile')
       check('Playful')
@@ -68,7 +68,7 @@ feature "Pets", %q{
     background do
       # For some reason, creating the address association in the pet's blueprint doesn't work
       # (the address' blueprint is not invoked)
-      Pet.make(:address => Address.make)
+      create_pet
     end
     
     scenario "can see a list of pets" do
@@ -142,7 +142,7 @@ feature "Pets", %q{
   end
   
   context "Guests" do
-
+  
     scenario "can't register a new pet" do
       visit homepage
       click_link('Add a new pet')
@@ -152,7 +152,7 @@ feature "Pets", %q{
     end
     
     scenario "can't edit an existing pet" do
-      Pet.make(:address => Address.make)
+      create_pet
       visit homepage
       click_link('Wadus')
       page.should have_no_content('Edit')

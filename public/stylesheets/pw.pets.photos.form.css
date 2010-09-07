@@ -1,7 +1,7 @@
 #prettyfile_tmp {
   display: none; }
 
-#photo {
+.jcrop-holder {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: top;
