@@ -9,7 +9,7 @@ $.extend($.pw.pets, {
     loading: false,
     
     events: function(){
-
+      $('div.pagination').remove();
       $(document).scroll(function(evt){
         var 
           total_height  = $(this).height(),

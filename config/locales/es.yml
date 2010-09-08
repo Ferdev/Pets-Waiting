@@ -328,3 +328,6 @@ es:
     errors:
       integrity: 'No es una imagen.'
       processing: 'No se pudo redimensionar la imagen.'
+  willpaginate:
+    previous: '&#8592; Anterior'
+    next: 'Siguiente &#8594;'

@@ -74,9 +74,11 @@ feature "Pets", %q{
       visit homepage
       page.should have_css('.pets.filters')
       page.should have_css('.pets.results ul li.pet', :count => 32)
+      page.should have_no_css('.pets.results .pagination')
       within('.pets.results ul li.pet:first-child') do
         page.should have_css('span.name', :text => 'Scroophy0')
         page.should have_css('span.animal', :text => "Kind of animal: Dog")
+        page.should have_css('span.breed', :text => "Breed: Crossbred")
         page.should have_css('span.sex', :text => "Sex: Male")
         page.should have_css('span.age', :text => "Age: about 4 years")
         page.should have_css('span.place', :text => "Place: Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain")
@@ -93,20 +95,40 @@ feature "Pets", %q{
       page.should have_no_css('.pets.results ul li.loading')
       page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy95')
     end
-
+  
   end
   
   context "Everyone" do
     background do
-      create_pet
+      create_pets(96)
+    end
+    
+    scenario "can see a list of pets" do
+      visit homepage
+      page.should have_css('.pets.filters')
+      page.should have_css('.pets.results ul li.pet', :count => 32)
+      page.should have_css('.pets.results .pagination')
+      within('.pets.results ul li.pet:first-child') do
+        page.should have_css('span.name', :text => 'Scroophy0')
+        page.should have_css('span.animal', :text => "\nKind of animal:\nDog\n")
+        page.should have_css('span.breed', :text => "\nBreed:\nCrossbred\n")
+        page.should have_css('span.sex', :text => "\nSex:\nMale\n")
+        page.should have_css('span.age', :text => "\nAge:\nabout 4 years\n")
+        page.should have_css('span.place', :text => "\nPlace:\nCalle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain\n")
+        page.should have_css('span.urgent', :text => "Urgent adoption")
+      end
+      click_link('2')
+      page.should have_css('.pets.results ul li.pet', :count => 32)
+      page.should have_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy32')
+      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy63')
     end
     
     scenario "can see a pet's detail" do
       visit homepage
-      click_link('Wadus')
+      click_link('Scroophy0')
       within('ul.pet.detail') do
         within('li.name') do
-          page.should have_content('Wadus')
+          page.should have_content('Scroophy0')
         end
         within('li.photos') do
           page.should have_css('.ad-gallery')
@@ -154,6 +176,8 @@ feature "Pets", %q{
         end
       end
     end
+    
+    
   end
   
   context "Guests" do

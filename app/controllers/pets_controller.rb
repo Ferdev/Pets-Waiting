@@ -2,12 +2,12 @@ class PetsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
-    @page = 1
+    page = 1
     unless params[:page].blank?
-      @page = params[:page]
+      page = params[:page]
     end
     
-    @pets = Pet.paginate :page => @page
+    @pets = Pet.paginate :page => page
 
     respond_to do |format|
       format.html {render :action => 'index', :layout => request.xhr? ? false : 'application' }

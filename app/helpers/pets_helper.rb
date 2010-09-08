@@ -49,7 +49,7 @@ module PetsHelper
   end
   
   def render_pets_list
-    if @page == 1
+    unless request.xhr?
       render :partial => 'index_header', :locals => { :pets => @pets } 
     else
       render @pets

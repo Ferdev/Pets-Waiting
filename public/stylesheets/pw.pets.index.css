@@ -43,6 +43,7 @@
         zoom: 1;
         *display: inline;
         padding: 10px;
+        margin: 0 0 2em;
         width: 202px;
         color: #124462;
         font-size: 0.8em;
@@ -100,6 +101,8 @@
     #content .pets.results ul li.loading {
       text-align: center;
       padding: 25px 0; }
+  #content .pets.results .pagination a, #content .pets.results .pagination em, #content .pets.results .pagination span {
+    margin: 0 0.2em; }
 
 span.spinner {
   padding: 50px;

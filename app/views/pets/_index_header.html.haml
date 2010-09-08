@@ -31,3 +31,4 @@
 .pets.results
   %ul
     = render pets
+  = will_paginate pets, { :previous_label => I18n.t('willpaginate.previous'), :next_label => I18n.t('willpaginate.next')}
