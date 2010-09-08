@@ -1,0 +1,33 @@
+.pets.add_pet
+  %h1
+    = I18n.t('pets.index.give_adoption')
+  %a.button.add_pet{:href => new_pet_url}
+    %span.plus +
+    = I18n.t('pets.index.add_pet')
+.pets.filters
+  %h1= I18n.t('pets.index.show')
+  %ul
+    %li
+      %a.button{:href => '#'} Urgent
+    %li        
+      %a.button{:href => '#'} Dogs
+    %li        
+      %a.button{:href => '#'} Cats
+    %li        
+      %a.button{:href => '#'} Birds
+    %li        
+      %a.button{:href => '#'} Rodents
+    %li        
+      %a.button{:href => '#'} Reptiles
+    %li        
+      %a.button{:href => '#'} Other species
+    %li        
+      %a.button{:href => '#'} Males
+    %li        
+      %a.button{:href => '#'} Females
+.pets.place
+  %h1= I18n.t('pets.index.looking_place')
+  %input.where{:type => "text", :placeholder => "Country, state, province, city..."}
+.pets.results
+  %ul
+    = render pets

@@ -27,9 +27,23 @@ module HelperMethods
     Size.make
   end
   
-  def create_pet
+  def create_pet(attributes = {})
     breed = Breed.exists? ? Breed.first : Breed.make
-    @pet = Pet.make(:address => Address.make, :user => @current_user, :animal => breed.animal, :breed => breed)
+    defaults = { 
+      :address => Address.make, 
+      :user => @current_user, 
+      :animal => breed.animal, 
+      :breed => breed, 
+      :description => lorem 
+    }
+    attributes = defaults.merge(attributes)
+    @pet = Pet.make(attributes)
+  end
+  
+  def create_pets(number = 64)
+    number.times do |i|
+      create_pet(:name => "Scroophy#{i}")
+    end
   end
   
   def should_fill_address_fields
@@ -70,6 +84,10 @@ module HelperMethods
   
   def create_photo_with_thumbnail
     create_photo({:crop_x => 50, :crop_y => 50, :crop_w => 200, :crop_h => 200})
+  end
+  
+  def scroll_all_page_down
+    page.execute_script("$(document).scrollTop($(document).height());")
   end
 end
 

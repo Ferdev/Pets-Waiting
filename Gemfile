@@ -15,6 +15,7 @@ gem 'globalize3'
 gem 'rack-contrib', :require => 'rack/contrib'
 gem 'carrierwave', '~> 0.5.0.beta2'
 gem 'rmagick'
+gem 'will_paginate', '~> 3.0.pre2'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => "sqlite3"

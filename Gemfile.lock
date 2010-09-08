@@ -147,6 +147,7 @@ GEM
       rack
     warden (0.10.7)
       rack (>= 1.0.0)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -175,3 +176,4 @@ DEPENDENCIES
   sqlite3-ruby
   steak (~> 0.4.0.beta.1)
   unicorn
+  will_paginate (~> 3.0.pre2)

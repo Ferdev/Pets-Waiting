@@ -29,7 +29,7 @@ feature "Pets", %q{
       check('Playful')
       check('Obedient')
       select('Medium', :from => 'Size')
-      fill_in('Description', :with => Faker::Lorem.paragraphs)
+      fill_in('Description', :with => lorem)
       assert_difference "Pet.count", 1 do
         click_button('Save Pet')
         page.should have_content('The pet was successfully saved.')
@@ -64,25 +64,41 @@ feature "Pets", %q{
     
   end
   
-  context "Everyone" do
+  context "Everyone (with javascript enabled)" do
     background do
-      # For some reason, creating the address association in the pet's blueprint doesn't work
-      # (the address' blueprint is not invoked)
-      create_pet
+      create_pets(96)
+      enable_javascript
     end
     
     scenario "can see a list of pets" do
       visit homepage
       page.should have_css('.pets.filters')
-      page.should have_css('.pets.results')
-      within('.pets.results ul li.pet a') do
-        page.should have_css('span.name', :text => 'Wadus')
-        page.should have_css('span.animal', :text => "\nKind of animal:\nDog\n")
-        page.should have_css('span.sex', :text => "\nSex:\nMale\n")
-        page.should have_css('span.age', :text => "\nAge:\nabout 4 years\n")
-        page.should have_css('span.place', :text => "\nPlace:\nCalle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain\n")
+      page.should have_css('.pets.results ul li.pet', :count => 32)
+      within('.pets.results ul li.pet:first-child') do
+        page.should have_css('span.name', :text => 'Scroophy0')
+        page.should have_css('span.animal', :text => "Kind of animal: Dog")
+        page.should have_css('span.sex', :text => "Sex: Male")
+        page.should have_css('span.age', :text => "Age: about 4 years")
+        page.should have_css('span.place', :text => "Place: Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain")
         page.should have_css('span.urgent', :text => "Urgent adoption")
       end
+      scroll_all_page_down
+      page.should have_css('.pets.results ul li.loading')
+      page.should have_css('.pets.results ul li.pet', :count => 64)
+      page.should have_no_css('.pets.results ul li.loading')
+      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy63')
+      scroll_all_page_down
+      page.should have_css('.pets.results ul li.loading')
+      page.should have_css('.pets.results ul li.pet', :count => 96)
+      page.should have_no_css('.pets.results ul li.loading')
+      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy95')
+    end
+
+  end
+  
+  context "Everyone" do
+    background do
+      create_pet
     end
     
     scenario "can see a pet's detail" do
@@ -127,7 +143,6 @@ feature "Pets", %q{
           all('ul li')[0].text.should eq('Docile')
           all('ul li')[1].text.should eq('Playful')
           all('ul li')[2].text.should eq('Obedient')
-          # page.should have_css('ul li', :text => 'Docile Playful Obedient')
         end
         within('li.size') do
           page.should have_css('span.label', :text => 'Size:')

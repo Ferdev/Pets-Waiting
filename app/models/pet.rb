@@ -71,4 +71,8 @@ class Pet < ActiveRecord::Base
   def random_thumbnail
     thumbnails.choice.image.thumb unless thumbnails.nil? || thumbnails.empty?
   end
+  
+  def self.per_page
+    32
+  end
 end

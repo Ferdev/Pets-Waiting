@@ -1,0 +1,22 @@
+%li.pet
+  %a{:href => url_for(pet)}
+    = thumbnail(pet)
+    %span.name= pet.name.capitalize
+    - if pet.animal
+      %span.animal
+        %span.label="#{Pet.human_attribute_name(:animal)}:"
+        = pet.animal.name
+    - if pet.sex
+      %span.sex
+        %span.label="#{Pet.human_attribute_name(:sex)}:"
+        = pet.sex.name
+    - if pet.birthday
+      %span.age
+        %span.label="#{Pet.human_attribute_name(:age)}:"                
+        = time_ago_in_words(pet.birthday)
+    - if pet.place
+      %span.place
+        %span.label="#{Pet.human_attribute_name(:place)}:"
+        = pet.place
+    - if pet.urgent
+      %span.urgent= Pet.human_attribute_name(:urgent)

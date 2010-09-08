@@ -47,4 +47,12 @@ module PetsHelper
       end
     end
   end
+  
+  def render_pets_list
+    if @page == 1
+      render :partial => 'index_header', :locals => { :pets => @pets } 
+    else
+      render @pets
+    end
+  end
 end
