@@ -17,9 +17,12 @@
       color: #69dd00;
       font-weight: bold;
       text-shadow: 0 -1px 0 black; }
-#content .pets.filters ul li {
-  display: inline;
-  margin-right: 0.4em; }
+#content .pets.filters ul {
+  text-align: center; }
+  #content .pets.filters ul li {
+    display: inline;
+    margin-right: 0.4em;
+    font-size: 0.8em; }
 #content .pets.filters a.button:active,
 #content .pets.filters a.button.active {
   background-image: -moz-linear-gradient(top, #f48a2c, #92531a);
@@ -43,6 +46,7 @@
         zoom: 1;
         *display: inline;
         padding: 10px;
+        margin: 0 0.5em 2em;
         width: 202px;
         color: #124462;
         font-size: 0.8em;
@@ -63,6 +67,7 @@
             font-weight: bold;
             display: inline; }
         #content .pets.results ul li.pet a span.name {
+          margin: 0.5em 0 0;
           font-size: 1.5em;
           text-align: center;
           line-height: 1.5em;
@@ -100,6 +105,8 @@
     #content .pets.results ul li.loading {
       text-align: center;
       padding: 25px 0; }
+  #content .pets.results .pagination a, #content .pets.results .pagination em, #content .pets.results .pagination span {
+    margin: 0 0.2em; }
 
 span.spinner {
   padding: 50px;

@@ -38,6 +38,16 @@ en:
       add_pet: 'Add a new pet'
       show: 'Show...'
       looking_place: 'Are you looking at some particular place?'
+      filters:
+        urgents: 'Urgents'
+        dogs: 'Dogs'
+        cats: 'Cats'
+        birds: 'Birds'
+        little_mammals: 'Little mammals'
+        reptiles: 'Reptiles'
+        other_species: 'Other species'
+        males: 'Males'
+        females: 'Females'
     nav:
       show: '%{pet}''s data'
       edit: 'Edit %{pet}''s data'
@@ -141,3 +151,6 @@ en:
     errors:
       integrity: 'Not an image.'
       processing: 'Cannot resize image.'
+  willpaginate:
+    previous: '&#8592; Previous'
+    next: 'Next &#8594;'

@@ -18,9 +18,32 @@ Animal.blueprint do
   name { "Dog" }
 end
 
+Animal.blueprint(:dog) do
+  name { "Dog" }
+end
+
+Animal.blueprint(:cat) do
+  name { "Cat" }
+end
+
+Animal.blueprint(:bird) do
+  name { "Bird" }
+end
+
+Animal.blueprint(:little_mammal) do
+  name { "Little mammals" }
+end
+
+Animal.blueprint(:reptile) do
+  name { "Reptile" }
+end
+
+Animal.blueprint(:other_species) do
+  name { "Other species" }
+end
+
 Breed.blueprint do
   name { "Crossbred" }
-  animal
 end
 
 Pet.blueprint do

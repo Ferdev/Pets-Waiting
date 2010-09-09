@@ -15,6 +15,7 @@ Rspec.configure do |config|
 
   config.before(:each) do
     Capybara.use_default_driver
+    Capybara.reset_sessions!
     Rails.cache.clear
     DatabaseCleaner.clean
   end

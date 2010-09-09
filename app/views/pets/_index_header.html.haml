@@ -5,29 +5,31 @@
     %span.plus +
     = I18n.t('pets.index.add_pet')
 .pets.filters
-  %h1= I18n.t('pets.index.show')
-  %ul
-    %li
-      %a.button{:href => '#'} Urgent
-    %li        
-      %a.button{:href => '#'} Dogs
-    %li        
-      %a.button{:href => '#'} Cats
-    %li        
-      %a.button{:href => '#'} Birds
-    %li        
-      %a.button{:href => '#'} Rodents
-    %li        
-      %a.button{:href => '#'} Reptiles
-    %li        
-      %a.button{:href => '#'} Other species
-    %li        
-      %a.button{:href => '#'} Males
-    %li        
-      %a.button{:href => '#'} Females
+  = form_tag pets_path, :method => 'get' do
+    %h1= I18n.t('pets.index.show')
+    %ul
+      %li.urgents
+        = link_to I18n.t('pets.index.filters.urgents'), pets_path(:filters => {:urgent => true}), :class => :button
+      %li.dogs
+        = link_to I18n.t('pets.index.filters.dogs'), pets_path(:filters => {:animal => Animal.dog.id}), :class => classes_for_dog_button
+      %li.cats
+        = link_to I18n.t('pets.index.filters.cats'), pets_path(:filters => {:animal => Animal.cat.id}), :class => classes_for_cat_button
+      %li.birds
+        = link_to I18n.t('pets.index.filters.birds'), pets_path(:filters => {:animal => Animal.bird.id}), :class => classes_for_bird_button
+      %li.little_mammals
+        = link_to I18n.t('pets.index.filters.little_mammals'), pets_path(:filters => {:animal => Animal.little_mammal.id}), :class => classes_for_little_mammal_button
+      %li.reptiles
+        = link_to I18n.t('pets.index.filters.reptiles'), pets_path(:filters => {:animal => Animal.reptile.id}), :class => classes_for_reptile_button
+      %li.other_species
+        = link_to I18n.t('pets.index.filters.other_species'), pets_path(:filters => {:animal => Animal.other_species.id}), :class => classes_for_other_species_button
+      %li.male
+        %a.button{:href => '#'}= I18n.t('pets.index.filters.males')
+      %li.female
+        %a.button{:href => '#'}= I18n.t('pets.index.filters.females')
 .pets.place
   %h1= I18n.t('pets.index.looking_place')
   %input.where{:type => "text", :placeholder => "Country, state, province, city..."}
 .pets.results
   %ul
     = render pets
+  = will_paginate pets, { :previous_label => I18n.t('willpaginate.previous'), :next_label => I18n.t('willpaginate.next')}

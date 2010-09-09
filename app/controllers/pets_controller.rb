@@ -2,12 +2,7 @@ class PetsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
-    @page = 1
-    unless params[:page].blank?
-      @page = params[:page]
-    end
-    
-    @pets = Pet.paginate :page => @page
+    @pets = Pet.filtered(extract_filters).paginate :page => get_page, :per_page => 32
 
     respond_to do |format|
       format.html {render :action => 'index', :layout => request.xhr? ? false : 'application' }
@@ -68,4 +63,38 @@ class PetsController < ApplicationController
       format.html { redirect_to(pets_url) }
     end
   end
+  
+  private
+    def get_page
+      params[:page].blank? ? 1 : params[:page]
+    end
+  
+    def extract_filters
+      session[:filters] = {} unless session[:filters].present?
+      
+      # We don't want to process new filters if we're just paginating
+      return session[:filters] if params[:page].present?
+      
+      filters = params[:filters]
+      
+      unless filters.blank?
+        extract_animal_filters(filters)
+      end
+      session[:filters]
+    end
+    
+    def extract_animal_filters(filters)
+
+      if filters[:animal].present?
+        animal_id = session[:filters][:animal_id] || []
+
+        if animal_id.include?(filters[:animal])
+          animal_id.delete(filters[:animal])
+        else
+          animal_id.push(filters[:animal])
+        end
+        session[:filters][:animal_id] = animal_id
+      end
+
+    end
 end

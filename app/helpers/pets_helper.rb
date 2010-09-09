@@ -49,10 +49,19 @@ module PetsHelper
   end
   
   def render_pets_list
-    if @page == 1
+    unless request.xhr?
       render :partial => 'index_header', :locals => { :pets => @pets } 
     else
       render @pets
+    end
+  end
+  
+  def method_missing(method_name)
+    if animal  = /classes_for_(\w*)_button/.match(method_name.to_s)[1]
+      classes = [:button]
+      filters = session[:filters]
+      classes.push(:active) if filters.present? && filters[:animal_id].include?( Animal.send("#{animal}").id.to_s )
+      classes
     end
   end
 end

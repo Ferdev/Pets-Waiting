@@ -11,6 +11,7 @@ feature "Images upload", %q{
   context "Signed in user with no photos uploaded" do
     background do
       enable_javascript
+      load_master_tables
       create_and_sign_in_user
       create_pet
     end
@@ -42,6 +43,7 @@ feature "Images upload", %q{
   
   context "Signed in user with one photo uploaded" do
     background do
+      load_master_tables
       create_and_sign_in_user
       create_pet
       create_photo_with_thumbnail
@@ -65,6 +67,7 @@ feature "Images upload", %q{
   context "Signed in user with one photo uploaded (without thumbnail)" do
     background do
       enable_javascript
+      load_master_tables
       create_and_sign_in_user
       create_pet
       create_photo
@@ -90,6 +93,7 @@ feature "Images upload", %q{
   
   context "Everybody" do
     background do
+      load_master_tables
       create_pet
       create_photo
     end
@@ -106,6 +110,7 @@ feature "Images upload", %q{
   context "Everybody" do
     background do
       enable_javascript
+      load_master_tables
       create_pet
     end
     

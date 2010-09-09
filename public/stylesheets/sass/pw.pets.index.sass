@@ -23,9 +23,11 @@
         text-shadow: 0 -1px 0 #000000
   .pets.filters
     ul
+      text-align: center
       li
         display: inline
         margin-right: .4em
+        font-size: .8em
     a.button:active,
     a.button.active
       @include gradient(#f48a2c, #92531a)
@@ -42,6 +44,7 @@
         a
           @include inline-block
           padding: 10px
+          margin: 0 .5em 2em
           width: 202px
           color: #124462
           font-size: .8em
@@ -58,6 +61,7 @@
               font-weight: bold
               display: inline
           span.name
+            margin: .5em 0 0
             font-size: 1.5em
             text-align: center
             line-height: 1.5em
@@ -89,6 +93,9 @@
       li.loading
         text-align: center
         padding: 25px 0
+    .pagination
+      a, em, span
+        margin: 0 .2em
     
 span.spinner
   padding: 50px

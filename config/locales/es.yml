@@ -221,6 +221,17 @@ es:
       add_pet: 'Añadir una nueva mascota'
       show: 'Mostrar...'
       looking_place: '¿Quieres buscar de alguna zona en concreto?'
+      filters:
+        urgents: 'Urgentes'
+        dogs: 'Perros'
+        cats: 'Gatos'
+        birds: 'Aves'
+        little_mammals: 'Pequeños mamíferos'
+        reptiles: 'Reptiles'
+        other_species: 'Otras especies'
+        males: 'Machos'
+        females: 'Hembras'
+
     nav:
       show: 'Datos de %{pet}'
       edit: 'Editar los datos de %{pet}'
@@ -328,3 +339,6 @@ es:
     errors:
       integrity: 'No es una imagen.'
       processing: 'No se pudo redimensionar la imagen.'
+  willpaginate:
+    previous: '&#8592; Anterior'
+    next: 'Siguiente &#8594;'

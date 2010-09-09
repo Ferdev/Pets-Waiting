@@ -1,3 +1,3 @@
-raw_config = File.read("#{Rails.root}/config/app_config.yml")
-APP_CONFIG = YAML.load(raw_config)[Rails.env]
-APP_CONFIG = APP_CONFIG.to_options! unless APP_CONFIG.nil?
+app_config_file = File.read("#{Rails.root}/config/app_config.yml")
+raw_config = YAML.load(app_config_file)[Rails.env]
+APP_CONFIG = raw_config.to_options! unless raw_config.nil?

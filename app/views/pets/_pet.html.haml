@@ -1,4 +1,4 @@
-%li.pet
+%li.pet{:class => pet.animal ? pet.animal.name.downcase : nil}
   %a{:href => url_for(pet)}
     = thumbnail(pet)
     %span.name= pet.name.capitalize
@@ -6,6 +6,10 @@
       %span.animal
         %span.label="#{Pet.human_attribute_name(:animal)}:"
         = pet.animal.name
+    - if pet.breed
+      %span.breed
+        %span.label="#{Pet.human_attribute_name(:breed)}:"
+        = pet.breed.name
     - if pet.sex
       %span.sex
         %span.label="#{Pet.human_attribute_name(:sex)}:"
