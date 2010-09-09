@@ -57,11 +57,17 @@ module PetsHelper
   end
   
   def method_missing(method_name)
-    if animal  = /classes_for_(\w*)_button/.match(method_name.to_s)[1]
+    if button_name = /classes_for_(\w*)_button/.match(method_name.to_s)[1]
       classes = [:button]
-      filters = session[:filters]
-      classes.push(:active) if filters.present? && filters[:animal_id].include?( Animal.send("#{animal}").id.to_s )
+      if button_name.match(/urgent/)
+        classes.push(:active) if @filters[:urgent]
+      elsif button_name.match(/male|female/)
+        classes.push(:active) if @filters[:sex_id] && @filters[:sex_id].include?( Sex.send("#{button_name}").id.to_s )
+      else
+        classes.push(:active) if @filters[:animal_id] && @filters[:animal_id].include?( Animal.send("#{button_name}").id.to_s )
+      end
       classes
     end
   end
+  
 end

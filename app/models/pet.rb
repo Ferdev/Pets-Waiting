@@ -74,8 +74,10 @@ class Pet < ActiveRecord::Base
   
   def self.filtered(filters)
     pets = scoped
-    if filters.present? && filters[:animal_id].present?
-      pets = pets.where('animal_id' => filters[:animal_id])
+    if filters.present?
+      pets = pets.where('animal_id' => filters[:animal_id]) unless filters[:animal_id].blank?
+      pets = pets.where('urgent' => true) if filters[:urgent]
+      pets = pets.where('sex_id' => filters[:sex_id]) unless filters[:sex_id].blank?
     end
     pets
   end

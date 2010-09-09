@@ -23,7 +23,7 @@ module HelperMethods
   
   def load_master_tables
     create_breeds
-    Sex.make
+    create_sexes
     Size.make
   end
   
@@ -36,14 +36,22 @@ module HelperMethods
     Breed.make(:animal => Animal.make(:other_species))
   end
   
+  def create_sexes
+    Sex.make(:male)
+    Sex.make(:female)
+  end
+  
   def create_pet(attributes = {})
-    breed = Breed.exists? ? Breed.first : Breed.make
+    breed = Animal.dog.breeds.first
     defaults = { 
-      :address => Address.make, 
-      :user => @current_user, 
-      :animal => breed.animal, 
-      :breed => breed, 
-      :description => lorem 
+      :name         => 'Wadus',
+      :address      => Address.make, 
+      :user         => @current_user, 
+      :animal       => breed.animal, 
+      :breed        => breed, 
+      :description  => lorem,
+      :urgent       => true,
+      :sex          => Sex.male
     }
     attributes = defaults.merge(attributes)
     @pet = Pet.make(attributes)
@@ -52,7 +60,13 @@ module HelperMethods
   def create_pets(number = 64)
     number.times do |i|
       breed = Breed.all.choice
-      create_pet(:name => "Scroophy#{i}", :breed => breed, :animal => breed.animal)
+      create_pet({
+        :name   => "Scroophy#{i}",
+        :breed  => breed,
+        :animal => breed.animal,
+        :urgent => [true,false].choice,
+        :sex    => Sex.all.choice
+      })
     end
   end
   
@@ -98,10 +112,6 @@ module HelperMethods
   
   def scroll_all_page_down
     page.execute_script("$(document).scrollTop($(document).height());")
-  end
-  
-  def any_kind_of_animal
-    /Kind of animal: [Dog|Cat|Bird|Little mammals|Reptile|Other species]/
   end
 end
 

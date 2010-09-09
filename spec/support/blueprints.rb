@@ -66,6 +66,14 @@ Sex.blueprint do
   name { "Male" }
 end
 
+Sex.blueprint(:male) do
+  name { "Male" }
+end
+
+Sex.blueprint(:female) do
+  name { "Female" }
+end
+
 Size.blueprint do
   name { "Medium" }
 end

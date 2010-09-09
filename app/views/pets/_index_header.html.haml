@@ -9,7 +9,7 @@
     %h1= I18n.t('pets.index.show')
     %ul
       %li.urgents
-        = link_to I18n.t('pets.index.filters.urgents'), pets_path(:filters => {:urgent => true}), :class => :button
+        = link_to I18n.t('pets.index.filters.urgents'), pets_path(:filters => {:urgent => true}), :class => classes_for_urgent_button
       %li.dogs
         = link_to I18n.t('pets.index.filters.dogs'), pets_path(:filters => {:animal => Animal.dog.id}), :class => classes_for_dog_button
       %li.cats
@@ -22,10 +22,11 @@
         = link_to I18n.t('pets.index.filters.reptiles'), pets_path(:filters => {:animal => Animal.reptile.id}), :class => classes_for_reptile_button
       %li.other_species
         = link_to I18n.t('pets.index.filters.other_species'), pets_path(:filters => {:animal => Animal.other_species.id}), :class => classes_for_other_species_button
-      %li.male
-        %a.button{:href => '#'}= I18n.t('pets.index.filters.males')
-      %li.female
-        %a.button{:href => '#'}= I18n.t('pets.index.filters.females')
+      %li.males
+        = link_to I18n.t('pets.index.filters.males'), pets_path(:filters => {:sex => Sex.male.id}), :class => classes_for_male_button
+      %li.females
+        = link_to I18n.t('pets.index.filters.females'), pets_path(:filters => {:sex => Sex.female.id}), :class => classes_for_female_button
+
 .pets.place
   %h1= I18n.t('pets.index.looking_place')
   %input.where{:type => "text", :placeholder => "Country, state, province, city..."}
