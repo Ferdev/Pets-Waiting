@@ -2,7 +2,9 @@ class PetsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   
   def index
-    @pets = Pet.filtered(extract_filters).paginate :page => get_page, :per_page => 32
+    @filters = extract_filters
+    
+    @pets = Pet.filtered(@filters).paginate :page => get_page, :per_page => 32
 
     respond_to do |format|
       format.html {render :action => 'index', :layout => request.xhr? ? false : 'application' }
@@ -78,12 +80,14 @@ class PetsController < ApplicationController
       filters = params[:filters]
       
       unless filters.blank?
-        extract_animal_filters(filters)
+        animal_filter(filters)
+        urgent_filter(filters)
+        sex_filter(filters)
       end
       session[:filters]
     end
     
-    def extract_animal_filters(filters)
+    def animal_filter(filters)
 
       if filters[:animal].present?
         animal_id = session[:filters][:animal_id] || []
@@ -96,5 +100,23 @@ class PetsController < ApplicationController
         session[:filters][:animal_id] = animal_id
       end
 
+    end
+    
+    def urgent_filter(filters)
+      urgent = session[:filters][:urgent]
+      session[:filters][:urgent] = !urgent if filters[:urgent]
+    end
+    
+    def sex_filter(filters)
+      if filters[:sex].present?
+        sex_id = session[:filters][:sex_id] || []
+
+        if sex_id.include?(filters[:sex])
+          sex_id.delete(filters[:sex])
+        else
+          sex_id.push(filters[:sex])
+        end
+        session[:filters][:sex_id] = sex_id
+      end
     end
 end
