@@ -66,6 +66,7 @@ feature "Pets", %q{
   
   context "Everyone (with javascript enabled)" do
     background do
+      load_master_tables
       create_pets(96)
       enable_javascript
     end
@@ -77,7 +78,7 @@ feature "Pets", %q{
       page.should have_no_css('.pets.results .pagination')
       within('.pets.results ul li.pet:first-child') do
         page.should have_css('span.name', :text => 'Scroophy0')
-        page.should have_css('span.animal', :text => "Kind of animal: Dog")
+        page.should have_css('span.animal', :text => any_kind_of_animal)
         page.should have_css('span.breed', :text => "Breed: Crossbred")
         page.should have_css('span.sex', :text => "Sex: Male")
         page.should have_css('span.age', :text => "Age: about 4 years")
@@ -95,11 +96,40 @@ feature "Pets", %q{
       page.should have_no_css('.pets.results ul li.loading')
       page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy95')
     end
+    
+    scenario "can filter pet's list by species" do
+      visit homepage
+      click_link('Dogs')
+      page.should have_css('.pets.results ul li.pet')
+      page.should have_css('.pets.filters ul li.dogs a.button.active')
+      page.should have_css('.pets.results ul li.pet.dog')
+      page.should have_no_css('.pets.results ul li.pet.cat')
+      click_link('Cats')
+      page.should have_css('.pets.filters ul li.dogs a.button.active')
+      page.should have_css('.pets.filters ul li.cats a.button.active')
+      page.should have_css('.pets.results ul li.pet.dog')
+      page.should have_css('.pets.results ul li.pet.cat')
+      click_link('Birds')
+      page.should have_css('.pets.filters ul li.dogs a.button.active')
+      page.should have_css('.pets.filters ul li.cats a.button.active')
+      page.should have_css('.pets.filters ul li.birds a.button.active')
+      page.should have_css('.pets.results ul li.pet.dog')
+      page.should have_css('.pets.results ul li.pet.cat')
+      page.should have_css('.pets.results ul li.pet.bird')
+      click_link('Cats')
+      page.should have_css('.pets.filters ul li.dogs a.button.active')
+      page.should have_no_css('.pets.filters ul li.cats a.button.active')
+      page.should have_css('.pets.filters ul li.birds a.button.active')
+      page.should have_css('.pets.results ul li.pet.dog')
+      page.should have_no_css('.pets.results ul li.pet.cat')
+      page.should have_css('.pets.results ul li.pet.bird')
+    end
   
   end
   
   context "Everyone" do
     background do
+      load_master_tables
       create_pets(96)
     end
     
@@ -110,7 +140,7 @@ feature "Pets", %q{
       page.should have_css('.pets.results .pagination')
       within('.pets.results ul li.pet:first-child') do
         page.should have_css('span.name', :text => 'Scroophy0')
-        page.should have_css('span.animal', :text => "\nKind of animal:\nDog\n")
+        page.should have_css('span.animal')
         page.should have_css('span.breed', :text => "\nBreed:\nCrossbred\n")
         page.should have_css('span.sex', :text => "\nSex:\nMale\n")
         page.should have_css('span.age', :text => "\nAge:\nabout 4 years\n")
@@ -142,7 +172,6 @@ feature "Pets", %q{
         end
         within('li.animal') do
           page.should have_css('span.label', :text => 'Kind of animal:')
-          page.should have_content('Dog')
         end
         within('li.breed') do
           page.should have_css('span.label', :text => 'Breed:')
@@ -177,10 +206,41 @@ feature "Pets", %q{
       end
     end
     
+    scenario "can filter pet's list by species" do
+      visit homepage
+      click_link('Dogs')
+      page.should have_css('.pets.results ul li.pet')
+      page.should have_css('.pets.filters ul li.dogs a.button.active')
+      page.should have_css('.pets.results ul li.pet.dog')
+      page.should have_no_css('.pets.results ul li.pet.cat')
+      click_link('Cats')
+      page.should have_css('.pets.filters ul li.dogs a.button.active')
+      page.should have_css('.pets.filters ul li.cats a.button.active')
+      page.should have_css('.pets.results ul li.pet.dog')
+      page.should have_css('.pets.results ul li.pet.cat')
+      click_link('Birds')
+      page.should have_css('.pets.filters ul li.dogs a.button.active')
+      page.should have_css('.pets.filters ul li.cats a.button.active')
+      page.should have_css('.pets.filters ul li.birds a.button.active')
+      page.should have_css('.pets.results ul li.pet.dog')
+      page.should have_css('.pets.results ul li.pet.cat')
+      page.should have_css('.pets.results ul li.pet.bird')
+      click_link('Cats')
+      page.should have_css('.pets.filters ul li.dogs a.button.active')
+      page.should have_no_css('.pets.filters ul li.cats a.button.active')
+      page.should have_css('.pets.filters ul li.birds a.button.active')
+      page.should have_css('.pets.results ul li.pet.dog')
+      page.should have_no_css('.pets.results ul li.pet.cat')
+      page.should have_css('.pets.results ul li.pet.bird')
+    end
     
   end
   
   context "Guests" do
+    background do
+      load_master_tables
+      create_pets(5)
+    end
   
     scenario "can't register a new pet" do
       visit homepage
@@ -191,9 +251,8 @@ feature "Pets", %q{
     end
     
     scenario "can't edit an existing pet" do
-      create_pet
       visit homepage
-      click_link('Wadus')
+      click_link('Scroophy0')
       page.should have_no_content('Edit')
     end
   end

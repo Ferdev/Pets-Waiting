@@ -1,4 +1,4 @@
-%li.pet
+%li.pet{:class => pet.animal ? pet.animal.name.downcase : nil}
   %a{:href => url_for(pet)}
     = thumbnail(pet)
     %span.name= pet.name.capitalize

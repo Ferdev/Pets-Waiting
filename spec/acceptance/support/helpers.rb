@@ -22,9 +22,18 @@ module HelperMethods
   end
   
   def load_master_tables
-    Breed.make
+    create_breeds
     Sex.make
     Size.make
+  end
+  
+  def create_breeds
+    Breed.make(:animal => Animal.make(:dog))
+    Breed.make(:animal => Animal.make(:cat))
+    Breed.make(:animal => Animal.make(:bird))
+    Breed.make(:animal => Animal.make(:little_mammal))
+    Breed.make(:animal => Animal.make(:reptile))
+    Breed.make(:animal => Animal.make(:other_species))
   end
   
   def create_pet(attributes = {})
@@ -42,7 +51,8 @@ module HelperMethods
   
   def create_pets(number = 64)
     number.times do |i|
-      create_pet(:name => "Scroophy#{i}")
+      breed = Breed.all.choice
+      create_pet(:name => "Scroophy#{i}", :breed => breed, :animal => breed.animal)
     end
   end
   
@@ -88,6 +98,10 @@ module HelperMethods
   
   def scroll_all_page_down
     page.execute_script("$(document).scrollTop($(document).height());")
+  end
+  
+  def any_kind_of_animal
+    /Kind of animal: [Dog|Cat|Bird|Little mammals|Reptile|Other species]/
   end
 end
 

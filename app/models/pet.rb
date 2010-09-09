@@ -72,7 +72,11 @@ class Pet < ActiveRecord::Base
     thumbnails.choice.image.thumb unless thumbnails.nil? || thumbnails.empty?
   end
   
-  def self.per_page
-    32
+  def self.filtered(filters)
+    pets = scoped
+    if filters.present? && filters[:animal_id].present?
+      pets = pets.where('animal_id' => filters[:animal_id])
+    end
+    pets
   end
 end

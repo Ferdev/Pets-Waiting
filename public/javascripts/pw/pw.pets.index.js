@@ -9,7 +9,25 @@ $.extend($.pw.pets, {
     loading: false,
     
     events: function(){
+      // Disables non-javascript pagination
       $('div.pagination').remove();
+
+      $('div.filters a.button').click(function(evt){
+        evt.preventDefault();
+        var link_url = $(this).attr('href');
+        $(this).toggleClass('active');
+        
+        $('.pets.results ul').empty().append($('<li class="loading"><span class="spinner"/></li>'));
+        
+        $.get(link_url, function(data, textStatus, xhr) {
+          $('.pets.results ul li.loading').remove();
+          //optional stuff to do after success
+          $('.pets.results ul').append(data);
+        });
+
+      });
+
+      // Load more pets when scroll is at the end of the page
       $(document).scroll(function(evt){
         var 
           total_height  = $(this).height(),
@@ -24,21 +42,19 @@ $.extend($.pw.pets, {
             return descending;
           },
           load_pets     = function(){
-            
+            $.pw.pets.index.loading = true;
+            $.pw.pets.index.page++;
+            $('.pets.results ul').append($('<li class="loading"><span class="spinner"/></li>'));
+            $.get('/pets', {page: $.pw.pets.index.page}, function(data, textStatus, xhr) {
+              $('.pets.results ul li.loading').remove();
+              //optional stuff to do after success
+              $('.pets.results ul').append(data);
+              $.pw.pets.index.loading = false;
+            });
           };
-          
-          
+
         if (scroll / total_height >= 0.6 && is_descending(scroll) && !$.pw.pets.index.loading) {
-          $.pw.pets.index.loading = true;
-          $.pw.pets.index.page++;
-          $('.pets.results ul').append($('<li class="loading"><span class="spinner"/></li>'));
-          $.get('/pets', {page: $.pw.pets.index.page}, function(data, textStatus, xhr) {
-            $('.pets.results ul li.loading').remove();
-            //optional stuff to do after success
-            $('.pets.results ul').append(data);
-            $.pw.pets.index.loading = false;
-          });
-          
+          load_pets();
         };
       });
       
