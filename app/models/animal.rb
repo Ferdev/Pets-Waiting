@@ -5,7 +5,7 @@ class Animal < ActiveRecord::Base
   has_many :breeds
   
   def self.where_animal_is(animal)
-    joins("INNER JOIN #{translations_table_name} ON #{translations_table_name}.animal_id = animals.id").where("#{translations_table_name}.name == '#{animal}'").first
+    joins("INNER JOIN #{translations_table_name} ON #{translations_table_name}.animal_id = animals.id").where("#{translations_table_name}.name" => animal).first
   end
   
   def self.dog
