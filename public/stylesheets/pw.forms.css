@@ -31,29 +31,29 @@ textarea {
 form p {
   margin: 1em; }
 
-form.formtastic fieldset {
+form fieldset {
   margin: 0 0 2em; }
-  form.formtastic fieldset legend span {
+  form fieldset legend span {
     font-size: 1.3em; }
-  form.formtastic fieldset ol li {
+  form fieldset ol li {
     margin: 0.5em 1em; }
-    form.formtastic fieldset ol li label {
+    form fieldset ol li label {
       display: block; }
-    form.formtastic fieldset ol li p {
+    form fieldset ol li p {
       display: inline; }
-  form.formtastic fieldset ol li.boolean label {
+  form fieldset ol li.boolean label {
     display: inline; }
-  form.formtastic fieldset ol li.boolean p {
+  form fieldset ol li.boolean p {
     margin: 0; }
-  form.formtastic fieldset ol li.date fieldset {
+  form fieldset ol li.date fieldset {
     margin: 0; }
-    form.formtastic fieldset ol li.date fieldset ol li {
+    form fieldset ol li.date fieldset ol li {
       display: -moz-inline-stack;
       display: inline-block;
       vertical-align: top;
       zoom: 1;
       *display: inline; }
-form.formtastic fieldset.character {
+form fieldset.character {
   display: -moz-inline-stack;
   display: inline-block;
   vertical-align: top;

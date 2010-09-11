@@ -5,7 +5,7 @@
     %title
       = t('title')
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    = stylesheet_link_tag "reset", "application", "pw.forms", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css"
+    = stylesheet_link_tag "reset", "application", "pw.devise", "pw.forms", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css"
     :javascript
       var RAILS_ENV = "#{Rails.env}";
     = javascript_include_tag "jquery/jquery-1.4.1.js", "rails", "application", "pw/pw.init.js", "utils.js"
@@ -29,7 +29,7 @@
               %li= t('layouts.application.authentication.or')
               %li= link_to t('layouts.application.authentication.signup'), new_user_registration_path
             - else
-              %li= link_to t('layouts.application.my_profile')
+              %li= link_to t('layouts.application.my_profile'), edit_user_registration_path
               %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
 
     #content
