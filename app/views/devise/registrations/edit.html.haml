@@ -1,0 +1,28 @@
+%h2= I18n.t('devise.edit', :resource => resource.class.model_name.human)
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+  = error_messages!
+  %fieldset.inputs
+    %ol
+      %li
+        = f.label :email
+        = f.text_field :email
+      %li
+        = f.label :password
+        = f.password_field :password
+        %i= I18n.t('devise.edit_password_hint')
+      %li
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+      %li
+        = f.label :current_password
+        = f.password_field :current_password
+        %i= I18n.t('devise.edit_current_password_hint')
+  %fieldset.buttons
+    %ol
+      %li
+        = f.submit
+%br
+%h2= I18n.t('devise.cancel_account')
+%p
+  = I18n.t('devise.unhappy')
+  = link_to I18n.t('devise.cancel_account'), registration_path(resource_name), :confirm => I18n.t('devise.cancel_account_confirm'), :method => :delete, :id => :cancel_account, :class => :button

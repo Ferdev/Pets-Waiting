@@ -140,8 +140,15 @@ en:
     sign_up: 'Sign up'
     sign_in: 'Sign in'
     forgot_password: 'Forgot your password?'
-    didnt_receive_confirmation: "Didn't receive confirmation instructions?"
-    didnt_receive_unlock: "Didn't receive unlock instructions?"
+    didnt_receive_confirmation: 'Didn''t receive confirmation instructions?'
+    didnt_receive_unlock: 'Didn''t receive unlock instructions?'
+    edit: 'Edit %{resource}'
+    back: 'Back'
+    edit_password_hint: '(leave blank if you don''t want to change it)'
+    edit_current_password_hint: '(we need your current password to confirm your changes)'
+    cancel_account: 'Cancel my account'
+    cancel_account_confirm: 'Are you sure?'
+    unhappy: 'Unhappy? From here you''ll be able to cancel your account.'
   formtastic:
     actions:
       create: 'Save %{model}'

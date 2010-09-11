@@ -10,18 +10,18 @@ html, body
   font-family: $fonts
   font-size: $fonts_size
   color: #124462
-  text-shadow: 0 1px 1px #cce5f4
+  text-shadow: 0 1px 1px #dff7ff
 
 a
-  color: #a04249
-  font-size: 1.5em
-  line-height: 1.5em
+  color: #C8525B
+  font-size: 1em
+  font-weight: bold
   
 a:hover
   text-decoration: none
   
 a:visited
-  color: #124462
+  color: #a04249
 
 //Headings
 h1
@@ -40,10 +40,8 @@ h2
 
 .flash.notice, .flash.alert
   color: #F48A2C
-  text-shadow: 0 1px 0 #623712
 .flash.error
   color: #DC4228
-  text-shadow: 0 1px 0 #581a10
 
 // Pets-Waiting
 header
@@ -60,6 +58,7 @@ header
       top: 14px
       a
         font-size: 3em
+        line-height: 1.5em
         text-decoration: none
         text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 0 0 white, 0 2px 0 white, -2px 0 0 white, 0 -2px 0 white, 3px 3px 2px black
       a.pets
@@ -68,6 +67,7 @@ header
         color: #ff8420
       a.subtitle
         font-size: 1em
+        color: #1A6692
         margin: 0 .5em
         text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 0 0 white, 0 1px 0 white, -1px 0 0 white, 0 -1px 0 white, 2px 2px 1px black
         vertical-align: bottom
@@ -115,9 +115,10 @@ footer
   .footer_links
     width: 960px
     margin: 0 auto
-  a
+  a, a:visited
     color: #124462
     font-size: 1.5em
+    font-weight: normal
     text-shadow: 0 1px 0 #cce5f4
     text-decoration: none
     padding: 10px 9px
