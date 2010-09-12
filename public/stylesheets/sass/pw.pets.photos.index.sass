@@ -3,12 +3,14 @@
 ul.photos
   margin: 2em 0
   li
+    @include inline-block
     text-align: center
     width: 200px
+    margin: 0 1em
     a
-      display: block
-    a.delete
-      display: inline
+      font-size: .8em
+      @include inline-block
+      margin: .5em 0
     img
       @include decorate_image
       width: 200px

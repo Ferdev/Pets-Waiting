@@ -29,12 +29,10 @@ h2 {
   font-weight: bold; }
 
 .flash.notice, .flash.alert {
-  color: #f48a2c;
-  text-shadow: 0 1px 0 #623712; }
+  color: #f48a2c; }
 
 .flash.error {
-  color: #dc4228;
-  text-shadow: 0 1px 0 #581a10; }
+  color: #dc4228; }
 
 header {
   background-color: #1a6692;
