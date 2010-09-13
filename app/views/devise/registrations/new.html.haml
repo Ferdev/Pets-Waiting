@@ -1,18 +1,6 @@
 %h2= I18n.t('devise.sign_up')
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  %fieldset.inputs
-    %ol
-      %li
-        = f.label :email
-        = f.text_field :email
-      %li
-        = f.label :password
-        = f.password_field :password
-      %li
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation
-  %fieldset.buttons
-    %ol
-      %li
-        = f.submit I18n.t('devise.sign_up')
+= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+  = error_messages(resource)
+  = f.inputs :name, :email, :password, :password_confirmation, :phone_number, :web, :association_name
+  = f.buttons do
+    = f.commit_button I18n.t('devise.sign_up')

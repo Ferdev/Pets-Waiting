@@ -4,6 +4,7 @@
 
 
 = semantic_form_for @pet do |form|
+  = error_messages(@pet)
   = form.inputs do
     = form.input :name
     = form.input :animal

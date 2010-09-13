@@ -57,7 +57,7 @@ module HelperMethods
     @pet = Pet.make(attributes)
   end
   
-  def create_pets(number = 64)
+  def create_pets(number = 96)
     number.times do |i|
       breed = Breed.all.choice
       create_pet({

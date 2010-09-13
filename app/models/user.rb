@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
   
   has_one :address
   has_many :pets
+  
+  validates_presence_of :name, :phone_number
+  validates_format_of :phone_number, :with => /^[+]?[-| |\d]*$/
 end

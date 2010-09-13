@@ -2,6 +2,78 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+
+  activerecord:
+    models:
+      user: 'User'
+    attributes:
+      created_at: 'Created at'
+      updated_at: 'Updated at'
+      user:
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
+        remember_me: 'Remember me'
+        name: 'Name'
+        association_name: "Association's name"
+        phone_number: 'Phone number'
+        web: 'Web'
+      address:
+        address: 'Address'
+        street: 'Street'
+        postal_code: 'Postal code'
+        lat: 'Latitude'
+        lon: 'Longitude'
+        country: 'Country'
+        country_code: 'Country code'
+        state: 'State'
+        substate: 'Substate'
+        city: 'City'
+      pet:
+        name: 'Pet''s name'
+        address:
+          address: 'Address'
+        animal: 'Kind of animal'
+        breed: 'Breed'
+        sex: 'Sex'
+        age: 'Age'
+        birthday: 'Birthday'
+        place: 'Place'
+        size: 'Size'
+        urgent: 'Urgent adoption'
+        description: 'Description'
+        character: 'Character'
+        docile: 'Docile'
+        calm: 'Calm'
+        agressive_people: 'Agressive with people'
+        agressive_animals: 'Agressive with animals'
+        dominant: 'Dominant'
+        affectionate: 'Affectionate'
+        independent: 'Independent'
+        dependent: 'Dependent'
+        possessive: 'Possessive'
+        playful: 'Playful'
+        tireless: 'Tireless'
+        obedient: 'Obedient'
+        disobedient: 'Disobedient'
+        trained: 'Is a trained pet'
+        sleepyhead: 'Sleepyhead'
+        friendly_people: 'Friendly with people'
+        friendly_animals: 'Friendly with animals'
+      photo:
+        image: 'Select a photo'
+    submit:
+      create: 'Save %{model}'
+      update: 'Update %{model}'
+      
+  errors:
+    template:
+      header:
+        one:    "1 error prohibited this %{model} from being saved"
+        other:  "%{count} errors prohibited this %{model} from being saved"
+      # The variable :count is also available
+      body: "There were problems with the following fields:"
+
   title: 'Pets Waiting'
   subtitle: 'Tons of pets are waiting for you!'
   layouts:
@@ -76,66 +148,7 @@ en:
       _form:
         select_file: 'Select a file'
         browse: 'Browse'
-  activerecord:
-    models:
-      user: 'User'
-    attributes:
-      created_at: 'Created at'
-      updated_at: 'Updated at'
-      user:
-        email: 'Email'
-        password: 'Password'
-        password_confirmation: 'Password confirmation'
-        remember_me: 'Remember me'
-        nick: 'Nick'
-        firstname: 'Firstname'
-        lastname: 'Lastname'
-        phone: 'Phone'
-      address:
-        address: 'Address'
-        street: 'Street'
-        postal_code: 'Postal code'
-        lat: 'Latitude'
-        lon: 'Longitude'
-        country: 'Country'
-        country_code: 'Country code'
-        state: 'State'
-        substate: 'Substate'
-        city: 'City'
-      pet:
-        name: 'Pet''s name'
-        animal: 'Kind of animal'
-        breed: 'Breed'
-        sex: 'Sex'
-        age: 'Age'
-        birthday: 'Birthday'
-        place: 'Place'
-        size: 'Size'
-        urgent: 'Urgent adoption'
-        description: 'Description'
-        character: 'Character'
-        docile: 'Docile'
-        calm: 'Calm'
-        agressive_people: 'Agressive with people'
-        agressive_animals: 'Agressive with animals'
-        dominant: 'Dominant'
-        affectionate: 'Affectionate'
-        independent: 'Independent'
-        dependent: 'Dependent'
-        possessive: 'Possessive'
-        playful: 'Playful'
-        tireless: 'Tireless'
-        obedient: 'Obedient'
-        disobedient: 'Disobedient'
-        trained: 'Is a trained pet'
-        sleepyhead: 'Sleepyhead'
-        friendly_people: 'Friendly with people'
-        friendly_animals: 'Friendly with animals'
-      photo:
-        image: 'Select a photo'
-    submit:
-      create: 'Save %{model}'
-      update: 'Update %{model}'
+
   devise:
     sign_up: 'Sign up'
     sign_in: 'Sign in'
@@ -151,6 +164,8 @@ en:
     unhappy: 'Unhappy? From here you''ll be able to cancel your account.'
   formtastic:
     actions:
+      user:
+        create: 'Sign up'
       create: 'Save %{model}'
       update: 'Update %{model}'
       delete: 'Delete %{model}'

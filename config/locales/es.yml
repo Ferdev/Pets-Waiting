@@ -175,10 +175,10 @@
         password_confirmation: 'Confirmación de contraseña'
         current_password: 'Contraseña actual'
         remember_me: 'Recuérdame'
-        nick: 'Apodo'
-        firstname: 'Nombre'
-        lastname: 'Apellidos'
-        phone: 'Teléfono'
+        name: 'Nombre'
+        association_name: 'Nombre de la asociación'
+        phone_number: 'Teléfono'
+        web: 'Web'
       address:
         address: 'Dirección'
         street: 'Calle'
@@ -192,6 +192,8 @@
         city: 'Ciudad'
       pet:
         name: 'Nombre de la mascota'
+        address:
+          address: 'Dirección'
         animal: 'Tipo de animal'
         breed: 'Raza'
         sex: 'Sexo'
@@ -418,6 +420,8 @@
     change_password: 'Change your password'
   formtastic:
     actions:
+      user:
+        create: 'Date de alta'
       create: 'Guardar %{model}'
       update: 'Actualizar %{model}'
       delete: 'Eliminar %{model}'
