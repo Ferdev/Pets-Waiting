@@ -80,7 +80,7 @@ end
 
 User.blueprint do
   name { 'Wadus' }
-  email { 'wadus@wadus.com' }
+  email { 'fer@ferdev.com' }
   password { 'waduswadus' }
   password_confirmation { 'waduswadus' }
   phone_number { '0034666554433' }

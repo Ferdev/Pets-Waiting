@@ -12,10 +12,10 @@ module HelperMethods
   end
 
   def create_and_sign_in_user
-    @current_user = User.make
+    @current_user = User.make(:address => Address.make)
     visit homepage
     click_link('Sign in')
-    fill_in('Email', :with => 'wadus@wadus.com')
+    fill_in('Email', :with => 'fer@ferdev.com')
     fill_in('Password', :with => 'waduswadus')
     click_button('Sign in')
     page.should have_content('Signed in successfully.')

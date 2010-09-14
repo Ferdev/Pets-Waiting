@@ -70,3 +70,8 @@
     *display: inline;
     width: 20em;
     text-align: justify; }
+  #content ul.pet.detail li.adopt_it {
+    text-align: center;
+    margin: 2em; }
+    #content ul.pet.detail li.adopt_it a {
+      padding: 5px 50px 6px; }

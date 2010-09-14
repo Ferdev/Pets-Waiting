@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   
   has_one :address
   has_many :pets
+  has_many :adoptions, :foreign_key => 'adoptant_id'
+  
+  accepts_nested_attributes_for :address
   
   validates_presence_of :name, :phone_number
   validates_format_of :phone_number, :with => /^[+]?[-| |\d]*$/

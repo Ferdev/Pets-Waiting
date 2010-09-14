@@ -4,9 +4,11 @@ class CreateSexes < ActiveRecord::Migration
 
       t.timestamps
     end
+    Sex.create_translation_table! :name => :string
   end
 
   def self.down
+    Sex.drop_translation_table!
     drop_table :sexes
   end
 end

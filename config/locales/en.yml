@@ -62,6 +62,8 @@ en:
         friendly_animals: 'Friendly with animals'
       photo:
         image: 'Select a photo'
+      adoption:
+        reasons: 'Reasons to adopt it'
     submit:
       create: 'Save %{model}'
       update: 'Update %{model}'
@@ -120,6 +122,8 @@ en:
         other_species: 'Other species'
         males: 'Males'
         females: 'Females'
+    show:
+      adopt_pet: 'Adopt %{petname}'
     nav:
       show: '%{pet}''s data'
       edit: 'Edit %{pet}''s data'
@@ -148,6 +152,21 @@ en:
       _form:
         select_file: 'Select a file'
         browse: 'Browse'
+    adoptions:
+      new:
+        title: 'Adopt %{petname}'
+        interested: 'Interested in adopting %{petname}?'
+        reasons: 'Write your reasons to adopt it and your experience with animals.'
+        contact: '%{owner}, the actual %{petname}''s owner will contact you to inform about the adoption process.'
+        reasons_label: 'Reasons to adopt %{petname}'
+        send_request: 'Send Request'
+      create:
+        success: 'Your adoption request has been submitted successfully to %{owner}.'
+        fail: 'There was a problem sending your request to %{owner}. Please, try it again later.'
+  mailer:
+    adoptions:
+      adoption_request:
+        subject: 'Adoption request for %{petname}'
 
   devise:
     sign_up: 'Sign up'

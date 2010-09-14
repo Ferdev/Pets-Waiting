@@ -2,10 +2,6 @@ class PhotosController < ApplicationController
   # TODO Check for pet_id param in all requests
   before_filter :get_pet
   
-  def get_pet
-    @pet = Pet.find(params[:pet_id])
-  end
-  
   def index
     @photos = @pet.photos
     respond_to do |format|

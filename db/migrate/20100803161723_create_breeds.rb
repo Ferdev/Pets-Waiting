@@ -5,9 +5,11 @@ class CreateBreeds < ActiveRecord::Migration
 
       t.timestamps
     end
+    Breed.create_translation_table! :name => :string
   end
 
   def self.down
+    Breed.drop_translation_table! :name => :string
     drop_table :breeds
   end
 end

@@ -56,8 +56,9 @@ module PetsHelper
     end
   end
   
-  def method_missing(method_name)
-    if button_name = /classes_for_(\w*)_button/.match(method_name.to_s)[1]
+  def method_missing(m, *args)
+    if method_name = /classes_for_(\w*)_button/.match(m.to_s)
+      button_name = method_name[1]
       classes = [:button]
       if button_name.match(/urgent/)
         classes.push(:active) if @filters[:urgent]
@@ -66,8 +67,9 @@ module PetsHelper
       else
         classes.push(:active) if @filters[:animal_id] && @filters[:animal_id].include?( Animal.send("#{button_name}").id.to_s )
       end
-      classes
+      return classes
     end
+    raise NoMethodError.new("Method #{m} not found", m, *args)
   end
   
 end

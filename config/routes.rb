@@ -1,6 +1,8 @@
 PetsWaiting::Application.routes.draw do
+
   resources :pets do
     resources :photos
+    resources :adoptions
   end
 
   resources :breeds

@@ -10,5 +10,11 @@ class ApplicationController < ActionController::Base
     
     def set_locale
       I18n.locale = request.env['rack.locale'].to_sym
+      current_user.update_attribute('locale', I18n.locale) if current_user && current_user.locale != I18n.locale
     end
+    
+    def get_pet
+      @pet = Pet.find(params[:pet_id])
+    end
+
 end

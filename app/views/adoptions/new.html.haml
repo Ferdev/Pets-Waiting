@@ -1,0 +1,12 @@
+%h2= I18n.t('pets.adoptions.new.title', :petname => @pet.name.capitalize)
+=semantic_form_for [@pet, @adoption] do |form|
+  %p
+    = I18n.t('pets.adoptions.new.interested', :petname => @pet.name.capitalize)
+  %p
+    = I18n.t('pets.adoptions.new.reasons')
+  %p
+    = I18n.t('pets.adoptions.new.contact', :owner => @pet.user.name.capitalize, :petname => @pet.name.capitalize)
+  = form.inputs do
+    = form.input :reasons, :input_html => {:cols => 90}
+  = form.buttons do
+    = form.commit_button :label => I18n.t('pets.adoptions.new.send_request')
