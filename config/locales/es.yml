@@ -179,6 +179,8 @@
         association_name: 'Nombre de la asociación'
         phone_number: 'Teléfono'
         web: 'Web'
+        address:
+          address: 'Dirección'
       address:
         address: 'Dirección'
         street: 'Calle'

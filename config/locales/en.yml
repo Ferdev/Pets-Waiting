@@ -18,6 +18,8 @@ en:
         association_name: "Association's name"
         phone_number: 'Phone number'
         web: 'Web'
+        address:
+          address: 'Address'
       address:
         address: 'Address'
         street: 'Street'
