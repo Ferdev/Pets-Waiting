@@ -1,5 +1,6 @@
-= image_tag(@photo.image.url)
+- content_for :head do
+  = stylesheet_link_tag "pw.pets.photos.show"
 
-= link_to 'Edit', edit_pet_photo_path(@photo)
-\|
-= link_to 'Back', pet_photos_path
+= render 'nav'
+
+= image_tag(@photo.image.url)

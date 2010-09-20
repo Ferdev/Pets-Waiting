@@ -1,0 +1,44 @@
+%p
+  Hi!
+%p
+  %strong
+    = @user.name.capitalize
+  has sent a request to adopt
+  %strong
+    #{link_to @pet.name.capitalize, pet_url(@pet)}.
+  
+%p
+  Has left this message for you:
+
+%q
+  = @message
+  
+%p
+  These are #{@user.name.capitalize}'s contact details:
+
+%ul
+  - if @user.address && @user.address.address
+    %li
+      %strong
+        Address:
+      = @user.address.address
+  - if @user.phone_number
+    %li
+      %strong
+        Phone number:
+      = @user.phone_number
+
+  - if @user.email
+    %li
+      %strong
+        EMail:
+      = @user.email
+%p
+  You can see all your received adoption requests clicking #{link_to "here", user_adoptions_url(@current_user)}.
+
+%p
+  Cheers, and good luck with adoption proccess!
+  
+\---
+%br
+= link_to 'petswaiting.com', 'http://petswaiting.com'

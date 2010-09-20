@@ -36,7 +36,7 @@ form fieldset {
   form fieldset legend span {
     font-size: 1.3em; }
   form fieldset ol li {
-    margin: 0.5em 1em; }
+    margin: 1em; }
     form fieldset ol li label {
       display: block; }
     form fieldset ol li p {
@@ -59,3 +59,17 @@ form fieldset.character {
   vertical-align: top;
   zoom: 1;
   *display: inline; }
+form fieldset.buttons {
+  margin: 1em 0; }
+  form fieldset.buttons ol li {
+    display: inline; }
+
+#error_explanation {
+  margin: 1em;
+  color: #dc4228;
+  text-shadow: 0 1px 0 #dff7ff; }
+  #error_explanation h2 {
+    font-size: 1.2em; }
+  #error_explanation ul {
+    margin: 0 2em;
+    list-style-type: disc; }

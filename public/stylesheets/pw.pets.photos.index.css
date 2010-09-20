@@ -7,11 +7,16 @@ ul.photos {
     zoom: 1;
     *display: inline;
     text-align: center;
+    width: 200px;
     margin: 0 1em; }
     ul.photos li a {
-      display: block; }
-    ul.photos li a.generate_thumbnail, ul.photos li a.delete {
-      margin: 0.5em; }
+      font-size: 0.8em;
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      *display: inline;
+      margin: 0.5em 0; }
     ul.photos li img {
       -moz-box-shadow: 0px 0px 2px black;
       -webkit-box-shadow: 0px 0px 2px black;

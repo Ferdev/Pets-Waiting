@@ -1,0 +1,7 @@
+- content_for :head do
+  = stylesheet_link_tag "pw.shared.admin.nav"
+%ul.nav
+  %li
+    = link_to I18n.t('shared.admin.nav.adoptions_requests'), user_adoptions_path(current_user), :class => :button
+  %li.back
+    = link_to I18n.t('shared.admin.nav.pets_list'), root_url, :class => 'button'

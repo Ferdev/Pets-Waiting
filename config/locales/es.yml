@@ -175,10 +175,12 @@
         password_confirmation: 'Confirmación de contraseña'
         current_password: 'Contraseña actual'
         remember_me: 'Recuérdame'
-        nick: 'Apodo'
-        firstname: 'Nombre'
-        lastname: 'Apellidos'
-        phone: 'Teléfono'
+        name: 'Nombre'
+        association_name: 'Nombre de la asociación'
+        phone_number: 'Teléfono'
+        web: 'Web'
+        address:
+          address: 'Dirección'
       address:
         address: 'Dirección'
         street: 'Calle'
@@ -192,6 +194,8 @@
         city: 'Ciudad'
       pet:
         name: 'Nombre de la mascota'
+        address:
+          address: 'Dirección'
         animal: 'Tipo de animal'
         breed: 'Raza'
         sex: 'Sexo'
@@ -220,7 +224,11 @@
         friendly_people: 'Amistoso/a con las personas'
         friendly_animals: 'Amistoso/a con los animales'
       photo:
-        image: 'Selecciona una foto'      
+        image: 'Selecciona una foto'
+      adoptions:
+        reasons: 'Razones para adoptarle'
+        pet_id: 'Mascota'
+        adoptant_id: 'Adoptante'
       
     errors:
       messages:
@@ -372,7 +380,6 @@
         other_species: 'Otras especies'
         males: 'Machos'
         females: 'Hembras'
-
     nav:
       show: 'Datos de %{pet}'
       edit: 'Editar los datos de %{pet}'
@@ -401,6 +408,45 @@
       _form:
         select_file: 'Selecciona un archivo'
         browse: 'Buscar'
+    adoptions:
+      index:
+        title: 'Peticiones de adopción recibidas.'
+      adoption:
+        heading: 'Petición para adoptar a %{pet}, por:'
+        adopted: '&#10004; ¡Adoptado!'
+        not_adopted: '&#10008; No Adoptado'
+      new:
+        title: 'Adopta a %{petname}'
+        interested: '¿Interesado en adoptar a %{petname}?'
+        reasons: 'Escribe tus razones para adoptarlo y tu experiencia con animales.'
+        contact: '%{owner}, el dueño actual de %{petname} se pondrá en contacto contigo para informarte del proceso de adopción.'
+        reasons_label: 'Razones para adoptar a %{petname}'
+        send_request: 'Enviar Petición'
+      create:
+        success: 'Tu petición de adopción se ha enviado correctamente a %{owner}.'
+        error: 'Hubo un problema al enviar tu petición a %{owner}. Por favor, inténtalo de nuevo más tarde.'
+      edit:
+        title: 'Solicitud de adopción para %{petname}'
+        request_data: 'Datos de la solicitud'
+        delete: 'Eliminar Solicitud de Adopción'
+        delete_confirm: '¿Estás seguro?'
+      update:
+        success: 'Tu mascota ha sido marcada como adoptada correctamente.'
+        error: 'Hubo un problema al marcar como adoptada a tu mascota. Por favor, inténtalo de nuevo más tarde.'
+      destroy:
+        success: 'Petición de adopción eliminada correctamente.'
+        error: 'No se pueden eliminar adopciones confirmadas.'
+  shared:
+    admin:
+      nav:
+        adoptions_requests: 'Solicitudes de adopción recibidas'
+        pets_list: 'Lista de mascotas'
+
+
+  mailer:
+    adoptions:
+      adoption_request:
+        subject: 'Petición de adopción para %{petname}'
 
   devise:
     sign_up: 'Regístrate'
@@ -418,6 +464,10 @@
     change_password: 'Change your password'
   formtastic:
     actions:
+      user:
+        create: 'Date de alta'
+      adoption:
+        update: 'Adoptado'
       create: 'Guardar %{model}'
       update: 'Actualizar %{model}'
       delete: 'Eliminar %{model}'

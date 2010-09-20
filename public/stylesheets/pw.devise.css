@@ -1,4 +1,4 @@
-#sign_in {
+#user_submit {
   vertical-align: middle; }
 
 #forgot {
@@ -8,13 +8,3 @@
 
 #cancel_account {
   margin: 0 1em; }
-
-#error_explanation {
-  margin: 1em;
-  color: #dc4228;
-  text-shadow: 0 1px 0 #dff7ff; }
-  #error_explanation h2 {
-    font-size: 1.2em; }
-  #error_explanation ul {
-    margin: 0 2em;
-    list-style-type: disc; }

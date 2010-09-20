@@ -1,0 +1,18 @@
+%li.pet
+  %a{:href => edit_pet_adoption_path(adoption.pet, adoption)}
+    = thumbnail(adoption.pet)
+    %span.name= adoption.pet.name.capitalize
+    %span.user_name
+      = adoption.adoptant.name.capitalize
+    %span.email
+      = adoption.adoptant.email
+    %span.address
+      = adoption.adoptant.address.address
+    %span.phone
+      = adoption.adoptant.phone_number
+    - if adoption.adopted
+      %span.adopted
+        = CGI.unescapeHTML(I18n.t('pets.adoptions.adoption.adopted'))
+    - else
+      %span.not_adopted
+        = CGI.unescapeHTML(I18n.t('pets.adoptions.adoption.not_adopted'))

@@ -5,7 +5,7 @@ $.extend($.pw.pets.photos, {
     },
 
     fields: function(){
-      
+
       if ($('#photo')[0]) {
         var update_thumbnail = function(coords) {
           var

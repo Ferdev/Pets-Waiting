@@ -7,8 +7,9 @@ class Pet < ActiveRecord::Base
   belongs_to :size
   belongs_to :user
   
-  has_one :address
-  has_many :photos
+  has_one   :address
+  has_many  :photos
+  has_many  :adoptions
   
   accepts_nested_attributes_for :address
   

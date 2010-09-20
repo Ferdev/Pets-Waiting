@@ -4,9 +4,11 @@ class CreateAnimals < ActiveRecord::Migration
 
       t.timestamps
     end
+    Animal.create_translation_table! :name => :string
   end
 
   def self.down
+    Animal.drop_translation_table!
     drop_table :animals
   end
 end

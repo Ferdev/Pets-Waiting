@@ -1,0 +1,72 @@
+@import 'pw.mixins'
+
+#content
+  ul
+    text-align: left
+    li.pet
+      display: inline
+      a
+        @include inline-block
+        padding: 10px
+        margin: 0 .5em 2em
+        color: #124462
+        text-decoration: none
+        text-shadow: 0 1px 0 #CCE5F4
+        text-align: center
+        img
+          height: 200px
+          width: 200px
+          @include decorate_image
+        span
+          color: #1A6692
+          display: block
+          margin: .5em 0
+          text-align: left
+          font-weight: normal
+        span.name
+          color: #124462
+          margin: .5em 0 0
+          font-size: 1.5em
+          text-align: center
+          line-height: 1.5em
+          font-weight: bold
+
+        span.adopted, span.not_adopted
+          @include border-radius(5px)
+          color: white
+          font-size: 1.2em
+          font-weight: bold
+          padding: 2px 5px
+          width: 170px
+          margin: .5em auto
+          text-shadow: 0 1px 0 #333333
+          text-transform: uppercase
+          text-align: center
+        span.adopted
+          background-color: #54B100
+        span.not_adopted
+          background-color: #DC4228
+
+      a:hover
+        @include border-radius(5px)
+        -moz-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
+        -webkit-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
+        box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
+        background-color: #2388C3
+        border-color: #1A6692
+        border-style: solid
+        border-width: 0 1px
+        color: #cce5f4
+        text-shadow: 0 1px 0 #124462
+        padding: 10px 9px
+        span
+          color: inherit
+        span.adopted, span.not_adopted
+          color: white
+
+    li.loading
+      text-align: center
+      padding: 25px 0
+  .pagination
+    a, em, span
+      margin: 0 .2em

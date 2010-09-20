@@ -14,6 +14,10 @@ Address.blueprint do
   city { 'Fuente el Saz de Jarama' }
 end
 
+Adoption.blueprint do
+  
+end
+
 Animal.blueprint do
   name { "Dog" }
 end
@@ -79,7 +83,20 @@ Size.blueprint do
 end
 
 User.blueprint do
-  email { 'wadus@wadus.com' }
+  association_name { 'Pet Protectors' }
+  name { 'Wadus' }
+  email { 'fer@ferdev.com' }
   password { 'waduswadus' }
   password_confirmation { 'waduswadus' }
+  phone_number { '0034666554433' }
+  address { Address.first }
+end
+
+User.blueprint(:guest) do
+  name { 'Guest' }
+  email { 'fernando.espinosa@gmail.com' }
+  password { 'waduswadus' }
+  password_confirmation { 'waduswadus' }
+  phone_number { '0034666554433' }
+  address { Address.first }
 end

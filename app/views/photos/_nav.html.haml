@@ -1,0 +1,19 @@
+- content_for :head do
+  = stylesheet_link_tag "pw.pets.photos.nav"
+
+%ul.nav
+  - case request[:action]
+  - when "index"
+  - when "show"
+    %li
+      = link_to 'Edit', edit_pet_photo_path(@photo), :class => :button
+    %li.back
+      = link_to 'Back', pet_photos_path, :class => :button
+  - when "new"
+    %li.back
+      = link_to 'Back', pet_photos_path, :class => :button
+  - when "edit"
+    %li
+      = link_to 'Show', [@pet, @photo], :class => :button
+    %li.back
+      = link_to 'Back', pet_photos_path(@pet), :class => :button

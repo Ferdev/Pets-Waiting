@@ -1,0 +1,6 @@
+ul.nav {
+  margin: 1em 0; }
+  ul.nav li {
+    display: inline; }
+  ul.nav li.back {
+    float: right; }

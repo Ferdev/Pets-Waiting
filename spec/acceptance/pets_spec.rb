@@ -68,7 +68,7 @@ feature "Pets", %q{
     background do
       load_master_tables
       create_pet
-      create_pets(96)
+      create_pets
       enable_javascript
     end
     
@@ -110,27 +110,16 @@ feature "Pets", %q{
       page.should have_css('.pets.filters ul li.cats a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_css('.pets.results ul li.pet.cat')
-      click_link('Birds')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.birds a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_css('.pets.results ul li.pet.cat')
-      page.should have_css('.pets.results ul li.pet.bird')
       click_link('Cats')
       page.should have_css('.pets.filters ul li.dogs a.button.active')
       page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.birds a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      page.should have_css('.pets.results ul li.pet.bird')
       click_link('Urgents')
       page.should have_css('.pets.filters ul li.dogs a.button.active')
       page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.birds a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      page.should have_css('.pets.results ul li.pet.bird')
       all('.pets.results ul li.pet a').each do |a|
         a.text.should match(/Urgent adoption/)
       end
@@ -138,11 +127,9 @@ feature "Pets", %q{
       page.should have_css('.pets.filters ul li.urgents a.button.active')
       page.should have_css('.pets.filters ul li.dogs a.button.active')
       page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.birds a.button.active')
       page.should have_css('.pets.filters ul li.males a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      page.should have_css('.pets.results ul li.pet.bird')
       all('.pets.results ul li.pet a').each do |a|
         a.text.should match(/Urgent adoption/)
       end
@@ -157,7 +144,7 @@ feature "Pets", %q{
     background do
       load_master_tables
       create_pet
-      create_pets(96)
+      create_pets
     end
     
     scenario "can see a list of pets" do
@@ -245,28 +232,17 @@ feature "Pets", %q{
       page.should have_css('.pets.filters ul li.cats a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_css('.pets.results ul li.pet.cat')
-      click_link('Birds')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.birds a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_css('.pets.results ul li.pet.cat')
-      page.should have_css('.pets.results ul li.pet.bird')
       click_link('Cats')
       page.should have_css('.pets.filters ul li.dogs a.button.active')
       page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.birds a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      page.should have_css('.pets.results ul li.pet.bird')
       click_link('Urgents')
       page.should have_css('.pets.filters ul li.urgents a.button.active')
       page.should have_css('.pets.filters ul li.dogs a.button.active')
       page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.birds a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      page.should have_css('.pets.results ul li.pet.bird')
       all('.pets.results ul li.pet a').each do |a|
         a.text.should match(/Urgent adoption/)
       end
@@ -274,11 +250,9 @@ feature "Pets", %q{
       page.should have_css('.pets.filters ul li.urgents a.button.active')
       page.should have_css('.pets.filters ul li.dogs a.button.active')
       page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.birds a.button.active')
       page.should have_css('.pets.filters ul li.males a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      page.should have_css('.pets.results ul li.pet.bird')
       all('.pets.results ul li.pet a').each do |a|
         a.text.should match(/Urgent adoption/)
       end
@@ -292,7 +266,7 @@ feature "Pets", %q{
   context "Guests" do
     background do
       load_master_tables
-      create_pets(5)
+      create_pets
     end
   
     scenario "can't register a new pet" do
