@@ -83,6 +83,8 @@ en:
 
   title: 'Pets Waiting'
   subtitle: 'Tons of pets are waiting for you!'
+  description: 'In PetsWaiting there are lots of pets waiting to find a home. If you are looking for a friend, or want to give a pet up for adoption, this is your place.'
+  keywords: 'dog cat pet adoption bird parrot reptile puppy kitten animal'
   layouts:
     application:
       authentication:

@@ -5,6 +5,9 @@
     %title
       = t('title')
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:name => "description", :content => I18n.t('description')}
+    %meta{:name => "keywords", :content => I18n.t('keywords')}
+    %link{:rel => "canonical", :href => "http://petswaiting.com"}
     = stylesheet_link_tag "reset", "application", "pw.devise", "pw.forms", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css"
     :javascript
       var RAILS_ENV = "#{Rails.env}";
