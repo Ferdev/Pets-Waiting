@@ -60,6 +60,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faker (0.3.1)
+    fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
     formtastic (1.1.0)
@@ -91,6 +92,10 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.3.1)
+    passenger (2.2.15)
+      fastthread (>= 1.0.1)
+      rack
+      rake (>= 0.8.1)
     pg (0.9.0)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -145,8 +150,6 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    unicorn (1.1.3)
-      rack
     warden (0.10.7)
       rack (>= 1.0.0)
     will_paginate (3.0.pre2)
@@ -168,6 +171,7 @@ DEPENDENCIES
   haml
   launchy
   machinist
+  passenger
   pg
   rack-contrib
   rails (~> 3.0.0.rc2)
@@ -177,5 +181,4 @@ DEPENDENCIES
   ruby-debug
   sqlite3-ruby
   steak (~> 0.4.0.beta.1)
-  unicorn
   will_paginate (~> 3.0.pre2)
