@@ -35,15 +35,17 @@ role :web, "178.79.135.197"
 role :db,  "178.79.135.197", :primary => true
 
 namespace :deploy do
-  task :start, :roles => :app, :except => { :no_release => true } do 
-    god.start
+  task :start, :roles => :app do
+    run "touch #{current_release}/tmp/restart.txt"
   end
-  task :stop, :roles => :app, :except => { :no_release => true } do 
-    god.terminate
+
+  task :stop, :roles => :app do
+    # Do nothing.
   end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    god.reload
-    god.restart_unicorn
+
+  desc "Restart Application"
+  task :restart, :roles => :app do
+    run "touch #{current_release}/tmp/restart.txt"
   end
 
   task :bundle do
