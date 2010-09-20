@@ -1,13 +1,16 @@
 PetsWaiting::Application.routes.draw do
-
+  devise_for :users
+  
   resources :pets do
     resources :photos
     resources :adoptions
   end
 
-  resources :breeds
+  resources :users do
+    resources :adoptions
+  end
 
-  devise_for :users
+  resources :breeds
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

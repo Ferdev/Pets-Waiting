@@ -33,7 +33,9 @@
       %strong
         EMail:
       = @user.email
-    
+%p
+  You can see all your received adoption requests clicking #{link_to "here", user_adoptions_url(@current_user)}.
+
 %p
   Cheers, and good luck with adoption proccess!
   

@@ -1,0 +1,61 @@
+#content h3 {
+  text-align: center; }
+#content ul.adoption_request {
+  margin: 0 auto; }
+  #content ul.adoption_request li {
+    margin: 0.5em 0;
+    text-align: left; }
+    #content ul.adoption_request li span.label {
+      font-weight: bold;
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      *display: inline;
+      width: 12em; }
+  #content ul.adoption_request li.pet {
+    text-align: center; }
+    #content ul.adoption_request li.pet img {
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      *display: inline;
+      width: 100px;
+      margin: 0.5em;
+      -moz-box-shadow: 0px 0px 2px black;
+      -webkit-box-shadow: 0px 0px 2px black;
+      box-shadow: 0px 0px 2px black;
+      background-color: #092230;
+      border: 1px solid #cce5f4;
+      vertical-align: middle; }
+    #content ul.adoption_request li.pet ul {
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      *display: inline;
+      vertical-align: middle; }
+      #content ul.adoption_request li.pet ul li span.label {
+        width: 8em; }
+  #content ul.adoption_request li.request_data {
+    margin: 2em 0; }
+    #content ul.adoption_request li.request_data ul {
+      width: 600px;
+      margin: 0 auto; }
+      #content ul.adoption_request li.request_data ul li {
+        font-size: 1em; }
+        #content ul.adoption_request li.request_data ul li q {
+          display: block;
+          margin: 1em;
+          font-style: italic; }
+  #content ul.adoption_request li.adopt_it, #content ul.adoption_request li.delete {
+    text-align: center;
+    margin: 2em; }
+    #content ul.adoption_request li.adopt_it input[type=submit]:active, #content ul.adoption_request li.adopt_it input[type=submit].active, #content ul.adoption_request li.delete input[type=submit]:active, #content ul.adoption_request li.delete input[type=submit].active {
+      background-image: -moz-linear-gradient(top, #f48a2c, #92531a);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f48a2c), color-stop(1, #92531a));
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+  #content ul.adoption_request li.delete {
+    font-size: 0.8em; }

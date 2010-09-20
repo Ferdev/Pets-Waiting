@@ -57,9 +57,9 @@ module PetsHelper
   end
   
   def method_missing(m, *args)
-    if method_name = /classes_for_(\w*)_button/.match(m.to_s)
-      button_name = method_name[1]
-      classes = [:button]
+    if method_name  = /classes_for_(\w*)_button/.match(m.to_s)
+        button_name = method_name[1]
+        classes     = [:button]
       if button_name.match(/urgent/)
         classes.push(:active) if @filters[:urgent]
       elsif button_name.match(/male|female/)

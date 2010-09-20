@@ -1,0 +1,79 @@
+#content ul {
+  text-align: left; }
+  #content ul li.pet {
+    display: inline; }
+    #content ul li.pet a {
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      *display: inline;
+      padding: 10px;
+      margin: 0 0.5em 2em;
+      color: #124462;
+      text-decoration: none;
+      text-shadow: 0 1px 0 #cce5f4;
+      text-align: center; }
+      #content ul li.pet a img {
+        height: 200px;
+        width: 200px;
+        -moz-box-shadow: 0px 0px 2px black;
+        -webkit-box-shadow: 0px 0px 2px black;
+        box-shadow: 0px 0px 2px black;
+        background-color: #092230;
+        border: 1px solid #cce5f4; }
+      #content ul li.pet a span {
+        color: #1a6692;
+        display: block;
+        margin: 0.5em 0;
+        text-align: left;
+        font-weight: normal; }
+      #content ul li.pet a span.name {
+        color: #124462;
+        margin: 0.5em 0 0;
+        font-size: 1.5em;
+        text-align: center;
+        line-height: 1.5em;
+        font-weight: bold; }
+      #content ul li.pet a span.adopted, #content ul li.pet a span.not_adopted {
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 2px 5px;
+        width: 170px;
+        margin: 0.5em auto;
+        text-shadow: 0 1px 0 #333333;
+        text-transform: uppercase;
+        text-align: center; }
+      #content ul li.pet a span.adopted {
+        background-color: #54b100; }
+      #content ul li.pet a span.not_adopted {
+        background-color: #dc4228; }
+    #content ul li.pet a:hover {
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      -moz-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #cce5f4;
+      -webkit-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #cce5f4;
+      box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #cce5f4;
+      background-color: #2388c3;
+      border-color: #1a6692;
+      border-style: solid;
+      border-width: 0 1px;
+      color: #cce5f4;
+      text-shadow: 0 1px 0 #124462;
+      padding: 10px 9px; }
+      #content ul li.pet a:hover span {
+        color: inherit; }
+      #content ul li.pet a:hover span.adopted, #content ul li.pet a:hover span.not_adopted {
+        color: white; }
+  #content ul li.loading {
+    text-align: center;
+    padding: 25px 0; }
+#content .pagination a, #content .pagination em, #content .pagination span {
+  margin: 0 0.2em; }

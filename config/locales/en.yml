@@ -66,6 +66,9 @@ en:
         image: 'Select a photo'
       adoption:
         reasons: 'Reasons to adopt it'
+        pet_id: 'Pet'
+        adoptant_id: 'Adoptant'
+
     submit:
       create: 'Save %{model}'
       update: 'Update %{model}'
@@ -155,6 +158,12 @@ en:
         select_file: 'Select a file'
         browse: 'Browse'
     adoptions:
+      index:
+        title: 'Received adoption requests.'
+      adoption:
+        heading: 'Request to adopt %{pet}, sent by:'
+        adopted: '&#10004; Adopted!' # &#9745; &#9143;
+        not_adopted: '&#10008; Not Adopted' # &#9746; &#9587;
       new:
         title: 'Adopt %{petname}'
         interested: 'Interested in adopting %{petname}?'
@@ -164,7 +173,24 @@ en:
         send_request: 'Send Request'
       create:
         success: 'Your adoption request has been submitted successfully to %{owner}.'
-        fail: 'There was a problem sending your request to %{owner}. Please, try it again later.'
+        error: 'There was a problem sending your request to %{owner}. Please, try it again later.'
+      edit:
+        title: 'Adoption request for %{petname}'
+        request_data: 'Request data'
+        delete: 'Delete Adoption Request'
+        delete_confirm: 'Are you sure?'
+      update:
+        success: 'Your pet has been marked as adopted successfully.'
+        error: 'There was a problem marking your pet as adopted. Please, try it again later.'
+      destroy:
+        success: 'Adoption request deleted successfully.'
+        error: 'Cannot delete confirmed adoptions.'
+  shared:
+    admin:
+      nav:
+        adoptions_requests: 'Received adoption requests'
+        pets_list: 'Pet''s list'
+
   mailer:
     adoptions:
       adoption_request:
@@ -187,6 +213,8 @@ en:
     actions:
       user:
         create: 'Sign up'
+      adoption:
+        update: 'Adopted'
       create: 'Save %{model}'
       update: 'Update %{model}'
       delete: 'Delete %{model}'

@@ -1,0 +1,48 @@
+@import 'pw.mixins'
+
+#content
+  h3
+    text-align: center
+  ul.adoption_request
+    margin: 0 auto
+    li
+      margin: .5em 0
+      text-align: left
+      span.label
+        font-weight: bold
+        @include inline-block
+        width: 12em
+
+    li.pet
+      text-align: center
+      img
+        @include inline-block
+        width: 100px
+        margin: .5em
+        @include decorate_image
+        vertical-align: middle
+      ul
+        @include inline-block
+        vertical-align: middle
+        li span.label
+          width: 8em
+    li.request_data
+      margin: 2em 0
+      ul
+        width: 600px
+        margin: 0 auto
+        li
+          font-size: 1em
+          q
+            display: block
+            margin: 1em
+            font-style: italic
+
+    li.adopt_it, li.delete
+      text-align: center
+      margin: 2em
+      input[type=submit]:active,input[type=submit].active
+        @include gradient(#f48a2c, #92531a)
+
+    li.delete
+      font-size: .8em

@@ -31,10 +31,10 @@
             - else
               %li= link_to t('layouts.application.my_profile'), edit_user_registration_path
               %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
+        .count
+          =I18n.t('layouts.application.counter.adopted', :count => @adopted ) + I18n.t('layouts.application.counter.pets', :count => @count )
 
     #content
-      .count
-        =I18n.t('layouts.application.counter.adopted', :count => 1 ) + I18n.t('layouts.application.counter.pets', :count => Pet.count )
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}", :class => %W{ flash #{name} }
       = yield

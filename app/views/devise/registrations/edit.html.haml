@@ -2,6 +2,8 @@
   = javascript_include_tag "jquery/jquery-ui-1.8.4.custom.min.js", "pw/pw.pets.js", "pw/pw.pets.devise.js", "pw/pw.address.autocompleter.js", "pw/pw.pets.form.js"
   %script{:type => "text/javascript", :src => "http://maps.google.com/maps/api/js?sensor=true"}
 
+= render 'shared/admin/nav'
+
 %h2= I18n.t('devise.edit', :resource => resource.class.model_name.human)
 = semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = error_messages(resource)

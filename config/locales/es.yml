@@ -227,6 +227,8 @@
         image: 'Selecciona una foto'
       adoptions:
         reasons: 'Razones para adoptarle'
+        pet_id: 'Mascota'
+        adoptant_id: 'Adoptante'
       
     errors:
       messages:
@@ -407,6 +409,12 @@
         select_file: 'Selecciona un archivo'
         browse: 'Buscar'
     adoptions:
+      index:
+        title: 'Peticiones de adopción recibidas.'
+      adoption:
+        heading: 'Petición para adoptar a %{pet}, por:'
+        adopted: '&#10004; ¡Adoptado!'
+        not_adopted: '&#10008; No Adoptado'
       new:
         title: 'Adopta a %{petname}'
         interested: '¿Interesado en adoptar a %{petname}?'
@@ -416,7 +424,25 @@
         send_request: 'Enviar Petición'
       create:
         success: 'Tu petición de adopción se ha enviado correctamente a %{owner}.'
-        fail: 'Hubo un problema al enviar tu petición a %{owner}. Por favor, inténtalo de nuevo más tarde.'
+        error: 'Hubo un problema al enviar tu petición a %{owner}. Por favor, inténtalo de nuevo más tarde.'
+      edit:
+        title: 'Solicitud de adopción para %{petname}'
+        request_data: 'Datos de la solicitud'
+        delete: 'Eliminar Solicitud de Adopción'
+        delete_confirm: '¿Estás seguro?'
+      update:
+        success: 'Tu mascota ha sido marcada como adoptada correctamente.'
+        error: 'Hubo un problema al marcar como adoptada a tu mascota. Por favor, inténtalo de nuevo más tarde.'
+      destroy:
+        success: 'Petición de adopción eliminada correctamente.'
+        error: 'No se pueden eliminar adopciones confirmadas.'
+  shared:
+    admin:
+      nav:
+        adoptions_requests: 'Solicitudes de adopción recibidas'
+        pets_list: 'Lista de mascotas'
+
+
   mailer:
     adoptions:
       adoption_request:
@@ -440,6 +466,8 @@
     actions:
       user:
         create: 'Date de alta'
+      adoption:
+        update: 'Adoptado'
       create: 'Guardar %{model}'
       update: 'Actualizar %{model}'
       delete: 'Eliminar %{model}'

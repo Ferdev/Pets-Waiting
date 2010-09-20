@@ -1,0 +1,10 @@
+- content_for :head do
+  = stylesheet_link_tag "pw.adoptions.index"
+
+= render 'shared/admin/nav'
+
+%h2= I18n.t('pets.adoptions.index.title')
+
+%ul.adoptions
+  = render @adoptions
+  

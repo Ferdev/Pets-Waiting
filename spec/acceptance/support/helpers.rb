@@ -10,21 +10,22 @@ module HelperMethods
   def lorem
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   end
+  
+  def load_master_tables
+    create_breeds
+    create_sexes
+    Size.make
+    Address.make
+  end
 
   def create_and_sign_in_user
-    @current_user = User.make(:address => Address.make)
+    @current_user = User.make(:address => Address.first)
     visit homepage
     click_link('Sign in')
     fill_in('Email', :with => 'fer@ferdev.com')
     fill_in('Password', :with => 'waduswadus')
     click_button('Sign in')
     page.should have_content('Signed in successfully.')
-  end
-  
-  def load_master_tables
-    create_breeds
-    create_sexes
-    Size.make
   end
   
   def create_breeds
@@ -68,6 +69,11 @@ module HelperMethods
         :sex    => Sex.all.choice
       })
     end
+  end
+  
+  def create_adoption_request
+    pet = create_pet
+    Adoption.make(:pet => pet, :adoptant => User.make(:guest, :address => Address.first), :reasons => lorem)
   end
   
   def should_fill_address_fields
