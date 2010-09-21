@@ -144,8 +144,8 @@ GEM
       json_pure
       rubyzip
     sqlite3-ruby (1.3.1)
-    steak (0.4.0.beta.1)
-      rspec (>= 2.0.0.beta.9)
+    steak (1.0.0.beta.2)
+      rspec
     thor (0.14.0)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
@@ -180,5 +180,5 @@ DEPENDENCIES
   rspec-rails (~> 2.0.0.beta.16)
   ruby-debug
   sqlite3-ruby
-  steak (~> 0.4.0.beta.1)
+  steak (~> 1.0.0.beta.2)
   will_paginate (~> 3.0.pre2)

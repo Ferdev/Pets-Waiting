@@ -22,13 +22,13 @@ group :development, :test do
 end
 
 group :test do
-	gem 'rspec-rails', '~> 2.0.0.beta.16'
-	gem 'steak', '~> 0.4.0.beta.1'
-	gem 'capybara'
-	gem 'database_cleaner'
-	gem 'launchy'
-	gem 'machinist'
-	gem 'faker'
+  gem 'rspec-rails', '~> 2.0.0.beta.16'
+  gem 'steak', '~> 1.0.0.beta.2'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'machinist'
+  gem 'faker'
 end
 
 group :production do
