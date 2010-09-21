@@ -86,38 +86,6 @@ namespace :config do
   end
 end
 
-namespace :god do
-  
-  task :restart_unicorn, :roles => :app do
-    run "god restart pw_unicorn"
-  end
-  
-  desc "Reload config"
-  task :reload, :roles => :app do
-    run "god load /etc/god/config.god"
-  end  
-
-  desc "Start god"
-  task :start, :roles => :app do
-    run "god -c /etc/god/config.god"
-  end
-  
-  desc "Quit god, but not the processes it's monitoring"
-  task :quit, :roles => :app do
-    run "god quit"
-  end
-
-  desc "Terminate god and all monitored processes"
-  task :terminate, :roles => :app do
-    run "god terminate"
-  end
-
-  desc "Describe the status of the running tasks"
-  task :status, :roles => :app do
-    run "god status"
-  end
-end
-
 namespace :nginx do
   
   desc "Restart nginx"

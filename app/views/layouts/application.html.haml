@@ -59,10 +59,8 @@
       .footer_links
         %ul
           %li
-            %a.colaborate{:href => '#', :title => I18n.t('layouts.application.footer.colaborate')}= I18n.t('layouts.application.footer.colaborate')
+            = link_to I18n.t('layouts.application.footer.colaborate'), colaborate_path
           %li
-            %a.about{:href => '#', :title => I18n.t('layouts.application.footer.about')}= I18n.t('layouts.application.footer.about')
+            = link_to I18n.t('layouts.application.footer.about'), about_path
           %li
-            %a.donations{:href => '#', :title => I18n.t('layouts.application.footer.donations')}= I18n.t('layouts.application.footer.donations')
-          %li
-            %a.contact{:href => '#', :title => I18n.t('layouts.application.footer.contact')}= I18n.t('layouts.application.footer.contact')
+            = link_to I18n.t('layouts.application.footer.contact'), contact_path

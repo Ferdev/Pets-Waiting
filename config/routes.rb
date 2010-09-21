@@ -11,6 +11,10 @@ PetsWaiting::Application.routes.draw do
   end
 
   resources :breeds
+  
+  match 'colaborate' => 'info#colaborate', :as => :colaborate
+  match 'about' => 'info#about', :as => :about
+  match 'contact' => 'info#contact', :as => :contact
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

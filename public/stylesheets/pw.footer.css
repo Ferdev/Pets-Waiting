@@ -1,0 +1,12 @@
+#content {
+  font-size: 1.3em;
+  line-height: 1.3em; }
+  #content h2 {
+    line-height: 1.5em; }
+  #content p {
+    margin: 0.5em; }
+  #content ul {
+    margin: 0 1em;
+    list-style-type: disc; }
+    #content ul li {
+      margin: 1em; }
