@@ -336,10 +336,12 @@
       
   title: 'Pets Waiting'
   subtitle: '¡Un montón de mascotas están esperándote!'
+  description: 'En PetsWaiting hay un montón de mascotas esperando encontrar un hogar. Si estás buscando un amigo, o quieres dar un animal en adopción, éste es tu lugar.'
+  keywords: 'perro gato mascota adopción ave loro reptil cachorro cachorrito perrito gatito animal'
   layouts:
     application:
       authentication:
-        signin: 'Identificate'
+        signin: 'Identifícate'
         or: 'o'
         signup: 'Date de alta'
         logout: 'Cerrar sesión'

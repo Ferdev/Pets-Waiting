@@ -1,0 +1,13 @@
+- content_for :head do
+  = stylesheet_link_tag "pw.footer"
+
+%h2 Colaborate with us!
+%p
+  PetsWaiting is a web page with no profit motive in mind, which needs your help to keep on improving.
+%p
+  If you like to help us, there are many ways to do it:
+%ul
+  %li You can send us your feedback, or errors you find in the page, by clicking the feedback button placed at the left of the page.
+  %li If you are an illustrator or a designer, your help would be very appreciated to improve some page points. #{mail_to 'fur@petswaiting.com', 'Email us'} if you want to colaborate!
+  %li If you are a Ruby on Rails programmer and want to give us a hand with programming, you can find the source code at #{link_to 'GitHub.com', 'http://github.com/Ferdev/Pets-Waiting'}. Send us your commits!
+  %li For any other thing you realize you can help us, don't hesitate to #{mail_to 'fur@petswaiting.com', 'email us'} :)

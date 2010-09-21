@@ -1,0 +1,9 @@
+- content_for :head do
+  = stylesheet_link_tag "pw.footer"
+%h2 Contactar con nosotros.
+%p
+  Puedes ponerte en contacto con nosotros de cualquiera de las siguientes maneras:
+%ul
+  %li Enviándonos un correo a #{mail_to 'fur@petswaiting.com', 'fur@petswaiting.com'}.
+  %li En nuestra #{link_to 'cuenta de twitter', 'http://twitter.com/petswaiting'}.
+  %li Visitando nuestra #{link_to 'página de facebook', 'http://www.facebook.com/pages/Pets-Waiting/129934550383230'}.

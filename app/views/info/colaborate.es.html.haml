@@ -1,0 +1,13 @@
+- content_for :head do
+  = stylesheet_link_tag "pw.footer"
+
+%h2 ¡Colabora con nosotros!
+%p
+  PetsWaiting es una página web sin ánimo de lucro, que necesita vuestra ayuda para poder seguir mejorando.
+%p
+  Si te apetece echarnos una mano, hay muchas formas de ayudarnos:
+%ul
+  %li Puedes enviarnos tus sugerencias, o errores que hayas encontrado en la página, pulsando en el botón "Sugerencias" situado a la izquierda de la pantalla.
+  %li Si eres ilustrador o diseñador, nos vendría bien tu ayuda para mejorar algunos puntos de la web. ¡#{mail_to 'fur@petswaiting.com', 'Escríbenos'} si quieres colaborar!
+  %li Si sabes Ruby on Rails y te apetece echar una mano con la programación, en #{link_to 'GitHub.com', 'http://github.com/Ferdev/Pets-Waiting'} puedes encontrar el código fuente. ¡Envíanos tus commits!
+  %li Para cualquier otra cosa que se te ocurra en la que nos puedes ayudar, #{mail_to 'fur@petswaiting.com', 'escríbenos'} sin dudarlo :)
