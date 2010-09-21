@@ -28,6 +28,29 @@
           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+      :javascript
+        var uservoiceOptions = {
+          /* required */
+          key: 'petswaiting',
+          host: 'petswaiting.uservoice.com', 
+          forum: '77461',
+          showTab: true,  
+          /* optional */
+          alignment: 'left',
+          background_color:'#f00', 
+          text_color: 'white',
+          hover_color: '#06C',
+          lang: '#{I18n.locale}'
+        };
+
+        function _loadUserVoice() {
+          var s = document.createElement('script');
+          s.setAttribute('type', 'text/javascript');
+          s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
+          document.getElementsByTagName('head')[0].appendChild(s);
+        }
+        _loadSuper = window.onload;
+        window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
 
     = csrf_meta_tag
 
