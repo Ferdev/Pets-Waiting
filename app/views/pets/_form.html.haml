@@ -21,7 +21,7 @@
       = address.input :state, :as => :hidden
       = address.input :substate, :as => :hidden
       = address.input :city, :as => :hidden
-    = form.input :birthday
+    = form.input :birthday, :start_year => 1980, :end_year => Time.now.year
     = form.input :size
     = form.input :urgent
   %h2= I18n.t('pets._form.its_character')  
