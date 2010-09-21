@@ -67,8 +67,8 @@ feature "Pets", %q{
   context "Everyone (with javascript enabled)" do
     background do
       load_master_tables
-      create_pet
       create_pets
+      create_pet
       enable_javascript
     end
     
@@ -90,12 +90,12 @@ feature "Pets", %q{
       page.should have_css('.pets.results ul li.loading')
       page.should have_css('.pets.results ul li.pet', :count => 64)
       page.should have_no_css('.pets.results ul li.loading')
-      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy62')
+      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy33')
       scroll_all_page_down
       page.should have_css('.pets.results ul li.loading')
       page.should have_css('.pets.results ul li.pet', :count => 96)
       page.should have_no_css('.pets.results ul li.loading')
-      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy94')
+      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy1')
     end
     
     scenario "can filter pet's list by species" do
@@ -143,8 +143,8 @@ feature "Pets", %q{
   context "Everyone" do
     background do
       load_master_tables
-      create_pet
       create_pets
+      create_pet
     end
     
     scenario "can see a list of pets" do
@@ -163,8 +163,8 @@ feature "Pets", %q{
       end
       click_link('2')
       page.should have_css('.pets.results ul li.pet', :count => 32)
-      page.should have_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy31')
-      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy62')
+      page.should have_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy64')
+      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy33')
     end
     
     scenario "can see a pet's detail" do
@@ -279,7 +279,7 @@ feature "Pets", %q{
     
     scenario "can't edit an existing pet" do
       visit homepage
-      click_link('Scroophy0')
+      click_link('Scroophy95')
       page.should have_no_content('Edit')
     end
   end
