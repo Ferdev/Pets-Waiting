@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-  # TODO Check for pet_id param in all requests
   before_filter :get_pet
   
   def index

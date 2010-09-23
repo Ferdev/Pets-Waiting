@@ -23,4 +23,5 @@ class Photo < ActiveRecord::Base
     update_attributes(attributes)
     crop_image
   end
+  
 end

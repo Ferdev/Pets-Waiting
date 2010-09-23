@@ -17,7 +17,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-
+  
   def crop_image
     if model.cropping?
       manipulate! do |img|
@@ -36,6 +36,14 @@ class ImageUploader < CarrierWave::Uploader::Base
       img.colorspace = Magick::GRAYColorspace
       img
     end
+  end
+
+  def dimensions
+    unless model.width && model.height
+      img = ::Magick::Image.read(current_path).first
+      model.update_attributes({:width => img.columns, :height => img.rows})
+    end
+    "#{model.width}x#{model.height}" if model.width && model.height
   end
 
 end
