@@ -8,7 +8,7 @@
   - @photos.each do |photo|
     %li
       - if photo.has_thumbnail?
-        = link_to image_tag(photo.image.thumb.url), edit_pet_photo_path(@pet, photo)
+        = link_to image_tag(photo.image.thumb.url, :size => '200x200'), edit_pet_photo_path(@pet, photo)
         - unless photo.cropped
           = link_to I18n.t('pets.photos.index.without_thumbnail'), edit_pet_photo_path(@pet, photo), :class => 'button'
       = link_to I18n.t('pets.photos.index.delete'), pet_photo_path(@pet, photo), :confirm => I18n.t('pets.photos.index.delete_confirm'), :method => :delete, :class => 'button delete'
