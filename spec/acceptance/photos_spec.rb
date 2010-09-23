@@ -19,10 +19,8 @@ feature "Images upload", %q{
     scenario "can upload photos of his registered pets" do
       visit homepage
       click_link('Wadus')
-      click_link("Add Wadus's photos")
-      page.should have_content("Wadus's photos")
-      page.should have_no_css('ul.photos li img')
-      click_link('Add a photo')
+      click_link("Add a Wadus's photo")
+      page.should have_content("Add a Wadus's photo")
       attach_file('photo_image', image_to_upload)
       assert_difference "Photo.count", 1 do
         click_button('Save Photo')
@@ -37,7 +35,7 @@ feature "Images upload", %q{
       find('#photo_crop_w').value.should eq('200')
       find('#photo_crop_h').value.should eq('200')
       click_button('Update Photo')
-      page.should have_css('ul.photos li img')
+      page.should have_content("Wadus's photos")
     end
   end
   
@@ -52,7 +50,7 @@ feature "Images upload", %q{
     scenario "can delete previously uploaded photos" do
       visit homepage
       click_link('Wadus')
-      click_link("Add Wadus's photos")
+      click_link("Manage Wadus's photos")
       page.should have_content("Wadus's photos")
       page.should have_css('ul.photos li img')
       find('ul.photos li img')[:src].should match(/uploads\/photo\/image\/\d*\/thumb_dog1\.jpg.*/)
@@ -76,7 +74,7 @@ feature "Images upload", %q{
     scenario "should see a link to generate thumbnail" do
       visit homepage
       click_link('Wadus')
-      click_link("Add Wadus's photos")
+      click_link("Manage Wadus's photos")
       page.should have_content("Wadus's photos")
       within('ul.photos li') do
         page.should have_css('img')
@@ -114,11 +112,10 @@ feature "Images upload", %q{
       create_pet
     end
     
-    scenario "can see a random image when a pet hasn't photo" do
+    scenario "can can read a text saying that pet has no photos when a pet doesn't have photos" do
       visit homepage
       click_link('Wadus')
-      page.should have_css('.ad-gallery .ad-image-wrapper img')
-      page.should have_css('.ad-gallery .ad-nav .ad-thumbs ul.ad-thumb-list li img')
+      page.should have_content("There's no Wadus's photos")
     end
   end
   

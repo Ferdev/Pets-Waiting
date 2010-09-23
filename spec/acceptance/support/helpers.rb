@@ -60,13 +60,13 @@ module HelperMethods
   
   def create_pets(number = 96)
     number.times do |i|
-      breed = Breed.all.choice
+      breed = Breed.all.sample
       create_pet({
         :name   => "Scroophy#{i}",
         :breed  => breed,
         :animal => breed.animal,
-        :urgent => [true,false].choice,
-        :sex    => Sex.all.choice
+        :urgent => [true,false].sample,
+        :sex    => Sex.all.sample
       })
     end
   end

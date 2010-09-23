@@ -1,6 +1,6 @@
 module PetsHelper
   def breed_for_animal(pet)
-    return I18n.t('pets._form.select_animal_first') if pet.nil? || pet.animal.nil?
+    return [I18n.t('pets._form.select_animal_first')] if pet.nil? || pet.animal.nil?
     Breed.by_animal_id(pet.animal_id)
   end
   
@@ -23,7 +23,7 @@ module PetsHelper
   end
   
   def random_critter
-    "icons/critters/#{critters.choice}"
+    "icons/critters/#{critters.sample}"
   end
   
   def thumbnail(pet)
@@ -34,16 +34,12 @@ module PetsHelper
   
   def thumbnail_list(pet)
     thumbnails = pet.thumbnails
-    unless thumbnails.nil? || thumbnails.empty?
-      thumbnails.each do |photo|
-        haml_tag :li do
-          haml_concat(link_to(image_tag(photo.image.thumb.url), photo.image.url))
-        end
-      end
-    else
-      critter_src = random_critter
+
+    return if thumbnails.blank?
+
+    thumbnails.each do |photo|
       haml_tag :li do
-        haml_concat(link_to(image_tag(critter_src), image_path(critter_src)))
+        haml_concat(link_to(image_tag(photo.image.thumb.url), photo.image.url))
       end
     end
   end

@@ -9,7 +9,10 @@
       %li
         = link_to I18n.t('pets.nav.edit', :pet => @pet.name), edit_pet_path(@pet), :class => 'button'
       %li
-        = link_to I18n.t('pets.nav.add_photos', :pet => @pet.name), pet_photos_url(@pet), :class => 'button'
+        - if @pet.photos.blank?
+          = link_to I18n.t('pets.nav.add_photo', :pet => @pet.name), new_pet_photo_path(@pet), :class => 'button'
+        - else
+          = link_to I18n.t('pets.nav.manage_photos', :pet => @pet.name), pet_photos_path(@pet), :class => 'button'
   - when "new"
   - when "edit"
     %li

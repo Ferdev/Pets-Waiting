@@ -162,10 +162,13 @@
     models:
       user: 'Usuario'
       pet: 'Mascota'
+      photo: 'Foto'
       animal: 'Animal'
       breed: 'Raza'
       size: 'Tamaño'
+      sex: 'Sexo'
       address: 'Dirección'
+      adoption: 'Adopción'
     attributes:
       created_at: 'Creado a las'
       updated_at: 'Modificado a las'
@@ -225,7 +228,7 @@
         friendly_animals: 'Amistoso/a con los animales'
       photo:
         image: 'Selecciona una foto'
-      adoptions:
+      adoption:
         reasons: 'Razones para adoptarle'
         pet_id: 'Mascota'
         adoptant_id: 'Adoptante'
@@ -382,10 +385,14 @@
         other_species: 'Otras especies'
         males: 'Machos'
         females: 'Hembras'
+    show:
+      adopt_pet: 'Adoptar a %{petname}'
+      no_photos: 'No hay fotos de %{petname}'
     nav:
       show: 'Datos de %{pet}'
       edit: 'Editar los datos de %{pet}'
-      add_photos: 'Añadir fotos de %{pet}'
+      add_photo: 'Añadir una foto de %{pet}'
+      manage_photos: 'Administrar las fotos de %{pet}'
       pets_list: 'Lista de mascotas'
     _form:
       select_animal_first: 'Por favor, selecciona antes un tipo de animal'
@@ -398,15 +405,20 @@
         success: 'La foto se ha actualizado correctamente.'
         error: 'Se ha producido un error al actualizar la foto.'
       new:
-        title: 'Añade una foto'
+        title: 'Añade una foto de %{pet}'
       edit:
         title: 'Añade una miniatura a la foto'
       index:
         title: 'Fotos de %{pet}'
-        add_photo: 'Añadir una foto'
         delete: 'Eliminar foto'
         delete_confirm: '¿Estás seguro?'
         without_thumbnail: 'Crear miniatura'
+      nav:
+        new: 'Añadir una foto'
+        edit: 'Edit photo thumbnail'
+        show: 'Ver foto'
+        photos_list: 'Lista de fotos'
+        home: 'Inicio'
       _form:
         select_file: 'Selecciona un archivo'
         browse: 'Buscar'

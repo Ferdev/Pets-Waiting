@@ -1,5 +1,5 @@
 = render 'nav'
 
-%h1= I18n.t('pets.photos.new.title')
+%h1= I18n.t('pets.photos.new.title', :pet => @pet.name)
 
 = render 'form'

@@ -704,15 +704,15 @@ if Rails.env == 'development'
   })
   address = Address.create(:address => 'Madrid, Spain')
   1000.times do |i|
-    breed = Breed.all.choice
+    breed = Breed.all.sample
     Pet.create({
       :name => "Scroophy#{i}",
       :user => user,
       :animal => breed.animal,
       :breed => breed,
       :address => address,
-      :sex => Sex.all.choice,
-      :birthday => (1..10).to_a.choice.years.ago
+      :sex => Sex.all.sample,
+      :birthday => (1..10).to_a.sample.years.ago
     })
   end
 end

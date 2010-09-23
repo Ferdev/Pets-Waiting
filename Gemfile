@@ -17,18 +17,22 @@ gem 'will_paginate', '~> 3.0.pre2'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => "sqlite3"
-  gem 'ruby-debug'
   gem 'rails3-generators'
+  if RUBY_VERSION < '1.9'
+    gem 'ruby-debug'
+  else
+    gem 'ruby-debug19'
+  end
 end
 
 group :test do
-	gem 'rspec-rails', '~> 2.0.0.beta.16'
-	gem 'steak', '~> 0.4.0.beta.1'
-	gem 'capybara'
-	gem 'database_cleaner'
-	gem 'launchy'
-	gem 'machinist'
-	gem 'faker'
+  gem 'rspec-rails', '~> 2.0.0.beta.16'
+  gem 'steak', '~> 1.0.0.beta.2'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'machinist'
+  gem 'faker'
 end
 
 group :production do

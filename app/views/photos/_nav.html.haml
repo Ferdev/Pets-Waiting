@@ -4,16 +4,17 @@
 %ul.nav
   - case request[:action]
   - when "index"
+    %li
+      =link_to I18n.t('pets.photos.nav.new'), new_pet_photo_path, :class => 'button'
   - when "show"
     %li
-      = link_to 'Edit', edit_pet_photo_path(@photo), :class => :button
-    %li.back
-      = link_to 'Back', pet_photos_path, :class => :button
+      = link_to I18n.t('pets.photos.nav.edit'), edit_pet_photo_path(@pet, @photo), :class => :button
   - when "new"
-    %li.back
-      = link_to 'Back', pet_photos_path, :class => :button
   - when "edit"
     %li
-      = link_to 'Show', [@pet, @photo], :class => :button
-    %li.back
-      = link_to 'Back', pet_photos_path(@pet), :class => :button
+      = link_to I18n.t('pets.photos.nav.show'), [@pet, @photo], :class => :button
+  - unless request[:action] == 'index'
+    %li
+      = link_to I18n.t('pets.photos.nav.photos_list'), pet_photos_path, :class => :button
+  %li.back
+    = link_to I18n.t('pets.photos.nav.home'), root_url, :class => :button

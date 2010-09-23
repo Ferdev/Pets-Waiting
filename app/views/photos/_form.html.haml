@@ -13,9 +13,10 @@
       = form.input :crop_y, :as => :hidden
       = form.input :crop_w, :as => :hidden
       = form.input :crop_h, :as => :hidden
-      = image_tag(@photo.image.url, :id => 'photo')
-      #thumbnail
-        = image_tag(@photo.image.url)
+      %li
+        = image_tag @photo.image.url, :id => 'photo', :size => @photo.image.dimensions
+        #thumbnail
+          = image_tag(@photo.image.url)
     - else
       = form.input :image, :as => :file, :label => false
   = form.buttons
