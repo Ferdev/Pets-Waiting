@@ -6,6 +6,14 @@ en:
   activerecord:
     models:
       user: 'User'
+      pet: 'Pet'
+      photo: 'Photo'
+      animal: 'Animal'
+      breed: 'Breed'
+      size: 'Size'
+      sex: 'Sex'
+      address: 'Address'
+      adoption: 'Adoption'
     attributes:
       created_at: 'Created at'
       updated_at: 'Updated at'
@@ -131,10 +139,12 @@ en:
         females: 'Females'
     show:
       adopt_pet: 'Adopt %{petname}'
+      no_photos: 'There''s no %{petname}''s photos'
     nav:
       show: '%{pet}''s data'
       edit: 'Edit %{pet}''s data'
-      add_photos: 'Add %{pet}''s photos'
+      add_photo: 'Add a %{pet}''s photo'
+      manage_photos: 'Manage %{pet}''s photos'
       pets_list: 'Pets list'
     _form:
       select_animal_first: 'Please, select a kind of animal first'
@@ -147,15 +157,20 @@ en:
         success: 'The photo was successfully updated.'
         error: 'There was an error updating the photo.'
       new:
-        title: 'Add a photo'
+        title: 'Add a %{pet}''s photo'
       edit:
         title: 'Add a thumbnail to the photo'
       index:
         title: '%{pet}''s photos'
-        add_photo: 'Add a photo'
         delete: 'Delete photo'
         delete_confirm: 'Are you sure?'
         without_thumbnail: 'Generate thumbnail'
+      nav:
+        new: 'Add a photo'
+        edit: 'Edit photo thumbnail'
+        show: 'View photo'
+        photos_list: 'Photos list'
+        home: 'Home'
       _form:
         select_file: 'Select a file'
         browse: 'Browse'

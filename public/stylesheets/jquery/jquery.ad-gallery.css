@@ -147,6 +147,7 @@
         float: left;
         width: 9000px;
         list-style: none;
+        margin: 0 .1em;
       }
         .ad-gallery .ad-thumbs li {
           float: left;

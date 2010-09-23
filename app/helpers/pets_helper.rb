@@ -34,16 +34,12 @@ module PetsHelper
   
   def thumbnail_list(pet)
     thumbnails = pet.thumbnails
-    unless thumbnails.nil? || thumbnails.empty?
-      thumbnails.each do |photo|
-        haml_tag :li do
-          haml_concat(link_to(image_tag(photo.image.thumb.url), photo.image.url))
-        end
-      end
-    else
-      critter_src = random_critter
+
+    return if thumbnails.blank?
+
+    thumbnails.each do |photo|
       haml_tag :li do
-        haml_concat(link_to(image_tag(critter_src), image_path(critter_src)))
+        haml_concat(link_to(image_tag(photo.image.thumb.url), photo.image.url))
       end
     end
   end

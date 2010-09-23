@@ -15,6 +15,7 @@ feature "Pets", %q{
   
     scenario 'can register a new pet' do
       visit homepage
+      # Pet data
       click_link('Add a new pet')
       fill_in("Pet's name", :with => 'Scroophy')
       select('Dog', :from => 'Kind of animal')
@@ -34,6 +35,23 @@ feature "Pets", %q{
         click_button('Save Pet')
         page.should have_content('The pet was successfully saved.')
       end
+      # Photo upload
+      page.should have_content("Add a Scroophy's photo")
+      attach_file('photo_image', image_to_upload)
+      assert_difference "Photo.count", 1 do
+        click_button('Save Photo')
+      end
+      page.should have_content('The photo was successfully saved.')
+      page.should have_content("Add a thumbnail to the photo")
+      page.should have_css('#photo')
+      page.should have_css('#thumbnail')
+      page.execute_script('$.pw.pets.photos.form.jcrop.setSelect([50, 50, 250, 250]);')
+      find('#photo_crop_x').value.should eq('50')
+      find('#photo_crop_y').value.should eq('50')
+      find('#photo_crop_w').value.should eq('200')
+      find('#photo_crop_h').value.should eq('200')
+      click_button('Update Photo')
+      page.should have_content("Scroophy's photos")
     end
     
     scenario 'must provide name, kind of animal, breed, address and birthday fields to add a new pet' do
@@ -175,11 +193,7 @@ feature "Pets", %q{
           page.should have_content('Wadus')
         end
         within('li.photos') do
-          page.should have_css('.ad-gallery')
-          page.should have_css('.ad-gallery .ad-image-wrapper')
-          page.should have_css('.ad-gallery .ad-nav')
-          page.should have_css('.ad-gallery .ad-nav .ad-thumbs')
-          page.should have_css('.ad-gallery .ad-nav .ad-thumbs ul.ad-thumb-list')
+          page.should have_css('span.no_photos', :text => 'There\'s no Wadus\'s photos')
         end
         within('li.urgent') do
           page.should have_content('Urgent adoption')

@@ -18,6 +18,7 @@
     font-weight: bold;
     text-align: center; }
   #content ul.pet.detail li.photos {
+    text-align: center;
     margin: 0; }
     #content ul.pet.detail li.photos img.ad-loader {
       display: inline;
@@ -35,6 +36,12 @@
       border: 1px solid #cce5f4; }
     #content ul.pet.detail li.photos .ad-thumb-list img {
       height: 100px; }
+    #content ul.pet.detail li.photos span.no_photos {
+      color: #7fabb9;
+      font-style: italic;
+      font-size: 1.3em;
+      text-align: center;
+      line-height: 3em; }
   #content ul.pet.detail li.urgent {
     text-align: center; }
     #content ul.pet.detail li.urgent span {

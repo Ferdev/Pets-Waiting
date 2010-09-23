@@ -8,12 +8,15 @@
   %li.name= @pet.name.capitalize
   
   %li.photos
-    .ad-gallery
-      .ad-image-wrapper
-      .ad-nav
-        .ad-thumbs
-          %ul.ad-thumb-list
-            - thumbnail_list(@pet)
+    - if @pet.photos.blank?
+      %span.no_photos= I18n.t('pets.show.no_photos', :petname => @pet.name.capitalize)
+    - else
+      .ad-gallery
+        .ad-image-wrapper
+        .ad-nav
+          .ad-thumbs
+            %ul.ad-thumb-list
+              - thumbnail_list(@pet)
 
   - if @pet.urgent
     %li.urgent
