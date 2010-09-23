@@ -70,7 +70,7 @@ class Pet < ActiveRecord::Base
   end
   
   def random_thumbnail
-    thumbnails.choice.image.thumb unless thumbnails.nil? || thumbnails.empty?
+    thumbnails.sample.image.thumb unless thumbnails.nil? || thumbnails.empty?
   end
   
   def self.filtered(filters)

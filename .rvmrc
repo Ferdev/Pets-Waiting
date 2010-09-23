@@ -1,1 +1,1 @@
-rvm use ree@petswaiting --create
+rvm use default@petswaiting --create

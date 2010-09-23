@@ -1,6 +1,6 @@
 module PetsHelper
   def breed_for_animal(pet)
-    return I18n.t('pets._form.select_animal_first') if pet.nil? || pet.animal.nil?
+    return [I18n.t('pets._form.select_animal_first')] if pet.nil? || pet.animal.nil?
     Breed.by_animal_id(pet.animal_id)
   end
   
@@ -23,7 +23,7 @@ module PetsHelper
   end
   
   def random_critter
-    "icons/critters/#{critters.choice}"
+    "icons/critters/#{critters.sample}"
   end
   
   def thumbnail(pet)

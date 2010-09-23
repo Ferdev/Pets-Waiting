@@ -17,8 +17,12 @@ gem 'will_paginate', '~> 3.0.pre2'
 
 group :development, :test do
   gem 'sqlite3-ruby', :require => "sqlite3"
-  gem 'ruby-debug'
   gem 'rails3-generators'
+  if RUBY_VERSION < '1.9'
+    gem 'ruby-debug'
+  else
+    gem 'ruby-debug19'
+  end
 end
 
 group :test do
