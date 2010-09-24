@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :adoptions_counter
   before_filter :authenticate_user!
   
-  @@available_locales = %w{es en}
-  
   private
     
     def set_locale
@@ -19,7 +17,6 @@ class ApplicationController < ActionController::Base
     end
 
     def adoptions_counter
-# debugger
       @adopted = Adoption.adopted.count
       @count   = Pet.count
     end
