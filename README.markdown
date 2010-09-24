@@ -7,15 +7,15 @@ Installing instructions
 
 1. Install imagemagick (on OS X, I recommend [Homebrew][2] for this task)
 
-	brew install imagemagick --disable-openmp
+		brew install imagemagick --disable-openmp
 
 2. Install bundler gem
 
-	gem install bundler
+		gem install bundler
 
 3. Install dependencies
 
-	bundle install
+		bundle install
 
 
 Resources
