@@ -62,7 +62,8 @@
           background-color: #092230;
           border: 1px solid #cce5f4; }
         #content .pets.results ul li.pet a span {
-          display: block; }
+          display: block;
+          line-height: 1.2em; }
           #content .pets.results ul li.pet a span span.label {
             font-weight: bold;
             display: inline; }

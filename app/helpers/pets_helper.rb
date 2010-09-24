@@ -29,7 +29,7 @@ module PetsHelper
   def thumbnail(pet)
     thumbnail = pet.random_thumbnail
     img_src = thumbnail ? thumbnail.url : random_critter
-    image_tag(img_src)
+    image_tag img_src, :size => '200x200'
   end
   
   def thumbnail_list(pet)
@@ -39,7 +39,7 @@ module PetsHelper
 
     thumbnails.each do |photo|
       haml_tag :li do
-        haml_concat(link_to(image_tag(photo.image.thumb.url), photo.image.url))
+        haml_concat(link_to(image_tag(photo.image.thumb.url, :size => '200x200'), photo.image.url))
       end
     end
   end

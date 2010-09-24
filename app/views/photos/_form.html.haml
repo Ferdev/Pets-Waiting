@@ -16,7 +16,7 @@
       %li
         = image_tag @photo.image.url, :id => 'photo', :size => @photo.image.dimensions
         #thumbnail
-          = image_tag(@photo.image.url)
+          = image_tag(@photo.image.url, :size => '200x200')
     - else
       = form.input :image, :as => :file, :label => false
   = form.buttons
