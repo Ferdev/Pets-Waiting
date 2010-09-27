@@ -12,8 +12,29 @@ module HelperMethods
   end
   
   def load_master_tables
-    create_breeds
-    create_sexes
+    dog           = Animal.make(:dog)
+    cat           = Animal.make(:cat)
+    bird          = Animal.make(:bird)
+    little_mammal = Animal.make(:little_mammal)
+    reptile       = Animal.make(:reptile)
+    other         = Animal.make(:other_species)
+
+    Breed.make(:animal => dog)
+    Breed.make(:animal => cat)
+    Breed.make(:animal => bird)
+    Breed.make(:animal => little_mammal)
+    Breed.make(:animal => reptile)
+    Breed.make(:animal => other)
+    
+    Disease.make(:leishmaniasis, :animal => dog)
+    Disease.make(:filariasis, :animal => dog)
+    Disease.make(:ehrlichiosis, :animal => dog)
+    Disease.make(:leukemia, :animal => cat)
+    Disease.make(:immunodeficiency, :animal => cat)
+
+    Sex.make(:male)
+    Sex.make(:female)
+    
     Size.make
     Address.make
   end
@@ -26,20 +47,6 @@ module HelperMethods
     fill_in('Password', :with => 'waduswadus')
     click_button('Sign in')
     page.should have_content('Signed in successfully.')
-  end
-  
-  def create_breeds
-    Breed.make(:animal => Animal.make(:dog))
-    Breed.make(:animal => Animal.make(:cat))
-    Breed.make(:animal => Animal.make(:bird))
-    Breed.make(:animal => Animal.make(:little_mammal))
-    Breed.make(:animal => Animal.make(:reptile))
-    Breed.make(:animal => Animal.make(:other_species))
-  end
-  
-  def create_sexes
-    Sex.make(:male)
-    Sex.make(:female)
   end
   
   def create_pet(attributes = {})

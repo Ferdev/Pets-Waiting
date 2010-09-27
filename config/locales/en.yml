@@ -14,6 +14,7 @@ en:
       sex: 'Sex'
       address: 'Address'
       adoption: 'Adoption'
+      disease: 'Disease'
     attributes:
       created_at: 'Created at'
       updated_at: 'Updated at'
@@ -70,6 +71,9 @@ en:
         sleepyhead: 'Sleepyhead'
         friendly_people: 'Friendly with people'
         friendly_animals: 'Friendly with animals'
+        sterilized: 'Sterilized'
+        vaccinated: 'Vaccinated and dewormed'
+        diseases: 'Diseases'
       photo:
         image: 'Select a photo'
       adoption:

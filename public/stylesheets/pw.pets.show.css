@@ -70,13 +70,8 @@
       font-size: 1em;
       margin: 0 0 0.5em; }
   #content ul.pet.detail li.description p {
-    display: -moz-inline-stack;
-    display: inline-block;
-    vertical-align: top;
-    zoom: 1;
-    *display: inline;
-    width: 20em;
-    text-align: justify; }
+    margin: 1em;
+    line-height: 1.2em; }
   #content ul.pet.detail li.adopt_it {
     text-align: center;
     margin: 2em; }

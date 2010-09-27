@@ -23,8 +23,15 @@
       = address.input :city, :as => :hidden
     = form.input :birthday, :start_year => 1980, :end_year => Time.now.year
     = form.input :size
+  = form.inputs do
     = form.input :urgent
-  %h2= I18n.t('pets._form.its_character')  
+  = form.inputs do
+    = form.input :sterilized
+    = form.input :vaccinated
+  = form.inputs do
+    = form.input :diseases, :as => :check_boxes
+
+  %h2= I18n.t('pets._form.its_character')
   = form.inputs :class => 'character' do
     = form.input :docile
     = form.input :calm

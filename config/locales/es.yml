@@ -169,6 +169,7 @@
       sex: 'Sexo'
       address: 'Dirección'
       adoption: 'Adopción'
+      disease: 'Enfermedad'
     attributes:
       created_at: 'Creado a las'
       updated_at: 'Modificado a las'
@@ -226,6 +227,9 @@
         sleepyhead: 'Dormilón'
         friendly_people: 'Amistoso/a con las personas'
         friendly_animals: 'Amistoso/a con los animales'
+        sterilized: 'Esterilizado'
+        vaccinated: 'Vacunado y desparasitado'
+        diseases: 'Enfermedades'
       photo:
         image: 'Selecciona una foto'
       adoption:

@@ -11,7 +11,10 @@ class Pet < ActiveRecord::Base
   has_many  :photos
   has_many  :adoptions
   
+  has_and_belongs_to_many  :diseases
+  
   accepts_nested_attributes_for :address
+  accepts_nested_attributes_for :diseases, :allow_destroy => true 
   
   validates_presence_of :name
   validates_presence_of :animal

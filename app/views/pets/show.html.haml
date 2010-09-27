@@ -62,6 +62,6 @@
   - if @pet.description
     %li.description
       %span.label= "#{Pet.human_attribute_name(:description)}: "
-      %p= @pet.description
+      = simple_format(@pet.description)
   %li.adopt_it
     = link_to I18n.t('pets.show.adopt_pet', :petname => @pet.name.capitalize), new_pet_adoption_path(@pet), :class => :button
