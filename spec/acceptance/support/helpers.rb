@@ -1,4 +1,6 @@
 module HelperMethods
+  attr_accessor :current_user
+  
   def peich
     save_and_open_page
   end

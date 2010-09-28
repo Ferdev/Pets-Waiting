@@ -1,4 +1,6 @@
 PetsWaiting::Application.routes.draw do
+  filter :locale
+  
   devise_for :users
   
   resources :pets do
@@ -16,6 +18,7 @@ PetsWaiting::Application.routes.draw do
   match 'about' => 'info#about', :as => :about
   match 'contact' => 'info#contact', :as => :contact
 
+  match 'change_language' => 'sessions#change_language', :as => :change_language
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

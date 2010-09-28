@@ -72,6 +72,11 @@
               %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
         .count
           =I18n.t('layouts.application.counter.adopted', :count => @adopted ) + I18n.t('layouts.application.counter.pets', :count => @count )
+        %ul.language
+          %li.change_language #{I18n.t('layouts.application.change_language')}
+          - I18n.available_locales.each do |locale|
+            - unless locale == I18n.locale
+              %li.locale= link_to I18n.t("meta.language_name", :locale => locale.to_sym), change_language_path(:new_locale => locale)
 
     #content
       - flash.each do |name, msg|

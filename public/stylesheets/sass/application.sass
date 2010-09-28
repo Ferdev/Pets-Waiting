@@ -98,10 +98,36 @@ header
       font-size: 0.8em
       font-weight: bold
       padding: 0.5em
-      position: absolute
-      right: 0
+      float: right
       top: 3.8em
-      background-color: #FFFFFF
+    .language
+      background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
+      display: inline
+      float: right
+      position: relative
+      font-size: .8em
+      margin: 1px 1em 0
+      padding: 0 .5em
+      color: #83acc3
+      text-align: right
+      li
+        margin: 0
+        line-height: 2em
+      .change_language:after
+        content: " \25BF"
+      .locale
+        display: none
+    .language:hover
+      cursor: pointer
+      background: none repeat fixed 0 0 #ffffff
+      color: inherit
+      font-weight: bold
+      @include box-shadow(0 1px 1px #666666)
+      li
+      .change_language:after
+        content: " \25BE"
+      .locale
+        display: block
 
 
 #content

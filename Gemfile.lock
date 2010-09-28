@@ -124,6 +124,8 @@ GEM
       thor (~> 0.14.0)
     rake (0.8.7)
     rmagick (2.13.1)
+    routing-filter (0.1.6)
+      actionpack
     rspec (2.0.0.beta.22)
       rspec-core (= 2.0.0.beta.22)
       rspec-expectations (= 2.0.0.beta.22)
@@ -186,6 +188,7 @@ DEPENDENCIES
   rails (~> 3.0.0.rc2)
   rails3-generators
   rmagick
+  routing-filter
   rspec-rails (~> 2.0.0.beta.16)
   ruby-debug19
   sqlite3-ruby
