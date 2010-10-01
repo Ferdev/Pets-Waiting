@@ -25,6 +25,24 @@ feature "Adoptions", %q{
       click_button('Send Request')
       page.should have_content('Your adoption request has been submitted successfully to Wadus.')
     end
+
+    scenario 'can mark their pets as adopted and then can unmark them' do
+      visit homepage
+      click_link('My pets')
+      page.should have_css('.pets.results ul li.pet', :count => 32)
+      within('.pets.results ul li.pet:first-child') do
+        assert_difference "Adoption.count", 1 do
+          click_button('Adopted pet!')
+        end
+        page.should have_css('input.adopted.active', :value => 'Adopted pet!')
+        click_button('Adopted pet!')
+        page.should have_no_css('input.adopted.active', :value => 'Adopted pet!')
+      end
+      click_link('Adoption requests')
+      within('ul.adoptions li:first-child a') do
+        page.should have_css('span.external_adoption', :text => 'External adoption')
+      end
+    end
   end
   
   context "Pending adoptions" do
@@ -48,7 +66,7 @@ feature "Adoptions", %q{
       click_link('Received adoption requests')
       page.should have_css('ul.adoptions li a span.adopted')
     end
-
+  
     scenario "can be deleted by owners" do
       visit homepage
       click_link('My profile')

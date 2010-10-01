@@ -118,20 +118,6 @@ feature "Pets", %q{
       end
       page.should have_no_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy95')
     end
-
-    scenario 'can mark their pets as adopted and then can unmark them' do
-      visit homepage
-      click_link('My pets')
-      page.should have_css('.pets.results ul li.pet', :count => 32)
-      within('.pets.results ul li.pet:first-child') do
-        assert_difference "Adoption.count", 1 do
-          click_button('Adopted pet!')
-        end
-        page.should have_css('input.adopted.active', :value => 'Adopted pet!')
-        click_button('Adopted pet!')
-        page.should have_no_css('input.adopted.active', :value => 'Adopted pet!')
-      end
-    end
     
   end
   
