@@ -13,15 +13,16 @@ namespace :petswaiting do
       address = Address.create(:address => 'Madrid, Spain')
       1000.times do |i|
         breed = Breed.all.sample
-        Pet.create({
+        pet = Pet.new({
           :name => "Scroophy#{i}",
-          :user => user,
-          :animal => breed.animal,
-          :breed => breed,
-          :address => address,
-          :sex => Sex.all.sample,
           :birthday => (1..10).to_a.sample.years.ago
         })
+        pet.user = user
+        pet.animal = breed.animal
+        pet.breed = breed
+        pet.address = address
+        pet.sex = Sex.all.sample
+        pet.save
       end
     end
   end

@@ -1,5 +1,5 @@
 class Animal < ActiveRecord::Base
-  attr_accessible nil
+  attr_accessible :name
   
   translates :name
   

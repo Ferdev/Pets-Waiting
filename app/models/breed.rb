@@ -1,5 +1,5 @@
 class Breed < ActiveRecord::Base
-  attr_accessible nil
+  attr_accessible :name
   
   translates :name
   
