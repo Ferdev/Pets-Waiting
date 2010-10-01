@@ -101,7 +101,7 @@ module HelperMethods
     find('#pet_address_attributes_country').value.should eq('Spain')
     find('#pet_address_attributes_country_code').value.should eq('ES')
     find('#pet_address_attributes_state').value.should eq('Madrid')
-    find('#pet_address_attributes_substate').value.should eq('Madrid')
+    find('#pet_address_attributes_substate').value.should eq('Community of Madrid')
     find('#pet_address_attributes_city').value.should eq('Fuente el Saz de Jarama')
   end
   

@@ -85,4 +85,8 @@ class Pet < ActiveRecord::Base
     end
     pets.order("created_at DESC")
   end
+  
+  def adopted?
+    adoptions.adopted.present?
+  end
 end

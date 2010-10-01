@@ -67,5 +67,10 @@ module PetsHelper
     end
     raise NoMethodError.new("Method #{m} not found", m, *args)
   end
-  
+
+  def activate_adopted_button(pet)
+    classes = %w(adopted)
+    classes.push('active') if pet.adopted?
+    classes.join(' ')
+  end
 end

@@ -29,7 +29,7 @@
     = form.input :sterilized
     = form.input :vaccinated
   = form.inputs do
-    = form.input :diseases, :as => :check_boxes
+    = form.input :diseases, :as => :check_boxes, :value_as_class => true
 
   %h2= I18n.t('pets._form.its_character')
   = form.inputs :class => 'character' do

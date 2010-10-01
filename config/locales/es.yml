@@ -355,7 +355,10 @@
         or: 'o'
         signup: 'Date de alta'
         logout: 'Cerrar sesión'
-      my_profile: 'Mi perfil'
+      admin:
+        my_profile: 'Mi perfil'
+        my_pets: 'Mis mascotas'
+        adoption_requests: 'Solicitudes de adopción'
       counter:
         adopted:
           one: '%{count} adopción de '
@@ -392,6 +395,10 @@
         other_species: 'Otras especies'
         males: 'Machos'
         females: 'Hembras'
+      pet:
+        delete_pet: 'Borrar mascota'
+        adopted: '¡Mascota adoptada!'
+        delete_confirm: '¿Estás seguro?'
     show:
       adopt_pet: 'Adoptar a %{petname}'
       no_photos: 'No hay fotos de %{petname}'
@@ -443,6 +450,7 @@
         contact: '%{owner}, el dueño actual de %{petname} se pondrá en contacto contigo para informarte del proceso de adopción.'
         reasons_label: 'Razones para adoptar a %{petname}'
         send_request: 'Enviar Petición'
+        external_adoption: 'Adopción externa'
       create:
         success: 'Tu petición de adopción se ha enviado correctamente a %{owner}.'
         error: 'Hubo un problema al enviar tu petición a %{owner}. Por favor, inténtalo de nuevo más tarde.'

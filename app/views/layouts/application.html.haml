@@ -68,7 +68,15 @@
               %li= t('layouts.application.authentication.or')
               %li= link_to t('layouts.application.authentication.signup'), new_user_registration_path
             - else
-              %li= link_to t('layouts.application.my_profile'), edit_user_registration_path
+              %li.admin
+                %ul
+                  %li{:class => select_my_profile}
+                    = link_to t('layouts.application.admin.my_profile'), edit_user_registration_path
+                  %li{:class => select_my_pets}
+                    = link_to t('layouts.application.admin.my_pets'), user_pets_path(current_user)
+                  %li{:class => select_adoption_requests}
+                    = link_to t('layouts.application.admin.adoption_requests'), user_adoptions_path(current_user)
+                  
               %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
         .count
           =I18n.t('layouts.application.counter.adopted', :count => @adopted ) + I18n.t('layouts.application.counter.pets', :count => @count )

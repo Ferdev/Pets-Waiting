@@ -107,7 +107,10 @@ en:
         or: 'or'
         signup: 'Sign up'
         logout: 'Sign out'
-      my_profile: 'My profile'
+      admin:
+        my_profile: 'My profile'
+        my_pets: 'My pets'
+        adoption_requests: 'Adoption requests'
       counter:
         adopted:
           one: '%{count} adoption of '
@@ -144,6 +147,10 @@ en:
         other_species: 'Other species'
         males: 'Males'
         females: 'Females'
+      pet:
+        delete_pet: 'Delete pet'
+        adopted: 'Adopted pet!'
+        delete_confirm: 'Are you sure?'
     show:
       adopt_pet: 'Adopt %{petname}'
       no_photos: 'There''s no %{petname}''s photos'
@@ -195,6 +202,7 @@ en:
         contact: '%{owner}, the actual %{petname}''s owner will contact you to inform about the adoption process.'
         reasons_label: 'Reasons to adopt %{petname}'
         send_request: 'Send Request'
+        external_adoption: 'External adoption'
       create:
         success: 'Your adoption request has been submitted successfully to %{owner}.'
         error: 'There was a problem sending your request to %{owner}. Please, try it again later.'

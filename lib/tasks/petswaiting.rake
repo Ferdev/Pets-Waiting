@@ -1,7 +1,7 @@
 namespace :petswaiting do
 
   desc "Adds testing data"
-  task :test_data do
+  task :test_data => :environment do
     if Rails.env == 'development'
       user    = User.exists? ? User.first : User.create({
         :name =>'Fer',

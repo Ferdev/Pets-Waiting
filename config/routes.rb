@@ -5,11 +5,14 @@ PetsWaiting::Application.routes.draw do
   
   resources :pets do
     resources :photos
-    resources :adoptions
+    resources :adoptions do
+      post 'external_adoption', :on => :collection
+    end
   end
 
   resources :users do
     resources :adoptions
+    resources :pets
   end
 
   resources :breeds

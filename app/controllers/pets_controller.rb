@@ -1,10 +1,11 @@
 class PetsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :get_user
   
   def index
     @filters = extract_filters
-    
-    @pets = Pet.filtered(@filters).paginate :page => get_page, :per_page => 32
+
+    @pets = (@user ? @user.pets : Pet).filtered(@filters).paginate :page => get_page, :per_page => 32
 
     respond_to do |format|
       format.html {render :action => 'index', :layout => request.xhr? ? false : 'application' }
@@ -32,8 +33,7 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.new(params[:pet])
-    @pet.user = current_user
+    @pet = current_user.pets.new(params[:pet])
 
     respond_to do |format|
       if @pet.save
@@ -45,8 +45,7 @@ class PetsController < ApplicationController
   end
 
   def update
-    @pet = Pet.find(params[:id])
-    @pet.user = current_user
+    @pet = current_user.pets.find(params[:id])
 
     respond_to do |format|
       if @pet.update_attributes(params[:pet])
@@ -58,7 +57,8 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    @pet = Pet.find(params[:id])
+    @pet = current_user.pets.find(params[:id])
+    
     @pet.destroy
 
     respond_to do |format|
@@ -118,5 +118,9 @@ class PetsController < ApplicationController
         end
         session[:filters][:sex_id] = sex_id
       end
+    end
+    
+    def get_user
+      @user = User.find(params[:user_id]) if params[:user_id].present?
     end
 end

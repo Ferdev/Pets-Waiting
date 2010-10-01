@@ -26,6 +26,10 @@ $.extend($.pw.pets, {
         });
 
       });
+      
+      $('div.results li.pet form input').click(function(evt){
+        $(this).toggleClass('active');
+      });
 
       // Load more pets when scroll is at the end of the page
       $(document).scroll(function(evt){
