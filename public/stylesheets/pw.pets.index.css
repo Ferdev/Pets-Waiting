@@ -113,7 +113,9 @@
         #content .pets.results ul li.pet form a, #content .pets.results ul li.pet form input {
           display: block;
           margin: 0.5em auto;
-          width: 130px; }
+          width: 150px;
+          padding-left: 0;
+          padding-right: 0; }
         #content .pets.results ul li.pet form input:active, #content .pets.results ul li.pet form input.active {
           background-image: -moz-linear-gradient(top, #f48a2c, #92531a);
           background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f48a2c), color-stop(1, #92531a));
