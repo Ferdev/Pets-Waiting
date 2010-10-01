@@ -24,8 +24,8 @@
         = pet.place
     - if pet.urgent
       %span.urgent= Pet.human_attribute_name(:urgent)
-    - if pet.user == current_user
-  = form_for [pet, pet.adoptions.new], :url => external_adoption_pet_adoptions_path(pet) do |form|
-    = form.hidden_field :reasons, :value => I18n.t('pets.adoptions.new.external_adoption')
-    = form.submit I18n.t('pets.index.pet.adopted'), :class => activate_adopted_button(pet)
-    = link_to I18n.t('pets.index.pet.delete_pet'), pet_path(pet), :confirm => I18n.t('pets.index.pet.delete_confirm'), :method => :delete, :class => 'button delete'
+  - if user_signed_in? && pet.user == current_user
+    = form_for [pet, pet.adoptions.new], :url => external_adoption_pet_adoptions_path(pet) do |form|
+      = form.hidden_field :reasons, :value => I18n.t('pets.adoptions.new.external_adoption')
+      = form.submit I18n.t('pets.index.pet.adopted'), :class => activate_adopted_button(pet)
+      = link_to I18n.t('pets.index.pet.delete_pet'), pet_path(pet), :confirm => I18n.t('pets.index.pet.delete_confirm'), :method => :delete, :class => 'button delete'
