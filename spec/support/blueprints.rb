@@ -62,6 +62,30 @@ Pet.blueprint do
   description
 end
 
+Disease.blueprint do
+  name { '' }
+end
+
+Disease.blueprint(:leishmaniasis) do
+  name { 'Canine leishmaniasis' }
+end
+
+Disease.blueprint(:filariasis) do
+  name { 'Canine filariasis' }
+end
+
+Disease.blueprint(:ehrlichiosis) do
+  name { 'Canine ehrlichiosis' }
+end
+
+Disease.blueprint(:leukemia) do
+  name { 'Feline leukemia' }
+end
+
+Disease.blueprint(:immunodeficiency) do
+  name { 'Feline immunodeficiency' }
+end
+
 Photo.blueprint do
   
 end

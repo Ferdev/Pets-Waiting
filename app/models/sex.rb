@@ -1,4 +1,6 @@
 class Sex < ActiveRecord::Base
+  attr_accessible nil
+  
   translates :name
   
   def self.where_sex_is(sex)

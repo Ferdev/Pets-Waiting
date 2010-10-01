@@ -1,5 +1,5 @@
 %li.pet{:class => pet.animal ? pet.animal.name.downcase : nil}
-  %a{:href => url_for(pet)}
+  %a.data{:href => url_for(pet)}
     = thumbnail(pet)
     %span.name= pet.name.capitalize
     - if pet.animal
@@ -16,7 +16,7 @@
         = pet.sex.name
     - if pet.birthday
       %span.age
-        %span.label="#{Pet.human_attribute_name(:age)}:"                
+        %span.label="#{Pet.human_attribute_name(:age)}:"
         = time_ago_in_words(pet.birthday)
     - if pet.place
       %span.place
@@ -24,3 +24,8 @@
         = pet.place
     - if pet.urgent
       %span.urgent= Pet.human_attribute_name(:urgent)
+  - if user_signed_in? && pet.user == current_user
+    = form_for [pet, pet.adoptions.new], :url => external_adoption_pet_adoptions_path(pet) do |form|
+      = form.hidden_field :reasons, :value => I18n.t('pets.adoptions.new.external_adoption')
+      = form.submit I18n.t('pets.index.pet.adopted'), :class => activate_adopted_button(pet)
+      = link_to I18n.t('pets.index.pet.delete_pet'), pet_path(pet), :confirm => I18n.t('pets.index.pet.delete_confirm'), :method => :delete, :class => 'button delete'

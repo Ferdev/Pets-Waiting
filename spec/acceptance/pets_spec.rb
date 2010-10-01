@@ -6,7 +6,7 @@ feature "Pets", %q{
   I want to create, update and delete pets
 } do
 
-  context "Signed in users" do
+  context "Signed in users (with javascript enabled)" do
     background do
       enable_javascript
       load_master_tables
@@ -26,6 +26,11 @@ feature "Pets", %q{
       select(4.years.ago.strftime("%B") , :from => 'Month')
       select(4.years.ago.strftime("%d").to_i.to_s , :from => 'Day')
       check('Urgent adoption')
+      check('Sterilized')
+      check('Vaccinated and dewormed')
+      check('Canine leishmaniasis')
+      check('Canine filariasis')
+      check('Canine ehrlichiosis')
       check('Docile')
       check('Playful')
       check('Obedient')
@@ -78,6 +83,40 @@ feature "Pets", %q{
       fill_in("Pet's name", :with => 'Scooby')
       click_button('Update Pet')
       page.should have_css('ul.pet.detail li.name', :text => 'Scooby')
+    end
+  end
+  
+  context "Signed in users" do
+    background do
+      load_master_tables
+      create_and_sign_in_user
+      create_pets
+    end
+    
+    scenario 'can manage their uploaded pets' do
+      visit homepage
+      page.should have_css('.admin ul li.selected', :text => 'My profile')
+      page.should have_no_css('.admin ul li.selected', :text => 'My pets')
+      page.should have_no_css('.admin ul li.selected', :text => 'Adoption requests')
+      click_link('My pets')
+      page.should have_css('.pets.results ul li.pet', :count => 32)
+      within('.pets.results ul li.pet:first-child') do
+        page.should have_css('a span.name', :text => 'Scroophy95')
+        page.should have_css('input.adopted', :value => 'Adopted pet!')
+        page.should have_css('a.delete', :text => 'Delete pet')
+      end
+    end
+
+    scenario 'can delete their uploaded pets' do
+      visit homepage
+      click_link('My pets')
+      page.should have_css('.pets.results ul li.pet', :count => 32)
+      within('.pets.results ul li.pet:first-child') do
+        assert_difference "Pet.count", -1 do
+          click_link('Delete pet')
+        end
+      end
+      page.should have_no_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy95')
     end
     
   end
@@ -138,7 +177,7 @@ feature "Pets", %q{
       page.should have_no_css('.pets.filters ul li.cats a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      all('.pets.results ul li.pet a').each do |a|
+      all('.pets.results ul li.pet a.data').each do |a|
         a.text.should match(/Urgent adoption/)
       end
       click_link('Males')
@@ -148,10 +187,10 @@ feature "Pets", %q{
       page.should have_css('.pets.filters ul li.males a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      all('.pets.results ul li.pet a').each do |a|
+      all('.pets.results ul li.pet a.data').each do |a|
         a.text.should match(/Urgent adoption/)
       end
-      all('.pets.results ul li.pet a').each do |a|
+      all('.pets.results ul li.pet a.data').each do |a|
         a.text.should match(/Male/)
       end
     end
@@ -257,7 +296,7 @@ feature "Pets", %q{
       page.should have_no_css('.pets.filters ul li.cats a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      all('.pets.results ul li.pet a').each do |a|
+      all('.pets.results ul li.pet a.data').each do |a|
         a.text.should match(/Urgent adoption/)
       end
       click_link('Males')
@@ -267,10 +306,10 @@ feature "Pets", %q{
       page.should have_css('.pets.filters ul li.males a.button.active')
       page.should have_css('.pets.results ul li.pet.dog')
       page.should have_no_css('.pets.results ul li.pet.cat')
-      all('.pets.results ul li.pet a').each do |a|
+      all('.pets.results ul li.pet a.data').each do |a|
         a.text.should match(/Urgent adoption/)
       end
-      all('.pets.results ul li.pet a').each do |a|
+      all('.pets.results ul li.pet a.data').each do |a|
         a.text.should match(/Male/)
       end
     end

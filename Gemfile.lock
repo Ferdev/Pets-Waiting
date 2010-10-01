@@ -60,6 +60,7 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    escape_utils (0.1.6)
     faker (0.3.1)
     fastthread (1.0.7)
     ffi (0.6.3)
@@ -123,6 +124,8 @@ GEM
       thor (~> 0.14.0)
     rake (0.8.7)
     rmagick (2.13.1)
+    routing-filter (0.1.6)
+      actionpack
     rspec (2.0.0.beta.22)
       rspec-core (= 2.0.0.beta.22)
       rspec-expectations (= 2.0.0.beta.22)
@@ -171,6 +174,7 @@ DEPENDENCIES
   carrierwave (~> 0.5.0.beta2)
   database_cleaner
   devise (~> 1.1.rc.2)
+  escape_utils
   faker
   formtastic (~> 1.1.0.beta)
   globalize3
@@ -184,6 +188,7 @@ DEPENDENCIES
   rails (~> 3.0.0.rc2)
   rails3-generators
   rmagick
+  routing-filter
   rspec-rails (~> 2.0.0.beta.16)
   ruby-debug19
   sqlite3-ruby

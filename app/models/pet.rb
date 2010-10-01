@@ -1,17 +1,50 @@
 class Pet < ActiveRecord::Base
   after_initialize :init_address
   
+  attr_accessible :name,
+                  :animal_id,
+                  :breed_id,
+                  :address_attributes,
+                  :birthday,
+                  :size_id,
+                  :urgent,
+                  :diseases_attributes,
+                  :description,
+                  :docile,
+                  :calm,
+                  :agressive_people,
+                  :agressive_animals,
+                  :dominant,
+                  :affectionate,
+                  :independent,
+                  :dependent,
+                  :possessive,
+                  :playful,
+                  :tireless,
+                  :obedient,
+                  :disobedient,
+                  :trained,
+                  :sleepyhead,
+                  :friendly_people,
+                  :friendly_animals,
+                  :sex_id,
+                  :sterilized,
+                  :vaccinated
+  
   belongs_to :animal
   belongs_to :breed
   belongs_to :sex
   belongs_to :size
   belongs_to :user
   
-  has_one   :address
-  has_many  :photos
-  has_many  :adoptions
+  has_one   :address, :dependent => :destroy
+  has_many  :photos, :dependent => :destroy
+  has_many  :adoptions, :dependent => :destroy
   
-  accepts_nested_attributes_for :address
+  has_and_belongs_to_many  :diseases
+  
+  accepts_nested_attributes_for :address, :allow_destroy => true
+  accepts_nested_attributes_for :diseases, :allow_destroy => true 
   
   validates_presence_of :name
   validates_presence_of :animal
@@ -81,5 +114,9 @@ class Pet < ActiveRecord::Base
       pets = pets.where('sex_id' => filters[:sex_id]) unless filters[:sex_id].blank?
     end
     pets.order("created_at DESC")
+  end
+  
+  def adopted?
+    adoptions.adopted.present?
   end
 end

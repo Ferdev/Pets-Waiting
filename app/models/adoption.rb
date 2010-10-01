@@ -1,4 +1,6 @@
 class Adoption < ActiveRecord::Base
+  attr_accessible :reasons
+  
   belongs_to :pet
   belongs_to :adoptant, :class_name => 'User', :foreign_key => 'adoptant_id'
   
@@ -12,5 +14,9 @@ class Adoption < ActiveRecord::Base
     new_state = !adopted
     pet.adoptions.each { |adoption| adoption.update_attribute('adopted', false) } if new_state
     update_attribute('adopted', new_state)
+  end
+  
+  def external_adoption?
+    reasons.match(/#{I18n.t('pets.adoptions.new.external_adoption')}/)
   end
 end

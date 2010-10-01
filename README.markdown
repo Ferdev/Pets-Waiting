@@ -5,17 +5,21 @@ Ruby 1.8.7 and 1.9.2 compatible.
 Installing instructions
 -----------------------
 
-1. Install imagemagick (on OS X, I recommend [Homebrew][2] for this task)
+1. Install imagemagick (on OS X, I recommend [Homebrew][2] for this task).
 
-	brew install imagemagick --disable-openmp
+		brew install imagemagick --disable-openmp
 
-2. Install bundler gem
+2. Install bundler gem.
 
-	gem install bundler
+		gem install bundler
 
-3. Install dependencies
+3. Install dependencies.
 
-	bundle install
+		bundle install
+		
+4. Run migrations.
+
+		rake db:migrate
 
 
 Resources

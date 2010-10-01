@@ -1,6 +1,20 @@
 class User < ActiveRecord::Base
   after_initialize :init_address
   
+  attr_accessible :email,
+                  :password,
+                  :password_confirmation,
+                  :nick,
+                  :firstname,
+                  :lastname,
+                  :phone,
+                  :name,
+                  :association_name,
+                  :phone_number,
+                  :web,
+                  :remember_me,
+                  :address_attributes
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -9,9 +23,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :remember_me
   
-  has_one :address
-  has_many :pets
-  has_many :adoptions, :foreign_key => 'adoptant_id'
+  has_one :address, :dependent => :destroy
+  has_many :pets, :dependent => :destroy
+  has_many :adoptions, :foreign_key => 'adoptant_id', :dependent => :destroy
   
   accepts_nested_attributes_for :address
   

@@ -51,8 +51,9 @@ h4
 header
   background-color: #1A6692
   @include gradient(#2388c3, #1A6692)
-  display: block
   border-bottom: 1px solid #CCE5F4
+  display: block
+  height: 2.5em
   .title_and_auth
     width: 960px
     margin: 0 auto
@@ -78,12 +79,55 @@ header
 
     .auth
       color: #FFFFFF
-      font-size: 1.5em
       text-shadow: 0 1px 0 #000000
       text-align: right
-      ul li
-        display: inline
-        margin: .2em
+      ul
+        float: right
+        li
+          display: inline
+          margin: .2em
+          float: left
+          line-height: 2em
+        li.admin
+          margin: .2em .5em
+          position: relative
+          z-index: 1
+          ul
+            color: white
+            margin: 0 .5em
+            padding: 0 8px
+            height: 2em
+            overflow: hidden
+            text-align: right
+            li.selected
+              display: block
+            li.selected:after
+              content: " \25BF"
+            li
+              display: none
+              margin: 0
+              clear: both
+              float: right
+          ul:hover
+            background: none repeat fixed 0 0 #ffffff
+            color: #124462
+            text-shadow: 0 0 0
+            @include box-shadow(0 1px 1px #666666)
+            @include border-radius(3px)
+            overflow: visible
+            height: auto
+            li
+              display: block
+            li.selected:after
+              content: " \25BE"
+            a
+              color: #C8525B
+              text-shadow: 0 0 0
+        li.admin
+          ul
+            color: #ffd850
+          ul:hover
+            color: #C8525B
       a
         color: #ffd850
         font-size: 1em
@@ -92,17 +136,41 @@ header
         @include border-radius(3px)
       a:hover
         text-decoration: none
+    .count, .language
+      font-size: 0.8em
+      position: absolute
+      top: 3.15em
     .count
       @include box-shadow(0 1px 1px #666666)
       background-color: white
-      font-size: 0.8em
       font-weight: bold
       padding: 0.5em
-      position: absolute
       right: 0
-      top: 3.8em
-      background-color: #FFFFFF
-
+    .language
+      background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
+      right: 15em
+      margin: 1px 1em 0
+      padding: 0 .5em
+      color: #83acc3
+      text-align: right
+      li
+        margin: 0
+        line-height: 2em
+      .change_language:after
+        content: " \25BF"
+      .locale
+        display: none
+    .language:hover
+      cursor: pointer
+      background: none repeat fixed 0 0 #ffffff
+      color: inherit
+      font-weight: bold
+      @include box-shadow(0 1px 1px #666666)
+      li
+      .change_language:after
+        content: " \25BE"
+      .locale
+        display: block
 
 #content
   width: 960px

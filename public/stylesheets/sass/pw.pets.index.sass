@@ -40,12 +40,13 @@
     ul
       text-align: left
       li.pet
-        display: inline
-        a
+        @include inline-block
+        margin: 0 .5em 2em
+        width: 202px
+        a.data
           @include inline-block
           padding: 10px
-          margin: 0 .5em 2em
-          width: 202px
+          margin: 0
           color: #124462
           font-size: .8em
           text-decoration: none
@@ -79,7 +80,7 @@
             text-shadow: 0 1px 0 #333333
             text-transform: uppercase
             text-align: center
-        a:hover
+        a.data:hover
           @include border-radius(5px)
           -moz-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
           -webkit-box-shadow: 0 1px 0 #333333 inset, 0 1px 0 #CCE5F4
@@ -91,6 +92,14 @@
           color: #cce5f4
           text-shadow: 0 1px 0 #124462
           padding: 10px 9px
+        form
+          font-size: .6em
+          a, input
+            display: block
+            margin: .5em auto
+            width: 130px
+          input:active, input.active
+            @include gradient(#f48a2c, #92531a)
       li.loading
         text-align: center
         padding: 25px 0

@@ -1,8 +1,11 @@
 class Animal < ActiveRecord::Base
+  attr_accessible nil
+  
   translates :name
   
   has_many :pets
   has_many :breeds
+  has_many :diseases
   
   def self.where_animal_is(animal)
     joins("INNER JOIN #{translations_table_name} ON #{translations_table_name}.animal_id = animals.id").where("#{translations_table_name}.name" => animal).first
