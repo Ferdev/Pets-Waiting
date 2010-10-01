@@ -1,4 +1,6 @@
 class Disease < ActiveRecord::Base
+  attr_accessible nil
+  
   translates :name
   
   belongs_to :animal

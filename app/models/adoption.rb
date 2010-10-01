@@ -1,4 +1,6 @@
 class Adoption < ActiveRecord::Base
+  attr_accessible :reasons
+  
   belongs_to :pet
   belongs_to :adoptant, :class_name => 'User', :foreign_key => 'adoptant_id'
   

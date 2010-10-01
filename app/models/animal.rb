@@ -1,4 +1,6 @@
 class Animal < ActiveRecord::Base
+  attr_accessible nil
+  
   translates :name
   
   has_many :pets

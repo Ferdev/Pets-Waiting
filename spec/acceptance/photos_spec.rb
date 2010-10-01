@@ -88,7 +88,6 @@ feature "Images upload", %q{
     end
   end
   
-  
   context "Everybody" do
     background do
       load_master_tables
