@@ -35,7 +35,8 @@
       background-color: #092230;
       border: 1px solid #cce5f4; }
     #content ul.pet.detail li.photos .ad-thumb-list img {
-      height: 100px; }
+      height: 100px;
+      width: 100px; }
     #content ul.pet.detail li.photos span.no_photos {
       color: #7fabb9;
       font-style: italic;
