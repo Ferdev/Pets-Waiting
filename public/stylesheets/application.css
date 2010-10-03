@@ -41,6 +41,10 @@ h4 {
 .flash.error {
   color: #dc4228; }
 
+span.spinner {
+  padding: 50px;
+  background: url("/images/extra/spinner.gif") no-repeat scroll 50% 50% transparent; }
+
 header {
   background-color: #1a6692;
   background-image: -moz-linear-gradient(top, #2388c3, #1a6692);
