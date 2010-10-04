@@ -5,7 +5,7 @@ class PetsController < ApplicationController
   def index
     @filters = extract_filters
 
-    @pets = (@user ? @user.pets : Pet).filtered(@filters).paginate :page => get_page, :per_page => 32
+    @pets = (@user ? @user.pets : Pet.not_adopted).filtered(@filters).paginate :page => get_page, :per_page => 32
 
     respond_to do |format|
       format.html {render :action => 'index', :layout => request.xhr? ? false : 'application' }
