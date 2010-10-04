@@ -11,7 +11,7 @@ set :stages,        %w(production)
 set :default_stage, "production"
 
 
-set :rvm_ruby_string, 'ree@petswaiting'
+set :rvm_ruby_string, 'default@petswaiting'
 
 
 set :application,   "petswaiting"

@@ -5,5 +5,7 @@ class Breed < ActiveRecord::Base
   
   belongs_to :animal
   
+  has_many :pets
+  
   scope :by_animal_id, lambda { |animal_id| where("animal_id = ?", animal_id)}
 end
