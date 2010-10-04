@@ -121,7 +121,8 @@ class Pet < ActiveRecord::Base
   end
   
   def self.not_adopted
-    scoped.where('id NOT IN (?)', adopted.map{|pet| pet.id} )
+    adopted_ids = adopted.map{|pet| pet.id}
+    adopted_ids.blank? ? scoped : scoped.where('id NOT IN (?)', adopted_ids)
   end
   
   def adopted?
