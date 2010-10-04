@@ -4,12 +4,20 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 
+require 'database_cleaner'
+
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
+DatabaseCleaner.strategy = :truncation
+
 RSpec.configure do |config|
-  config.before(:each) { Sham.reset(:before_each) }
+  config.before(:each) do
+    Sham.reset(:before_each)
+    DatabaseCleaner.clean
+  end
+
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

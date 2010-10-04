@@ -41,7 +41,7 @@
       text-align: left
       li.pet
         @include inline-block
-        margin: 0 .5em 2em
+        margin: 0 1em 2em
         width: 202px
         a.data
           @include inline-block
@@ -97,7 +97,9 @@
           a, input
             display: block
             margin: .5em auto
-            width: 130px
+            width: 150px
+            padding-left: 0
+            padding-right: 0
           input:active, input.active
             @include gradient(#f48a2c, #92531a)
       li.loading
@@ -107,10 +109,6 @@
       a, em, span
         margin: 0 .2em
     
-span.spinner
-  padding: 50px
-  background: url('/images/extra/spinner.gif') no-repeat scroll 50% 50% transparent
-  
 span.order
   color: #FF8420
   text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 0 0 white, 0 2px 0 white, -2px 0 0 white, 0 -2px 0 white, 3px 3px 2px black

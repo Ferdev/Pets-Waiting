@@ -113,7 +113,16 @@ class Pet < ActiveRecord::Base
       pets = pets.where('urgent' => true) if filters[:urgent]
       pets = pets.where('sex_id' => filters[:sex_id]) unless filters[:sex_id].blank?
     end
-    pets.order("created_at DESC")
+    pets.order("pets.created_at DESC")
+  end
+  
+  def self.adopted
+    joins(:adoptions).where('adoptions.adopted' => true)
+  end
+  
+  def self.not_adopted
+    adopted_ids = adopted.map{|pet| pet.id}
+    adopted_ids.blank? ? scoped : scoped.where('id NOT IN (?)', adopted_ids)
   end
   
   def adopted?

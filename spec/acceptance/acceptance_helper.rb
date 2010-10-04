@@ -1,13 +1,11 @@
 require File.dirname(__FILE__) + "/../spec_helper"
 require "steak"
 require 'capybara/rails'
-require 'database_cleaner'
 require 'faker'
 
 Capybara.default_host = 'test.petswaiting.com'
 Capybara.default_driver = :rack_test
 Capybara.default_selector = :css
-DatabaseCleaner.strategy = :truncation
 
 Rspec.configure do |config|
   config.include Capybara

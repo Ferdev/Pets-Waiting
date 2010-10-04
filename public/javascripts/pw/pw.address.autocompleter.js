@@ -11,9 +11,12 @@ var address_autocompleter = function(field_prefix){
         response( cache[ request.term ] );
         return;
       };
+      var input = $('#'+field_prefix+'_address_attributes_address');
+      input.next('span.spinner').remove();
+      input.after($('<span class="spinner"/>'));
 
       GEOCODER.geocode({'address': request.term}, function(results, status){
-
+        input.next('span.spinner').remove();
         if(status == google.maps.GeocoderStatus.OK){
           results = $.map(results, function(element, index){
             return {'label': element.formatted_address, 'value': element};

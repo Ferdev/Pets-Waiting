@@ -110,6 +110,16 @@ task :free do
   run "free -lm"
 end
 
+namespace :rake do
+  namespace :db do
+
+    desc "Run rake:seed on remote app server"
+    task :seed do
+      run "cd #{current_release} && RAILS_ENV=#{rails_env} rake db:seed"
+    end
+
+  end
+end
 
 after "deploy:update_code" do
   deploy.symlink_db
