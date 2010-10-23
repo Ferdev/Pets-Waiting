@@ -20,11 +20,8 @@ gem 'routing-filter'
 group :development, :test do
   gem 'sqlite3-ruby', :require => "sqlite3"
   gem 'rails3-generators'
-  if RUBY_VERSION < '1.9'
-    gem 'ruby-debug'
-  else
-    gem 'ruby-debug19'
-  end
+  gem 'ruby-debug', :platforms => :mri_18
+  gem 'ruby-debug19', :platforms => :mri_19
 end
 
 group :test do
