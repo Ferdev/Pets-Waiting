@@ -2,38 +2,34 @@
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 require "rvm/capistrano"
+require 'capistrano/ext/multistage'
 
 ssh_options[:paranoid]      = false
 ssh_options[:forward_agent] = true
 default_run_options[:pty]   = true
 
 
-set :stages,        %w(production)
-set :default_stage, "production"
+set :stages,        %w(staging production)
+set :default_stage, "staging"
 
+set :petswaiting_staging, 'ferdev.com'
+set :petswaiting_production, 'ferdev.com'
+set :user,  'fer'
 
 set :rvm_ruby_string, 'default@petswaiting'
-
 
 set :application,   "petswaiting"
 set :domain,        "petswaiting.com"
 set :user,          "fer"
 set :use_sudo,      false
-set :deploy_to,     "/var/www/localhost/htdocs/petswaiting.com"
 set :deploy_via,    :remote_cache
 set :keep_releases, 3
 
 
 set :repository,    "git@github.com:Ferdev/Pets-Waiting.git"
 set :scm,           :git
-set :branch,        'master'
+set :scm_user,      'fer'
 set :git_enable_submodules, 1
-
-set :rails_env,     'production'
-
-role :app, "178.79.135.197"
-role :web, "178.79.135.197"
-role :db,  "178.79.135.197", :primary => true
 
 namespace :deploy do
   task :start, :roles => :app do
