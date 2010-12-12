@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + "/../spec_helper"
 require "steak"
 require 'capybara/rails'
 require 'faker'
+require 'akephalos'
 
 Capybara.default_host = 'test.petswaiting.com'
 Capybara.default_driver = :rack_test
@@ -23,7 +24,7 @@ Capybara::Driver::Selenium.class_eval do
   class << self
     def driver
       @driver ||= begin
-        profile = Selenium::WebDriver::Firefox::Profile.new 
+        profile = Selenium::WebDriver::Firefox::Profile.new
         profile['intl.accept_languages'] = 'en'
         driver = Selenium::WebDriver.for :firefox, :profile => profile
         at_exit { driver.quit }

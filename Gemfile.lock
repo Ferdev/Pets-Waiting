@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/thoughtbot/akephalos.git
+  revision: b2f056d
+  specs:
+    akephalos (0.2.4)
+      capybara (~> 0.3.8)
+      jruby-jars
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -50,7 +58,7 @@ GEM
       selenium-webdriver (>= 0.0.3)
     carrierwave (0.5.0.beta2)
       activesupport (>= 3.0.0.beta4)
-    columnize (0.3.1)
+    columnize (0.3.2)
     configuration (1.1.0)
     culerity (0.2.12)
     database_cleaner (0.5.2)
@@ -75,6 +83,7 @@ GEM
     haml (3.0.18)
     highline (1.6.1)
     i18n (0.4.1)
+    jruby-jars (1.5.6)
     json_pure (1.4.6)
     launchy (0.3.7)
       configuration (>= 0.0.5)
@@ -168,6 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  akephalos!
   capistrano
   capistrano-ext
   capybara

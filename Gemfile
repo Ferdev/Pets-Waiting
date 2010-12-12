@@ -35,6 +35,7 @@ group :test do
   gem 'launchy'
   gem 'machinist'
   gem 'faker'
+  gem 'akephalos', :git => 'git://github.com/thoughtbot/akephalos.git'
 end
 
 group :production do

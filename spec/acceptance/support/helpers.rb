@@ -1,18 +1,18 @@
 module HelperMethods
   attr_accessor :current_user
-  
+
   def peich
     save_and_open_page
   end
-  
+
   def enable_javascript
-    Capybara.current_driver = :selenium
+    Capybara.current_driver = :akephalos
   end
-  
+
   def lorem
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   end
-  
+
   def load_master_tables
     dog           = Animal.make(:dog)
     cat           = Animal.make(:cat)
@@ -27,7 +27,7 @@ module HelperMethods
     Breed.make(:animal => little_mammal)
     Breed.make(:animal => reptile)
     Breed.make(:animal => other)
-    
+
     Disease.make(:leishmaniasis, :animal => dog)
     Disease.make(:filariasis, :animal => dog)
     Disease.make(:ehrlichiosis, :animal => dog)
@@ -36,7 +36,7 @@ module HelperMethods
 
     Sex.make(:male)
     Sex.make(:female)
-    
+
     Size.make
     Address.make
   end
@@ -50,15 +50,15 @@ module HelperMethods
     click_button('Sign in')
     page.should have_content('Signed in successfully.')
   end
-  
+
   def create_pet(attributes = {})
     breed = Animal.dog.breeds.first
-    defaults = { 
+    defaults = {
       :name         => 'Wadus',
-      :address      => Address.make, 
-      :user         => @current_user, 
-      :animal       => breed.animal, 
-      :breed        => breed, 
+      :address      => Address.make,
+      :user         => @current_user,
+      :animal       => breed.animal,
+      :breed        => breed,
       :description  => lorem,
       :urgent       => true,
       :sex          => Sex.male
@@ -66,7 +66,7 @@ module HelperMethods
     attributes = defaults.merge(attributes)
     @pet = Pet.make(attributes)
   end
-  
+
   def create_pets(number = 96)
     number.times do |i|
       breed = Breed.all.sample
@@ -79,12 +79,12 @@ module HelperMethods
       })
     end
   end
-  
+
   def create_adoption_request
     pet = create_pet
     Adoption.make(:pet => pet, :adoptant => User.make(:guest, :address => Address.first), :reasons => lorem)
   end
-  
+
   def should_fill_address_fields
     fill_in('Address', :with => 'calle de torrelavega 62, fuente')
     within('.ui-autocomplete') do
@@ -104,11 +104,11 @@ module HelperMethods
     find('#pet_address_attributes_substate').value.should eq('Community of Madrid')
     find('#pet_address_attributes_city').value.should eq('Fuente el Saz de Jarama')
   end
-  
+
   def image_to_upload
     File.dirname(__FILE__) + '/../../fixtures/dog1.jpg'
   end
-  
+
   def create_photo(crop = nil)
     photo = Photo.make(:pet => @pet)
     photo.image = File.open(image_to_upload)
@@ -120,11 +120,11 @@ module HelperMethods
     end
     photo.save!
   end
-  
+
   def create_photo_with_thumbnail
     create_photo({:crop_x => 50, :crop_y => 50, :crop_w => 200, :crop_h => 200})
   end
-  
+
   def scroll_all_page_down
     page.execute_script("$(document).scrollTop($(document).height());")
   end
