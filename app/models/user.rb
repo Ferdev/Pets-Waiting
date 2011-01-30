@@ -1,6 +1,7 @@
+# encoding: UTF-8
 class User < ActiveRecord::Base
   after_initialize :init_address
-  
+
   attr_accessible :email,
                   :password,
                   :password_confirmation,
@@ -22,16 +23,16 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   # attr_accessible :email, :remember_me
-  
+
   has_one :address, :dependent => :destroy
   has_many :pets, :dependent => :destroy
   has_many :adoptions, :foreign_key => 'adoptant_id', :dependent => :destroy
-  
+
   accepts_nested_attributes_for :address
-  
+
   validates_presence_of :name, :phone_number
   validates_format_of :phone_number, :with => /^[+]?[-| |\d]*$/
-  
+
   def init_address
     build_address unless address
   end

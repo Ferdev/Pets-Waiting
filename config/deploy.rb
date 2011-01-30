@@ -1,3 +1,4 @@
+# encoding: UTF-8
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 
 require "rvm/capistrano"
@@ -51,23 +52,23 @@ namespace :deploy do
   task :bundle do
    run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle install"
   end
-  
+
   desc "Symlinks the database.yml"
   task :symlink_db, :roles => :app do
     run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
   end
-  
+
   desc "Symlinks the app_config.yml"
   task :symlink_app_config, :roles => :app do
     run "ln -nfs #{deploy_to}/shared/config/app_config.yml #{release_path}/config/app_config.yml"
   end
-  
+
   desc "Symlinks uploads folder"
   task :symlink_uploads_folder, :roles => :app do
     run "mkdir -m 777 #{deploy_to}/shared/uploads ; true"
     run "ln -nfs #{deploy_to}/shared/uploads/ #{release_path}/public/uploads"
   end
-  
+
 end
 
 namespace :db do
@@ -87,22 +88,22 @@ namespace :config do
 end
 
 namespace :nginx do
-  
+
   desc "Restart nginx"
   task :restart do
     sudo "/etc/init.d/nginx restart"
   end
-  
+
   desc "Stop nginx"
   task :stop do
     sudo "/etc/init.d/nginx stop"
   end
-  
+
   desc "Start nginx"
   task :start do
     sudo "/etc/init.d/nginx start"
   end
-  
+
 end
 
 desc "Show memory consumption on the server"

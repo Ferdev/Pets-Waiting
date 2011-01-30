@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class SessionsController < ApplicationController
   skip_before_filter :authenticate_user!
 
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
       cookies[:current_locale] = {:value => I18n.locale, :expires => 1.year.from_now}
       current_user.update_attribute('locale', I18n.locale) if user_signed_in? && current_user.locale != I18n.locale
     end
-    
+
     redirect_to session[:last_get_url]
   end
 

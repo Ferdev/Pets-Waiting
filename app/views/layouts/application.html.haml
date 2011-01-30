@@ -11,7 +11,7 @@
     = stylesheet_link_tag "reset", "application", "pw.devise", "pw.forms", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css"
     :javascript
       var RAILS_ENV = "#{Rails.env}";
-    = javascript_include_tag "jquery/jquery-1.4.1.js", "rails", "application", "pw/pw.init.js", "utils.js"
+    = javascript_include_tag "jquery/jquery-1.4.4.js", "rails", "application", "pw/pw.init.js", "utils.js"
     = yield(:head)
     %script{:type => "text/javascript", :src => "http://use.typekit.com/gvk4sry.js"}
     :javascript
@@ -32,12 +32,12 @@
         var uservoiceOptions = {
           /* required */
           key: 'petswaiting',
-          host: 'petswaiting.uservoice.com', 
+          host: 'petswaiting.uservoice.com',
           forum: '77461',
-          showTab: true,  
+          showTab: true,
           /* optional */
           alignment: 'left',
-          background_color:'#f00', 
+          background_color:'#f00',
           text_color: 'white',
           hover_color: '#06C',
           lang: '#{I18n.locale}'
@@ -76,7 +76,7 @@
                     = link_to t('layouts.application.admin.my_pets'), user_pets_path(current_user)
                   %li{:class => select_adoption_requests}
                     = link_to t('layouts.application.admin.adoption_requests'), user_adoptions_path(current_user)
-                  
+
               %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
         .count
           =I18n.t('layouts.application.counter.adopted', :count => @adopted ) + I18n.t('layouts.application.counter.pets', :count => @count )

@@ -1,6 +1,7 @@
+# encoding: UTF-8
 class PhotosController < ApplicationController
   before_filter :get_pet
-  
+
   def index
     @photos = @pet.photos
     respond_to do |format|
@@ -18,7 +19,7 @@ class PhotosController < ApplicationController
 
   def new
     @photo = @pet.photos.new
-    
+
     respond_to do |format|
       format.html
     end

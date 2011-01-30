@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Address < ActiveRecord::Base
   attr_accessible :address,
                   :street,
@@ -12,6 +13,6 @@ class Address < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :pet
-  
+
   validates_presence_of :address
 end

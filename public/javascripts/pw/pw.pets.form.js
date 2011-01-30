@@ -3,7 +3,7 @@ $.extend($.pw.pets, {
     init: function(){
       $.pw.pets.form.fields();
     },
-    
+
     fields: function(){
       var animal_diseases_ids = function(animal_id){
         var ids = [];
@@ -15,7 +15,7 @@ $.extend($.pw.pets, {
         return ids;
       };
 
-      $('#pet_animal_id').change(function() {
+      $('#pet_animal_id').live('change', function() {
         var breeds_select = $('#pet_breed_id');
         breeds_select.after($('<span class="spinner"/>'));
         $.ajax({

@@ -1,12 +1,28 @@
+# encoding: UTF-8
 require File.dirname(__FILE__) + "/../spec_helper"
 require "steak"
 require 'capybara/rails'
 require 'faker'
-require 'akephalos'
 
-Capybara.default_host = 'test.petswaiting.com'
-Capybara.default_driver = :rack_test
+module Capybara
+  class << self
+    attr_accessor :js_driver
+  end
+
+  alias peich save_and_open_page
+end
+
+Capybara.register_driver :selenium do |app|
+  require "selenium-webdriver"
+  profile = Selenium::WebDriver::Firefox::Profile.new
+  profile['intl.accept_languages'] = 'en'
+  Capybara::Driver::Selenium.new(app, :profile => profile)
+end
+
+# Capybara.default_host = 'test.petswaiting.com'
+Capybara.default_driver   = :rack_test
 Capybara.default_selector = :css
+Capybara.js_driver        = :selenium
 
 Rspec.configure do |config|
   config.include Capybara
@@ -17,20 +33,6 @@ Rspec.configure do |config|
     Capybara.reset_sessions!
     Rails.cache.clear
     DatabaseCleaner.clean
-  end
-end
-
-Capybara::Driver::Selenium.class_eval do
-  class << self
-    def driver
-      @driver ||= begin
-        profile = Selenium::WebDriver::Firefox::Profile.new
-        profile['intl.accept_languages'] = 'en'
-        driver = Selenium::WebDriver.for :firefox, :profile => profile
-        at_exit { driver.quit }
-        driver
-      end
-    end
   end
 end
 

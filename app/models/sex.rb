@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Sex < ActiveRecord::Base
   attr_accessible :name
 

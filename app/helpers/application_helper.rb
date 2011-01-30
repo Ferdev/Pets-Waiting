@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module ApplicationHelper
   def error_messages(model)
     return "" if model.errors.empty?
@@ -15,17 +16,17 @@ module ApplicationHelper
     html.html_safe
 
   end
-  
+
   def select_my_profile
     return 'selected' if request[:controller].match(/pets/) && request[:action].match(/index/) && params[:user_id].blank?
     ''
   end
-  
+
   def select_my_pets
     return 'selected' if request[:controller].match(/pets/) && request[:action].match(/index/) && params[:user_id].present?
     ''
   end
-  
+
   def select_adoption_requests
     return 'selected' if request[:controller].match(/adoptions/) && request[:action].match(/index/)
     ''

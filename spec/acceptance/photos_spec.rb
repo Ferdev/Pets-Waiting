@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require File.dirname(__FILE__) + '/acceptance_helper'
 
 feature "Images upload", %q{
@@ -5,17 +6,16 @@ feature "Images upload", %q{
   As a user
   I want to upload and see photos of pets
 } do
-  
+
   include PhotosSpecHelper
-  
-  context "Signed in user with no photos uploaded" do
+
+  context "Signed in user with no photos uploaded", :js => true do
     background do
-      enable_javascript
       load_master_tables
       create_and_sign_in_user
       create_pet
     end
-    
+
     scenario "can upload photos of his registered pets" do
       visit homepage
       click_link('Wadus')
@@ -38,7 +38,7 @@ feature "Images upload", %q{
       page.should have_content("Wadus's photos")
     end
   end
-  
+
   context "Signed in user with one photo uploaded" do
     background do
       load_master_tables
@@ -46,7 +46,7 @@ feature "Images upload", %q{
       create_pet
       create_photo_with_thumbnail
     end
-    
+
     scenario "can delete previously uploaded photos" do
       visit homepage
       click_link('Wadus')
@@ -54,23 +54,22 @@ feature "Images upload", %q{
       page.should have_content("Wadus's photos")
       page.should have_css('ul.photos li img')
       find('ul.photos li img')[:src].should match(/uploads\/photo\/image\/\d*\/thumb_dog1\.jpg.*/)
-      
+
       assert_difference "Photo.count", -1 do
         click_link('Delete photo')
       end
       page.should have_no_css('ul.photos li img')
     end
   end
-  
-  context "Signed in user with one photo uploaded (without thumbnail)" do
+
+  context "Signed in user with one photo uploaded (without thumbnail)", :js => true do
     background do
-      enable_javascript
       load_master_tables
       create_and_sign_in_user
       create_pet
       create_photo
     end
-    
+
     scenario "should see a link to generate thumbnail" do
       visit homepage
       click_link('Wadus')
@@ -87,14 +86,14 @@ feature "Images upload", %q{
       page.should have_no_content('Generate thumbnail')
     end
   end
-  
+
   context "Everybody" do
     background do
       load_master_tables
       create_pet
       create_photo
     end
-    
+
     scenario "can see pet's thumbnail on main pets list" do
       visit homepage
       within('.pets.results ul li.pet a') do
@@ -103,19 +102,18 @@ feature "Images upload", %q{
       end
     end
   end
-  
-  context "Everybody" do
+
+  context "Everybody", :js => true do
     background do
-      enable_javascript
       load_master_tables
       create_pet
     end
-    
+
     scenario "can can read a text saying that pet has no photos when a pet doesn't have photos" do
       visit homepage
       click_link('Wadus')
       page.should have_content("There's no Wadus's photos")
     end
   end
-  
+
 end

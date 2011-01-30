@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module Rack
   module Utils
     def escape(s)

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require File.dirname(__FILE__) + '/acceptance_helper'
 
 feature "Users", %q{
@@ -6,12 +7,11 @@ feature "Users", %q{
   I want to sign up and edit my data
 } do
 
-  context "Guests (with javascript enabled)" do
+  context "Guests (with javascript enabled)", :js => true do
     background do
       load_master_tables
-      enable_javascript
     end
-  
+
     scenario "can sign up" do
       visit homepage
       click_link('Sign up')
@@ -29,12 +29,12 @@ feature "Users", %q{
       page.should have_content('You have signed up successfully.')
     end
   end
-  
+
   context "Guests" do
     background do
       load_master_tables
     end
-    
+
     scenario "can sign up" do
       visit homepage
       click_link('Sign up')
@@ -75,7 +75,7 @@ feature "Users", %q{
       end
       page.should have_content('You have signed up successfully.')
     end
-    
+
     scenario "name, email, password, address and phone number can't be blank" do
       visit homepage
       click_link('Sign up')
@@ -88,15 +88,15 @@ feature "Users", %q{
       page.should have_content('Password can\'t be blank')
       page.should have_content('Phone number can\'t be blank')
     end
-  
+
   end
-  
+
   context "Users" do
     background do
       load_master_tables
       create_and_sign_in_user
     end
-    
+
     scenario "can edit their data" do
       visit homepage
       click_link('My profile')
@@ -115,14 +115,13 @@ feature "Users", %q{
       page.should have_content('You updated your account successfully.')
     end
   end
-  
-  context "Users (with javascript)" do
+
+  context "Users (with javascript)", :js => true do
     background do
-      enable_javascript
       load_master_tables
       create_and_sign_in_user
     end
-    
+
     scenario "can edit their data" do
       visit homepage
       click_link('My profile')

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require File.dirname(__FILE__) + '/acceptance_helper'
 
 feature "Adoptions", %q{
@@ -5,14 +6,14 @@ feature "Adoptions", %q{
   As a user
   I want to adopt pets and manage adoptions
 } do
-  
+
   context "Users" do
     background do
       load_master_tables
       create_and_sign_in_user
       create_pets
     end
-    
+
     scenario "can adopt pets" do
       visit homepage
       click_link('Scroophy95')
@@ -34,8 +35,12 @@ feature "Adoptions", %q{
         assert_difference "Adoption.count", 1 do
           click_button('Adopted pet!')
         end
+      end
+      within('.pets.results ul li.pet:first-child') do
         page.should have_css('input.adopted.active', :value => 'Adopted pet!')
         click_button('Adopted pet!')
+      end
+      within('.pets.results ul li.pet:first-child') do
         page.should have_no_css('input.adopted.active', :value => 'Adopted pet!')
       end
       click_link('Adoption requests')
@@ -44,14 +49,14 @@ feature "Adoptions", %q{
       end
     end
   end
-  
+
   context "Pending adoptions" do
     background do
       load_master_tables
       create_and_sign_in_user
       create_adoption_request
     end
-    
+
     scenario "can be accepted by owners" do
       visit homepage
       click_link('My profile')
@@ -66,17 +71,17 @@ feature "Adoptions", %q{
       click_link('Received adoption requests')
       page.should have_css('ul.adoptions li a span.adopted')
     end
-  
+
     scenario "can be deleted by owners" do
       visit homepage
       click_link('My profile')
       click_link('Received adoption requests')
       page.should have_css('ul.adoptions li', :count => 1)
       click_link('Wadus')
-      page.should have_css('ul.adoption_request li.delete a')
-      click_link('Delete Adoption Request')
+      page.should have_css('ul.adoption_request li.delete input.button')
+      click_button('Delete Adoption Request')
       page.should have_content('Adoption request deleted successfully.')
-      page.should have_css('ul.adoptions li', :count => 0)
+      page.should have_no_css('ul.adoptions li')
     end
   end
 

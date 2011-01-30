@@ -3,7 +3,7 @@
 
 = render 'shared/admin/nav'
 
-%h3= I18n.t('pets.adoptions.edit.title', :petname => @adoption.pet.name.capitalize)
+%h3= I18n.t('pets.adoptions.edit.title', :petname => @adoption.pet.name)
 
 %ul.adoption_request
   %li.pet
@@ -27,7 +27,7 @@
       - if @adoption.pet.birthday
         %li.age
           %span.label #{Pet.human_attribute_name(:age)}:
-          = time_ago_in_words(@adoption.pet.birthday).capitalize
+          = time_ago_in_words(@adoption.pet.birthday)
 
       - if @adoption.pet.place
         %li.place
@@ -37,18 +37,19 @@
     %ul
       %li
         %h4 #{I18n.t('pets.adoptions.edit.request_data')}:
-      %li
-        %span.label #{User.human_attribute_name(:name)}:
-        = @adoption.adoptant.name.capitalize
-      %li
-        %span.label #{User.human_attribute_name(:email)}:
-        = mail_to @adoption.adoptant.email, @adoption.adoptant.email
-      %li
-        %span.label #{Address.human_attribute_name(:address)}:
-        = @adoption.adoptant.address.address
-      %li
-        %span.label #{User.human_attribute_name(:phone_number)}:
-        = @adoption.adoptant.phone_number
+      - if @adoption.adoptant
+        %li
+          %span.label #{User.human_attribute_name(:name)}:
+          = @adoption.adoptant.name
+        %li
+          %span.label #{User.human_attribute_name(:email)}:
+          = mail_to @adoption.adoptant.email, @adoption.adoptant.email
+        %li
+          %span.label #{Address.human_attribute_name(:address)}:
+          = @adoption.adoptant.address.address
+        %li
+          %span.label #{User.human_attribute_name(:phone_number)}:
+          = @adoption.adoptant.phone_number
       %li
         %span.label #{Adoption.human_attribute_name(:reasons)}:
         %q
@@ -59,4 +60,4 @@
       = form.buttons do
         = form.commit_button :button_html => {:class => @adoption.adopted ? :active : nil}
   %li.delete
-    = link_to I18n.t('pets.adoptions.edit.delete'), pet_adoption_path(@adoption.pet, @adoption), :confirm => I18n.t('pets.adoptions.edit.delete_confirm'), :method => :delete, :class => 'button delete'
+    = button_to I18n.t('pets.adoptions.edit.delete'), pet_adoption_path(@adoption.pet, @adoption), :confirm => I18n.t('pets.adoptions.edit.delete_confirm'), :method => :delete, :class => 'button delete'

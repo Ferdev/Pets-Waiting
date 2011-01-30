@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class BreedsController < ApplicationController
   def index
     breeds = unless params[:animal_id].blank?

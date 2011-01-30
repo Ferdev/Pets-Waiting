@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'machinist/active_record'
 require 'sham'
 
@@ -15,7 +16,7 @@ Address.blueprint do
 end
 
 Adoption.blueprint do
-  
+
 end
 
 Animal.blueprint do
@@ -87,7 +88,7 @@ Disease.blueprint(:immunodeficiency) do
 end
 
 Photo.blueprint do
-  
+
 end
 
 Sex.blueprint do

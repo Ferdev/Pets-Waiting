@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require File.dirname(__FILE__) + '/acceptance_helper'
 
 feature "Pets", %q{
@@ -6,13 +7,12 @@ feature "Pets", %q{
   I want to create, update and delete pets
 } do
 
-  context "Signed in users (with javascript enabled)" do
+  context "Signed in users (with javascript enabled)", :js => true do
     background do
-      enable_javascript
       load_master_tables
       create_and_sign_in_user
     end
-  
+
     scenario 'can register a new pet' do
       visit homepage
       # Pet data
@@ -58,7 +58,7 @@ feature "Pets", %q{
       click_button('Update Photo')
       page.should have_content("Scroophy's photos")
     end
-    
+
     scenario 'must provide name, kind of animal, breed, address and birthday fields to add a new pet' do
       visit homepage
       click_link('Add a new pet')
@@ -72,7 +72,7 @@ feature "Pets", %q{
         page.should have_css('#pet_birthday_input.required.error p', :text => "can't be blank")
       end
     end
-    
+
     scenario 'can edit a previously created pet' do
       create_pet
       visit homepage
@@ -85,14 +85,14 @@ feature "Pets", %q{
       page.should have_css('ul.pet.detail li.name', :text => 'Scooby')
     end
   end
-  
+
   context "Signed in users" do
     background do
       load_master_tables
       create_and_sign_in_user
       create_pets
     end
-    
+
     scenario 'can manage their uploaded pets' do
       visit homepage
       page.should have_css('.admin ul li.selected', :text => 'My profile')
@@ -118,17 +118,16 @@ feature "Pets", %q{
       end
       page.should have_no_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy95')
     end
-    
+
   end
-  
-  context "Everyone (with javascript enabled)" do
+
+  context "Everyone (with javascript enabled)", :js => true do
     background do
       load_master_tables
       create_pets
       create_pet
-      enable_javascript
     end
-    
+
     scenario "can see a list of pets" do
       visit homepage
       page.should have_css('.pets.filters')
@@ -154,7 +153,7 @@ feature "Pets", %q{
       page.should have_no_css('.pets.results ul li.loading')
       page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy1')
     end
-    
+
     scenario "can filter pet's list by species" do
       visit homepage
       click_link('Dogs')
@@ -194,16 +193,16 @@ feature "Pets", %q{
         a.text.should match(/Male/)
       end
     end
-  
+
   end
-  
+
   context "Everyone" do
     background do
       load_master_tables
       create_pets
       create_pet
     end
-    
+
     scenario "can see a list of pets" do
       visit homepage
       page.should have_css('.pets.filters')
@@ -223,7 +222,7 @@ feature "Pets", %q{
       page.should have_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy64')
       page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy33')
     end
-    
+
     scenario "can see a pet's detail" do
       visit homepage
       click_link('Wadus')
@@ -273,7 +272,7 @@ feature "Pets", %q{
         end
       end
     end
-    
+
     scenario "can filter pet's list by species, urgency or sex" do
       visit homepage
       click_link('Dogs')
@@ -313,15 +312,15 @@ feature "Pets", %q{
         a.text.should match(/Male/)
       end
     end
-    
+
   end
-  
+
   context "Guests" do
     background do
       load_master_tables
       create_pets
     end
-  
+
     scenario "can't register a new pet" do
       visit homepage
       click_link('Add a new pet')
@@ -329,7 +328,7 @@ feature "Pets", %q{
       page.should have_no_css('h1', :text => 'New pet')
       page.should have_no_css('form#new_pet')
     end
-    
+
     scenario "can't edit an existing pet" do
       visit homepage
       click_link('Scroophy95')

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -32,7 +33,7 @@ module PetsWaiting
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-    
+
     # Configure generators values. Many other options are available, be sure to check the documentation.
     config.generators do |g|
       g.template_engine :haml
@@ -45,7 +46,7 @@ module PetsWaiting
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    
+
     config.middleware.use Rack::Locale
   end
 end

@@ -1,7 +1,8 @@
+# encoding: UTF-8
 class PetsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :get_user
-  
+
   def index
     @filters = extract_filters
 
@@ -58,27 +59,27 @@ class PetsController < ApplicationController
 
   def destroy
     @pet = current_user.pets.find(params[:id])
-    
+
     @pet.destroy
 
     respond_to do |format|
       format.html { redirect_to(pets_url) }
     end
   end
-  
+
   private
     def get_page
       params[:page].blank? ? 1 : params[:page]
     end
-  
+
     def extract_filters
       session[:filters] = {} unless session[:filters].present?
-      
+
       # We don't want to process new filters if we're just paginating
       return session[:filters] if params[:page].present?
-      
+
       filters = params[:filters]
-      
+
       unless filters.blank?
         animal_filter(filters)
         urgent_filter(filters)
@@ -86,7 +87,7 @@ class PetsController < ApplicationController
       end
       session[:filters]
     end
-    
+
     def animal_filter(filters)
 
       if filters[:animal].present?
@@ -101,12 +102,12 @@ class PetsController < ApplicationController
       end
 
     end
-    
+
     def urgent_filter(filters)
       urgent = session[:filters][:urgent]
       session[:filters][:urgent] = !urgent if filters[:urgent]
     end
-    
+
     def sex_filter(filters)
       if filters[:sex].present?
         sex_id = session[:filters][:sex_id] || []
@@ -119,7 +120,7 @@ class PetsController < ApplicationController
         session[:filters][:sex_id] = sex_id
       end
     end
-    
+
     def get_user
       @user = User.find(params[:user_id]) if params[:user_id].present?
     end

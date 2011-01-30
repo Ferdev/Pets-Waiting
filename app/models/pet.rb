@@ -1,6 +1,7 @@
+# encoding: UTF-8
 class Pet < ActiveRecord::Base
   after_initialize :init_address
-  
+
   attr_accessible :name,
                   :animal_id,
                   :breed_id,
@@ -30,32 +31,32 @@ class Pet < ActiveRecord::Base
                   :sex_id,
                   :sterilized,
                   :vaccinated
-  
+
   belongs_to :animal
   belongs_to :breed
   belongs_to :sex
   belongs_to :size
   belongs_to :user
-  
+
   has_one   :address, :dependent => :destroy
   has_many  :photos, :dependent => :destroy
   has_many  :adoptions, :dependent => :destroy
   has_many  :pet_diseases, :dependent => :destroy
   has_many  :diseases, :through => :pet_diseases
-  
+
   accepts_nested_attributes_for :address, :allow_destroy => true
-  accepts_nested_attributes_for :diseases, :allow_destroy => true 
-  
+  accepts_nested_attributes_for :diseases, :allow_destroy => true
+
   validates_presence_of :name
   validates_presence_of :animal
   validates_presence_of :breed
   validates_presence_of :sex
   validates_presence_of :birthday
-  
+
   def init_address
     build_address unless address
   end
-  
+
   def character_attributes
   [
     :docile,
@@ -83,7 +84,7 @@ class Pet < ActiveRecord::Base
       return true if attributes[char]
     end
   end
-  
+
   def character
     result = []
     character_attributes.each do |char|
@@ -91,21 +92,21 @@ class Pet < ActiveRecord::Base
     end
     result
   end
-  
+
   def place
     address.address unless address.nil? || address.address.blank?
   end
-  
+
   def thumbnails
     unless photos.empty?
       photos.select { |photo| photo.has_thumbnail? }
     end
   end
-  
+
   def random_thumbnail
     thumbnails.sample.image.thumb unless thumbnails.nil? || thumbnails.empty?
   end
-  
+
   def self.filtered(filters)
     pets = scoped
     if filters.present?
@@ -115,16 +116,16 @@ class Pet < ActiveRecord::Base
     end
     pets.order("pets.created_at DESC")
   end
-  
+
   def self.adopted
     joins(:adoptions).where('adoptions.adopted' => true)
   end
-  
+
   def self.not_adopted
     adopted_ids = adopted.map{|pet| pet.id}
     adopted_ids.blank? ? scoped : scoped.where('id NOT IN (?)', adopted_ids)
   end
-  
+
   def adopted?
     adoptions.adopted.present?
   end

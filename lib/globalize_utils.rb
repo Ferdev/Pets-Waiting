@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module GlobalizeUtils
   extend ActiveSupport::Concern
 
@@ -11,7 +12,7 @@ module GlobalizeUtils
 
     def translations_for(translations, &block)
       translation_scope = where_translation(translations)
-      yield (translation_scope.first || self.new) if block_given?
+      yield(translation_scope.first || self.new) if block_given?
     end
 
     def add_translation( locale, translations = {})

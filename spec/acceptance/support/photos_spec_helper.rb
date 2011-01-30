@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module PhotosSpecHelper
   Rspec.configure do |config|
     config.after(:each) do

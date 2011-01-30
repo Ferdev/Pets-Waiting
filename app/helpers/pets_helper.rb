@@ -1,9 +1,10 @@
+# encoding: UTF-8
 module PetsHelper
   def breed_for_animal(pet)
     return [I18n.t('pets._form.select_animal_first')] if pet.nil? || pet.animal.nil?
     Breed.by_animal_id(pet.animal_id)
   end
-  
+
   def critters
     %w{
       batty.png
@@ -21,17 +22,17 @@ module PetsHelper
       ratty.png
     }
   end
-  
+
   def random_critter
     "icons/critters/#{critters.sample}"
   end
-  
+
   def thumbnail(pet)
     thumbnail = pet.random_thumbnail
     img_src = thumbnail ? thumbnail.url : random_critter
     image_tag img_src, :size => '200x200'
   end
-  
+
   def thumbnail_list(pet)
     thumbnails = pet.thumbnails
 
@@ -43,15 +44,15 @@ module PetsHelper
       end
     end
   end
-  
+
   def render_pets_list
     unless request.xhr?
-      render :partial => 'index_header', :locals => { :pets => @pets } 
+      render :partial => 'index_header', :locals => { :pets => @pets }
     else
       render @pets
     end
   end
-  
+
   def method_missing(m, *args)
     if method_name  = /classes_for_(\w*)_button/.match(m.to_s)
         button_name = method_name[1]
@@ -70,7 +71,7 @@ module PetsHelper
 
   def activate_adopted_button(pet)
     classes = %w(adopted)
-    classes.push('active') if pet.adopted?
+    classes << 'active' if pet.adopted?
     classes.join(' ')
   end
 end

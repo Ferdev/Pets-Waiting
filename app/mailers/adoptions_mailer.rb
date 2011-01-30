@@ -1,6 +1,7 @@
+# encoding: UTF-8
 class AdoptionsMailer < ActionMailer::Base
   default :from => "fur@petswaiting.com"
-  
+
   def adoption_request(adoption)
     @pet          = adoption.pet
     @user         = adoption.adoptant
