@@ -8,12 +8,12 @@
     %meta{:name => "description", :content => I18n.t('description')}
     %meta{:name => "keywords", :content => I18n.t('keywords')}
     %link{:rel => "canonical", :href => "http://petswaiting.com"}
-    = stylesheet_link_tag "reset", "application", "pw.devise", "pw.forms", "pw.buttons", "jquery/jquery-ui-1.8.4.custom.css"
+    = stylesheet_link_tag "reset", "application", "pw.devise", "pw.forms", "jquery/jquery-ui-1.8.4.custom.css"
     :javascript
       var RAILS_ENV = "#{Rails.env}";
     = javascript_include_tag "jquery/jquery-1.4.4.js", "rails", "application", "pw/pw.init.js", "utils.js"
     = yield(:head)
-    %script{:type => "text/javascript", :src => "http://use.typekit.com/gvk4sry.js"}
+    %script{:type => "text/javascript", :src => "http://use.typekit.com/znw1ljt.js"}
     :javascript
       try{Typekit.load();}catch(e){}
     - if Rails.env == 'production'
@@ -56,11 +56,16 @@
 
   %body
     %header
-      .title_and_auth
-        .title
-          %a.pets{:href => '/', :title => I18n.t('title')} Pets
-          %a.waiting{:href => '/', :title => I18n.t('title')} Waiting
-          %a.subtitle{:href => '/'}= I18n.t('subtitle')
+      %ul.language
+        %li.change_language
+          %span.label= I18n.t("meta.language_name", :locale => I18n.locale.to_sym)
+          %span.arrow &#x25be;
+        - I18n.available_locales.each do |locale|
+          - unless locale == I18n.locale
+            %li.locale
+              %span.label= link_to I18n.t("meta.language_name", :locale => locale.to_sym), change_language_path(:new_locale => locale)
+      .logo
+      - if false
         .auth
           %ul
             - unless user_signed_in?
@@ -78,13 +83,7 @@
                     = link_to t('layouts.application.admin.adoption_requests'), user_adoptions_path(current_user)
 
               %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
-        .count
-          =I18n.t('layouts.application.counter.adopted', :count => @adopted ) + I18n.t('layouts.application.counter.pets', :count => @count )
-        %ul.language
-          %li.change_language #{I18n.t('layouts.application.change_language')}
-          - I18n.available_locales.each do |locale|
-            - unless locale == I18n.locale
-              %li.locale= link_to I18n.t("meta.language_name", :locale => locale.to_sym), change_language_path(:new_locale => locale)
+      %p.pet_count= I18n.t('layouts.application.counter.pets', :count => @count )
 
     #content
       - flash.each do |name, msg|
@@ -92,11 +91,14 @@
       = yield
 
     %footer
-      .footer_links
-        %ul
-          %li
-            = link_to I18n.t('layouts.application.footer.colaborate'), colaborate_path
-          %li
-            = link_to I18n.t('layouts.application.footer.about'), about_path
-          %li
-            = link_to I18n.t('layouts.application.footer.contact'), contact_path
+      .content
+        .pets_left
+          %span= @waiting
+          = I18n.t('layouts.application.footer.waiting')
+        .adoptions_done
+          %span= @adopted
+          = I18n.t('layouts.application.footer.adopted')
+        .logo.small
+        %p.disclaimer= I18n.t('layouts.application.footer.disclaimer')
+        %p.links
+          = footer_links

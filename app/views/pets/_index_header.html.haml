@@ -1,31 +1,31 @@
-.pets.add_pet
-  %h1
-    = I18n.t('pets.index.give_adoption')
-  %a.button.add_pet{:href => new_pet_url}
-    %span.plus +
-    = I18n.t('pets.index.add_pet')
-.pets.filters
-  = form_tag pets_path, :method => 'get' do
-    %h1= I18n.t('pets.index.show')
-    %ul
-      %li.urgents
-        = link_to I18n.t('pets.index.filters.urgents'), pets_path(:filters => {:urgent => true}), :class => classes_for_urgent_button
-      %li.dogs
-        = link_to I18n.t('pets.index.filters.dogs'), pets_path(:filters => {:animal => Animal.dog.id}), :class => classes_for_dog_button
-      %li.cats
-        = link_to I18n.t('pets.index.filters.cats'), pets_path(:filters => {:animal => Animal.cat.id}), :class => classes_for_cat_button
-      %li.birds
-        = link_to I18n.t('pets.index.filters.birds'), pets_path(:filters => {:animal => Animal.bird.id}), :class => classes_for_bird_button
-      %li.little_mammals
-        = link_to I18n.t('pets.index.filters.little_mammals'), pets_path(:filters => {:animal => Animal.little_mammal.id}), :class => classes_for_little_mammal_button
-      %li.reptiles
-        = link_to I18n.t('pets.index.filters.reptiles'), pets_path(:filters => {:animal => Animal.reptile.id}), :class => classes_for_reptile_button
-      %li.other_species
-        = link_to I18n.t('pets.index.filters.other_species'), pets_path(:filters => {:animal => Animal.other_species.id}), :class => classes_for_other_species_button
-      %li.males
-        = link_to I18n.t('pets.index.filters.males'), pets_path(:filters => {:sex => Sex.male.id}), :class => classes_for_male_button
-      %li.females
-        = link_to I18n.t('pets.index.filters.females'), pets_path(:filters => {:sex => Sex.female.id}), :class => classes_for_female_button
+.announcement
+  = simple_format I18n.t('pets.index.announcement')
+
+.filters
+  %ul
+    %li.all{:class => classes_for_all_button}
+      = link_to I18n.t('pets.index.filters.all'), pets_path
+      .arrow
+    %li.dogs{:class => classes_for_dog_button}
+      = link_to I18n.t('pets.index.filters.dogs'), pets_path(:filters => {:animal => Animal.dog.id})
+      .arrow
+    %li.cats{:class => classes_for_cat_button}
+      = link_to I18n.t('pets.index.filters.cats'), pets_path(:filters => {:animal => Animal.cat.id})
+      .arrow
+    %li.birds{:class => classes_for_bird_button}
+      = link_to I18n.t('pets.index.filters.birds'), pets_path(:filters => {:animal => Animal.bird.id})
+      .arrow
+    %li.little{:class => classes_for_little_mammal_button}
+      = link_to I18n.t('pets.index.filters.little_pets'), pets_path(:filters => {:animal => Animal.little_mammal.id})
+      .arrow
+    %li.reptiles{:class => classes_for_reptile_button}
+      = link_to I18n.t('pets.index.filters.reptiles'), pets_path(:filters => {:animal => Animal.reptile.id})
+      .arrow
+    %li.other_species{:class => classes_for_other_species_button}
+      = link_to I18n.t('pets.index.filters.other_species'), pets_path(:filters => {:animal => Animal.other_species.id})
+      .arrow
+    %li
+      = link_to I18n.t('pets.index.add_pet'), new_pet_url, :class => %w(button add_pet)
 
 .pets.place
   %h1= I18n.t('pets.index.looking_place')

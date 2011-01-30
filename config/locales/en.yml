@@ -84,7 +84,7 @@ en:
     submit:
       create: 'Save %{model}'
       update: 'Update %{model}'
-      
+
   errors:
     template:
       header:
@@ -101,7 +101,6 @@ en:
     language_name: 'English'
   layouts:
     application:
-      change_language: 'Change language'
       authentication:
         signin: 'Sign in'
         or: 'or'
@@ -115,12 +114,16 @@ en:
         adopted:
           one: '%{count} adoption of '
           other: '%{count} adoptions of '
-        pets: 
-          one: '%{count} pet'
-          other: '%{count} pets'
+        pets:
+          one: '%{count} pet waiting for you.'
+          other: '%{count} pets waiting for you.'
       footer:
-        colaborate: 'Colaborate'
-        about: 'About us'
+        waiting: 'Animals waiting'
+        adopted: 'Adoptions done'
+        disclaimer: 'PetsWaiting is a web page with no profit motive in mind, whose main motivation is to promote pets adoption, instead of pets sale.'
+        colaborate: 'Colaborate with us'
+        learn_more: 'Learn more'
+        about_project: 'about project'
         donations: 'Donations'
         contact: 'Contact us'
   pets:
@@ -133,21 +136,23 @@ en:
     edit:
       title: 'Edit pet'
     index:
-      give_adoption: 'Do you want to give a pet up for adoption?'
+      announcement: "Here you will be able to find pets that are looking for a family. \nAll are free, and all could be a perfect present for you."
       add_pet: 'Add a new pet'
-      show: 'Show...'
       looking_place: 'Are you looking at some particular place?'
       filters:
-        urgents: 'Urgents'
+        all: 'All'
         dogs: 'Dogs'
         cats: 'Cats'
         birds: 'Birds'
-        little_mammals: 'Little mammals'
+        little_pets: 'Little pets'
         reptiles: 'Reptiles'
         other_species: 'Other species'
         males: 'Males'
         females: 'Females'
       pet:
+        sex: 'a %{sex} %{animal}'
+        age: '%{age} old'
+        know_it: 'Know it better'
         delete_pet: 'Delete pet'
         adopted: 'Adopted pet!'
         delete_confirm: 'Are you sure?'

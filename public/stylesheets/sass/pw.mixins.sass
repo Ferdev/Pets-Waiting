@@ -29,3 +29,12 @@
   @include box-shadow(0px 0px 2px #000000)
   background-color: #092230
   border: 1px solid #CCE5F4
+
+@mixin css-sprite($horizontal, $vertical, $width, $height)
+  background-color: transparent
+  background-image: url('/images/sprites/css.png')
+  background-repeat: no-repeat
+  background-attachment: scroll
+  background-position: $horizontal $vertical
+  width: $width
+  height: $height

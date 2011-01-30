@@ -236,7 +236,7 @@
         reasons: 'Razones para adoptarle'
         pet_id: 'Mascota'
         adoptant_id: 'Adoptante'
-      
+
     errors:
       messages:
         taken: "ya está en uso"
@@ -253,7 +253,7 @@
       #       attributes:
       #         login:
       #           blank: "This is a custom blank message for User login"
-      # Will define custom blank validation message for User model and 
+      # Will define custom blank validation message for User model and
       # custom blank validation message for login attribute of User model.
       #models:
 
@@ -340,7 +340,7 @@
       words_connector: ", "
       two_words_connector: " y "
       last_word_connector: ", y "
-      
+
   title: 'Pets Waiting'
   subtitle: '¡Un montón de mascotas están esperándote!'
   description: 'En PetsWaiting hay un montón de mascotas esperando encontrar un hogar. Si estás buscando un amigo, o quieres dar un animal en adopción, éste es tu lugar.'
@@ -349,7 +349,6 @@
     language_name: 'Español'
   layouts:
     application:
-      change_language: 'Cambiar idioma'
       authentication:
         signin: 'Identifícate'
         or: 'o'
@@ -363,12 +362,16 @@
         adopted:
           one: '%{count} adopción de '
           other: '%{count} adopciones de '
-        pets: 
-          one: '%{count} mascota'
-          other: '%{count} mascotas'
+        pets:
+          one: '%{count} mascota esperando.'
+          other: '%{count} mascotas esperandote.'
       footer:
-        colaborate: 'Colabora'
-        about: 'Sobre nosotros'
+        waiting: 'Animales esperando'
+        adopted: 'Adopciones hechas'
+        disclaimer: 'PetsWaiting es una página web sin ánimo de lucro, cuya principal motivación es promover la adopción de animales, en lugar de su venta.'
+        colaborate: 'Colabora con nosotros'
+        learn_more: 'Aprende más'
+        about_project: 'sobre el proyecto'
         donations: 'Donaciones'
         contact: 'Contáctanos'
   pets:
@@ -381,21 +384,23 @@
     edit:
       title: 'Editar mascota'
     index:
-      give_adoption: '¿Quieres dar un animal en adopción?'
+      announcement: "Aquí podrás encontrar mascotas que están buscando un hogar. \nSon todas gratis, y podrían ser un regalo perfecto para ti."
       add_pet: 'Añadir una nueva mascota'
-      show: 'Mostrar...'
       looking_place: '¿Quieres buscar de alguna zona en concreto?'
       filters:
-        urgents: 'Urgentes'
+        all: 'Todos'
         dogs: 'Perros'
         cats: 'Gatos'
         birds: 'Aves'
-        little_mammals: 'Pequeños mamíferos'
+        little_pets: 'Pequeñas mascotas'
         reptiles: 'Reptiles'
         other_species: 'Otras especies'
         males: 'Machos'
         females: 'Hembras'
       pet:
+        sex: 'Un %{animal} %{sex}'
+        age: '%{age} de edad'
+        know_it: 'Conocelo mejor'
         delete_pet: 'Borrar mascota'
         adopted: '¡Mascota adoptada!'
         delete_confirm: '¿Estás seguro?'

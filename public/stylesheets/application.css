@@ -1,12 +1,11 @@
 html, body {
-  background: url("/images/bg/bg_body.png") repeat fixed 0 0 #a4d6f4;
+  background-color: #e6e8e3;
   font-family: Helvetica, Arial;
   font-size: 16px;
-  color: #124462;
-  text-shadow: 0 1px 1px #dff7ff; }
+  color: black; }
 
 a {
-  color: #c8525b;
+  color: #138dd0;
   font-size: 1em; }
 
 a:hover {
@@ -46,140 +45,131 @@ span.spinner {
   background: url("/images/extra/spinner.gif") no-repeat scroll 50% 50% transparent; }
 
 header {
-  background-color: #1a6692;
-  background-image: -moz-linear-gradient(top, #2388c3, #1a6692);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #2388c3), color-stop(1, #1a6692));
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
-  border-bottom: 1px solid #cce5f4;
   display: block;
-  height: 2.5em; }
-  header .title_and_auth {
-    width: 960px;
-    margin: 0 auto;
-    position: relative; }
-    header .title_and_auth .title {
-      position: absolute;
-      top: 14px; }
-      header .title_and_auth .title a {
-        font-size: 3em;
-        line-height: 1.5em;
-        text-decoration: none;
-        text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 0 0 white, 0 2px 0 white, -2px 0 0 white, 0 -2px 0 white, 3px 3px 2px black; }
-      header .title_and_auth .title a.pets {
-        color: #7ad1ff; }
-      header .title_and_auth .title a.waiting {
-        color: #ff8420; }
-      header .title_and_auth .title a.subtitle {
-        font-size: 1em;
-        color: #1a6692;
-        margin: 0 0.5em;
-        text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 0 0 white, 0 1px 0 white, -1px 0 0 white, 0 -1px 0 white, 2px 2px 1px black;
-        vertical-align: bottom; }
-    header .title_and_auth .auth {
-      color: white;
-      text-shadow: 0 1px 0 black;
-      text-align: right; }
-      header .title_and_auth .auth ul {
-        float: right; }
-        header .title_and_auth .auth ul li {
-          display: inline;
-          margin: 0.2em;
-          float: left;
-          line-height: 2em; }
-        header .title_and_auth .auth ul li.admin {
-          margin: 0.2em 0.5em;
-          position: relative;
-          z-index: 1; }
-          header .title_and_auth .auth ul li.admin ul {
-            color: white;
-            margin: 0 0.5em;
-            padding: 0 8px;
-            height: 2em;
-            overflow: hidden;
-            text-align: right; }
-            header .title_and_auth .auth ul li.admin ul li.selected {
-              display: block; }
-            header .title_and_auth .auth ul li.admin ul li.selected:after {
-              content: " \25BF"; }
-            header .title_and_auth .auth ul li.admin ul li {
-              display: none;
-              margin: 0;
-              clear: both;
-              float: right; }
-          header .title_and_auth .auth ul li.admin ul:hover {
-            background: none repeat fixed 0 0 white;
-            color: #124462;
-            text-shadow: 0 0 0;
-            -moz-box-shadow: 0 1px 1px #666666;
-            -webkit-box-shadow: 0 1px 1px #666666;
-            box-shadow: 0 1px 1px #666666;
-            -moz-border-radius: 3px;
-            -ms-border-radius: 3px;
-            -webkit-border-radius: 3px;
-            border-radius: 3px;
-            overflow: visible;
-            height: auto; }
-            header .title_and_auth .auth ul li.admin ul:hover li {
-              display: block; }
-            header .title_and_auth .auth ul li.admin ul:hover li.selected:after {
-              content: " \25BE"; }
-            header .title_and_auth .auth ul li.admin ul:hover a {
-              color: #c8525b;
-              text-shadow: 0 0 0; }
-        header .title_and_auth .auth ul li.admin ul {
-          color: #ffd850; }
-        header .title_and_auth .auth ul li.admin ul:hover {
-          color: #c8525b; }
-      header .title_and_auth .auth a {
-        color: #ffd850;
-        font-size: 1em;
-        line-height: 2em;
-        font-weight: bold;
-        -moz-border-radius: 3px;
-        -ms-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px; }
-      header .title_and_auth .auth a:hover {
-        text-decoration: none; }
-    header .title_and_auth .count, header .title_and_auth .language {
-      font-size: 0.8em;
-      position: absolute;
-      top: 3.15em; }
-    header .title_and_auth .count {
-      -moz-box-shadow: 0 1px 1px #666666;
-      -webkit-box-shadow: 0 1px 1px #666666;
-      box-shadow: 0 1px 1px #666666;
-      background-color: white;
-      font-weight: bold;
-      padding: 0.5em;
-      right: 0; }
-    header .title_and_auth .language {
-      background: url("/images/bg/bg_body.png") repeat fixed 0 0 #a4d6f4;
-      right: 15em;
-      margin: 1px 1em 0;
-      padding: 0 0.5em;
-      color: #83acc3;
-      text-align: right; }
-      header .title_and_auth .language li {
-        margin: 0;
+  width: 960px;
+  margin: 0 auto;
+  position: relative; }
+  header .language {
+    background-image: -moz-linear-gradient(top, #cccdc9, #d2d4cf);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cccdc9), color-stop(1, #d2d4cf));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    border: 1px solid transparent;
+    position: absolute;
+    right: 0;
+    top: -1em;
+    padding: 0 1em;
+    font-family: Arial;
+    font-size: 0.7em;
+    color: #666666; }
+    header .language li {
+      margin: 0;
+      line-height: 2em; }
+      header .language li .label {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+        *display: inline;
+        min-width: 75px; }
+    header .language li.locale {
+      display: none; }
+  header .language:hover {
+    cursor: pointer; }
+    header .language:hover .locale {
+      display: block; }
+  header .logo {
+    background-color: transparent;
+    background-image: url("/images/sprites/css.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 0 0;
+    width: 248px;
+    height: 82px;
+    margin: 2em auto 0; }
+  header .pet_count {
+    background-color: #e6e8e3;
+    margin: 0.5em auto;
+    font-size: 1.1em;
+    text-align: center;
+    color: rgba(55, 55, 55, 0.5);
+    text-shadow: 0 1px 1px white;
+    max-width: 250px;
+    position: relative;
+    z-index: 1; }
+  header .auth {
+    color: white;
+    text-shadow: 0 1px 0 black;
+    text-align: right; }
+    header .auth ul {
+      float: right; }
+      header .auth ul li {
+        display: inline;
+        margin: 0.2em;
+        float: left;
         line-height: 2em; }
-      header .title_and_auth .language .change_language:after {
-        content: " \25BF"; }
-      header .title_and_auth .language .locale {
-        display: none; }
-    header .title_and_auth .language:hover {
-      cursor: pointer;
-      background: none repeat fixed 0 0 white;
-      color: inherit;
+      header .auth ul li.admin {
+        margin: 0.2em 0.5em;
+        position: relative;
+        z-index: 1; }
+        header .auth ul li.admin ul {
+          color: white;
+          margin: 0 0.5em;
+          padding: 0 8px;
+          height: 2em;
+          overflow: hidden;
+          text-align: right; }
+          header .auth ul li.admin ul li.selected {
+            display: block; }
+          header .auth ul li.admin ul li.selected:after {
+            content: " \25BF"; }
+          header .auth ul li.admin ul li {
+            display: none;
+            margin: 0;
+            clear: both;
+            float: right; }
+        header .auth ul li.admin ul:hover {
+          background: none repeat fixed 0 0 white;
+          color: #124462;
+          text-shadow: 0 0 0;
+          -moz-box-shadow: 0 1px 1px #666666;
+          -webkit-box-shadow: 0 1px 1px #666666;
+          box-shadow: 0 1px 1px #666666;
+          -moz-border-radius: 3px;
+          -ms-border-radius: 3px;
+          -webkit-border-radius: 3px;
+          border-radius: 3px;
+          overflow: visible;
+          height: auto; }
+          header .auth ul li.admin ul:hover li {
+            display: block; }
+          header .auth ul li.admin ul:hover li.selected:after {
+            content: " \25BE"; }
+          header .auth ul li.admin ul:hover a {
+            color: #c8525b;
+            text-shadow: 0 0 0; }
+      header .auth ul li.admin ul {
+        color: #ffd850; }
+      header .auth ul li.admin ul:hover {
+        color: #c8525b; }
+    header .auth a {
+      color: #ffd850;
+      font-size: 1em;
+      line-height: 2em;
       font-weight: bold;
-      -moz-box-shadow: 0 1px 1px #666666;
-      -webkit-box-shadow: 0 1px 1px #666666;
-      box-shadow: 0 1px 1px #666666; }
-      header .title_and_auth .language:hover .change_language:after {
-        content: " \25BE"; }
-      header .title_and_auth .language:hover .locale {
-        display: block; }
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px; }
+    header .auth a:hover {
+      text-decoration: none; }
 
 #content {
   width: 960px;
@@ -187,32 +177,44 @@ header {
   position: relative; }
 
 footer {
-  background: url("/images/bg/bg_body.png") repeat fixed 0 0 #a4d6f4;
+  background-color: #e6e8e3;
   position: fixed;
   width: 100%;
   bottom: 0px;
-  padding: 1em 0;
+  padding: 1em 0 3em;
   z-index: 10; }
-  footer .footer_links {
+  footer .content {
     width: 960px;
     margin: 0 auto; }
-  footer a, footer a:visited {
-    color: #124462;
-    font-size: 1.5em;
-    font-weight: normal;
-    text-shadow: 0 1px 0 #cce5f4;
-    text-decoration: none;
-    padding: 10px 9px; }
-  footer a:hover {
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background-color: #1a6692;
-    color: #cce5f4;
-    text-shadow: 0 1px 0 #124462; }
-  footer ul {
-    text-align: center; }
-    footer ul li {
-      display: inline;
-      margin: 0 2em; }
+    footer .content .pets_left, footer .content .adoptions_done {
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      *display: inline;
+      color: #c5c6c5;
+      margin: 0 2em 0 0; }
+      footer .content .pets_left span, footer .content .adoptions_done span {
+        display: block;
+        font-size: 3.2em; }
+    footer .content .logo.small {
+      background-color: transparent;
+      background-image: url("/images/sprites/css.png");
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: -274px 0;
+      width: 155px;
+      height: 51px;
+      float: right; }
+    footer .content p {
+      line-height: 1.5em; }
+    footer .content .disclaimer, footer .content .links {
+      font-family: Arial;
+      font-size: 0.8em; }
+    footer .content .disclaimer {
+      margin-top: 4em;
+      color: #c5c6c5; }
+    footer .content .links {
+      color: #9fa1a0; }
+      footer .content .links a {
+        color: #9fa1a0; }

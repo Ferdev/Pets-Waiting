@@ -31,4 +31,12 @@ module ApplicationHelper
     return 'selected' if request[:controller].match(/adoptions/) && request[:action].match(/index/)
     ''
   end
+
+  def footer_links
+    raw %W(
+      #{link_to(I18n.t('layouts.application.footer.colaborate'), colaborate_path)}
+      #{link_to(I18n.t('layouts.application.footer.learn_more'), about_path)}#{' '}#{I18n.t('layouts.application.footer.about_project')}
+      #{link_to(I18n.t('layouts.application.footer.contact'), contact_path)}
+    ).join(' / ')
+  end
 end

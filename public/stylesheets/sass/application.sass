@@ -1,3 +1,4 @@
+@import 'pw.colors'
 @import 'pw.vars'
 @import 'pw.mixins'
 
@@ -6,19 +7,18 @@
 //////////////////
 // Base
 html, body
-  background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
+  background-color: $background
   font-family: $fonts
   font-size: $fonts_size
-  color: #124462
-  text-shadow: 0 1px 1px #dff7ff
+  color: black
 
 a
-  color: #C8525B
+  color: $links
   font-size: 1em
-  
+
 a:hover
   text-decoration: none
-  
+
 a:visited
   color: #a04249
 
@@ -46,135 +46,121 @@ h4
   color: #F48A2C
 .flash.error
   color: #DC4228
-  
+
 span.spinner
   padding: 50px
   background: url('/images/extra/spinner.gif') no-repeat scroll 50% 50% transparent
 
 // Pets-Waiting
 header
-  background-color: #1A6692
-  @include gradient(#2388c3, #1A6692)
-  border-bottom: 1px solid #CCE5F4
   display: block
-  height: 2.5em
-  .title_and_auth
-    width: 960px
-    margin: 0 auto
-    position: relative
-    .title
-      position: absolute
-      top: 14px
-      a
-        font-size: 3em
-        line-height: 1.5em
-        text-decoration: none
-        text-shadow: 2px 2px 0 white, -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 0 0 white, 0 2px 0 white, -2px 0 0 white, 0 -2px 0 white, 3px 3px 2px black
-      a.pets
-        color: #7ad1ff
-      a.waiting
-        color: #ff8420
-      a.subtitle
-        font-size: 1em
-        color: #1A6692
-        margin: 0 .5em
-        text-shadow: 1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 0 0 white, 0 1px 0 white, -1px 0 0 white, 0 -1px 0 white, 2px 2px 1px black
-        vertical-align: bottom
+  width: 960px
+  margin: 0 auto
+  position: relative
 
-    .auth
-      color: #FFFFFF
-      text-shadow: 0 1px 0 #000000
-      text-align: right
-      ul
-        float: right
-        li
-          display: inline
-          margin: .2em
-          float: left
-          line-height: 2em
-        li.admin
-          margin: .2em .5em
-          position: relative
-          z-index: 1
-          ul
-            color: white
-            margin: 0 .5em
-            padding: 0 8px
-            height: 2em
-            overflow: hidden
-            text-align: right
-            li.selected
-              display: block
-            li.selected:after
-              content: " \25BF"
-            li
-              display: none
-              margin: 0
-              clear: both
-              float: right
-          ul:hover
-            background: none repeat fixed 0 0 #ffffff
-            color: #124462
-            text-shadow: 0 0 0
-            @include box-shadow(0 1px 1px #666666)
-            @include border-radius(3px)
-            overflow: visible
-            height: auto
-            li
-              display: block
-            li.selected:after
-              content: " \25BE"
-            a
-              color: #C8525B
-              text-shadow: 0 0 0
-        li.admin
-          ul
-            color: #ffd850
-          ul:hover
+  .language
+    @include gradient($language_top, $language_bottom)
+    @include border-radius(15px)
+    @include box-shadow(0 1px 1px rgba(255, 255, 255, 0.5))
+    border: 1px solid transparent
+
+    position: absolute
+    right: 0
+    top: -1em
+    padding: 0 1em
+
+    font-family: Arial
+    font-size: 0.7em
+    color: #666666
+    li
+      margin: 0
+      line-height: 2em
+      .label
+        @include inline-block
+        min-width: 75px
+    li.locale
+      display: none
+
+  .language:hover
+    cursor: pointer
+    li
+    .locale
+      display: block
+
+  .logo
+    @include css-sprite(0, 0, 248px, 82px)
+    margin: 2em auto 0
+
+  .pet_count
+    background-color: $background
+    margin: .5em auto
+    font-size: 1.1em
+    text-align: center
+    color: rgba(55, 55, 55, 0.5)
+    text-shadow: 0 1px 1px white
+    max-width: 250px
+    position: relative
+    z-index: 1
+
+  .auth
+    color: #FFFFFF
+    text-shadow: 0 1px 0 #000000
+    text-align: right
+    ul
+      float: right
+      li
+        display: inline
+        margin: .2em
+        float: left
+        line-height: 2em
+      li.admin
+        margin: .2em .5em
+        position: relative
+        z-index: 1
+        ul
+          color: white
+          margin: 0 .5em
+          padding: 0 8px
+          height: 2em
+          overflow: hidden
+          text-align: right
+          li.selected
+            display: block
+          li.selected:after
+            content: " \25BF"
+          li
+            display: none
+            margin: 0
+            clear: both
+            float: right
+        ul:hover
+          background: none repeat fixed 0 0 #ffffff
+          color: #124462
+          text-shadow: 0 0 0
+          @include box-shadow(0 1px 1px #666666)
+          @include border-radius(3px)
+          overflow: visible
+          height: auto
+          li
+            display: block
+          li.selected:after
+            content: " \25BE"
+          a
             color: #C8525B
-      a
-        color: #ffd850
-        font-size: 1em
-        line-height: 2em
-        font-weight: bold
-        @include border-radius(3px)
-      a:hover
-        text-decoration: none
-    .count, .language
-      font-size: 0.8em
-      position: absolute
-      top: 3.15em
-    .count
-      @include box-shadow(0 1px 1px #666666)
-      background-color: white
+            text-shadow: 0 0 0
+      li.admin
+        ul
+          color: #ffd850
+        ul:hover
+          color: #C8525B
+    a
+      color: #ffd850
+      font-size: 1em
+      line-height: 2em
       font-weight: bold
-      padding: 0.5em
-      right: 0
-    .language
-      background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
-      right: 15em
-      margin: 1px 1em 0
-      padding: 0 .5em
-      color: #83acc3
-      text-align: right
-      li
-        margin: 0
-        line-height: 2em
-      .change_language:after
-        content: " \25BF"
-      .locale
-        display: none
-    .language:hover
-      cursor: pointer
-      background: none repeat fixed 0 0 #ffffff
-      color: inherit
-      font-weight: bold
-      @include box-shadow(0 1px 1px #666666)
-      li
-      .change_language:after
-        content: " \25BE"
-      .locale
-        display: block
+      @include border-radius(3px)
+    a:hover
+      text-decoration: none
 
 #content
   width: 960px
@@ -182,32 +168,39 @@ header
   position: relative
 
 footer
-  background: url('/images/bg/bg_body.png') repeat fixed 0 0 #a4d6f4
+  background-color: $background
   position: fixed
   width: 100%
   bottom: 0px
-  padding: 1em 0
+  padding: 1em 0 3em
   z-index: 10
 
-  .footer_links
+  .content
     width: 960px
     margin: 0 auto
-  a, a:visited
-    color: #124462
-    font-size: 1.5em
-    font-weight: normal
-    text-shadow: 0 1px 0 #cce5f4
-    text-decoration: none
-    padding: 10px 9px
-  a:hover
-    @include border-radius(5px)
-    background-color: #1a6692
-    color: #cce5f4
-    text-shadow: 0 1px 0 #124462
 
-  ul
-    text-align: center
-    li
-      display: inline
-      margin: 0 2em
-        
+    .pets_left, .adoptions_done
+      @include inline-block
+      color: $footer_font
+      margin: 0 2em 0 0
+      span
+        display: block
+        font-size: 3.2em
+
+    .logo.small
+      @include css-sprite(-274px, 0, 155px, 51px)
+      float: right
+
+    p
+      line-height: 1.5em
+    .disclaimer, .links
+      font-family: Arial
+      font-size: 0.8em
+    .disclaimer
+      margin-top: 4em
+      color: $footer_font
+    .links
+      color: $footer_links
+      a
+        color: $footer_links
+

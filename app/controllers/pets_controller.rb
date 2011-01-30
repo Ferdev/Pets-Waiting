@@ -5,7 +5,8 @@ class PetsController < ApplicationController
 
   def index
     @filters = extract_filters
-
+    @adopted = Adoption.adopted.count
+    @waiting = Pet.not_adopted.count
     @pets = (@user ? @user.pets : Pet.not_adopted).filtered(@filters).paginate :page => get_page, :per_page => 32
 
     respond_to do |format|
@@ -82,8 +83,6 @@ class PetsController < ApplicationController
 
       unless filters.blank?
         animal_filter(filters)
-        urgent_filter(filters)
-        sex_filter(filters)
       end
       session[:filters]
     end
@@ -101,24 +100,6 @@ class PetsController < ApplicationController
         session[:filters][:animal_id] = animal_id
       end
 
-    end
-
-    def urgent_filter(filters)
-      urgent = session[:filters][:urgent]
-      session[:filters][:urgent] = !urgent if filters[:urgent]
-    end
-
-    def sex_filter(filters)
-      if filters[:sex].present?
-        sex_id = session[:filters][:sex_id] || []
-
-        if sex_id.include?(filters[:sex])
-          sex_id.delete(filters[:sex])
-        else
-          sex_id.push(filters[:sex])
-        end
-        session[:filters][:sex_id] = sex_id
-      end
     end
 
     def get_user
