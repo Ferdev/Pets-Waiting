@@ -65,11 +65,9 @@ module PetsHelper
         button_name = method_name[1]
         classes     = [:button]
       if button_name.match(/all/)
-        classes.push(:active) if @filters.empty?
-      elsif button_name.match(/male|female/)
-        classes.push(:active) if @filters[:sex_id] && @filters[:sex_id].include?( Sex.send("#{button_name}").id.to_s )
+        classes.push(:active) if @filters.blank?
       else
-        classes.push(:active) if @filters[:animal_id] && @filters[:animal_id].include?( Animal.send("#{button_name}").id.to_s )
+        classes.push(:active) if @filters.present? && @filters[:animal_id] && @filters[:animal_id].include?( Animal.send("#{button_name}").id.to_s )
       end
       return classes
     end

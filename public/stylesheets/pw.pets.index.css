@@ -81,7 +81,7 @@
     text-align: left; }
     #content .pets.results ul li.pet {
       position: relative;
-      margin: 0 1em 2em;
+      margin: 0 auto 2em;
       width: 888px;
       background-color: rgba(83, 83, 83, 0.15);
       border: 1px solid #c4c5c1; }
@@ -138,7 +138,7 @@
           background-image: url("/images/sprites/css.png");
           background-repeat: no-repeat;
           background-attachment: scroll;
-          background-position: -85px -81px;
+          background-position: -85px -82px;
           width: 36px;
           height: 35px;
           position: absolute;

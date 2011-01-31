@@ -3,7 +3,7 @@ namespace :petswaiting do
 
   desc "Adds testing data"
   task :test_data => :environment do
-    if Rails.env == 'development'
+    if Rails.env != 'production'
       user = User.new
       user.name                  = 'Fer'
       user.email                 = 'fer@ferdev.com'

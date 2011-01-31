@@ -32,7 +32,7 @@
           %span= pet.place
       %li.know_it
         = link_to I18n.t('pets.index.pet.know_it'), pet_path(pet)
-  - if user_signed_in? && pet.user == current_user
+  - if false && user_signed_in? && pet.user == current_user
     = form_for [pet, pet.adoptions.new], :url => external_adoption_pet_adoptions_path(pet) do |form|
       = form.hidden_field :reasons, :value => I18n.t('pets.adoptions.new.external_adoption')
       = form.submit I18n.t('pets.index.pet.adopted'), :class => activate_adopted_button(pet)
