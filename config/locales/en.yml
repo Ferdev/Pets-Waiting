@@ -156,6 +156,7 @@ en:
         delete_pet: 'Delete pet'
         adopted: 'Adopted pet!'
         delete_confirm: 'Are you sure?'
+        view_next: 'View next'
     show:
       adopt_pet: 'Adopt %{petname}'
       no_photos: 'There''s no %{petname}''s photos'

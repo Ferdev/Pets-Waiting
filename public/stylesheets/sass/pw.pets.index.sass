@@ -98,6 +98,26 @@
           @include inline-block
           height: 375px
           width: 578px
+        a.view_next
+          display: block
+          position: absolute
+          left: 437px
+          bottom: 37px
+          background-color: rgba(0,0,0, 0.65)
+          @include border-radius(3px)
+          color: white
+          width: 112px
+          height: 30px
+          font-size: 1.1em
+          text-decoration: none
+          line-height: 30px
+          text-align: center
+          vertical-align: middle
+          text-transform: lowercase
+          .arrow
+            @include inline-block
+            @include css-sprite(-429px, 0, 12px, 8px)
+            vertical-align: middle
         .photo_arrow
           @include css-sprite(-85px, -82px, 36px, 35px)
           position: absolute

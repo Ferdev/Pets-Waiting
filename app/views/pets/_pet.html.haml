@@ -5,6 +5,10 @@
   .data
     .urgent
     = thumbnail(pet)
+    - if pet.photos.length > 1
+      %a.view_next{:href => '#'}
+        = I18n.t('pets.index.pet.view_next')
+        .arrow
     .photo_arrow
     %ul
       %li.name
