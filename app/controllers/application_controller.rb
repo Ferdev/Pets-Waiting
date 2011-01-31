@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
     def adoptions_counter
       @adopted = Adoption.adopted.count
       @count   = Pet.count
+      @waiting = Pet.not_adopted.count
     end
 
     def store_last_get_uri
