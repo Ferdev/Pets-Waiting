@@ -18,13 +18,13 @@ feature "Home page", %q{
 
       within('header') do
         page.should have_css('.language')
-        page.should have_css('.logo')
+        page.should have_css('a.logo', :href => "http://#{Capybara.default_host}")
         page.should have_content('96 pets waiting for you')
       end
       page.should have_css('.announcement', :text => "\nHere you will be able to find pets that are looking for a family. \nAll are free, and all could be a perfect present for you.\n")
       within('#content') do
         within('.filters') do
-          page.should have_css('.all.active',      :text => 'All animals')
+          page.should have_css('.all.active',      :text => 'All')
           page.should have_css('.dogs',     :text => 'Dogs')
           page.should have_css('.cats',     :text => 'Cats')
           page.should have_css('.birds',    :text => 'Birds')

@@ -64,7 +64,7 @@
           - unless locale == I18n.locale
             %li.locale
               %span.label= link_to I18n.t("meta.language_name", :locale => locale.to_sym), change_language_path(:new_locale => locale)
-      .logo
+      %a.logo{:href => root_url }
       - if false
         .auth
           %ul

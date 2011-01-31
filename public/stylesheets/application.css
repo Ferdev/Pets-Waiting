@@ -85,7 +85,8 @@ header {
     cursor: pointer; }
     header .language:hover .locale {
       display: block; }
-  header .logo {
+  header a.logo {
+    display: block;
     background-color: transparent;
     background-image: url("/images/sprites/css.png");
     background-repeat: no-repeat;
