@@ -27,10 +27,6 @@
     %li
       = link_to I18n.t('pets.index.add_pet'), new_pet_url, :class => %w(button add_pet)
 
-.pets.place
-  %h1= I18n.t('pets.index.looking_place')
-  %input.where{:type => "text", :placeholder => "Country, state, province, city..."}
-.pets.results
-  %ul
-    = render pets
+%ul.pets
+  = render pets
   = will_paginate pets, { :previous_label => I18n.t('willpaginate.previous'), :next_label => I18n.t('willpaginate.next')}

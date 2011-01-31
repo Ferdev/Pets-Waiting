@@ -98,7 +98,7 @@
         .adoptions_done
           %span= @adopted
           = I18n.t('layouts.application.footer.adopted')
-        .logo.small
+        %a.logo.small{:href => root_url }
         %p.disclaimer= I18n.t('layouts.application.footer.disclaimer')
         %p.links
           = footer_links

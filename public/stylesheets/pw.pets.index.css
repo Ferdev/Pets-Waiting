@@ -10,8 +10,6 @@
     font-size: 1.95em;
     text-shadow: 0 1px 1px white;
     text-align: center; }
-#content .pets {
-  margin: 1em 0; }
 #content .filters {
   text-align: center; }
   #content .filters ul {
@@ -71,179 +69,174 @@
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
     text-align: center;
     vertical-align: middle; }
-#content .pets.place {
-  display: none; }
-  #content .pets.place .where {
-    width: 600px; }
-#content .pets.results {
-  text-align: center; }
-  #content .pets.results ul {
-    text-align: left; }
-    #content .pets.results ul li.pet {
+#content ul.pets {
+  margin-top: 1em;
+  text-align: left; }
+  #content ul.pets li.pet {
+    position: relative;
+    margin: 0 auto 2em;
+    width: 890px;
+    background-color: rgba(83, 83, 83, 0.15);
+    border: 1px solid #c4c5c1; }
+    #content ul.pets li.pet .border_left, #content ul.pets li.pet .border_right {
+      position: absolute;
+      background-color: transparent;
+      background-image: url("/images/sprites/css.png");
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: -477px 0;
+      width: 1px;
+      height: 200px;
+      bottom: -1px; }
+    #content ul.pets li.pet .border_left {
+      left: -2px; }
+    #content ul.pets li.pet .border_right {
+      left: 891px; }
+    #content ul.pets li.pet .border_bottom {
+      position: absolute;
+      background-color: white;
+      width: 894px;
+      height: 1px;
+      left: -2px;
+      bottom: -2px; }
+    #content ul.pets li.pet .data {
       position: relative;
-      margin: 0 auto 2em;
-      width: 888px;
-      background-color: rgba(83, 83, 83, 0.15);
-      border: 1px solid #c4c5c1; }
-      #content .pets.results ul li.pet .border_left, #content .pets.results ul li.pet .border_right {
-        position: absolute;
+      background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
+      margin: 10px;
+      color: #124462;
+      font-size: 0.8em;
+      text-decoration: none; }
+      #content ul.pets li.pet .data .urgent {
+        display: none;
         background-color: transparent;
         background-image: url("/images/sprites/css.png");
         background-repeat: no-repeat;
         background-attachment: scroll;
-        background-position: -477px 0;
-        width: 1px;
-        height: 200px;
-        bottom: -1px; }
-      #content .pets.results ul li.pet .border_left {
-        left: -2px; }
-      #content .pets.results ul li.pet .border_right {
-        left: 889px; }
-      #content .pets.results ul li.pet .border_bottom {
+        background-position: 0px -82px;
+        width: 85px;
+        height: 84px;
         position: absolute;
-        background-color: white;
-        width: 892px;
-        height: 1px;
-        left: -2px;
-        bottom: -2px; }
-      #content .pets.results ul li.pet .data {
-        position: relative;
-        background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
-        margin: 10px;
-        color: #124462;
-        font-size: 0.8em;
-        text-decoration: none; }
-        #content .pets.results ul li.pet .data .urgent {
-          display: none;
-          background-color: transparent;
-          background-image: url("/images/sprites/css.png");
-          background-repeat: no-repeat;
-          background-attachment: scroll;
-          background-position: 0px -82px;
-          width: 85px;
-          height: 84px;
-          position: absolute;
-          top: -18px;
-          right: -18px; }
-        #content .pets.results ul li.pet .data img {
-          display: -moz-inline-stack;
-          display: inline-block;
-          vertical-align: top;
-          zoom: 1;
-          *display: inline;
-          height: 375px;
-          width: 578px; }
-        #content .pets.results ul li.pet .data .photo_arrow {
-          background-color: transparent;
-          background-image: url("/images/sprites/css.png");
-          background-repeat: no-repeat;
-          background-attachment: scroll;
-          background-position: -85px -82px;
-          width: 36px;
-          height: 35px;
-          position: absolute;
-          top: 30px;
-          left: 560px; }
-        #content .pets.results ul li.pet .data ul {
-          display: -moz-inline-stack;
-          display: inline-block;
-          vertical-align: top;
-          zoom: 1;
-          *display: inline;
-          margin: 1em 2em; }
-          #content .pets.results ul li.pet .data ul li {
-            margin: 0.7em 0;
-            color: rgba(51, 51, 51, 0.7); }
-            #content .pets.results ul li.pet .data ul li span {
-              line-height: 1.3em;
-              font-size: 1.2em; }
-            #content .pets.results ul li.pet .data ul li span.label {
-              color: rgba(153, 153, 153, 0.7); }
-            #content .pets.results ul li.pet .data ul li span.name {
-              font-size: 1.8em; }
-            #content .pets.results ul li.pet .data ul li span.name, #content .pets.results ul li.pet .data ul li span.animal_sex, #content .pets.results ul li.pet .data ul li span.age {
-              color: #333333; }
-            #content .pets.results ul li.pet .data ul li span.animal_sex, #content .pets.results ul li.pet .data ul li span.age {
-              font-size: 1em; }
-            #content .pets.results ul li.pet .data ul li a {
-              color: #138dd0; }
-          #content .pets.results ul li.pet .data ul li.name {
-            margin: 1em 0; }
-          #content .pets.results ul li.pet .data ul li.character ul {
-            margin: 0;
-            list-style-type: disc;
-            list-style-position: inside; }
-            #content .pets.results ul li.pet .data ul li.character ul li {
-              margin: 0; }
-          #content .pets.results ul li.pet .data ul li.know_it {
-            position: absolute;
-            bottom: 20px; }
-            #content .pets.results ul li.pet .data ul li.know_it a {
-              display: block;
-              background-image: -moz-linear-gradient(top, #1692d5, #0d71aa);
-              background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1692d5), color-stop(1, #0d71aa));
-              filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-              -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
-              -moz-border-radius: 4px;
-              -ms-border-radius: 4px;
-              -webkit-border-radius: 4px;
-              border-radius: 4px;
-              color: white;
-              width: 232px;
-              height: 46px;
-              font-size: 1.7em;
-              text-decoration: none;
-              text-align: center;
-              line-height: 46px; }
-            #content .pets.results ul li.pet .data ul li.know_it a:hover {
-              background-image: -moz-linear-gradient(top, #0d71aa, #1692d5);
-              background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0d71aa), color-stop(1, #1692d5));
-              filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-              -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
-      #content .pets.results ul li.pet form {
-        font-size: 0.6em; }
-        #content .pets.results ul li.pet form a, #content .pets.results ul li.pet form input {
-          display: block;
-          margin: 0.5em auto;
-          width: 150px;
-          padding-left: 0;
-          padding-right: 0; }
-        #content .pets.results ul li.pet form input:active, #content .pets.results ul li.pet form input.active {
-          background-image: -moz-linear-gradient(top, #f48a2c, #92531a);
-          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f48a2c), color-stop(1, #92531a));
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-          -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
-    #content .pets.results ul li.pet.urgent .data {
-      background-image: -moz-linear-gradient(top, #363a3e, #141618);
-      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #363a3e), color-stop(1, #141618));
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
-      #content .pets.results ul li.pet.urgent .data .urgent {
-        display: block; }
-      #content .pets.results ul li.pet.urgent .data .photo_arrow {
+        top: -18px;
+        right: -18px; }
+      #content ul.pets li.pet .data img {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+        *display: inline;
+        height: 375px;
+        width: 578px; }
+      #content ul.pets li.pet .data .photo_arrow {
         background-color: transparent;
         background-image: url("/images/sprites/css.png");
         background-repeat: no-repeat;
         background-attachment: scroll;
-        background-position: -441px 0;
+        background-position: -85px -82px;
         width: 36px;
         height: 35px;
         position: absolute;
         top: 30px;
         left: 560px; }
-      #content .pets.results ul li.pet.urgent .data ul li {
-        color: rgba(255, 255, 255, 0.7); }
-        #content .pets.results ul li.pet.urgent .data ul li span.label {
-          color: rgba(255, 255, 255, 0.2); }
-        #content .pets.results ul li.pet.urgent .data ul li span.name {
-          color: white; }
-        #content .pets.results ul li.pet.urgent .data ul li span.name, #content .pets.results ul li.pet.urgent .data ul li span.animal_sex, #content .pets.results ul li.pet.urgent .data ul li span.age {
-          color: white; }
-    #content .pets.results ul li.loading {
-      text-align: center;
-      padding: 25px 0; }
-  #content .pets.results .pagination a, #content .pets.results .pagination em, #content .pets.results .pagination span {
-    margin: 0 0.2em; }
+      #content ul.pets li.pet .data ul {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+        *display: inline;
+        margin: 1em 2em; }
+        #content ul.pets li.pet .data ul li {
+          margin: 0.7em 0;
+          color: rgba(51, 51, 51, 0.7); }
+          #content ul.pets li.pet .data ul li span {
+            line-height: 1.3em;
+            font-size: 1.2em; }
+          #content ul.pets li.pet .data ul li span.label {
+            color: rgba(153, 153, 153, 0.7); }
+          #content ul.pets li.pet .data ul li span.name {
+            font-size: 1.8em; }
+          #content ul.pets li.pet .data ul li span.name, #content ul.pets li.pet .data ul li span.animal_sex, #content ul.pets li.pet .data ul li span.age {
+            color: #333333; }
+          #content ul.pets li.pet .data ul li span.animal_sex, #content ul.pets li.pet .data ul li span.age {
+            font-size: 1em; }
+          #content ul.pets li.pet .data ul li a {
+            color: #138dd0; }
+        #content ul.pets li.pet .data ul li.name {
+          margin: 1em 0; }
+        #content ul.pets li.pet .data ul li.character ul {
+          margin: 0;
+          list-style-type: disc;
+          list-style-position: inside; }
+          #content ul.pets li.pet .data ul li.character ul li {
+            margin: 0; }
+        #content ul.pets li.pet .data ul li.know_it {
+          position: absolute;
+          bottom: 20px; }
+          #content ul.pets li.pet .data ul li.know_it a {
+            display: block;
+            background-image: -moz-linear-gradient(top, #1692d5, #0d71aa);
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1692d5), color-stop(1, #0d71aa));
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            color: white;
+            width: 232px;
+            height: 46px;
+            font-size: 1.7em;
+            text-decoration: none;
+            text-align: center;
+            line-height: 46px; }
+          #content ul.pets li.pet .data ul li.know_it a:hover {
+            background-image: -moz-linear-gradient(top, #0d71aa, #1692d5);
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0d71aa), color-stop(1, #1692d5));
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+    #content ul.pets li.pet form {
+      font-size: 0.6em; }
+      #content ul.pets li.pet form a, #content ul.pets li.pet form input {
+        display: block;
+        margin: 0.5em auto;
+        width: 150px;
+        padding-left: 0;
+        padding-right: 0; }
+      #content ul.pets li.pet form input:active, #content ul.pets li.pet form input.active {
+        background-image: -moz-linear-gradient(top, #f48a2c, #92531a);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f48a2c), color-stop(1, #92531a));
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+  #content ul.pets li.pet.urgent .data {
+    background-image: -moz-linear-gradient(top, #363a3e, #141618);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #363a3e), color-stop(1, #141618));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+    #content ul.pets li.pet.urgent .data .urgent {
+      display: block; }
+    #content ul.pets li.pet.urgent .data .photo_arrow {
+      background-color: transparent;
+      background-image: url("/images/sprites/css.png");
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: -441px 0;
+      width: 36px;
+      height: 35px;
+      position: absolute;
+      top: 30px;
+      left: 560px; }
+    #content ul.pets li.pet.urgent .data ul li {
+      color: rgba(255, 255, 255, 0.7); }
+      #content ul.pets li.pet.urgent .data ul li span.label {
+        color: rgba(255, 255, 255, 0.2); }
+      #content ul.pets li.pet.urgent .data ul li span.name {
+        color: white; }
+      #content ul.pets li.pet.urgent .data ul li span.name, #content ul.pets li.pet.urgent .data ul li span.animal_sex, #content ul.pets li.pet.urgent .data ul li span.age {
+        color: white; }
+  #content ul.pets li.loading {
+    text-align: center;
+    padding: 25px 0; }
+#content .pagination a, #content .pagination em, #content .pagination span {
+  margin: 0 0.2em; }
 
 span.order {
   color: #ff8420;

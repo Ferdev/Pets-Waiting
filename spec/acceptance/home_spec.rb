@@ -30,16 +30,18 @@ feature "Home page", %q{
           page.should have_css('.birds',    :text => 'Birds')
           page.should have_css('.little',   :text => 'Little pets')
           page.should have_css('.reptiles', :text => 'Reptiles')
-          page.should have_css('.others',   :text => 'Others')
+          page.should have_css('.other_species',   :text => 'Other species')
         end
 
-        page.should have_css('.add_pet', :text => 'Add one pet')
-        page.should have_css('.pets li', :count => 20)
+        page.should have_css('.add_pet', :text => 'Add a new pet')
+        page.should have_css('ul.pets > li', :count => 20)
       end
       within('footer') do
-        page.should have_css('.pets_left', :text => '96 animals waiting')
-        page.should have_css('.adoptions_done', :text => '0 adoptions done')
-        page.should have_css('.logo.small')
+        page.should have_css('.pets_left')
+        find('.pets_left').text.squish.should match('96 Animals waiting')
+        page.should have_css('.adoptions_done')
+        find('.adoptions_done').text.squish.should match('0 Adoptions done')
+        page.should have_css('a.logo.small', :href => "http://#{Capybara.default_host}")
         page.should have_css('.disclaimer', :text => 'PetsWaiting is a web page with no profit motive in mind, whose main motivation is to promote pets adoption, instead of pets sale.')
         page.should have_link('Colaborate with us')
         page.should have_link('Learn more')

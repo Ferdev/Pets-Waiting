@@ -46,7 +46,7 @@ span.spinner {
 
 header {
   display: block;
-  width: 960px;
+  width: 890px;
   margin: 0 auto;
   position: relative; }
   header .language {
@@ -173,7 +173,7 @@ header {
       text-decoration: none; }
 
 #content {
-  width: 960px;
+  width: 890px;
   margin: 4em auto 5em;
   position: relative; }
 
@@ -185,7 +185,7 @@ footer {
   padding: 1em 0 3em;
   z-index: 10; }
   footer .content {
-    width: 960px;
+    width: 890px;
     margin: 0 auto; }
     footer .content .pets_left, footer .content .adoptions_done {
       display: -moz-inline-stack;
@@ -198,7 +198,8 @@ footer {
       footer .content .pets_left span, footer .content .adoptions_done span {
         display: block;
         font-size: 3.2em; }
-    footer .content .logo.small {
+    footer .content a.logo.small {
+      display: block;
       background-color: transparent;
       background-image: url("/images/sprites/css.png");
       background-repeat: no-repeat;

@@ -7,7 +7,7 @@ class PetsController < ApplicationController
     @filters = extract_filters
     @adopted = Adoption.adopted.count
     @waiting = Pet.not_adopted.count
-    @pets = (@user ? @user.pets : Pet.not_adopted).filtered(@filters).paginate :page => get_page, :per_page => 32
+    @pets = (@user ? @user.pets : Pet.not_adopted).filtered(@filters).paginate :page => get_page, :per_page => 20
 
     respond_to do |format|
       format.html {render :action => 'index', :layout => request.xhr? ? false : 'application' }

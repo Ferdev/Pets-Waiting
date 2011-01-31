@@ -14,8 +14,6 @@
       font-size: 1.95em
       text-shadow: 0 1px 1px white
       text-align: center
-  .pets
-    margin: 1em 0
 
   .filters
     text-align: center
@@ -58,140 +56,135 @@
       text-align: center
       vertical-align: middle
 
-  .pets.place
-    display: none
-    .where
-      width: 600px
-  .pets.results
-    text-align: center
-    ul
-      text-align: left
-      li.pet
+  ul.pets
+    margin-top: 1em
+    text-align: left
+    li.pet
+      position: relative
+      margin: 0 auto 2em
+      width: 890px
+      background-color: rgba(83,83,83, 0.15)
+      border: 1px solid $petlistitem_border
+      .border_left, .border_right
+        position: absolute
+        @include css-sprite(-477px, 0, 1px, 200px)
+        bottom: -1px
+      .border_left
+        left: -2px
+      .border_right
+        left: 891px
+      .border_bottom
+        position: absolute
+        background-color: white
+        width: 894px
+        height: 1px
+        left: -2px
+        bottom: -2px
+
+      .data
         position: relative
-        margin: 0 auto 2em
-        width: 888px
-        background-color: rgba(83,83,83, 0.15)
-        border: 1px solid $petlistitem_border
-        .border_left, .border_right
+        background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent
+        margin: 10px
+        color: #124462
+        font-size: .8em
+        text-decoration: none
+        .urgent
+          display: none
+          @include css-sprite(0px, -82px, 85px, 84px)
           position: absolute
-          @include css-sprite(-477px, 0, 1px, 200px)
-          bottom: -1px
-        .border_left
-          left: -2px
-        .border_right
-          left: 889px
-        .border_bottom
+          top: -18px
+          right: -18px
+        img
+          @include inline-block
+          height: 375px
+          width: 578px
+        .photo_arrow
+          @include css-sprite(-85px, -82px, 36px, 35px)
           position: absolute
-          background-color: white
-          width: 892px
-          height: 1px
-          left: -2px
-          bottom: -2px
-
-        .data
-          position: relative
-          background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent
-          margin: 10px
-          color: #124462
-          font-size: .8em
-          text-decoration: none
-          .urgent
-            display: none
-            @include css-sprite(0px, -82px, 85px, 84px)
-            position: absolute
-            top: -18px
-            right: -18px
-          img
-            @include inline-block
-            height: 375px
-            width: 578px
-          .photo_arrow
-            @include css-sprite(-85px, -82px, 36px, 35px)
-            position: absolute
-            top: 30px
-            left: 560px
-          ul
-            @include inline-block
-            margin: 1em 2em
-            li
-              margin: .7em 0
-              color: $petlistitem_sublist_textcolor
-              span
-                line-height: 1.3em
-                font-size: 1.2em
-              span.label
-                color: $petlistitem_label
-              span.name
-                font-size: 1.8em
-              span.name, span.animal_sex, span.age
-                color: $petlistitem_textcolor
-              span.animal_sex, span.age
-                font-size: 1em
-              a
-                color: $petlistitem_link
-            li.name
-              margin: 1em 0
-            li.character ul
-              margin: 0
-              list-style-type: disc
-              list-style-position: inside
-              li
-                margin: 0
-            li.know_it
-              position: absolute
-              bottom: 20px
-              a
-                display: block
-                @include gradient($petlistitem_knowit_top, $petlistitem_knowit_bottom)
-                @include border-radius(4px)
-                color: white
-                width: 232px
-                height: 46px
-                font-size: 1.7em
-                text-decoration: none
-                text-align: center
-                line-height: 46px
-              a:hover
-                @include gradient($petlistitem_knowit_bottom, $petlistitem_knowit_top)
-
-
-
-        form
-          font-size: .6em
-          a, input
-            display: block
-            margin: .5em auto
-            width: 150px
-            padding-left: 0
-            padding-right: 0
-          input:active, input.active
-            @include gradient(#f48a2c, #92531a)
-      li.pet.urgent
-        .data
-          @include gradient($petlistitem_urgent_top, $petlistitem_urgent_bottom)
-          .urgent
-            display: block
-          .photo_arrow
-            @include css-sprite(-441px, 0, 36px, 35px)
-            position: absolute
-            top: 30px
-            left: 560px
-          ul li
-            color: $petlistitem_urgent_sublist_textcolor
+          top: 30px
+          left: 560px
+        ul
+          @include inline-block
+          margin: 1em 2em
+          li
+            margin: .7em 0
+            color: $petlistitem_sublist_textcolor
+            span
+              line-height: 1.3em
+              font-size: 1.2em
             span.label
-              color: $petlistitem_urgent_label
+              color: $petlistitem_label
             span.name
-              color: $petlistitem_urgent_textcolor
+              font-size: 1.8em
             span.name, span.animal_sex, span.age
-              color: $petlistitem_urgent_textcolor
+              color: $petlistitem_textcolor
+            span.animal_sex, span.age
+              font-size: 1em
+            a
+              color: $petlistitem_link
+          li.name
+            margin: 1em 0
+          li.character ul
+            margin: 0
+            list-style-type: disc
+            list-style-position: inside
+            li
+              margin: 0
+          li.know_it
+            position: absolute
+            bottom: 20px
+            a
+              display: block
+              @include gradient($petlistitem_knowit_top, $petlistitem_knowit_bottom)
+              @include border-radius(4px)
+              color: white
+              width: 232px
+              height: 46px
+              font-size: 1.7em
+              text-decoration: none
+              text-align: center
+              line-height: 46px
+            a:hover
+              @include gradient($petlistitem_knowit_bottom, $petlistitem_knowit_top)
 
 
-      li.loading
-        text-align: center
-        padding: 25px 0
-    .pagination
-      a, em, span
-        margin: 0 .2em
+
+      form
+        font-size: .6em
+        a, input
+          display: block
+          margin: .5em auto
+          width: 150px
+          padding-left: 0
+          padding-right: 0
+        input:active, input.active
+          @include gradient(#f48a2c, #92531a)
+    li.pet.urgent
+      .data
+        @include gradient($petlistitem_urgent_top, $petlistitem_urgent_bottom)
+        .urgent
+          display: block
+        .photo_arrow
+          @include css-sprite(-441px, 0, 36px, 35px)
+          position: absolute
+          top: 30px
+          left: 560px
+        ul li
+          color: $petlistitem_urgent_sublist_textcolor
+          span.label
+            color: $petlistitem_urgent_label
+          span.name
+            color: $petlistitem_urgent_textcolor
+          span.name, span.animal_sex, span.age
+            color: $petlistitem_urgent_textcolor
+
+
+    li.loading
+      text-align: center
+      padding: 25px 0
+  .pagination
+    a, em, span
+      margin: 0 .2em
 
 span.order
   color: #FF8420
