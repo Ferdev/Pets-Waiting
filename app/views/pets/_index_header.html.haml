@@ -1,31 +1,30 @@
 .announcement
   = simple_format I18n.t('pets.index.announcement')
 
-.filters
-  %ul
-    %li.all{:class => classes_for_all_button}
-      = link_to I18n.t('pets.index.filters.all'), pets_path
-      .arrow
-    %li.dogs{:class => classes_for_dog_button}
-      = link_to I18n.t('pets.index.filters.dogs'), pets_path(:filters => {:animal => Animal.dog.id})
-      .arrow
-    %li.cats{:class => classes_for_cat_button}
-      = link_to I18n.t('pets.index.filters.cats'), pets_path(:filters => {:animal => Animal.cat.id})
-      .arrow
-    %li.birds{:class => classes_for_bird_button}
-      = link_to I18n.t('pets.index.filters.birds'), pets_path(:filters => {:animal => Animal.bird.id})
-      .arrow
-    %li.little{:class => classes_for_little_mammal_button}
-      = link_to I18n.t('pets.index.filters.little_pets'), pets_path(:filters => {:animal => Animal.little_mammal.id})
-      .arrow
-    %li.reptiles{:class => classes_for_reptile_button}
-      = link_to I18n.t('pets.index.filters.reptiles'), pets_path(:filters => {:animal => Animal.reptile.id})
-      .arrow
-    %li.other_species{:class => classes_for_other_species_button}
-      = link_to I18n.t('pets.index.filters.other_species'), pets_path(:filters => {:animal => Animal.other_species.id})
-      .arrow
-    %li
-      = link_to I18n.t('pets.index.add_pet'), new_pet_url, :class => %w(button add_pet)
+%ul.filters
+  %li.all{:class => classes_for_all_button}
+    = link_to I18n.t('pets.index.filters.all'), pets_path
+    .arrow
+  %li.dogs{:class => classes_for_dog_button}
+    = link_to I18n.t('pets.index.filters.dogs'), pets_path(:filters => {:animal => Animal.dog.id})
+    .arrow
+  %li.cats{:class => classes_for_cat_button}
+    = link_to I18n.t('pets.index.filters.cats'), pets_path(:filters => {:animal => Animal.cat.id})
+    .arrow
+  %li.birds{:class => classes_for_bird_button}
+    = link_to I18n.t('pets.index.filters.birds'), pets_path(:filters => {:animal => Animal.bird.id})
+    .arrow
+  %li.little{:class => classes_for_little_mammal_button}
+    = link_to I18n.t('pets.index.filters.little_pets'), pets_path(:filters => {:animal => Animal.little_mammal.id})
+    .arrow
+  %li.reptiles{:class => classes_for_reptile_button}
+    = link_to I18n.t('pets.index.filters.reptiles'), pets_path(:filters => {:animal => Animal.reptile.id})
+    .arrow
+  %li.other_species{:class => classes_for_other_species_button}
+    = link_to I18n.t('pets.index.filters.other_species'), pets_path(:filters => {:animal => Animal.other_species.id})
+    .arrow
+  %li
+    = link_to I18n.t('pets.index.filters.add_pet'), new_pet_url, :class => %w(button add_pet)
 
 %ul.pets
   = render pets

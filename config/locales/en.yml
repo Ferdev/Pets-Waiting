@@ -137,7 +137,6 @@ en:
       title: 'Edit pet'
     index:
       announcement: "Here you will be able to find pets that are looking for a family. \nAll are free, and all could be a perfect present for you."
-      add_pet: 'Add a new pet'
       looking_place: 'Are you looking at some particular place?'
       filters:
         all: 'All'
@@ -146,9 +145,8 @@ en:
         birds: 'Birds'
         little_pets: 'Little pets'
         reptiles: 'Reptiles'
-        other_species: 'Other species'
-        males: 'Males'
-        females: 'Females'
+        other_species: 'Others'
+        add_pet: 'Add a new pet'
       pet:
         sex: 'a %{sex} %{animal}'
         age: '%{age} old'

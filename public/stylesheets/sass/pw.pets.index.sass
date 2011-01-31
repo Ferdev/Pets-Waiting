@@ -15,46 +15,46 @@
       text-shadow: 0 1px 1px white
       text-align: center
 
-  .filters
+
+  ul.filters
     text-align: center
-    ul
-      margin: 1.5em auto
-      @include inline-block
-      li
-        display: inline
-        text-align: center
-        position: relative
-        .arrow
-          display: none
-          @include css-sprite(-250px, 0, 24px, 12px)
-          position: absolute
-          bottom: -15px
-          left: 50%
-          margin-left: -12px
-      li.active
-        a
-          @include gradient($filteractive_top, $filteractive_bottom)
-          color: white
-          border: 0 none
-        .arrow
-          display: block
-    ul a, a.add_pet
-      background-color: rgba(255,255,255,0.5)
-      color: #0F7EBD
-      @include inline-block
-      min-width: 104px
-      height: 34px
-      border: 1px solid rgba(204,204,204,0.5)
-      text-decoration: none
-      line-height: 34px
-    a.add_pet
-      @include gradient($addpet_top, $addpet_bottom)
-      border: 1px solid $addpet_border
-      padding: 0 .5em
-      color: white
-      text-shadow: 0 1px 1px rgba(0,0,0, 0.5)
+    margin: 1.5em auto
+    @include inline-block
+    li
+      display: inline
       text-align: center
-      vertical-align: middle
+      position: relative
+      .arrow
+        display: none
+        @include css-sprite(-250px, 0, 24px, 12px)
+        position: absolute
+        bottom: -15px
+        left: 50%
+        margin-left: -12px
+    li.active
+      a
+        @include gradient($filteractive_top, $filteractive_bottom)
+        color: white
+        border: 0 none
+      .arrow
+        display: block
+  ul.filters li  a, ul.filters li a.add_pet
+    background-color: rgba(255,255,255,0.5)
+    color: #0F7EBD
+    @include inline-block
+    width: 103px
+    height: 34px
+    border: 1px solid rgba(204,204,204,0.5)
+    text-decoration: none
+    line-height: 34px
+  ul.filters li a.add_pet
+    @include gradient($addpet_top, $addpet_bottom)
+    border: 1px solid $addpet_border
+    padding: 0 .5em
+    color: white
+    text-shadow: 0 1px 1px rgba(0,0,0, 0.5)
+    text-align: center
+    vertical-align: middle
 
   ul.pets
     margin-top: 1em
@@ -118,6 +118,8 @@
             @include inline-block
             @include css-sprite(-429px, 0, 12px, 8px)
             vertical-align: middle
+        a.view_next:hover
+          background-color: rgba(0,0,0, 0.85)
         .photo_arrow
           @include css-sprite(-85px, -82px, 36px, 35px)
           position: absolute
@@ -129,6 +131,7 @@
           li
             margin: .7em 0
             color: $petlistitem_sublist_textcolor
+            max-width: 235px
             span
               line-height: 1.3em
               font-size: 1.2em

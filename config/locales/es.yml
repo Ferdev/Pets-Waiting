@@ -385,18 +385,16 @@
       title: 'Editar mascota'
     index:
       announcement: "Aquí podrás encontrar mascotas que están buscando un hogar. \nSon todas gratis, y podrían ser un regalo perfecto para ti."
-      add_pet: 'Añadir una nueva mascota'
       looking_place: '¿Quieres buscar de alguna zona en concreto?'
       filters:
         all: 'Todos'
         dogs: 'Perros'
         cats: 'Gatos'
         birds: 'Aves'
-        little_pets: 'Pequeñas mascotas'
+        little_pets: 'Pequeñas'
         reptiles: 'Reptiles'
-        other_species: 'Otras especies'
-        males: 'Machos'
-        females: 'Hembras'
+        other_species: 'Otros'
+        add_pet: 'Añadir uno'
       pet:
         sex: 'Un %{animal} %{sex}'
         age: '%{age} de edad'
@@ -404,6 +402,7 @@
         delete_pet: 'Borrar mascota'
         adopted: '¡Mascota adoptada!'
         delete_confirm: '¿Estás seguro?'
+        view_next: 'Ver siguiente'
     show:
       adopt_pet: 'Adoptar a %{petname}'
       no_photos: 'No hay fotos de %{petname}'
