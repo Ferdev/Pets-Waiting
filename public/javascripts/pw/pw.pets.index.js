@@ -22,7 +22,7 @@ $.extend($.pw.pets, {
         var link_url = $(this).attr('href');
         $(this).toggleClass('active');
 
-        $('ul.pets').empty().append($('<li class="loading"><span class="spinner"/></li>'));
+        $('ul.pets').empty().append($('<li class="loading"><span class="spinner"/></li>')).find('li.loading').slideDown('fast');
 
         $.get(link_url, function(data, textStatus, xhr) {
           $('ul.pets li.loading').remove();
@@ -53,7 +53,7 @@ $.extend($.pw.pets, {
           load_pets     = function(){
             $.pw.pets.index.loading = true;
             $.pw.pets.index.page++;
-            $('ul.pets').append($('<li class="loading"><span class="spinner"/></li>'));
+            $('ul.pets').append($('<li class="loading"><span class="spinner"/></li>')).find('li.loading').slideDown('fast');
             $.get('/pets', {page: $.pw.pets.index.page}, function(data, textStatus, xhr) {
               $('ul.pets li.loading').remove();
               //optional stuff to do after success

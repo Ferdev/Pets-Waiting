@@ -268,6 +268,7 @@
       #content ul.pets li.pet.urgent .data ul li span.name, #content ul.pets li.pet.urgent .data ul li span.animal_sex, #content ul.pets li.pet.urgent .data ul li span.age {
         color: white; }
   #content ul.pets li.loading {
+    display: none;
     text-align: center;
     padding: 25px 0; }
 #content .pagination a, #content .pagination em, #content .pagination span {
