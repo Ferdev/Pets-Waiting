@@ -47,8 +47,10 @@ span.spinner {
 header {
   display: block;
   width: 890px;
+  height: 100px;
   margin: 0 auto;
-  position: relative; }
+  position: relative;
+  border-bottom: 1px solid rgba(55, 55, 55, 0.4); }
   header .language {
     background-image: -moz-linear-gradient(top, #cccdc9, #d2d4cf);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cccdc9), color-stop(1, #d2d4cf));
