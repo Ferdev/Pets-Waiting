@@ -69,10 +69,14 @@
   text-align: left; }
   #content ul.pets li.pet {
     position: relative;
-    margin: 0 auto 2em;
     width: 890px;
-    background-color: rgba(83, 83, 83, 0.15);
-    border: 1px solid #c4c5c1; }
+    margin: 0 auto 2em;
+    padding: 10px;
+    background-color: #d0d2ce;
+    border: 1px solid #c4c5c1;
+    color: #124462;
+    font-size: 0.8em;
+    text-decoration: none; }
     #content ul.pets li.pet .border_left, #content ul.pets li.pet .border_right {
       position: absolute;
       background-color: transparent;
@@ -86,183 +90,162 @@
     #content ul.pets li.pet .border_left {
       left: -2px; }
     #content ul.pets li.pet .border_right {
-      left: 891px; }
+      left: 911px; }
     #content ul.pets li.pet .border_bottom {
       position: absolute;
       background-color: white;
-      width: 894px;
+      width: 914px;
       height: 1px;
       left: -2px;
       bottom: -2px; }
-    #content ul.pets li.pet .data {
-      position: relative;
-      background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
-      margin: 10px;
-      color: #124462;
-      font-size: 0.8em;
-      text-decoration: none; }
-      #content ul.pets li.pet .data .urgent {
-        display: none;
-        background-color: transparent;
-        background-image: url("/images/sprites/css.png");
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-position: 0px -82px;
-        width: 85px;
-        height: 84px;
-        position: absolute;
-        top: -18px;
-        right: -18px; }
-      #content ul.pets li.pet .data img {
-        display: -moz-inline-stack;
-        display: inline-block;
-        vertical-align: top;
-        zoom: 1;
-        *display: inline;
-        height: 375px;
-        width: 578px; }
-      #content ul.pets li.pet .data a.view_next {
-        display: block;
-        position: absolute;
-        left: 437px;
-        bottom: 37px;
-        background-color: rgba(0, 0, 0, 0.65);
-        -moz-border-radius: 3px;
-        -ms-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        color: white;
-        width: 112px;
-        height: 30px;
-        font-size: 1.1em;
-        text-decoration: none;
-        line-height: 30px;
-        text-align: center;
-        vertical-align: middle;
-        text-transform: lowercase; }
-        #content ul.pets li.pet .data a.view_next .arrow {
-          display: -moz-inline-stack;
-          display: inline-block;
-          vertical-align: top;
-          zoom: 1;
-          *display: inline;
-          background-color: transparent;
-          background-image: url("/images/sprites/css.png");
-          background-repeat: no-repeat;
-          background-attachment: scroll;
-          background-position: -429px 0;
-          width: 12px;
-          height: 8px;
-          vertical-align: middle; }
-      #content ul.pets li.pet .data a.view_next:hover {
-        background-color: rgba(0, 0, 0, 0.85); }
-      #content ul.pets li.pet .data .photo_arrow {
-        background-color: transparent;
-        background-image: url("/images/sprites/css.png");
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-position: -85px -82px;
-        width: 36px;
-        height: 35px;
-        position: absolute;
-        top: 30px;
-        left: 560px; }
-      #content ul.pets li.pet .data ul {
-        display: -moz-inline-stack;
-        display: inline-block;
-        vertical-align: top;
-        zoom: 1;
-        *display: inline;
-        margin: 1em 2em; }
-        #content ul.pets li.pet .data ul li {
-          margin: 0.7em 0;
-          color: rgba(51, 51, 51, 0.7);
-          max-width: 235px; }
-          #content ul.pets li.pet .data ul li span {
-            line-height: 1.3em;
-            font-size: 1.2em; }
-          #content ul.pets li.pet .data ul li span.label {
-            color: rgba(153, 153, 153, 0.7); }
-          #content ul.pets li.pet .data ul li span.name {
-            font-size: 1.8em; }
-          #content ul.pets li.pet .data ul li span.name, #content ul.pets li.pet .data ul li span.animal_sex, #content ul.pets li.pet .data ul li span.age {
-            color: #333333; }
-          #content ul.pets li.pet .data ul li span.animal_sex, #content ul.pets li.pet .data ul li span.age {
-            font-size: 1em; }
-          #content ul.pets li.pet .data ul li a {
-            color: #138dd0; }
-        #content ul.pets li.pet .data ul li.name {
-          margin: 1em 0; }
-        #content ul.pets li.pet .data ul li.character ul {
-          margin: 0;
-          list-style-type: disc;
-          list-style-position: inside; }
-          #content ul.pets li.pet .data ul li.character ul li {
-            margin: 0; }
-        #content ul.pets li.pet .data ul li.know_it {
-          position: absolute;
-          bottom: 20px; }
-          #content ul.pets li.pet .data ul li.know_it a {
-            display: block;
-            background-image: -moz-linear-gradient(top, #1692d5, #0d71aa);
-            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1692d5), color-stop(1, #0d71aa));
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
-            -moz-border-radius: 4px;
-            -ms-border-radius: 4px;
-            -webkit-border-radius: 4px;
-            border-radius: 4px;
-            color: white;
-            width: 232px;
-            height: 46px;
-            font-size: 1.7em;
-            text-decoration: none;
-            text-align: center;
-            line-height: 46px; }
-          #content ul.pets li.pet .data ul li.know_it a:hover {
-            background-image: -moz-linear-gradient(top, #0d71aa, #1692d5);
-            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0d71aa), color-stop(1, #1692d5));
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
-    #content ul.pets li.pet form {
-      font-size: 0.6em; }
-      #content ul.pets li.pet form a, #content ul.pets li.pet form input {
-        display: block;
-        margin: 0.5em auto;
-        width: 150px;
-        padding-left: 0;
-        padding-right: 0; }
-      #content ul.pets li.pet form input:active, #content ul.pets li.pet form input.active {
-        background-image: -moz-linear-gradient(top, #f48a2c, #92531a);
-        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f48a2c), color-stop(1, #92531a));
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
-  #content ul.pets li.pet.urgent .data {
-    background-image: -moz-linear-gradient(top, #363a3e, #141618);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #363a3e), color-stop(1, #141618));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
-    #content ul.pets li.pet.urgent .data .urgent {
-      display: block; }
-    #content ul.pets li.pet.urgent .data .photo_arrow {
+    #content ul.pets li.pet .urgent {
+      display: none;
       background-color: transparent;
       background-image: url("/images/sprites/css.png");
       background-repeat: no-repeat;
       background-attachment: scroll;
-      background-position: -441px 0;
+      background-position: 0px -82px;
+      width: 85px;
+      height: 84px;
+      position: absolute;
+      top: -8px;
+      right: -8px; }
+    #content ul.pets li.pet img {
+      float: left;
+      height: 375px;
+      width: 578px; }
+    #content ul.pets li.pet a.view_next {
+      display: block;
+      position: absolute;
+      left: 437px;
+      bottom: 37px;
+      background-color: rgba(0, 0, 0, 0.65);
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      color: white;
+      width: 112px;
+      height: 30px;
+      font-size: 1.1em;
+      text-decoration: none;
+      line-height: 30px;
+      text-align: center;
+      vertical-align: middle;
+      text-transform: lowercase; }
+      #content ul.pets li.pet a.view_next .arrow {
+        display: -moz-inline-stack;
+        display: inline-block;
+        vertical-align: top;
+        zoom: 1;
+        *display: inline;
+        background-color: transparent;
+        background-image: url("/images/sprites/css.png");
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-position: -429px 0;
+        width: 12px;
+        height: 8px;
+        vertical-align: middle; }
+    #content ul.pets li.pet a.view_next:hover {
+      background-color: rgba(0, 0, 0, 0.85); }
+    #content ul.pets li.pet .photo_arrow {
+      background-color: transparent;
+      background-image: url("/images/sprites/css.png");
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: -85px -82px;
       width: 36px;
       height: 35px;
       position: absolute;
-      top: 30px;
-      left: 560px; }
-    #content ul.pets li.pet.urgent .data ul li {
+      top: 38px;
+      left: 570px; }
+    #content ul.pets li.pet ul.data {
+      background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
+      float: left;
+      margin: 0;
+      height: 375px;
+      width: 312px; }
+      #content ul.pets li.pet ul.data li {
+        margin: 0.7em 2em;
+        color: rgba(51, 51, 51, 0.7);
+        max-width: 235px; }
+        #content ul.pets li.pet ul.data li span {
+          line-height: 1.3em;
+          font-size: 1.2em; }
+        #content ul.pets li.pet ul.data li span.label {
+          color: rgba(153, 153, 153, 0.7); }
+        #content ul.pets li.pet ul.data li span.name {
+          font-size: 1.8em; }
+        #content ul.pets li.pet ul.data li span.name, #content ul.pets li.pet ul.data li span.animal_sex, #content ul.pets li.pet ul.data li span.age {
+          color: #333333; }
+        #content ul.pets li.pet ul.data li span.animal_sex, #content ul.pets li.pet ul.data li span.age {
+          font-size: 1em; }
+        #content ul.pets li.pet ul.data li a {
+          color: #138dd0; }
+      #content ul.pets li.pet ul.data li.name {
+        margin: 1em 2em; }
+      #content ul.pets li.pet ul.data li.character ul {
+        margin: 0;
+        list-style-type: disc;
+        list-style-position: inside; }
+        #content ul.pets li.pet ul.data li.character ul li {
+          margin: 0; }
+      #content ul.pets li.pet ul.data li.know_it {
+        position: absolute;
+        bottom: 20px; }
+        #content ul.pets li.pet ul.data li.know_it a {
+          display: block;
+          background-image: -moz-linear-gradient(top, #1692d5, #0d71aa);
+          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1692d5), color-stop(1, #0d71aa));
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+          -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
+          -moz-border-radius: 4px;
+          -ms-border-radius: 4px;
+          -webkit-border-radius: 4px;
+          border-radius: 4px;
+          color: white;
+          width: 232px;
+          height: 46px;
+          font-size: 1.7em;
+          text-decoration: none;
+          text-align: center;
+          line-height: 46px; }
+        #content ul.pets li.pet ul.data li.know_it a:hover {
+          background-image: -moz-linear-gradient(top, #0d71aa, #1692d5);
+          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0d71aa), color-stop(1, #1692d5));
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+          -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+  #content ul.pets li.pet.urgent .urgent {
+    display: block; }
+  #content ul.pets li.pet.urgent .photo_arrow {
+    background-color: transparent;
+    background-image: url("/images/sprites/css.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: -441px 0;
+    width: 36px;
+    height: 35px; }
+  #content ul.pets li.pet.urgent ul.data {
+    background-image: -moz-linear-gradient(top, #363a3e, #141618);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #363a3e), color-stop(1, #141618));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+    #content ul.pets li.pet.urgent ul.data li {
       color: rgba(255, 255, 255, 0.7); }
-      #content ul.pets li.pet.urgent .data ul li span.label {
+      #content ul.pets li.pet.urgent ul.data li span.label {
         color: rgba(255, 255, 255, 0.2); }
-      #content ul.pets li.pet.urgent .data ul li span.name {
+      #content ul.pets li.pet.urgent ul.data li span.name {
         color: white; }
-      #content ul.pets li.pet.urgent .data ul li span.name, #content ul.pets li.pet.urgent .data ul li span.animal_sex, #content ul.pets li.pet.urgent .data ul li span.age {
+      #content ul.pets li.pet.urgent ul.data li span.name, #content ul.pets li.pet.urgent ul.data li span.animal_sex, #content ul.pets li.pet.urgent ul.data li span.age {
         color: white; }
+  #content ul.pets li.pet:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    font-size: 0; }
   #content ul.pets li.loading {
     display: none;
     text-align: center;

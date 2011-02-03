@@ -2,40 +2,39 @@
   .border_left
   .border_bottom
   .border_right
-  .data
-    .urgent
-    = thumbnail(pet)
-    - if pet.photos.length > 1
-      %a.view_next{:href => '#'}
-        = I18n.t('pets.index.pet.view_next')
-        .arrow
-    .photo_arrow
-    %ul
-      %li.name
-        %span.name= pet.name.capitalize
+  .urgent
+  = thumbnail(pet)
+  - if pet.photos.length > 1
+    %a.view_next{:href => '#'}
+      = I18n.t('pets.index.pet.view_next')
+      .arrow
+  .photo_arrow
+  %ul.data
+    %li.name
+      %span.name= pet.name.capitalize
+      %br/
+      %span.animal_sex= raw "#{I18n.t('pets.index.pet.sex', :animal => link_to(pet.animal.name, pets_path(:filters => {:animal => Animal.dog.id})), :sex => pet.sex.name)}.".downcase if pet.animal && pet.sex
+      %span.age= I18n.t('pets.index.pet.age', :age => time_ago_in_words(pet.birthday)).capitalize if pet.birthday
+    - if pet.character.present?
+      %li.character
+        %span.label= Pet.human_attribute_name(:character)
         %br/
-        %span.animal_sex= raw "#{I18n.t('pets.index.pet.sex', :animal => link_to(pet.animal.name, pets_path(:filters => {:animal => Animal.dog.id})), :sex => pet.sex.name)}.".downcase if pet.animal && pet.sex
-        %span.age= I18n.t('pets.index.pet.age', :age => time_ago_in_words(pet.birthday)).capitalize if pet.birthday
-      - if pet.character.present?
-        %li.character
-          %span.label= Pet.human_attribute_name(:character)
-          %br/
-          %ul
-            - pet.character.first(4).each do |character|
-              %li
-                %span= character
-      - if pet.breed
-        %li.breed
-          %span.label= Pet.human_attribute_name(:breed)
-          %br/
-          %span= pet.breed.name.capitalize
-      - if pet.place
-        %li.place
-          %span.label= Pet.human_attribute_name(:place)
-          %br/
-          %span= pet.place
-      %li.know_it
-        = link_to I18n.t('pets.index.pet.know_it'), pet_path(pet)
+        %ul
+          - pet.character.first(4).each do |character|
+            %li
+              %span= character
+    - if pet.breed
+      %li.breed
+        %span.label= Pet.human_attribute_name(:breed)
+        %br/
+        %span= pet.breed.name.capitalize
+    - if pet.place
+      %li.place
+        %span.label= Pet.human_attribute_name(:place)
+        %br/
+        %span= pet.place
+    %li.know_it
+      = link_to I18n.t('pets.index.pet.know_it'), pet_path(pet)
   - if false && user_signed_in? && pet.user == current_user
     = form_for [pet, pet.adoptions.new], :url => external_adoption_pet_adoptions_path(pet) do |form|
       = form.hidden_field :reasons, :value => I18n.t('pets.adoptions.new.external_adoption')
