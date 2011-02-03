@@ -404,8 +404,9 @@
         delete_confirm: '¿Estás seguro?'
         view_next: 'Ver siguiente'
     show:
-      adopt_pet: 'Adoptar a %{petname}'
+      adopt_pet: '¡Adopta a %{petname}!'
       no_photos: 'No hay fotos de %{petname}'
+      location_map: 'Mapa de localización'
     nav:
       show: 'Datos de %{pet}'
       edit: 'Editar los datos de %{pet}'

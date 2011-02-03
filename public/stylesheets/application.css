@@ -176,12 +176,12 @@ header {
 
 #content {
   width: 890px;
-  margin: 4em auto 5em;
+  margin: 0 auto;
   position: relative; }
 
 footer .content {
   width: 890px;
-  margin: 0 auto 15em; }
+  margin: 3em auto 15em; }
   footer .content .pets_left, footer .content .adoptions_done {
     display: -moz-inline-stack;
     display: inline-block;

@@ -139,7 +139,7 @@ en:
       announcement: "Here you will be able to find pets that are looking for a family. \nAll are free, and all could be a perfect present for you."
       looking_place: 'Are you looking at some particular place?'
       filters:
-        all: 'All'
+        all: 'All animals'
         dogs: 'Dogs'
         cats: 'Cats'
         birds: 'Birds'
@@ -156,8 +156,9 @@ en:
         delete_confirm: 'Are you sure?'
         view_next: 'View next'
     show:
-      adopt_pet: 'Adopt %{petname}'
+      adopt_pet: 'Adopt %{petname}!'
       no_photos: 'There''s no %{petname}''s photos'
+      location_map: 'Location map'
     nav:
       show: '%{pet}''s data'
       edit: 'Edit %{pet}''s data'

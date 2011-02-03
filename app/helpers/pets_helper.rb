@@ -30,7 +30,7 @@ module PetsHelper
   def thumbnail(pet)
     thumbnail = pet.random_thumbnail
     img_src = thumbnail ? thumbnail.url : random_critter
-    image_tag img_src, :size => '200x200'
+    image_tag img_src, :size => '200x200', :class => 'photo'
   end
 
   def thumbnail_list(pet)

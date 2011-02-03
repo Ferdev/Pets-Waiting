@@ -2,17 +2,14 @@
 @import 'pw.colors'
 
 #content
-  hr
-    border: 1px solid black
   .announcement
     border-bottom: 1px solid rgba(55,55,55,0.4)
-    margin-top: -4.5em
     padding: 1.5em 0
     p
       font-size: 1.95em
+      line-height: 1.2em
       text-shadow: 0 1px 1px white
       text-align: center
-
 
   ul.filters
     text-align: center
@@ -29,6 +26,23 @@
         bottom: -15px
         left: 50%
         margin-left: -12px
+      a, a.add_pet
+        background-color: rgba(255,255,255,0.5)
+        color: #0F7EBD
+        @include inline-block
+        width: 103px
+        height: 34px
+        border: 1px solid rgba(204,204,204,0.5)
+        text-decoration: none
+        line-height: 34px
+      a.add_pet
+        @include gradient($addpet_top, $addpet_bottom)
+        border: 1px solid $addpet_border
+        padding: 0 .5em
+        color: white
+        text-shadow: 0 1px 1px rgba(0,0,0, 0.5)
+        text-align: center
+        vertical-align: middle
     li.active
       a
         @include gradient($filteractive_top, $filteractive_bottom)
@@ -36,23 +50,6 @@
         border: 0 none
       .arrow
         display: block
-  ul.filters li  a, ul.filters li a.add_pet
-    background-color: rgba(255,255,255,0.5)
-    color: #0F7EBD
-    @include inline-block
-    width: 103px
-    height: 34px
-    border: 1px solid rgba(204,204,204,0.5)
-    text-decoration: none
-    line-height: 34px
-  ul.filters li a.add_pet
-    @include gradient($addpet_top, $addpet_bottom)
-    border: 1px solid $addpet_border
-    padding: 0 .5em
-    color: white
-    text-shadow: 0 1px 1px rgba(0,0,0, 0.5)
-    text-align: center
-    vertical-align: middle
 
   ul.pets
     margin-top: 1em

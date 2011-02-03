@@ -1,80 +1,241 @@
-#content ul.pet.detail {
-  width: 600px;
-  margin: 0 auto; }
-  #content ul.pet.detail li {
-    font-size: 1.3em;
-    margin: 0.5em 0; }
-    #content ul.pet.detail li span.label {
-      font-weight: bold;
+#content div.pet {
+  position: relative;
+  width: 890px;
+  padding: 10px;
+  margin: 3em auto 1em;
+  background-color: #d0d2ce;
+  border: 1px solid #c4c5c1;
+  color: #124462;
+  font-size: 0.8em; }
+  #content div.pet .border_left, #content div.pet .border_right {
+    position: absolute;
+    background-color: transparent;
+    background-image: url("/images/sprites/css.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: -477px 0;
+    width: 1px;
+    height: 200px;
+    bottom: -1px; }
+  #content div.pet .border_left {
+    left: -2px; }
+  #content div.pet .border_right {
+    left: 911px; }
+  #content div.pet .border_bottom {
+    position: absolute;
+    background-color: white;
+    width: 913px;
+    height: 1px;
+    left: -2px;
+    bottom: -2px; }
+  #content div.pet .urgent {
+    display: none;
+    background-color: transparent;
+    background-image: url("/images/sprites/css.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: 0px -82px;
+    width: 85px;
+    height: 84px;
+    position: absolute;
+    top: -8px;
+    right: -8px; }
+  #content div.pet img.photo {
+    float: left;
+    height: 375px;
+    width: 578px; }
+  #content div.pet a.view_next {
+    display: block;
+    position: absolute;
+    left: 437px;
+    top: 306px;
+    background-color: rgba(0, 0, 0, 0.65);
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: white;
+    width: 112px;
+    height: 30px;
+    font-size: 1.1em;
+    text-decoration: none;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: lowercase; }
+    #content div.pet a.view_next .arrow {
       display: -moz-inline-stack;
       display: inline-block;
       vertical-align: top;
       zoom: 1;
       *display: inline;
-      width: 8em; }
-  #content ul.pet.detail li.name {
-    margin: 0.2em;
-    font-size: 2.5em;
-    font-weight: bold;
-    text-align: center; }
-  #content ul.pet.detail li.photos {
-    text-align: center;
-    margin: 0; }
-    #content ul.pet.detail li.photos img.ad-loader {
-      display: inline;
       background-color: transparent;
-      border: 0;
-      -moz-box-shadow: 0 0 0;
-      -webkit-box-shadow: 0 0 0;
-      box-shadow: 0 0 0; }
-    #content ul.pet.detail li.photos img {
-      display: block;
-      -moz-box-shadow: 0px 0px 2px black;
-      -webkit-box-shadow: 0px 0px 2px black;
-      box-shadow: 0px 0px 2px black;
-      background-color: #092230;
-      border: 1px solid #cce5f4; }
-    #content ul.pet.detail li.photos .ad-thumb-list img {
-      height: 100px;
-      width: 100px; }
-    #content ul.pet.detail li.photos span.no_photos {
-      color: #7fabb9;
-      font-style: italic;
-      font-size: 1.3em;
-      text-align: center;
-      line-height: 3em; }
-  #content ul.pet.detail li.urgent {
+      background-image: url("/images/sprites/css.png");
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: -429px 0;
+      width: 12px;
+      height: 8px;
+      vertical-align: middle; }
+  #content div.pet a.view_next:hover {
+    background-color: rgba(0, 0, 0, 0.85); }
+  #content div.pet ul.data {
+    float: left;
+    background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
+    width: 312px;
+    height: 375px;
+    padding: 0; }
+    #content div.pet ul.data li {
+      margin: 0.7em 2em;
+      color: rgba(51, 51, 51, 0.7);
+      max-width: 235px; }
+      #content div.pet ul.data li span {
+        line-height: 1.3em;
+        font-size: 1.2em; }
+      #content div.pet ul.data li span.label {
+        color: rgba(153, 153, 153, 0.7); }
+      #content div.pet ul.data li span.name {
+        font-size: 1.8em; }
+      #content div.pet ul.data li span.name, #content div.pet ul.data li span.animal_sex, #content div.pet ul.data li span.age {
+        color: #333333; }
+      #content div.pet ul.data li span.animal_sex, #content div.pet ul.data li span.age {
+        font-size: 1em; }
+      #content div.pet ul.data li a {
+        color: #138dd0; }
+    #content div.pet ul.data li.name {
+      margin: 1em 2em; }
+    #content div.pet ul.data li.character ul {
+      background: none;
+      width: auto;
+      height: auto;
+      padding: 0;
+      margin: 0;
+      list-style-type: disc;
+      list-style-position: inside; }
+      #content div.pet ul.data li.character ul li {
+        margin: 0; }
+    #content div.pet ul.data li.adopt_it {
+      position: absolute;
+      top: 290px; }
+      #content div.pet ul.data li.adopt_it a {
+        display: block;
+        background-image: -moz-linear-gradient(top, #1692d5, #0d71aa);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1692d5), color-stop(1, #0d71aa));
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        color: white;
+        width: 232px;
+        height: 46px;
+        font-size: 1.7em;
+        text-decoration: none;
+        text-align: center;
+        line-height: 46px; }
+      #content div.pet ul.data li.adopt_it a:hover {
+        background-image: -moz-linear-gradient(top, #0d71aa, #1692d5);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0d71aa), color-stop(1, #1692d5));
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+  #content div.pet .description_and_location {
+    background-color: #f1f2f0;
+    font-size: 1.3em; }
+    #content div.pet .description_and_location .description, #content div.pet .description_and_location .location {
+      float: left; }
+    #content div.pet .description_and_location .description {
+      width: 578px;
+      color: #666666; }
+      #content div.pet .description_and_location .description p {
+        margin: 1em 1.5em;
+        line-height: 1.3em; }
+    #content div.pet .description_and_location .location {
+      background-color: #f9faf9;
+      width: 312px; }
+      #content div.pet .description_and_location .location span {
+        display: block;
+        width: 229px;
+        margin: 2.5em auto 0.5em;
+        text-transform: uppercase;
+        font-size: 0.7em; }
+      #content div.pet .description_and_location .location .map {
+        width: 230px;
+        height: 187px;
+        margin: 1em auto 5.5em; }
+        #content div.pet .description_and_location .location .map img {
+          border: 4px solid white;
+          background-color: #f2efe9; }
+  #content div.pet .description_and_location:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    font-size: 0; }
+#content div.pet:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0; }
+#content div.pet.urgent .urgent {
+  display: block; }
+#content div.pet.urgent ul.data {
+  background-image: -moz-linear-gradient(top, #363a3e, #141618);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #363a3e), color-stop(1, #141618));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+#content div.pet.urgent ul.data li {
+  color: rgba(255, 255, 255, 0.7); }
+  #content div.pet.urgent ul.data li span.label {
+    color: rgba(255, 255, 255, 0.2); }
+  #content div.pet.urgent ul.data li span.name {
+    color: white; }
+  #content div.pet.urgent ul.data li span.name, #content div.pet.urgent ul.data li span.animal_sex, #content div.pet.urgent ul.data li span.age {
+    color: white; }
+#content .announcement {
+  border-bottom: 1px solid rgba(55, 55, 55, 0.4);
+  padding: 1.5em 0; }
+  #content .announcement p {
+    font-size: 1.95em;
+    line-height: 1.25em;
+    text-shadow: 0 1px 1px white;
     text-align: center; }
-    #content ul.pet.detail li.urgent span {
-      -moz-border-radius: 5px;
-      -ms-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      border-radius: 5px;
-      background-color: #dc4228;
-      color: white;
-      display: inline;
-      font-size: 1em;
-      font-weight: bold;
-      line-height: 2em;
-      padding: 5px;
-      text-shadow: 0 1px 0 #333333;
-      text-transform: uppercase; }
-  #content ul.pet.detail li.character ul {
-    display: -moz-inline-stack;
-    display: inline-block;
-    vertical-align: top;
-    zoom: 1;
-    *display: inline;
-    list-style-position: inside;
-    list-style-type: disc; }
-    #content ul.pet.detail li.character ul li {
-      font-size: 1em;
-      margin: 0 0 0.5em; }
-  #content ul.pet.detail li.description p {
-    margin: 1em;
-    line-height: 1.2em; }
-  #content ul.pet.detail li.adopt_it {
+#content ul.filters {
+  text-align: center;
+  margin: 1.5em auto;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline; }
+  #content ul.filters li {
+    display: inline;
     text-align: center;
-    margin: 2em; }
-    #content ul.pet.detail li.adopt_it a {
-      padding: 5px 50px 6px; }
+    position: relative; }
+    #content ul.filters li a, #content ul.filters li a.add_pet {
+      background-color: rgba(255, 255, 255, 0.5);
+      color: #0f7ebd;
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: top;
+      zoom: 1;
+      *display: inline;
+      width: 103px;
+      height: 34px;
+      border: 1px solid rgba(204, 204, 204, 0.5);
+      text-decoration: none;
+      line-height: 34px; }
+    #content ul.filters li a.add_pet {
+      background-image: -moz-linear-gradient(top, #ff0033, #ba0026);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ff0033), color-stop(1, #ba0026));
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
+      border: 1px solid #a20021;
+      padding: 0 0.5em;
+      color: white;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      vertical-align: middle; }

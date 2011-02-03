@@ -2,66 +2,67 @@
   = javascript_include_tag "pw/pw.pets.js", "pw/pw.pets.show.js", "jquery/jquery.ad-gallery.js"
   = stylesheet_link_tag "pw.pets.show", "jquery/jquery.ad-gallery"
 
-= render 'nav'
-
-%ul.pet.detail
-  %li.name= @pet.name.capitalize
-  
-  %li.photos
-    - if @pet.photos.blank?
-      %span.no_photos= I18n.t('pets.show.no_photos', :petname => @pet.name.capitalize)
-    - else
-      .ad-gallery
-        .ad-image-wrapper
-        .ad-nav
-          .ad-thumbs
-            %ul.ad-thumb-list
-              - thumbnail_list(@pet)
-
-  - if @pet.urgent
-    %li.urgent
-      %span= Pet.human_attribute_name(:urgent)
-
-  - if @pet.animal
-    %li.animal
-      %span.label= "#{Pet.human_attribute_name(:animal)}: "
-      = @pet.animal.name
-
-  - if @pet.breed
-    %li.breed
-      %span.label= "#{Pet.human_attribute_name(:breed)}: "
-      = @pet.breed.name
-
-  - if @pet.sex
-    %li.sex
-      %span.label= "#{Pet.human_attribute_name(:sex)}: "
-      = @pet.sex.name
-
-  - if @pet.birthday
-    %li.age
-      %span.label= "#{Pet.human_attribute_name(:age)}: "
-      = time_ago_in_words(@pet.birthday).capitalize
-
-  - if @pet.place
-    %li.place
-      %span.label= "#{Pet.human_attribute_name(:place)}: "
-      = @pet.place
-
-  - if @pet.has_character_attributes?
-    %li.character
-      %span.label= "#{Pet.human_attribute_name(:character)}: "
-      %ul
-        - @pet.character.each do |character|
-          %li= character
-
-  - if @pet.size
-    %li.size
-      %span.label= "#{Pet.human_attribute_name(:size)}: "
-      = @pet.size.name
-
-  - if @pet.description
-    %li.description
-      %span.label= "#{Pet.human_attribute_name(:description)}: "
+.pet{:class => pets_list_item_class(@pet)}
+  .border_left
+  .border_bottom
+  .border_right
+  .urgent
+  = thumbnail(@pet)
+  - if @pet.photos.length > 1
+    %a.view_next{:href => '#'}
+      = I18n.t('pets.index.pet.view_next')
+      .arrow
+  %ul.data
+    %li.name
+      %span.name= @pet.name.capitalize
+      %br/
+      %span.animal_sex= raw "#{I18n.t('pets.index.pet.sex', :animal => link_to(@pet.animal.name, pets_path(:filters => {:animal => Animal.dog.id})), :sex => @pet.sex.name)}.".downcase if @pet.animal && @pet.sex
+      %span.age= I18n.t('pets.index.pet.age', :age => time_ago_in_words(@pet.birthday)).capitalize if @pet.birthday
+    - if @pet.character.present?
+      %li.character
+        %span.label= Pet.human_attribute_name(:character)
+        %br/
+        %ul
+          - @pet.character.first(4).each do |character|
+            %li
+              %span= character
+    - if @pet.breed
+      %li.breed
+        %span.label= Pet.human_attribute_name(:breed)
+        %br/
+        %span= @pet.breed.name.capitalize
+    - if @pet.place
+      %li.place
+        %span.label= Pet.human_attribute_name(:place)
+        %br/
+        %span= @pet.place
+    %li.adopt_it
+      = link_to I18n.t('pets.show.adopt_pet', :petname => @pet.name.capitalize), new_pet_adoption_path(@pet)
+  .description_and_location
+    .description
       = simple_format(@pet.description)
-  %li.adopt_it
-    = link_to I18n.t('pets.show.adopt_pet', :petname => @pet.name.capitalize), new_pet_adoption_path(@pet), :class => :button
+    .location
+      %span= I18n.t('pets.show.location_map')
+      .map
+        =image_tag "http://maps.google.com/maps/api/staticmap?center=#{@pet.address.address}&zoom=9&size=230x187&sensor=false&maptype=terrain", :alt => @pet.address.address
+
+.announcement
+  = simple_format I18n.t('pets.index.announcement')
+
+%ul.filters
+  %li.all
+    = link_to I18n.t('pets.index.filters.all'), pets_path
+  %li.dogs
+    = link_to I18n.t('pets.index.filters.dogs'), pets_path(:filters => {:animal => Animal.dog.id})
+  %li.cats
+    = link_to I18n.t('pets.index.filters.cats'), pets_path(:filters => {:animal => Animal.cat.id})
+  %li.birds
+    = link_to I18n.t('pets.index.filters.birds'), pets_path(:filters => {:animal => Animal.bird.id})
+  %li.little
+    = link_to I18n.t('pets.index.filters.little_pets'), pets_path(:filters => {:animal => Animal.little_mammal.id})
+  %li.reptiles
+    = link_to I18n.t('pets.index.filters.reptiles'), pets_path(:filters => {:animal => Animal.reptile.id})
+  %li.other_species
+    = link_to I18n.t('pets.index.filters.other_species'), pets_path(:filters => {:animal => Animal.other_species.id})
+  %li
+    = link_to I18n.t('pets.index.filters.add_pet'), new_pet_url, :class => %w(button add_pet)
