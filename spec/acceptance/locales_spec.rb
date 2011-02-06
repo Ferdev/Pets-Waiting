@@ -22,7 +22,7 @@ feature "Locales", %q{
   end
 
   context "Guests" do
-    scenario "can change page's language and gets stored in a cookie" do
+    scenario "can change page's language and it is stored into a cookie" do
       visit homepage
       page.should have_content('Tons of pets are waiting for you!')
       click_link('Español')
