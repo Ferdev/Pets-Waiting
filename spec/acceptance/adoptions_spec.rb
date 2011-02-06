@@ -15,12 +15,12 @@ feature "Adoptions", %q{
 
     scenario "can adopt pets" do
       visit homepage
-      click_link('Scroophy95')
-      click_link('Adopt Scroophy95')
-      page.should have_content('Adopt Scroophy95')
-      page.should have_content('Interested in adopting Scroophy95?')
+      click_link('Know it better')
+      click_link('Adopt Scroophy59!')
+      page.should have_content('Adopt Scroophy59')
+      page.should have_content('Interested in adopting Scroophy59?')
       page.should have_content('Write your reasons to adopt it and your experience with animals.')
-      page.should have_content("Wadus, the actual Scroophy95's owner will contact you to inform about the adoption process.")
+      page.should have_content("Wadus, the actual Scroophy59's owner will contact you to inform about the adoption process.")
       fill_in('Reasons to adopt it', :with => lorem)
       click_button('Send Request')
       page.should have_content('Your adoption request has been submitted successfully to Wadus.')
@@ -29,17 +29,17 @@ feature "Adoptions", %q{
     scenario 'can mark their pets as adopted and then can unmark them' do
       visit homepage
       click_link('My pets')
-      page.should have_css('.pets.results ul li.pet', :count => 32)
-      within('.pets.results ul li.pet:first-child') do
+      page.should have_css('ul.pets li.pet', :count => 20)
+      within('ul.pets li.pet:first-child') do
         assert_difference "Adoption.count", 1 do
           click_button('Adopted pet!')
         end
       end
-      within('.pets.results ul li.pet:first-child') do
+      within('ul.pets li.pet:first-child') do
         page.should have_css('input.adopted.active', :value => 'Adopted pet!')
         click_button('Adopted pet!')
       end
-      within('.pets.results ul li.pet:first-child') do
+      within('ul.pets li.pet:first-child') do
         page.should have_no_css('input.adopted.active', :value => 'Adopted pet!')
       end
       click_link('Adoption requests')
