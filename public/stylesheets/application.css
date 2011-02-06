@@ -4,6 +4,21 @@ html, body {
   font-size: 16px;
   color: black; }
 
+body > div#debug {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100px;
+  background-color: white;
+  color: black;
+  font-size: 1em;
+  z-index: 1; }
+
+body.debug > div#debug {
+  display: block; }
+
 a {
   color: #138dd0;
   font-size: 1em; }
@@ -110,7 +125,10 @@ header {
   header .auth {
     color: white;
     text-shadow: 0 1px 0 black;
-    text-align: right; }
+    text-align: right;
+    position: absolute;
+    left: 0;
+    top: 0; }
     header .auth ul {
       float: right; }
       header .auth ul li {
@@ -140,8 +158,6 @@ header {
             float: right; }
         header .auth ul li.admin ul:hover {
           background: none repeat fixed 0 0 white;
-          color: #124462;
-          text-shadow: 0 0 0;
           -moz-box-shadow: 0 1px 1px #666666;
           -webkit-box-shadow: 0 1px 1px #666666;
           box-shadow: 0 1px 1px #666666;
@@ -155,15 +171,7 @@ header {
             display: block; }
           header .auth ul li.admin ul:hover li.selected:after {
             content: " \25BE"; }
-          header .auth ul li.admin ul:hover a {
-            color: #c8525b;
-            text-shadow: 0 0 0; }
-      header .auth ul li.admin ul {
-        color: #ffd850; }
-      header .auth ul li.admin ul:hover {
-        color: #c8525b; }
     header .auth a {
-      color: #ffd850;
       font-size: 1em;
       line-height: 2em;
       font-weight: bold;
@@ -181,7 +189,7 @@ header {
 
 footer .content {
   width: 890px;
-  margin: 3em auto 15em; }
+  margin: 3em auto 20em; }
   footer .content .pets_left, footer .content .adoptions_done {
     display: -moz-inline-stack;
     display: inline-block;

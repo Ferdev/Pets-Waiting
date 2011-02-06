@@ -12,6 +12,21 @@ html, body
   font-size: $fonts_size
   color: black
 
+// Debug
+body > div#debug
+  display: none
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  min-height: 100px
+  background-color: white
+  color: black
+  font-size: 1em
+  z-index: 1
+body.debug > div#debug
+  display: block
+// Links
 a
   color: $links
   font-size: 1em
@@ -109,6 +124,9 @@ header
     color: #FFFFFF
     text-shadow: 0 1px 0 #000000
     text-align: right
+    position: absolute
+    left: 0
+    top: 0
     ul
       float: right
       li
@@ -138,8 +156,6 @@ header
             float: right
         ul:hover
           background: none repeat fixed 0 0 #ffffff
-          color: #124462
-          text-shadow: 0 0 0
           @include box-shadow(0 1px 1px #666666)
           @include border-radius(3px)
           overflow: visible
@@ -149,15 +165,7 @@ header
           li.selected:after
             content: " \25BE"
           a
-            color: #C8525B
-            text-shadow: 0 0 0
-      li.admin
-        ul
-          color: #ffd850
-        ul:hover
-          color: #C8525B
     a
-      color: #ffd850
       font-size: 1em
       line-height: 2em
       font-weight: bold
@@ -174,7 +182,7 @@ footer
 
   .content
     width: 890px
-    margin: 3em auto 15em
+    margin: 3em auto 20em
 
     .pets_left, .adoptions_done
       @include inline-block

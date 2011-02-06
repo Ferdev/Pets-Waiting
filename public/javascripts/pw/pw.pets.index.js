@@ -10,7 +10,6 @@ $.extend($.pw.pets, {
     loading: false,
 
     vars: function(){
-      this.footer = $('footer');
     },
 
     events: function(){
@@ -39,9 +38,9 @@ $.extend($.pw.pets, {
       // Load more pets when scroll is at the end of the page
       $(document).scroll(function(evt){
         var
-          scroll        = $(this).scrollTop(),
-          footer_offset = $.pw.pets.index.footer.offset()['top'],
-          is_descending = function(scroll){
+          scroll          = $(this).scrollTop(),
+          document_height = $(document).height(),
+          is_descending   = function(scroll){
             var descending = false;
             this.previous_scroll = this.previous_scroll || 0;
             if (scroll > this.previous_scroll) {
@@ -62,7 +61,7 @@ $.extend($.pw.pets, {
             });
           };
 
-        if ((footer_offset - scroll) <= 175 && is_descending(scroll) && $.pw.pets.index.loading == false) {
+        if (document_height - scroll <= 1000 && is_descending(scroll) && $.pw.pets.index.loading == false) {
           load_pets();
         };
       });

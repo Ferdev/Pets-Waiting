@@ -2,6 +2,8 @@
   = javascript_include_tag "pw/pw.pets.js", "pw/pw.pets.show.js", "jquery/jquery.ad-gallery.js"
   = stylesheet_link_tag "pw.pets.show", "jquery/jquery.ad-gallery"
 
+= render 'nav'
+
 .pet{:class => pets_list_item_class(@pet)}
   .border_left
   .border_bottom

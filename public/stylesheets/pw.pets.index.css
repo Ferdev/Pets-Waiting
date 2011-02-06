@@ -13,7 +13,8 @@
   display: inline-block;
   vertical-align: top;
   zoom: 1;
-  *display: inline; }
+  *display: inline;
+  width: 100%; }
   #content ul.filters li {
     display: inline;
     text-align: center;
@@ -69,8 +70,8 @@
   text-align: left; }
   #content ul.pets li.pet {
     position: relative;
-    width: 890px;
-    margin: 0 auto 2em;
+    width: 868px;
+    margin: 0 auto 4em;
     padding: 10px;
     background-color: #d0d2ce;
     border: 1px solid #c4c5c1;
@@ -90,11 +91,11 @@
     #content ul.pets li.pet .border_left {
       left: -2px; }
     #content ul.pets li.pet .border_right {
-      left: 911px; }
+      left: 889px; }
     #content ul.pets li.pet .border_bottom {
       position: absolute;
       background-color: white;
-      width: 914px;
+      width: 892px;
       height: 1px;
       left: -2px;
       bottom: -2px; }
@@ -112,13 +113,13 @@
       right: -8px; }
     #content ul.pets li.pet img {
       float: left;
-      height: 375px;
+      height: 395px;
       width: 578px; }
     #content ul.pets li.pet a.view_next {
       display: block;
       position: absolute;
       left: 437px;
-      bottom: 37px;
+      top: 339px;
       background-color: rgba(0, 0, 0, 0.65);
       -moz-border-radius: 3px;
       -ms-border-radius: 3px;
@@ -164,8 +165,8 @@
       background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
       float: left;
       margin: 0;
-      height: 375px;
-      width: 312px; }
+      height: 395px;
+      width: 290px; }
       #content ul.pets li.pet ul.data li {
         margin: 0.7em 2em;
         color: rgba(51, 51, 51, 0.7);
@@ -193,7 +194,7 @@
           margin: 0; }
       #content ul.pets li.pet ul.data li.know_it {
         position: absolute;
-        bottom: 20px; }
+        top: 319px; }
         #content ul.pets li.pet ul.data li.know_it a {
           display: block;
           background-image: -moz-linear-gradient(top, #1692d5, #0d71aa);

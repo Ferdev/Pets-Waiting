@@ -55,6 +55,7 @@
     = csrf_meta_tag
 
   %body
+    #debug
     %header
       %ul.language
         %li.change_language
@@ -65,24 +66,23 @@
             %li.locale
               %span.label= link_to I18n.t("meta.language_name", :locale => locale.to_sym), change_language_path(:new_locale => locale)
       %a.logo{:href => root_url }
-      - if false
-        .auth
-          %ul
-            - unless user_signed_in?
-              %li= link_to t('layouts.application.authentication.signin'), new_user_session_path
-              %li= t('layouts.application.authentication.or')
-              %li= link_to t('layouts.application.authentication.signup'), new_user_registration_path
-            - else
-              %li.admin
-                %ul
-                  %li{:class => select_my_profile}
-                    = link_to t('layouts.application.admin.my_profile'), edit_user_registration_path
-                  %li{:class => select_my_pets}
-                    = link_to t('layouts.application.admin.my_pets'), user_pets_path(current_user)
-                  %li{:class => select_adoption_requests}
-                    = link_to t('layouts.application.admin.adoption_requests'), user_adoptions_path(current_user)
+      .auth
+        %ul
+          - unless user_signed_in?
+            %li= link_to t('layouts.application.authentication.signin'), new_user_session_path
+            %li= t('layouts.application.authentication.or')
+            %li= link_to t('layouts.application.authentication.signup'), new_user_registration_path
+          - else
+            %li.admin
+              %ul
+                %li{:class => select_my_profile}
+                  = link_to t('layouts.application.admin.my_profile'), edit_user_registration_path
+                %li{:class => select_my_pets}
+                  = link_to t('layouts.application.admin.my_pets'), user_pets_path(current_user)
+                %li{:class => select_adoption_requests}
+                  = link_to t('layouts.application.admin.adoption_requests'), user_adoptions_path(current_user)
 
-              %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
+            %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
       %p.pet_count= I18n.t('layouts.application.counter.pets', :count => @count )
 
     #content

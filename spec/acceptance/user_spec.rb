@@ -8,10 +8,6 @@ feature "Users", %q{
 } do
 
   context "Guests (with javascript enabled)", :js => true do
-    background do
-      load_master_tables
-    end
-
     scenario "can sign up" do
       visit homepage
       click_link('Sign up')
@@ -31,10 +27,6 @@ feature "Users", %q{
   end
 
   context "Guests" do
-    background do
-      load_master_tables
-    end
-
     scenario "can sign up" do
       visit homepage
       click_link('Sign up')
@@ -93,7 +85,6 @@ feature "Users", %q{
 
   context "Users" do
     background do
-      load_master_tables
       create_and_sign_in_user
     end
 
@@ -118,7 +109,6 @@ feature "Users", %q{
 
   context "Users (with javascript)", :js => true do
     background do
-      load_master_tables
       create_and_sign_in_user
     end
 

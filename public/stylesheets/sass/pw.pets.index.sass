@@ -15,6 +15,7 @@
     text-align: center
     margin: 1.5em auto
     @include inline-block
+    width: 100%
     li
       display: inline
       text-align: center
@@ -56,8 +57,8 @@
     text-align: left
     li.pet
       position: relative
-      width: 890px
-      margin: 0 auto 2em
+      width: 868px
+      margin: 0 auto 4em
       padding: 10px
       background-color: $petlistitem
       border: 1px solid $petlistitem_border
@@ -71,11 +72,11 @@
       .border_left
         left: -2px
       .border_right
-        left: 911px
+        left: 889px
       .border_bottom
         position: absolute
         background-color: white
-        width: 914px
+        width: 892px
         height: 1px
         left: -2px
         bottom: -2px
@@ -88,13 +89,13 @@
         right: -8px
       img
         float: left
-        height: 375px
+        height: 395px
         width: 578px
       a.view_next
         display: block
         position: absolute
         left: 437px
-        bottom: 37px
+        top: 339px
         background-color: rgba(0,0,0, 0.65)
         @include border-radius(3px)
         color: white
@@ -121,8 +122,8 @@
         background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent
         float: left
         margin: 0
-        height: 375px
-        width: 312px
+        height: 395px
+        width: 290px
         li
           margin: .7em 2em
           color: $petlistitem_sublist_textcolor
@@ -150,7 +151,7 @@
             margin: 0
         li.know_it
           position: absolute
-          bottom: 20px
+          top: 319px
           a
             display: block
             @include gradient($petlistitem_knowit_top, $petlistitem_knowit_bottom)

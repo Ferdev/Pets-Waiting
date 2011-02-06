@@ -398,7 +398,7 @@
       pet:
         sex: 'Un %{animal} %{sex}'
         age: '%{age} de edad'
-        know_it: 'Conocelo mejor'
+        know_it: 'Conócelo mejor'
         delete_pet: 'Borrar mascota'
         adopted: '¡Mascota adoptada!'
         delete_confirm: '¿Estás seguro?'

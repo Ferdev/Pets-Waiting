@@ -9,7 +9,6 @@ feature "Pets", %q{
 
   context "Signed in users (with javascript enabled)", :js => true do
     background do
-      load_master_tables
       create_and_sign_in_user
     end
 
@@ -76,19 +75,18 @@ feature "Pets", %q{
     scenario 'can edit a previously created pet' do
       create_pet
       visit homepage
-      click_link('Wadus')
+      click_link('Know it better')
       click_link('Edit')
       # Since breed depends on kind of animal, we check if the breed combo is populated right
       page.should have_css('#pet_breed_id option[selected]', :text => 'Crossbred')
       fill_in("Pet's name", :with => 'Scooby')
       click_button('Update Pet')
-      page.should have_css('ul.pet.detail li.name', :text => 'Scooby')
+      page.should have_css('ul.data li span.name', :text => 'Scooby')
     end
   end
 
   context "Signed in users" do
     background do
-      load_master_tables
       create_and_sign_in_user
       create_pets
     end
@@ -99,9 +97,9 @@ feature "Pets", %q{
       page.should have_no_css('.admin ul li.selected', :text => 'My pets')
       page.should have_no_css('.admin ul li.selected', :text => 'Adoption requests')
       click_link('My pets')
-      page.should have_css('.pets.results ul li.pet', :count => 32)
-      within('.pets.results ul li.pet:first-child') do
-        page.should have_css('a span.name', :text => 'Scroophy95')
+      page.should have_css('ul.pets li.pet', :count => 20)
+      within('ul.pets li.pet:first-child') do
+        page.should have_css('span.name', :text => 'Scroophy59')
         page.should have_css('input.adopted', :value => 'Adopted pet!')
         page.should have_css('a.delete', :text => 'Delete pet')
       end
@@ -110,214 +108,185 @@ feature "Pets", %q{
     scenario 'can delete their uploaded pets' do
       visit homepage
       click_link('My pets')
-      page.should have_css('.pets.results ul li.pet', :count => 32)
-      within('.pets.results ul li.pet:first-child') do
+      page.should have_css('ul.pets li.pet', :count => 20)
+      within('ul.pets li.pet:first-child') do
         assert_difference "Pet.count", -1 do
           click_link('Delete pet')
         end
       end
-      page.should have_no_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy95')
+      page.should have_no_css('ul.pets li.pet:first-child a span.name', :text => 'Scroophy95')
     end
 
   end
 
   context "Everyone (with javascript enabled)", :js => true do
     background do
-      load_master_tables
       create_pets
       create_pet
     end
 
     scenario "can see a list of pets" do
       visit homepage
-      page.should have_css('.pets.filters')
-      page.should have_css('.pets.results ul li.pet', :count => 32)
-      page.should have_no_css('.pets.results .pagination')
-      within('.pets.results ul li.pet:first-child') do
-        page.should have_css('span.name', :text => 'Wadus')
-        page.should have_css('span.animal', :text => 'Kind of animal: Dog')
-        page.should have_css('span.breed', :text => "Breed: Crossbred")
-        page.should have_css('span.sex', :text => "Sex: Male")
-        page.should have_css('span.age', :text => "Age: about 4 years")
-        page.should have_css('span.place', :text => "Place: Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain")
-        page.should have_css('span.urgent', :text => "Urgent adoption")
+      page.should have_css('.filters')
+      page.should have_css('ul.pets li.pet', :count => 20)
+      page.should have_no_css('ul.pets .pagination')
+      within('ul.pets li.pet.urgent:first-child') do
+        within('ul.data li.name') do
+          page.should have_css('span.name', :text => 'Wadus')
+          page.should have_css('span.animal_sex', :text => "a male dog.")
+          page.should have_css('span.age', :text => "About 4 years")
+        end
+        within('ul.data li.character') do
+          page.should have_css('span.label', :text => 'Character')
+          page.should have_css('ul li span', :text => 'Docile')
+          page.should have_css('ul li span', :text => 'Playful')
+          page.should have_css('ul li span', :text => 'Obedient')
+        end
+        within('ul.data li.breed') do
+          page.should have_css('span.label', :text => 'Breed')
+          page.should have_css('span', :text => 'Crossbred')
+        end
+        within('ul.data li.place') do
+          page.should have_css('span.label', :text => 'Place')
+          page.should have_css('span', :text => 'Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain')
+        end
+        page.should have_link('Know it better')
       end
       scroll_all_page_down
-      page.should have_css('.pets.results ul li.loading')
-      page.should have_css('.pets.results ul li.pet', :count => 64)
-      page.should have_no_css('.pets.results ul li.loading')
-      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy33')
+      page.should have_css('ul.pets li.loading')
+      page.should have_css('ul.pets li.pet', :count => 40)
+      page.should have_no_css('ul.pets li.loading')
+      page.should have_css('ul.pets li.pet:last-child ul.data li.name span.name', :text => 'Scroophy21')
       scroll_all_page_down
-      page.should have_css('.pets.results ul li.loading')
-      page.should have_css('.pets.results ul li.pet', :count => 96)
-      page.should have_no_css('.pets.results ul li.loading')
-      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy1')
+      page.should have_css('ul.pets li.loading')
+      page.should have_css('ul.pets li.pet', :count => 60)
+      page.should have_no_css('ul.pets li.loading')
+      page.should have_css('ul.pets li.pet:last-child ul.data li.name span.name', :text => 'Scroophy1')
     end
 
     scenario "can filter pet's list by species" do
       visit homepage
       click_link('Dogs')
-      page.should have_css('.pets.results ul li.pet')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_no_css('.pets.results ul li.pet.cat')
+      page.should have_css('ul.pets li.pet')
+      page.should have_css('ul.filters li.dogs.active a')
+      page.should have_css('ul.pets li.pet.dog')
+      page.should have_no_css('ul.pets li.pet.cat')
       click_link('Cats')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_css('.pets.results ul li.pet.cat')
+      page.should have_css('ul.filters li.dogs.active a')
+      page.should have_css('ul.filters li.cats.active a')
+      page.should have_css('ul.pets li.pet.dog')
+      page.should have_css('ul.pets li.pet.cat')
       click_link('Cats')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_no_css('.pets.results ul li.pet.cat')
-      click_link('Urgents')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_no_css('.pets.results ul li.pet.cat')
-      all('.pets.results ul li.pet a.data').each do |a|
-        a.text.should match(/Urgent adoption/)
-      end
-      click_link('Males')
-      page.should have_css('.pets.filters ul li.urgents a.button.active')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.males a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_no_css('.pets.results ul li.pet.cat')
-      all('.pets.results ul li.pet a.data').each do |a|
-        a.text.should match(/Urgent adoption/)
-      end
-      all('.pets.results ul li.pet a.data').each do |a|
-        a.text.should match(/Male/)
-      end
+      page.should have_css('ul.filters li.dogs.active a')
+      page.should have_no_css('ul.filters li.cats.active a')
+      page.should have_css('ul.pets li.pet.dog')
+      page.should have_no_css('ul.pets li.pet.cat')
     end
-
   end
 
   context "Everyone" do
     background do
-      load_master_tables
       create_pets
       create_pet
     end
 
     scenario "can see a list of pets" do
       visit homepage
-      page.should have_css('.pets.filters')
-      page.should have_css('.pets.results ul li.pet', :count => 32)
-      page.should have_css('.pets.results .pagination')
-      within('.pets.results ul li.pet:first-child') do
-        page.should have_css('span.name', :text => 'Wadus')
-        page.should have_css('span.animal', :text => "\nKind of animal:\nDog\n")
-        page.should have_css('span.breed', :text => "\nBreed:\nCrossbred\n")
-        page.should have_css('span.sex', :text => "\nSex:\nMale\n")
-        page.should have_css('span.age', :text => "\nAge:\nabout 4 years\n")
-        page.should have_css('span.place', :text => "\nPlace:\nCalle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain\n")
-        page.should have_css('span.urgent', :text => "Urgent adoption")
+      page.should have_css('.filters')
+      page.should have_css('ul.pets li.pet', :count => 20)
+      page.should have_css('ul.pets .pagination')
+      within('ul.pets li.pet.urgent:first-child') do
+        within('ul.data li.name') do
+          page.should have_css('span.name', :text => 'Wadus')
+          page.should have_css('span.animal_sex', :text => "a male dog.")
+          page.should have_css('span.age', :text => "About 4 years")
+        end
+        within('ul.data li.character') do
+          page.should have_css('span.label', :text => 'Character')
+          page.should have_css('ul li span', :text => 'Docile')
+          page.should have_css('ul li span', :text => 'Playful')
+          page.should have_css('ul li span', :text => 'Obedient')
+        end
+        within('ul.data li.breed') do
+          page.should have_css('span.label', :text => 'Breed')
+          page.should have_css('span', :text => 'Crossbred')
+        end
+        within('ul.data li.place') do
+          page.should have_css('span.label', :text => 'Place')
+          page.should have_css('span', :text => 'Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain')
+        end
+        page.should have_link('Know it better')
       end
       click_link('2')
-      page.should have_css('.pets.results ul li.pet', :count => 32)
-      page.should have_css('.pets.results ul li.pet:first-child a span.name', :text => 'Scroophy64')
-      page.should have_css('.pets.results ul li.pet:last-child a span.name', :text => 'Scroophy33')
+      page.should have_css('ul.pets li.pet', :count => 20)
+      page.should have_css('ul.pets li.pet:first-child ul.data li.name span.name', :text => 'Scroophy40')
+      page.should have_css('ul.pets li.pet:last-child ul.data li.name span.name', :text => 'Scroophy21')
     end
 
     scenario "can see a pet's detail" do
       visit homepage
-      click_link('Wadus')
-      within('ul.pet.detail') do
-        within('li.name') do
-          page.should have_content('Wadus')
+      within('ul.pets li.pet:first-child') do
+        click_link('Know it better')
+      end
+
+      within('div.dog.pet.urgent') do
+        page.should have_css('img.photo')
+        within('ul.data li.name') do
+          page.should have_css('span.name', :text => 'Wadus')
+          page.should have_css('span.animal_sex', :text => "a male dog.")
+          page.should have_css('span.age', :text => "About 4 years")
         end
-        within('li.photos') do
-          page.should have_css('span.no_photos', :text => 'There\'s no Wadus\'s photos')
+        within('ul.data li.character') do
+          page.should have_css('span.label', :text => 'Character')
+          page.should have_css('ul li span', :text => 'Docile')
+          page.should have_css('ul li span', :text => 'Playful')
+          page.should have_css('ul li span', :text => 'Obedient')
         end
-        within('li.urgent') do
-          page.should have_content('Urgent adoption')
+        within('ul.data li.breed') do
+          page.should have_css('span.label', :text => 'Breed')
+          page.should have_css('span', :text => 'Crossbred')
         end
-        within('li.animal') do
-          page.should have_css('span.label', :text => 'Kind of animal:')
-          page.should have_content('Dog')
+        within('ul.data li.place') do
+          page.should have_css('span.label', :text => 'Place')
+          page.should have_css('span', :text => 'Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain')
         end
-        within('li.breed') do
-          page.should have_css('span.label', :text => 'Breed:')
-          page.should have_content('Crossbred')
+        within('ul.data li.adopt_it') do
+          page.should have_link('Adopt Wadus!')
         end
-        within('li.sex') do
-          page.should have_css('span.label', :text => 'Sex:')
-          page.should have_content('Male')
-        end
-        within('li.age') do
-          page.should have_css('span.label', :text => 'Age:')
-          page.should have_content('About 4 years')
-        end
-        within('li.place') do
-          page.should have_css('span.label', :text => 'Place:')
-          page.should have_content('Calle de Torrelavega, 62, 28140 Fuente el Saz de Jarama, Spain')
-        end
-        within('li.character') do
-          page.should have_css('span.label', :text => 'Character:')
-          all('ul li')[0].text.should eq('Docile')
-          all('ul li')[1].text.should eq('Playful')
-          all('ul li')[2].text.should eq('Obedient')
-        end
-        within('li.size') do
-          page.should have_css('span.label', :text => 'Size:')
-          page.should have_content('Medium')
-        end
-        within('li.description') do
-          page.should have_css('span.label', :text => 'Description:')
-          page.should have_content(lorem)
+        within('.description_and_location') do
+          within('.description')  do
+            page.should have_content lorem
+          end
+          within('.location')  do
+            page.should have_content 'Location map'
+            page.should have_css('.map img')
+          end
         end
       end
     end
 
-    scenario "can filter pet's list by species, urgency or sex" do
+    scenario "can filter pet's list by species" do
       visit homepage
       click_link('Dogs')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_no_css('.pets.results ul li.pet.cat')
+      page.should have_css('ul.filters li.dogs.active a')
+      page.should have_css('ul.pets li.pet.dog')
+      page.should have_no_css('ul.pets li.pet.cat')
       click_link('Cats')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_css('.pets.results ul li.pet.cat')
+      page.should have_css('ul.filters li.dogs.active a')
+      page.should have_css('ul.filters li.cats.active a')
+      page.should have_css('ul.pets li.pet.dog')
+      page.should have_css('ul.pets li.pet.cat')
       click_link('Cats')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_no_css('.pets.results ul li.pet.cat')
-      click_link('Urgents')
-      page.should have_css('.pets.filters ul li.urgents a.button.active')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_no_css('.pets.results ul li.pet.cat')
-      all('.pets.results ul li.pet a.data').each do |a|
-        a.text.should match(/Urgent adoption/)
-      end
-      click_link('Males')
-      page.should have_css('.pets.filters ul li.urgents a.button.active')
-      page.should have_css('.pets.filters ul li.dogs a.button.active')
-      page.should have_no_css('.pets.filters ul li.cats a.button.active')
-      page.should have_css('.pets.filters ul li.males a.button.active')
-      page.should have_css('.pets.results ul li.pet.dog')
-      page.should have_no_css('.pets.results ul li.pet.cat')
-      all('.pets.results ul li.pet a.data').each do |a|
-        a.text.should match(/Urgent adoption/)
-      end
-      all('.pets.results ul li.pet a.data').each do |a|
-        a.text.should match(/Male/)
-      end
+      page.should have_css('ul.filters li.dogs.active a')
+      page.should have_no_css('ul.filters li.cats.active a')
+      page.should have_css('ul.pets li.pet.dog')
+      page.should have_no_css('ul.pets li.pet.cat')
     end
 
   end
 
   context "Guests" do
     background do
-      load_master_tables
       create_pets
     end
 
@@ -331,7 +300,9 @@ feature "Pets", %q{
 
     scenario "can't edit an existing pet" do
       visit homepage
-      click_link('Scroophy95')
+      within('ul.pets li.pet:first-child') do
+        click_link('Know it better')
+      end
       page.should have_no_content('Edit')
     end
   end

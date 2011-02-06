@@ -6,13 +6,12 @@ feature "Locales", %q{
   As a user
   I want to be able to switch page\'s language
 } do
-  
+
   context "Signed in users" do
     background do
-      load_master_tables
       create_and_sign_in_user
     end
-    
+
     scenario "can change page's language" do
       visit homepage
       page.should have_content('Tons of pets are waiting for you!')
@@ -21,12 +20,8 @@ feature "Locales", %q{
       current_user.reload.locale.should == 'es'
     end
   end
-  
+
   context "Guests" do
-    background do
-      load_master_tables
-    end
-    
     scenario "can change page's language and gets stored in a cookie" do
       visit homepage
       page.should have_content('Tons of pets are waiting for you!')
@@ -38,5 +33,5 @@ feature "Locales", %q{
       page.should have_content('¡Un montón de mascotas están esperándote!')
     end
   end
-  
+
 end

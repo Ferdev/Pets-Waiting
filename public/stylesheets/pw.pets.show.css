@@ -1,6 +1,6 @@
 #content div.pet {
   position: relative;
-  width: 890px;
+  width: 868px;
   padding: 10px;
   margin: 3em auto 1em;
   background-color: #d0d2ce;
@@ -20,11 +20,11 @@
   #content div.pet .border_left {
     left: -2px; }
   #content div.pet .border_right {
-    left: 911px; }
+    left: 889px; }
   #content div.pet .border_bottom {
     position: absolute;
     background-color: white;
-    width: 914px;
+    width: 892px;
     height: 1px;
     left: -2px;
     bottom: -2px; }
@@ -42,13 +42,13 @@
     right: -8px; }
   #content div.pet img.photo {
     float: left;
-    height: 375px;
+    height: 395px;
     width: 578px; }
   #content div.pet a.view_next {
     display: block;
     position: absolute;
     left: 437px;
-    top: 306px;
+    top: 339px;
     background-color: rgba(0, 0, 0, 0.65);
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
@@ -82,8 +82,8 @@
   #content div.pet ul.data {
     float: left;
     background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
-    width: 312px;
-    height: 375px;
+    width: 290px;
+    height: 395px;
     padding: 0; }
     #content div.pet ul.data li {
       margin: 0.7em 2em;
@@ -116,7 +116,7 @@
         margin: 0; }
     #content div.pet ul.data li.adopt_it {
       position: absolute;
-      top: 290px; }
+      top: 319px; }
       #content div.pet ul.data li.adopt_it a {
         display: block;
         background-image: -moz-linear-gradient(top, #1692d5, #0d71aa);
@@ -152,7 +152,7 @@
         line-height: 1.3em; }
     #content div.pet .description_and_location .location {
       background-color: #f9faf9;
-      width: 312px; }
+      width: 290px; }
       #content div.pet .description_and_location .location span {
         display: block;
         width: 229px;

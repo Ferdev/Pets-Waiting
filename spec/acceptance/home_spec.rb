@@ -9,7 +9,6 @@ feature "Home page", %q{
 
   context "Users" do
     background do
-      load_master_tables
       create_pets
     end
 

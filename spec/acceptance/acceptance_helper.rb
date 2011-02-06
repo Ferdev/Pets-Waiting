@@ -19,7 +19,7 @@ Capybara.register_driver :selenium do |app|
   Capybara::Driver::Selenium.new(app, :profile => profile)
 end
 
-Capybara.default_host = 'test.petswaiting.com'
+Capybara.default_host     = 'test.petswaiting.com'
 Capybara.default_driver   = :rack_test
 Capybara.default_selector = :css
 Capybara.js_driver        = :selenium
@@ -33,6 +33,7 @@ Rspec.configure do |config|
     Capybara.reset_sessions!
     Rails.cache.clear
     DatabaseCleaner.clean
+    load_master_tables
   end
 end
 

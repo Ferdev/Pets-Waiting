@@ -60,15 +60,17 @@ module HelperMethods
     @pet = Pet.make(attributes)
   end
 
-  def create_pets(number = 96)
+  def create_pets(number = 60)
+    sexes  = Sex.all
+    breeds = Breed.all
     number.times do |i|
-      breed = Breed.all.sample
+      breed = breeds.sample
       create_pet({
         :name   => "Scroophy#{i}",
         :breed  => breed,
         :animal => breed.animal,
         :urgent => [true,false].sample,
-        :sex    => Sex.all.sample
+        :sex    => sexes.sample
       })
     end
   end
