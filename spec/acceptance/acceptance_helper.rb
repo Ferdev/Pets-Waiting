@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + "/../spec_helper"
 require "steak"
 require 'capybara/rails'
 require 'faker'
+# require 'perftools'
 
 module Capybara
   class << self
@@ -28,6 +29,8 @@ Rspec.configure do |config|
   config.include Capybara
   config.include ActiveSupport::Testing::Assertions
 
+  # config.before(:all) { PerfTools::CpuProfiler.start("/tmp/acceptance_performance.txt") }
+
   config.before(:each) do
     Capybara.use_default_driver
     Capybara.reset_sessions!
@@ -35,6 +38,8 @@ Rspec.configure do |config|
     DatabaseCleaner.clean
     load_master_tables
   end
+
+  # config.after(:all) { PerfTools::CpuProfiler.stop }
 end
 
 # Put your acceptance spec helpers inside /spec/acceptance/support

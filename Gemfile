@@ -1,17 +1,17 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.0.0.rc2'
+gem 'rails', '~> 3.0.0'
 
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'god'
 
 gem 'haml'
-gem 'devise', '~> 1.1.rc.2'
-gem 'formtastic', '~> 1.2.2'
+gem 'devise'
+gem 'formtastic'
 gem 'globalize3'
 gem 'rack-contrib', :require => 'rack/contrib'
-gem 'carrierwave', '~> 0.5.1'
+gem 'carrierwave'
 gem 'rmagick'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'escape_utils'
@@ -23,6 +23,7 @@ group :development, :test do
   gem 'rails3-generators'
   gem 'ruby-debug', :platforms => :mri_18
   gem 'ruby-debug19', :platforms => :mri_19
+#  gem 'perftools.rb'
 end
 
 group :test do

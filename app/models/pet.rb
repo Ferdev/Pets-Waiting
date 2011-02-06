@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class Pet < ActiveRecord::Base
-  after_initialize :init_address
+  after_initialize :init_pet
 
   attr_accessible :name,
                   :animal_id,
@@ -10,6 +10,7 @@ class Pet < ActiveRecord::Base
                   :size_id,
                   :urgent,
                   :diseases_attributes,
+                  :photos_attributes,
                   :description,
                   :docile,
                   :calm,
@@ -46,6 +47,7 @@ class Pet < ActiveRecord::Base
 
   accepts_nested_attributes_for :address, :allow_destroy => true
   accepts_nested_attributes_for :diseases, :allow_destroy => true
+  accepts_nested_attributes_for :photos, :allow_destroy => true
 
   validates_presence_of :name
   validates_presence_of :animal
@@ -53,8 +55,9 @@ class Pet < ActiveRecord::Base
   validates_presence_of :sex
   validates_presence_of :birthday
 
-  def init_address
+  def init_pet
     build_address unless address
+    4.times{ photos.build } unless photos.present?
   end
 
   def character_attributes
@@ -95,16 +98,6 @@ class Pet < ActiveRecord::Base
 
   def place
     address.address unless address.nil? || address.address.blank?
-  end
-
-  def thumbnails
-    unless photos.empty?
-      photos.select { |photo| photo.has_thumbnail? }
-    end
-  end
-
-  def random_thumbnail
-    thumbnails.sample.image.thumb unless thumbnails.nil? || thumbnails.empty?
   end
 
   def self.filtered(filters)

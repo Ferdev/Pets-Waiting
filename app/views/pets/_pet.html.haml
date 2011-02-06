@@ -3,11 +3,12 @@
   .border_bottom
   .border_right
   .urgent
-  = thumbnail(pet)
-  - if pet.photos.length > 1
-    %a.view_next{:href => '#'}
-      = I18n.t('pets.index.pet.view_next')
-      .arrow
+  .photos
+    = raw photos(pet)
+    - if pet.photos.length > 1
+      %a.view_next{:href => '#'}
+        = I18n.t('pets.index.pet.view_next')
+        .arrow
   .photo_arrow
   %ul.data
     %li.name

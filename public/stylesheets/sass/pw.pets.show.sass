@@ -33,32 +33,43 @@
       position: absolute
       top: -8px
       right: -8px
-    img.photo
+    .photos
       float: left
+      position: relative
       height: 395px
       width: 578px
-    a.view_next
-      display: block
-      position: absolute
-      left: 437px
-      top: 339px
-      background-color: rgba(0,0,0, 0.65)
-      @include border-radius(3px)
-      color: white
-      width: 112px
-      height: 30px
-      font-size: 1.1em
-      text-decoration: none
-      line-height: 30px
-      text-align: center
-      vertical-align: middle
-      text-transform: lowercase
+      overflow: hidden
+      img.photo
+        display: none
+        height: 395px
+        width: 578px
+        position: absolute
+        top: 0
+        left: 0
+      img.photo.active
+        display: inline
+      a.view_next
+        display: none
+        position: absolute
+        left: 437px
+        top: 328px
+        background-color: rgba(0,0,0, 0.65)
+        @include border-radius(3px)
+        color: white
+        width: 112px
+        height: 30px
+        font-size: 1.1em
+        text-decoration: none
+        line-height: 30px
+        text-align: center
+        vertical-align: middle
+        text-transform: lowercase
       .arrow
         @include inline-block
         @include css-sprite(-429px, 0, 12px, 8px)
         vertical-align: middle
-    a.view_next:hover
-      background-color: rgba(0,0,0, 0.85)
+      a.view_next:hover
+        background-color: rgba(0,0,0, 0.85)
     ul.data
       float: left
       background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent
@@ -181,6 +192,7 @@
     text-align: center
     margin: 1.5em auto
     @include inline-block
+    width: 100%
     li
       display: inline
       text-align: center

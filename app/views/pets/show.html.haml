@@ -1,6 +1,6 @@
 - content_for :head do
-  = javascript_include_tag "pw/pw.pets.js", "pw/pw.pets.show.js", "jquery/jquery.ad-gallery.js"
-  = stylesheet_link_tag "pw.pets.show", "jquery/jquery.ad-gallery"
+  = javascript_include_tag "jquery/jquery.easing.js", "jquery/jquery.slider.js", "pw/pw.pets.js", "pw/pw.pets.show.js"
+  = stylesheet_link_tag "pw.pets.show"
 
 = render 'nav'
 
@@ -9,8 +9,9 @@
   .border_bottom
   .border_right
   .urgent
-  = thumbnail(@pet)
-  - if @pet.photos.length > 1
+  .photos
+    = raw photos(@pet)
+    - if @pet.photos.length > 1
     %a.view_next{:href => '#'}
       = I18n.t('pets.index.pet.view_next')
       .arrow

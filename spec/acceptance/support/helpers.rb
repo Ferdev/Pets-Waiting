@@ -100,24 +100,19 @@ module HelperMethods
     find('#pet_address_attributes_city').value.should eq('Fuente el Saz de Jarama')
   end
 
-  def image_to_upload
-    File.dirname(__FILE__) + '/../../fixtures/dog1.jpg'
+  def pet_photos
+    %w(
+      dog1.jpg
+      kitten1.jpeg
+      kitten2.jpeg
+      kitten3.jpeg
+      puppy1.jpeg
+      puppy2.jpeg
+    )
   end
 
-  def create_photo(crop = nil)
-    photo = Photo.make(:pet => @pet)
-    photo.image = File.open(image_to_upload)
-    if crop
-      photo.crop_x = crop[:crop_x]
-      photo.crop_y = crop[:crop_y]
-      photo.crop_w = crop[:crop_w]
-      photo.crop_h = crop[:crop_h]
-    end
-    photo.save!
-  end
-
-  def create_photo_with_thumbnail
-    create_photo({:crop_x => 50, :crop_y => 50, :crop_w => 200, :crop_h => 200})
+  def random_pet_photo
+    Rails.root.join('spec/fixtures', pet_photos.sample)
   end
 
   def scroll_all_page_down

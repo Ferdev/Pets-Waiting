@@ -2,47 +2,7 @@
 module PetsHelper
   def breed_for_animal(pet)
     return [I18n.t('pets._form.select_animal_first')] if pet.nil? || pet.animal.nil?
-    Breed.by_animal_id(pet.animal_id)
-  end
-
-  def critters
-    %w{
-      batty.png
-      dog2.png
-      elephant.png
-      froggy.png
-      lion.png
-      penguin.png
-      tuqui.png
-      dog1.png
-      ducky.png
-      foxy.png
-      kitty.png
-      panda.png
-      ratty.png
-    }
-  end
-
-  def random_critter
-    "icons/critters/#{critters.sample}"
-  end
-
-  def thumbnail(pet)
-    thumbnail = pet.random_thumbnail
-    img_src = thumbnail ? thumbnail.url : random_critter
-    image_tag img_src, :size => '200x200', :class => 'photo'
-  end
-
-  def thumbnail_list(pet)
-    thumbnails = pet.thumbnails
-
-    return if thumbnails.blank?
-
-    thumbnails.each do |photo|
-      haml_tag :li do
-        haml_concat(link_to(image_tag(photo.image.thumb.url, :size => '200x200'), photo.image.url))
-      end
-    end
+    pet.animal.breed
   end
 
   def render_pets_list
@@ -78,5 +38,15 @@ module PetsHelper
     classes = %w(adopted)
     classes << 'active' if pet.adopted?
     classes.join(' ')
+  end
+
+  def photos(pet)
+    images = []
+    classes = %w(active photo)
+    pet.photos.each_with_index do |photo, i|
+      images << image_tag(photo.image.url, :class => classes.join(' ')) if photo && photo.image && photo.image.url
+      classes.delete('active')
+    end
+    images.join
   end
 end

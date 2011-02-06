@@ -40,30 +40,41 @@
     position: absolute;
     top: -8px;
     right: -8px; }
-  #content div.pet img.photo {
+  #content div.pet .photos {
     float: left;
+    position: relative;
     height: 395px;
-    width: 578px; }
-  #content div.pet a.view_next {
-    display: block;
-    position: absolute;
-    left: 437px;
-    top: 339px;
-    background-color: rgba(0, 0, 0, 0.65);
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    color: white;
-    width: 112px;
-    height: 30px;
-    font-size: 1.1em;
-    text-decoration: none;
-    line-height: 30px;
-    text-align: center;
-    vertical-align: middle;
-    text-transform: lowercase; }
-    #content div.pet a.view_next .arrow {
+    width: 578px;
+    overflow: hidden; }
+    #content div.pet .photos img.photo {
+      display: none;
+      height: 395px;
+      width: 578px;
+      position: absolute;
+      top: 0;
+      left: 0; }
+    #content div.pet .photos img.photo.active {
+      display: inline; }
+    #content div.pet .photos a.view_next {
+      display: none;
+      position: absolute;
+      left: 437px;
+      top: 328px;
+      background-color: rgba(0, 0, 0, 0.65);
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+      color: white;
+      width: 112px;
+      height: 30px;
+      font-size: 1.1em;
+      text-decoration: none;
+      line-height: 30px;
+      text-align: center;
+      vertical-align: middle;
+      text-transform: lowercase; }
+    #content div.pet .photos .arrow {
       display: -moz-inline-stack;
       display: inline-block;
       vertical-align: top;
@@ -77,8 +88,8 @@
       width: 12px;
       height: 8px;
       vertical-align: middle; }
-  #content div.pet a.view_next:hover {
-    background-color: rgba(0, 0, 0, 0.85); }
+    #content div.pet .photos a.view_next:hover {
+      background-color: rgba(0, 0, 0, 0.85); }
   #content div.pet ul.data {
     float: left;
     background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
@@ -210,7 +221,8 @@
   display: inline-block;
   vertical-align: top;
   zoom: 1;
-  *display: inline; }
+  *display: inline;
+  width: 100%; }
   #content ul.filters li {
     display: inline;
     text-align: center;

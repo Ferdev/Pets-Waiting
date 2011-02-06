@@ -16,6 +16,8 @@ $.extend($.pw.pets, {
       // Disables non-javascript pagination
       $('div.pagination').remove();
 
+      $('ul.pets li.pet div.photos').slider();
+
       $('div.filters a.button').click(function(evt){
         evt.preventDefault();
         var link_url = $(this).attr('href');

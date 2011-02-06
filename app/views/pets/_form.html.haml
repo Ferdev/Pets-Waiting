@@ -5,12 +5,12 @@
     var DISEASES = #{Disease.all.map{|disease| {:id => disease.id, :animal_id => disease.animal_id}}.to_json};
 
 
-= semantic_form_for @pet do |form|
+= semantic_form_for @pet, :html => {:multipart => true} do |form|
   = error_messages(@pet)
   = form.inputs do
     = form.input :name
     = form.input :animal
-    = form.input :breed, :collection => breed_for_animal(@pet)
+    = form.input :breed
     = form.input :sex
     = form.semantic_fields_for :address do |address|
       = address.input :address
@@ -25,6 +25,8 @@
       = address.input :city, :as => :hidden
     = form.input :birthday, :start_year => 1980, :end_year => Time.now.year
     = form.input :size
+  = form.semantic_fields_for :photos do |photos|
+    = photos.input :image, :as => :file
   = form.inputs do
     = form.input :urgent
   = form.inputs do

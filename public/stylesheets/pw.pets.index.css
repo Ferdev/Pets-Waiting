@@ -111,45 +111,56 @@
       position: absolute;
       top: -8px;
       right: -8px; }
-    #content ul.pets li.pet img {
+    #content ul.pets li.pet .photos {
       float: left;
+      position: relative;
       height: 395px;
-      width: 578px; }
-    #content ul.pets li.pet a.view_next {
-      display: block;
-      position: absolute;
-      left: 437px;
-      top: 339px;
-      background-color: rgba(0, 0, 0, 0.65);
-      -moz-border-radius: 3px;
-      -ms-border-radius: 3px;
-      -webkit-border-radius: 3px;
-      border-radius: 3px;
-      color: white;
-      width: 112px;
-      height: 30px;
-      font-size: 1.1em;
-      text-decoration: none;
-      line-height: 30px;
-      text-align: center;
-      vertical-align: middle;
-      text-transform: lowercase; }
-      #content ul.pets li.pet a.view_next .arrow {
-        display: -moz-inline-stack;
-        display: inline-block;
-        vertical-align: top;
-        zoom: 1;
-        *display: inline;
-        background-color: transparent;
-        background-image: url("/images/sprites/css.png");
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-position: -429px 0;
-        width: 12px;
-        height: 8px;
-        vertical-align: middle; }
-    #content ul.pets li.pet a.view_next:hover {
-      background-color: rgba(0, 0, 0, 0.85); }
+      width: 578px;
+      overflow: hidden; }
+      #content ul.pets li.pet .photos img.photo {
+        display: none;
+        height: 395px;
+        width: 578px;
+        position: absolute;
+        top: 0;
+        left: 0; }
+      #content ul.pets li.pet .photos img.photo.active {
+        display: inline; }
+      #content ul.pets li.pet .photos a.view_next {
+        display: none;
+        position: absolute;
+        left: 437px;
+        top: 328px;
+        background-color: rgba(0, 0, 0, 0.65);
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        color: white;
+        width: 112px;
+        height: 30px;
+        font-size: 1.1em;
+        text-decoration: none;
+        line-height: 30px;
+        text-align: center;
+        vertical-align: middle;
+        text-transform: lowercase; }
+        #content ul.pets li.pet .photos a.view_next .arrow {
+          display: -moz-inline-stack;
+          display: inline-block;
+          vertical-align: top;
+          zoom: 1;
+          *display: inline;
+          background-color: transparent;
+          background-image: url("/images/sprites/css.png");
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          background-position: -429px 0;
+          width: 12px;
+          height: 8px;
+          vertical-align: middle; }
+      #content ul.pets li.pet .photos a.view_next:hover {
+        background-color: rgba(0, 0, 0, 0.85); }
     #content ul.pets li.pet .photo_arrow {
       background-color: transparent;
       background-image: url("/images/sprites/css.png");
@@ -160,7 +171,7 @@
       height: 35px;
       position: absolute;
       top: 38px;
-      left: 570px; }
+      left: 571px; }
     #content ul.pets li.pet ul.data {
       background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
       float: left;

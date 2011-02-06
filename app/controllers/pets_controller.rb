@@ -37,7 +37,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to(new_pet_photo_path(@pet), :notice => I18n.t('pets.create.success')) }
+        format.html { redirect_to @pet, :notice => I18n.t('pets.create.success') }
       else
         format.html { render :action => "new" }
       end

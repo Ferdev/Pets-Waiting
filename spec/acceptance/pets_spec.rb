@@ -24,6 +24,13 @@ feature "Pets", %q{
       select(4.years.ago.strftime("%Y") , :from => 'Year')
       select(4.years.ago.strftime("%B") , :from => 'Month')
       select(4.years.ago.strftime("%d").to_i.to_s , :from => 'Day')
+      attach_file('pet_photos_attributes_0_image', random_pet_photo)
+      click_link('Add another photo')
+      attach_file('pet_photos_attributes_1_image', random_pet_photo)
+      click_link('Add another photo')
+      attach_file('pet_photos_attributes_2_image', random_pet_photo)
+      click_link('Add another photo')
+      attach_file('pet_photos_attributes_3_image', random_pet_photo)
       check('Urgent adoption')
       check('Sterilized')
       check('Vaccinated and dewormed')
@@ -39,23 +46,6 @@ feature "Pets", %q{
         click_button('Save Pet')
         page.should have_content('The pet was successfully saved.')
       end
-      # Photo upload
-      page.should have_content("Add a Scroophy's photo")
-      attach_file('photo_image', image_to_upload)
-      assert_difference "Photo.count", 1 do
-        click_button('Save Photo')
-      end
-      page.should have_content('The photo was successfully saved.')
-      page.should have_content("Add a thumbnail to the photo")
-      page.should have_css('#photo')
-      page.should have_css('#thumbnail')
-      page.execute_script('$.pw.pets.photos.form.jcrop.setSelect([50, 50, 250, 250]);')
-      find('#photo_crop_x').value.should eq('50')
-      find('#photo_crop_y').value.should eq('50')
-      find('#photo_crop_w').value.should eq('200')
-      find('#photo_crop_h').value.should eq('200')
-      click_button('Update Photo')
-      page.should have_content("Scroophy's photos")
     end
 
     scenario 'must provide name, kind of animal, breed, address and birthday fields to add a new pet' do
@@ -89,6 +79,73 @@ feature "Pets", %q{
     background do
       create_and_sign_in_user
       create_pets
+    end
+
+    scenario 'can register a new pet' do
+      visit homepage
+      # Pet data
+      click_link('Add a new pet')
+      fill_in("Pet's name", :with => 'Scroophy')
+      select('Dog', :from => 'Kind of animal')
+      select('Crossbred', :from => 'Breed')
+      select('Male', :from => 'Sex')
+      fill_in('Address', :with => 'Madrid, Spain')
+      select(4.years.ago.strftime("%Y") , :from => 'Year')
+      select(4.years.ago.strftime("%B") , :from => 'Month')
+      select(4.years.ago.strftime("%d").to_i.to_s , :from => 'Day')
+      attach_file('pet_photos_attributes_0_image', random_pet_photo)
+      attach_file('pet_photos_attributes_1_image', random_pet_photo)
+      attach_file('pet_photos_attributes_2_image', random_pet_photo)
+      attach_file('pet_photos_attributes_3_image', random_pet_photo)
+      check('Urgent adoption')
+      check('Sterilized')
+      check('Vaccinated and dewormed')
+      check('Canine leishmaniasis')
+      check('Canine filariasis')
+      check('Canine ehrlichiosis')
+      check('Docile')
+      check('Playful')
+      check('Obedient')
+      select('Medium', :from => 'Size')
+      fill_in('Description', :with => lorem)
+      assert_difference "Pet.count", 1 do
+        click_button('Save Pet')
+        page.should have_content('The pet was successfully saved.')
+        within('div.dog.pet.urgent') do
+          page.should have_css('img.photo', :count => 4)
+          within('ul.data li.name') do
+            page.should have_css('span.name', :text => 'Scroophy')
+            page.should have_css('span.animal_sex', :text => "a male dog.")
+            page.should have_css('span.age', :text => "About 4 years")
+          end
+          within('ul.data li.character') do
+            page.should have_css('span.label', :text => 'Character')
+            page.should have_css('ul li span', :text => 'Docile')
+            page.should have_css('ul li span', :text => 'Playful')
+            page.should have_css('ul li span', :text => 'Obedient')
+          end
+          within('ul.data li.breed') do
+            page.should have_css('span.label', :text => 'Breed')
+            page.should have_css('span', :text => 'Crossbred')
+          end
+          within('ul.data li.place') do
+            page.should have_css('span.label', :text => 'Place')
+            page.should have_css('span', :text => 'Madrid, Spain')
+          end
+          within('ul.data li.adopt_it') do
+            page.should have_no_link('Adopt Wadus!')
+          end
+          within('.description_and_location') do
+            within('.description')  do
+              page.should have_content lorem
+            end
+            within('.location')  do
+              page.should have_content 'Location map'
+              page.should have_css('.map img')
+            end
+          end
+        end
+      end
     end
 
     scenario 'can manage their uploaded pets' do
