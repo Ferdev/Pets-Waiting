@@ -100,8 +100,8 @@ module HelperMethods
     find('#pet_address_attributes_city').value.should eq('Fuente el Saz de Jarama')
   end
 
-  def pet_photos
-    %w(
+  def random_pet_photo
+    pet_photos = %w(
       dog1.jpg
       kitten1.jpeg
       kitten2.jpeg
@@ -109,9 +109,7 @@ module HelperMethods
       puppy1.jpeg
       puppy2.jpeg
     )
-  end
 
-  def random_pet_photo
     Rails.root.join('spec/fixtures', pet_photos.sample)
   end
 
