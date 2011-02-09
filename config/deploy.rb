@@ -73,6 +73,21 @@ namespace :db do
     run "mkdir #{deploy_to}/shared/config ; true"
     upload("config/database.yml.example", "#{deploy_to}/shared/config/database.yml")
   end
+
+  desc "Run rake:seed on remote app server"
+  task :seed, :roles => :app do
+    run "cd #{current_release} && RAILS_ENV=#{rails_env} rake db:seed"
+  end
+
+  desc "Setup the database"
+  task :setup, :roles => :app do
+    run "cd #{current_release} && RAILS_ENV=#{rails_env} rake db:setup"
+  end
+
+  desc "Reset the database"
+  task :load_test_data do
+    run "cd #{current_release} && RAILS_ENV=#{rails_env} rake petswaiting:test_data"
+  end
 end
 
 namespace :config do
@@ -105,17 +120,6 @@ end
 desc "Show memory consumption on the server"
 task :free do
   run "free -lm"
-end
-
-namespace :rake do
-  namespace :db do
-
-    desc "Run rake:seed on remote app server"
-    task :seed do
-      run "cd #{current_release} && RAILS_ENV=#{rails_env} rake db:seed"
-    end
-
-  end
 end
 
 after "deploy:update_code" do
