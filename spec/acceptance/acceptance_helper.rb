@@ -24,6 +24,7 @@ Capybara.default_host     = 'test.petswaiting.com'
 Capybara.default_driver   = :rack_test
 Capybara.default_selector = :css
 Capybara.js_driver        = :selenium
+Capybara.default_wait_time = 5
 
 Rspec.configure do |config|
   config.include Capybara

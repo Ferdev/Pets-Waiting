@@ -47,14 +47,15 @@ module HelperMethods
   def create_pet(attributes = {})
     breed = Animal.dog.breeds.first
     defaults = {
-      :name         => 'Wadus',
-      :address      => Address.make,
-      :user         => @current_user,
-      :animal       => breed.animal,
-      :breed        => breed,
-      :description  => lorem,
-      :urgent       => true,
-      :sex          => Sex.male
+      :name        => 'Wadus',
+      :address     => Address.make,
+      :user        => @current_user,
+      :animal      => breed.animal,
+      :breed       => breed,
+      :description => lorem,
+      :urgent      => true,
+      :sex         => Sex.male,
+      :photos      => [Photo.create(:image => File.open(random_pet_photo))]
     }
     attributes = defaults.merge(attributes)
     @pet = Pet.make(attributes)
@@ -70,7 +71,8 @@ module HelperMethods
         :breed  => breed,
         :animal => breed.animal,
         :urgent => [true,false].sample,
-        :sex    => sexes.sample
+        :sex    => sexes.sample,
+        :photos => []
       })
     end
   end
