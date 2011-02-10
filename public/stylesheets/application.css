@@ -67,17 +67,14 @@ header {
   position: relative;
   border-bottom: 1px solid rgba(55, 55, 55, 0.4); }
   header .language {
-    background-image: -moz-linear-gradient(top, #cccdc9, #d2d4cf);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cccdc9), color-stop(1, #d2d4cf));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
-    -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    background-color: #d8dad5;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0 1px 0 white;
+    -webkit-box-shadow: 0 1px 0 white;
+    box-shadow: 0 1px 0 white;
     border: 1px solid transparent;
     position: absolute;
     right: 0;
@@ -96,9 +93,16 @@ header {
         zoom: 1;
         *display: inline;
         min-width: 75px; }
+      header .language li a {
+        color: white; }
     header .language li.locale {
       display: none; }
   header .language:hover {
+    background-color: #666666;
+    color: white;
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
     cursor: pointer; }
     header .language:hover .locale {
       display: block; }

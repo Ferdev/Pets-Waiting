@@ -76,9 +76,9 @@ header
   border-bottom: 1px solid rgba(55, 55, 55, 0.4)
 
   .language
-    @include gradient($language_top, $language_bottom)
-    @include border-radius(15px)
-    @include box-shadow(0 1px 1px rgba(255, 255, 255, 0.5))
+    background-color: $language
+    @include border-radius(3px)
+    @include box-shadow(0 1px 0 rgba(255, 255, 255, 1))
     border: 1px solid transparent
 
     position: absolute
@@ -95,10 +95,16 @@ header
       .label
         @include inline-block
         min-width: 75px
+      .arrow
+      a
+        color: white
     li.locale
       display: none
 
   .language:hover
+    background-color: $language_hover
+    color: white
+    @include box-shadow(0 2px 3px rgba(0, 0, 0, 0.2))
     cursor: pointer
     li
     .locale
