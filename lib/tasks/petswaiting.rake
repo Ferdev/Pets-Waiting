@@ -42,7 +42,7 @@ namespace :petswaiting do
         pet.user        = user
         pet.animal      = breed.animal
         pet.breed       = breed
-        pet.address     = address
+        pet.address     = address.clone
         pet.sex         = sexes.sample
         pet.urgent      = [true, false].sample
         pet.description = "#{description_generator.paragraph}\n\n#{description_generator.paragraph}"
@@ -71,7 +71,7 @@ def random_pet_photos
   ).map{|f| File.open(Rails.root.join('spec/fixtures', f))}
 end
 
-def random_character_keys(number = 3)
+def random_character_keys(number = 4)
   keys = %w(docile calm agressive_people agressive_animals dominant affectionate independent dependent possessive playful tireless obedient disobedient trained sleepyhead friendly_people friendly_animals)
   keys.sample(number)
 end
