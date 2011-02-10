@@ -161,6 +161,8 @@
           vertical-align: middle; }
       #content ul.pets li.pet .photos a.view_next:hover {
         background-color: rgba(0, 0, 0, 0.85); }
+      #content ul.pets li.pet .photos a.view_next:active {
+        background-color: rgba(0, 0, 0, 0.45); }
     #content ul.pets li.pet .photo_arrow {
       background-color: transparent;
       background-image: url("/images/sprites/css.png");

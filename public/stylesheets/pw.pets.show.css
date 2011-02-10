@@ -90,6 +90,8 @@
       vertical-align: middle; }
     #content div.pet .photos a.view_next:hover {
       background-color: rgba(0, 0, 0, 0.85); }
+    #content div.pet .photos a.view_next:active {
+      background-color: rgba(0, 0, 0, 0.45); }
   #content div.pet ul.data {
     float: left;
     background: url("/images/tiles/petlist_item.png") repeat scroll 0 0 transparent;
