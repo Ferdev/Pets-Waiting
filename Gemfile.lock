@@ -51,6 +51,7 @@ GEM
     arel (2.0.7)
     awesome_print (0.3.2)
     bcrypt-ruby (2.1.4)
+    blasphemy (0.1.0)
     boson (0.3.2)
       alias (>= 0.2.2)
       hirb (>= 0.3.5)
@@ -234,6 +235,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  blasphemy
   capistrano
   capistrano-ext
   capybara
