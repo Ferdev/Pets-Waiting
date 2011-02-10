@@ -46,11 +46,11 @@
       text-decoration: none;
       line-height: 34px; }
     #content ul.filters li a.add_pet {
-      background-image: -moz-linear-gradient(top, #ff0033, #ba0026);
-      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ff0033), color-stop(1, #ba0026));
+      background-image: -moz-linear-gradient(top, #1691d3, #0d72ab);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1691d3), color-stop(1, #0d72ab));
       filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
       -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
-      border: 1px solid #a20021;
+      border: 1px solid #083f5e;
       padding: 0 0.5em;
       color: white;
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
