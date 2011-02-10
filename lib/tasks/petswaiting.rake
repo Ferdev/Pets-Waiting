@@ -20,14 +20,10 @@ namespace :petswaiting do
       description_generator = Faker::MetalIpsum.new
 
       puts '##########################################'
-      puts 'Destroy previously created pets? (yes/no*)'
-      STDOUT.flush
-      destroy_pets = STDIN.gets.chomp
-      if destroy_pets == 'yes'
-        puts 'Destroying pets...'
-        Pet.destroy_all
-        puts '... done!'
-      end
+      puts 'Destroying previously created pets...'
+      Pet.destroy_all
+      puts '... done!'
+      puts '##########################################'
 
       100.times do |i|
         breed = breeds.sample

@@ -84,7 +84,7 @@ namespace :db do
     run "cd #{current_release} && RAILS_ENV=#{rails_env} rake db:setup"
   end
 
-  desc "Reset the database"
+  desc "Destroys all pets and creates 100 random new ones. It does not work in production enviroment."
   task :load_test_data do
     run "cd #{current_release} && RAILS_ENV=#{rails_env} rake petswaiting:test_data"
   end
