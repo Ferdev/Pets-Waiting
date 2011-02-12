@@ -54,6 +54,7 @@ class Pet < ActiveRecord::Base
   validates_presence_of :breed
   validates_presence_of :sex
   validates_presence_of :birthday
+  validates_presence_of :user
 
   def init_pet
     build_address unless address

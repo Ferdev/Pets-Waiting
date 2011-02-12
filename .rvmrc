@@ -1,1 +1,2 @@
 rvm use 1.9.2@petswaiting --create
+rvm wrapper current textmate

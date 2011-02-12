@@ -4,6 +4,16 @@ namespace :petswaiting do
   desc "Adds testing data"
   task :test_data => :environment do
     if Rails.env != 'production'
+      puts '##########################################'
+      puts 'Destroying previously created uses...'
+      User.destroy_all
+      puts '... done!'
+      puts '##########################################'
+      puts 'Destroying previously created pets...'
+      Pet.destroy_all
+      puts '... done!'
+      puts '##########################################'
+
       user = User.new
       user.name                  = 'Fer'
       user.email                 = 'fer@ferdev.com'
@@ -12,18 +22,22 @@ namespace :petswaiting do
       user.phone_number          = '666554433'
       address                    = Address.create(:address => 'Madrid, Spain')
       user.address               = address
-      user.save
+      user.save!
+
+      john_doe = User.new
+      john_doe.name                  = 'John Doe'
+      john_doe.email                 = 'john@doe.com'
+      john_doe.password              = 'waduswadus'
+      john_doe.password_confirmation = 'waduswadus'
+      john_doe.phone_number          = '666112233'
+      john_doe_address               = Address.create(:address => 'Almuñecar, Spain')
+      john_doe.address               = john_doe_address
+      john_doe.save!
 
       breeds                = Breed.all
       sexes                 = Sex.all
       photos                = random_pet_photos
       description_generator = Faker::MetalIpsum.new
-
-      puts '##########################################'
-      puts 'Destroying previously created pets...'
-      Pet.destroy_all
-      puts '... done!'
-      puts '##########################################'
 
       100.times do |i|
         breed = breeds.sample
@@ -48,7 +62,10 @@ namespace :petswaiting do
         pet.photos  = []
         3.times{ pet.photos << Photo.create(:image => photos.sample) }
 
-        pet.save
+        pet.save!
+
+        user.pets << pet
+        user.save!
 
         puts "... Done!"
       end
