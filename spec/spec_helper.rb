@@ -5,7 +5,6 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-
 require 'database_cleaner'
 
 # Requires supporting files with custom matchers and macros, etc,
@@ -16,7 +15,6 @@ DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |config|
   config.before(:each) do
-    Sham.reset(:before_each)
     DatabaseCleaner.clean
   end
 
@@ -34,7 +32,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false
   # instead of true.
-  # config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 end
 
 CarrierWave.configure do |config|

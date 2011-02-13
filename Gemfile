@@ -36,8 +36,8 @@ group :test do
   gem 'steak', '~> 1.0.0'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'machinist'
   gem 'faker'
+  gem 'factory_girl_rails', '~> 1.1.beta1'
 end
 
 group :production do

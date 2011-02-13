@@ -1,41 +1,36 @@
 # encoding: UTF-8
 module HelperMethods
-  attr_accessor :current_user
-
-  def lorem
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-  end
 
   def load_master_tables
-    dog           = Animal.make(:dog)
-    cat           = Animal.make(:cat)
-    bird          = Animal.make(:bird)
-    little_mammal = Animal.make(:little_mammal)
-    reptile       = Animal.make(:reptile)
-    other         = Animal.make(:other_species)
+    Factory.create(:user)
 
-    Breed.make(:animal => dog)
-    Breed.make(:animal => cat)
-    Breed.make(:animal => bird)
-    Breed.make(:animal => little_mammal)
-    Breed.make(:animal => reptile)
-    Breed.make(:animal => other)
+    Factory.create(:dog)
+    Factory.create(:cat)
+    Factory.create(:bird)
+    Factory.create(:little_mammal)
+    Factory.create(:reptile)
+    Factory.create(:other_species)
 
-    Disease.make(:leishmaniasis, :animal => dog)
-    Disease.make(:filariasis, :animal => dog)
-    Disease.make(:ehrlichiosis, :animal => dog)
-    Disease.make(:leukemia, :animal => cat)
-    Disease.make(:immunodeficiency, :animal => cat)
+    Factory.create(:crossbred_dog)
+    Factory.create(:crossbred_cat)
+    Factory.create(:crossbred_bird)
+    Factory.create(:crossbred_little_mammal)
+    Factory.create(:crossbred_reptile)
+    Factory.create(:crossbred_other_species)
 
-    Sex.make(:male)
-    Sex.make(:female)
+    Factory.create(:leishmaniasis)
+    Factory.create(:filariasis)
+    Factory.create(:ehrlichiosis)
+    Factory.create(:leukemia)
+    Factory.create(:immunodeficiency)
 
-    Size.make
-    Address.make
+    Factory.create(:male)
+    Factory.create(:female)
+
+    Factory.create(:size)
   end
 
-  def create_and_sign_in_user
-    @current_user = User.make(:address => Address.first)
+  def sign_in_user
     visit homepage
     click_link('Sign in')
     fill_in('Email', :with => 'fer@ferdev.com')
@@ -47,18 +42,14 @@ module HelperMethods
   def create_pet(attributes = {})
     breed = Animal.dog.breeds.first
     defaults = {
-      :name        => 'Wadus',
-      :address     => Address.make,
-      :user        => @current_user,
+      :description => lorem,
       :animal      => breed.animal,
       :breed       => breed,
-      :description => lorem,
-      :urgent      => true,
-      :sex         => Sex.male,
       :photos      => [Photo.create(:image => File.open(random_pet_photo))]
     }
+
     attributes = defaults.merge(attributes)
-    @pet = Pet.make(attributes)
+    @pet = Factory.create(:pet, attributes)
   end
 
   def create_pets(number = 60)
@@ -79,7 +70,7 @@ module HelperMethods
 
   def create_adoption_request
     pet = create_pet
-    Adoption.make(:pet => pet, :adoptant => User.make(:guest, :address => Address.first), :reasons => lorem)
+    Factory.create(:adoption, :pet => pet, :adoptant => Factory.create(:guest), :reasons => lorem)
   end
 
   def should_fill_address_fields
@@ -117,6 +108,10 @@ module HelperMethods
 
   def scroll_all_page_down
     page.execute_script("$(document).scrollTop($(document).height());")
+  end
+
+  def lorem
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   end
 end
 

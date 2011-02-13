@@ -18,7 +18,7 @@ feature "Home page", %q{
       within('header') do
         page.should have_css('.language')
         page.should have_css('a.logo', :href => "http://#{Capybara.default_host}")
-        page.should have_content('96 pets waiting for you')
+        page.should have_content('60 pets waiting for you')
       end
       page.should have_css('.announcement', :text => "\nHere you will be able to find pets that are looking for a family. \nAll are free, and all could be a perfect present for you.\n")
       within('#content') do
@@ -29,7 +29,7 @@ feature "Home page", %q{
           page.should have_css('.birds',    :text => 'Birds')
           page.should have_css('.little',   :text => 'Little pets')
           page.should have_css('.reptiles', :text => 'Reptiles')
-          page.should have_css('.other_species',   :text => 'Other species')
+          page.should have_css('.other_species',   :text => 'Others')
         end
 
         page.should have_css('.add_pet', :text => 'Add a new pet')
@@ -37,7 +37,7 @@ feature "Home page", %q{
       end
       within('footer') do
         page.should have_css('.pets_left')
-        find('.pets_left').text.squish.should match('96 Animals waiting')
+        find('.pets_left').text.squish.should match('60 Animals waiting')
         page.should have_css('.adoptions_done')
         find('.adoptions_done').text.squish.should match('0 Adoptions done')
         page.should have_css('a.logo.small', :href => "http://#{Capybara.default_host}")

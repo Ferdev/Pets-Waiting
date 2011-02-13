@@ -9,7 +9,7 @@ feature "Pets", %q{
 
   context "Signed in users (with javascript enabled)", :js => true do
     background do
-      create_and_sign_in_user
+      sign_in_user
     end
 
     scenario 'can register a new pet' do
@@ -74,7 +74,7 @@ feature "Pets", %q{
 
   context "Signed in users" do
     background do
-      create_and_sign_in_user
+      sign_in_user
       create_pets
     end
 

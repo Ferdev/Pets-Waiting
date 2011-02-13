@@ -9,7 +9,7 @@ feature "Locales", %q{
 
   context "Signed in users" do
     background do
-      create_and_sign_in_user
+      sign_in_user
     end
 
     scenario "can change page's language" do
@@ -17,7 +17,7 @@ feature "Locales", %q{
       page.should have_content('Tons of pets are waiting for you!')
       click_link('Español')
       page.should have_content('¡Un montón de mascotas están esperándote!')
-      current_user.reload.locale.should == 'es'
+      User.first.locale.should == 'es'
     end
   end
 

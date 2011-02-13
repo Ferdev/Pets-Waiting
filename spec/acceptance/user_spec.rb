@@ -85,7 +85,7 @@ feature "Users", %q{
 
   context "Users" do
     background do
-      create_and_sign_in_user
+      sign_in_user
     end
 
     scenario "can edit their data" do
@@ -109,7 +109,7 @@ feature "Users", %q{
 
   context "Users (with javascript)", :js => true do
     background do
-      create_and_sign_in_user
+      sign_in_user
     end
 
     scenario "can edit their data" do

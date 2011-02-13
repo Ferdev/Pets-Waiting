@@ -7,7 +7,11 @@
 
 %ul.adoption_request
   %li.pet
-    = thumbnail(@adoption.pet)
+    = raw photos(@adoption.pet)
+    - if @adoption.pet.photos.length > 1
+    %a.view_next{:href => '#'}
+      = I18n.t('pets.index.pet.view_next')
+      .arrow
     %ul
       - if @adoption.pet.animal
         %li.animal

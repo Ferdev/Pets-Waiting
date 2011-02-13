@@ -9,7 +9,7 @@ feature "Adoptions", %q{
 
   context "Users" do
     background do
-      create_and_sign_in_user
+      sign_in_user
       create_pets
     end
 
@@ -51,7 +51,7 @@ feature "Adoptions", %q{
 
   context "Pending adoptions" do
     background do
-      create_and_sign_in_user
+      sign_in_user
       create_adoption_request
     end
 
