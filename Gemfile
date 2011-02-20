@@ -16,6 +16,8 @@ gem 'rmagick'
 gem 'will_paginate', '~> 3.0.pre2'
 gem 'escape_utils'
 gem 'routing-filter'
+gem 'smurf'
+gem 'htmlentities'
 
 group :development, :test do
   gem 'irbtools', :git => 'git://github.com/amatsuda/irbtools.git'

@@ -1,4 +1,4 @@
 - content_for :head do
-  = javascript_include_tag "jquery/jquery.easing.js", "jquery/jquery.slider.js", "pw/pw.pets.js", "pw/pw.pets.index.js"
+  = headjs_include_tag "jquery/jquery.easing", "jquery/jquery.slider", "pw/pw.pets", "pw/pw.pets.index"
   = stylesheet_link_tag "pw.pets.index"
 = render_pets_list

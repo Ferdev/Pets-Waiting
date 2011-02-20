@@ -10,4 +10,5 @@ config/app_config.yml
 *.tmproj
 capybara*
 public/uploads
+public/*/cache/*
 test

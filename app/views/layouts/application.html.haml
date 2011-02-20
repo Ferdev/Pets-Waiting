@@ -9,49 +9,53 @@
     %meta{:name => "keywords", :content => I18n.t('keywords')}
     %link{:rel => "canonical", :href => "http://petswaiting.com"}
     = stylesheet_link_tag "reset", "application", "pw.devise", "pw.forms"
+    = javascript_include_tag "head.load.min"
     :javascript
       var RAILS_ENV = "#{Rails.env}";
-    = javascript_include_tag "jquery/jquery-1.4.4.js", "rails", "application", "pw/pw.init.js", "utils.js"
+    = headjs_include_tag "jquery/jquery-1.4.4", "pw/pw.init", "utils", "http://use.typekit.com/znw1ljt.js"
     = yield(:head)
-    %script{:type => "text/javascript", :src => "http://use.typekit.com/znw1ljt.js"}
     :javascript
-      try{Typekit.load();}catch(e){}
+      head(function(){
+        try{Typekit.load();}catch(e){}
+        $.pw.init();
+      });
+
     - if Rails.env == 'production'
       :javascript
+        head(function(){
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-6392398-4']);
+          _gaq.push(['_trackPageview']);
 
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-6392398-4']);
-        _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
 
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      :javascript
-        var uservoiceOptions = {
-          /* required */
-          key: 'petswaiting',
-          host: 'petswaiting.uservoice.com',
-          forum: '77461',
-          showTab: true,
-          /* optional */
-          alignment: 'left',
-          background_color:'#f00',
-          text_color: 'white',
-          hover_color: '#06C',
-          lang: '#{I18n.locale}'
-        };
+          var uservoiceOptions = {
+            /* required */
+            key: 'petswaiting',
+            host: 'petswaiting.uservoice.com',
+            forum: '77461',
+            showTab: true,
+            /* optional */
+            alignment: 'left',
+            background_color:'#f00',
+            text_color: 'white',
+            hover_color: '#06C',
+            lang: '#{I18n.locale}'
+          };
 
-        function _loadUserVoice() {
-          var s = document.createElement('script');
-          s.setAttribute('type', 'text/javascript');
-          s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
-          document.getElementsByTagName('head')[0].appendChild(s);
-        }
-        _loadSuper = window.onload;
-        window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
-
+          function _loadUserVoice() {
+            var s = document.createElement('script');
+            s.setAttribute('type', 'text/javascript');
+            s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
+            document.getElementsByTagName('head')[0].appendChild(s);
+          }
+          _loadSuper = window.onload;
+          window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+        });
     = csrf_meta_tag
 
   %body
