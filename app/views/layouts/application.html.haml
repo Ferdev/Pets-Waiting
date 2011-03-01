@@ -72,11 +72,7 @@
       %a.logo{:href => root_url }
       .auth
         %ul
-          - unless user_signed_in?
-            %li= link_to t('layouts.application.authentication.signin'), new_user_session_path
-            %li= t('layouts.application.authentication.or')
-            %li= link_to t('layouts.application.authentication.signup'), new_user_registration_path
-          - else
+          - if false
             %li.admin
               %ul
                 %li{:class => select_my_profile}
