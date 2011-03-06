@@ -36,6 +36,10 @@
         border: 1px solid rgba(204,204,204,0.5)
         text-decoration: none
         line-height: 34px
+
+        &:active
+          @include box-shadow(inset 1px 3px 5px rgba(0, 0, 0, 0.5))
+
       a.add_pet
         @include gradient($addpet_top, $addpet_bottom)
         border: 1px solid $addpet_border
@@ -44,11 +48,19 @@
         text-shadow: 0 1px 1px rgba(0,0,0, 0.5)
         text-align: center
         vertical-align: middle
+
+        &:hover
+          @include gradient($addpet_bottom, $addpet_top)
+
     li.active
       a
         @include gradient($filteractive_top, $filteractive_bottom)
         color: white
         border: 0 none
+
+        &:hover
+          @include gradient($filteractive_bottom, $filteractive_top)
+
       .arrow
         display: block
 
@@ -176,8 +188,11 @@
             text-decoration: none
             text-align: center
             line-height: 46px
-          a:hover
-            @include gradient($petlistitem_knowit_bottom, $petlistitem_knowit_top)
+            &:hover
+              @include gradient($petlistitem_knowit_bottom, $petlistitem_knowit_top)
+            &:active
+              @include box-shadow(inset 1px 3px 5px rgba(0, 0, 0, 0.5))
+
     li.pet.urgent
       .urgent
         display: block

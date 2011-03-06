@@ -45,6 +45,10 @@
       border: 1px solid rgba(204, 204, 204, 0.5);
       text-decoration: none;
       line-height: 34px; }
+      #content ul.filters li a:active, #content ul.filters li a.add_pet:active {
+        -moz-box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5);
+        box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5); }
     #content ul.filters li a.add_pet {
       background-image: -moz-linear-gradient(top, #1691d3, #0d72ab);
       background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #1691d3), color-stop(1, #0d72ab));
@@ -56,6 +60,11 @@
       text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
       text-align: center;
       vertical-align: middle; }
+      #content ul.filters li a.add_pet:hover {
+        background-image: -moz-linear-gradient(top, #0d72ab, #1691d3);
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0d72ab), color-stop(1, #1691d3));
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
   #content ul.filters li.active a {
     background-image: -moz-linear-gradient(top, #363a3e, #141618);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #363a3e), color-stop(1, #141618));
@@ -63,6 +72,11 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
     color: white;
     border: 0 none; }
+    #content ul.filters li.active a:hover {
+      background-image: -moz-linear-gradient(top, #141618, #363a3e);
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #141618), color-stop(1, #363a3e));
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
   #content ul.filters li.active .arrow {
     display: block; }
 #content ul.pets {
@@ -225,11 +239,15 @@
           text-decoration: none;
           text-align: center;
           line-height: 46px; }
-        #content ul.pets li.pet ul.data li.know_it a:hover {
-          background-image: -moz-linear-gradient(top, #0d71aa, #1692d5);
-          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0d71aa), color-stop(1, #1692d5));
-          filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
-          -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+          #content ul.pets li.pet ul.data li.know_it a:hover {
+            background-image: -moz-linear-gradient(top, #0d71aa, #1692d5);
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0d71aa), color-stop(1, #1692d5));
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+          #content ul.pets li.pet ul.data li.know_it a:active {
+            -moz-box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5); }
   #content ul.pets li.pet.urgent .urgent {
     display: block; }
   #content ul.pets li.pet.urgent .photo_arrow {
