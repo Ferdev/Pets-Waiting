@@ -83,7 +83,8 @@
                   = link_to t('layouts.application.admin.adoption_requests'), user_adoptions_path(current_user)
 
             %li= link_to t('layouts.application.authentication.logout'), destroy_user_session_path
-      %p.pet_count= I18n.t('layouts.application.counter.pets', :count => @count )
+      %p.pet_count
+        = pet_count
 
     #content
       - flash.each do |name, msg|

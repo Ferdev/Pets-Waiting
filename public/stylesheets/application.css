@@ -65,7 +65,8 @@ header {
   height: 100px;
   margin: 0 auto;
   position: relative;
-  border-bottom: 1px solid rgba(55, 55, 55, 0.4); }
+  border-bottom: 1px solid rgba(55, 55, 55, 0.4);
+  text-align: center; }
   header .language {
     background-color: #d8dad5;
     -moz-border-radius: 3px;
@@ -117,13 +118,15 @@ header {
     height: 82px;
     margin: 2em auto 0; }
   header .pet_count {
+    display: inline;
     background-color: #e6e8e3;
     margin: 0.5em auto;
+    padding: 0 0.5em;
     font-size: 1.1em;
+    line-height: 2em;
     text-align: center;
     color: rgba(55, 55, 55, 0.5);
     text-shadow: 0 1px 1px white;
-    max-width: 250px;
     position: relative;
     z-index: 1; }
   header .auth {

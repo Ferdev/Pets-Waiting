@@ -365,6 +365,7 @@
         pets:
           one: '%{count} mascota esperando.'
           other: '%{count} mascotas esperandote.'
+      back_to_list: 'Volver a la lista.'
       footer:
         waiting: 'Animales esperando'
         adopted: 'Adopciones hechas'

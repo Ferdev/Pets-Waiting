@@ -117,6 +117,7 @@ en:
         pets:
           one: '%{count} pet waiting for you.'
           other: '%{count} pets waiting for you.'
+      back_to_list: 'Go back to the list.'
       footer:
         waiting: 'Animals waiting'
         adopted: 'Adoptions done'

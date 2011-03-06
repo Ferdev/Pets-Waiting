@@ -56,4 +56,13 @@ module ApplicationHelper
       #{link_to(I18n.t('layouts.application.footer.contact'), contact_path)}
     ).join(' / ')
   end
+
+  def pet_count
+    back_link = link_to(I18n.t('layouts.application.back_to_list'), :back) unless home?
+    raw "#{I18n.t('layouts.application.counter.pets', :count => @count )} #{back_link}"
+  end
+
+  def home?
+    %W(#{root_path} / #{root_path}/pets).include?(request.request_uri) || request.request_uri.match(/#{root_path}\/pets[^\/]/)
+  end
 end
