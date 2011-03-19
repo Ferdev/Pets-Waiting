@@ -1,24 +1,34 @@
 @import 'pw.vars'
+@import 'pw.colors'
 @import 'pw.mixins'
 
 //Forms
 label
-  color: #1a6692
-  line-height: 1.5em
-  font-size: 1.2em
-  font-weight: normal
-  vertical-align: middle
-.required label
-  font-weight: bold
-  
-input[type=text], input[type=password], textarea, select
-  @include border-radius(5px)
-  background-color: #DFF7FF
-  border: 2px solid #1A6692
-  color: #124462
-  font-weight: bold
-  padding: 0.2em 0.5em
+  color: $form_label_font
+  font-size: .8em
+  margin: 4px 0
+
+input[type=text], input[type=email], input[type=password], textarea, select
+  padding: 5px
+  @include border-radius(3px)
+  border: 1px solid $form_input_border
+  background-color: $form_input
+  color: $form_input_font
   font-size: 1em
+
+input[type=submit], input[type=button], button
+  padding: 7px 15px
+  @include gradient($form_button_gradient_top, $form_button_gradient_bottom)
+  @include border-radius(3px)
+  border: 1px solid $form_button_border
+  color: $form_button_font
+  font-size: 1.05em
+  cursor: pointer
+
+  &:hover
+    @include gradient($form_button_gradient_bottom, $form_button_gradient_top)
+  &:active
+    @include box-shadow(inset 1px 3px 5px rgba(0, 0, 0, 0.5))
 
 .error
   input[type=text], input[type=password], textarea, select
@@ -31,7 +41,7 @@ input[type=text], input[type=password], textarea, select
 textarea
   padding: .5em
   font-family: inherit
-  
+
 form
   p
     margin: 1em
@@ -59,10 +69,10 @@ form
           ol
             li
               @include inline-block
-              
+
   fieldset.character
     @include inline-block
-  
+
   fieldset.buttons
     margin: 1em 0
     ol

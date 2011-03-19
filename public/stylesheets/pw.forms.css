@@ -1,24 +1,42 @@
 label {
-  color: #1a6692;
-  line-height: 1.5em;
-  font-size: 1.2em;
-  font-weight: normal;
-  vertical-align: middle; }
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 0.8em;
+  margin: 4px 0; }
 
-.required label {
-  font-weight: bold; }
-
-input[type=text], input[type=password], textarea, select {
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  background-color: #dff7ff;
-  border: 2px solid #1a6692;
-  color: #124462;
-  font-weight: bold;
-  padding: 0.2em 0.5em;
+input[type=text], input[type=email], input[type=password], textarea, select {
+  padding: 5px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  background-color: white;
+  color: #666666;
   font-size: 1em; }
+
+input[type=submit], input[type=button], button {
+  padding: 7px 15px;
+  background-image: -moz-linear-gradient(top, white, #cccccc);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, white), color-stop(1, #cccccc));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')";
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  color: #333333;
+  font-size: 1.05em;
+  cursor: pointer; }
+  input[type=submit]:hover, input[type=button]:hover, button:hover {
+    background-image: -moz-linear-gradient(top, #cccccc, white);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cccccc), color-stop(1, white));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='$top_color', EndColorStr='$bottom_color')"; }
+  input[type=submit]:active, input[type=button]:active, button:active {
+    -moz-box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 1px 3px 5px rgba(0, 0, 0, 0.5); }
 
 .error input[type=text], .error input[type=password], .error textarea, .error select {
   background-color: #f4e4e8;

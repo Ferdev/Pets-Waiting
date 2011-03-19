@@ -1,11 +1,44 @@
-%h2= I18n.t('devise.sign_in')
-= semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  = f.inputs do
-    = f.input :email
-    = f.input :password
-    - if devise_mapping.rememberable?
-      = f.input :remember_me, :as => :boolean
+- content_for :head do
+  = headjs_include_tag "jquery/jquery-ui-1.8.4.custom.min", "pw/pw.pets.devise", "pw/pw.address.autocompleter", "pw/pw.pets.form", "http://maps.google.com/maps/api/js?sensor=true"
+  = stylesheet_link_tag "pw.users.css"
+
+.sign_in_up
+  %h1= I18n.t('devise.add_pet')
+  %h2= I18n.t('devise.its_free')
+  = semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'sign_in'}) do |f|
+    = error_messages(resource)
+    %p= I18n.t('devise.sign_in')
+    = f.inputs do
+      = f.input :email, :label => I18n.t('devise.form_label', :field => User.human_attribute_name(:email).downcase)
+      = f.input :password, :label => I18n.t('devise.form_label', :field => User.human_attribute_name(:password).downcase)
+      - if devise_mapping.rememberable?
+        = f.input :remember_me, :as => :boolean
+      = f.buttons do
+        = f.commit_button :label => I18n.t('devise.continue')
+        %li.forgot
+          = link_to I18n.t('devise.forgot_password'), new_password_path(resource_name), :id => :forgot, :class => :button
+
+  = semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'sign_up'}) do |f|
+    %p= I18n.t('devise.sign_up')
+    = error_messages(resource)
+    = f.inputs do
+      = f.input :name
+      = f.input :email
+      = f.input :password
+      = f.input :password_confirmation
+      = f.semantic_fields_for :address do |address|
+        = address.input :address
+        = address.input :street, :as => :hidden
+        = address.input :postal_code, :as => :hidden
+        = address.input :lat, :as => :hidden
+        = address.input :lon, :as => :hidden
+        = address.input :country, :as => :hidden
+        = address.input :country_code, :as => :hidden
+        = address.input :state, :as => :hidden
+        = address.input :substate, :as => :hidden
+        = address.input :city, :as => :hidden
+      = f.input :phone_number
+      = f.input :web
+      = f.input :association_name
     = f.buttons do
-      = f.commit_button :label => I18n.t('devise.sign_in')
-      %li.forgot
-        = link_to I18n.t('devise.forgot_password'), new_password_path(resource_name), :id => :forgot, :class => :button
+      = f.commit_button I18n.t('devise.sign_up')

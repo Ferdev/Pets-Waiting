@@ -10,7 +10,7 @@ feature "Users", %q{
   context "Guests (with javascript enabled)", :js => true do
     scenario "can sign up" do
       visit homepage
-      click_link('Sign up')
+      click_link('Add a new pet')
       fill_in('Name', :with => 'Wadus Wadus')
       fill_in('Email', :with => 'wadus@wadus.com')
       fill_in('Password', :with => 'waduswadus')
@@ -29,7 +29,7 @@ feature "Users", %q{
   context "Guests" do
     scenario "can sign up" do
       visit homepage
-      click_link('Sign up')
+      click_link('Add a new pet')
       fill_in('Name', :with => 'Wadus Wadus')
       fill_in('Email', :with => 'wadus@wadus.com')
       fill_in('Password', :with => 'waduswadus')
@@ -46,7 +46,7 @@ feature "Users", %q{
 
     scenario "must provide a valid phone number" do
       visit homepage
-      click_link('Sign up')
+      click_link('Add a new pet')
       fill_in('Name', :with => 'Wadus Wadus')
       fill_in('Email', :with => 'wadus@wadus.com')
       fill_in('Password', :with => 'waduswadus')
@@ -70,7 +70,7 @@ feature "Users", %q{
 
     scenario "name, email, password, address and phone number can't be blank" do
       visit homepage
-      click_link('Sign up')
+      click_link('Add a new pet')
       assert_difference "User.count", 0 do
         click_button('Sign up')
       end

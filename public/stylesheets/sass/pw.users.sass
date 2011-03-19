@@ -1,0 +1,53 @@
+@import 'pw.colors'
+@import 'pw.mixins'
+
+.sign_in_up
+  width: 548px
+  height: 345px
+  outline: 1px solid $users_container_border
+  border: 10px solid $users_container_inner_border
+  margin: 70px auto
+  padding: 30px
+  @include gradient($users_container_gradient_top, $users_container_gradient_bottom)
+  color: $users_titles
+
+  h1, h2
+    margin: 0
+    font-weight: normal
+
+  h1
+    font-size: 1.8em
+    margin-bottom: 5px
+  h2
+    font-size: 0.8em
+    margin-bottom: 25px
+
+  form
+    position: relative
+    display: block
+    padding: 20px
+    background-color: $users_form_background
+    @include border-radius(4px)
+
+    p
+      margin: 0
+      font-size: 1.1em
+
+    li
+      @include inline-block
+      margin: 5px 10px
+
+    &.sign_in
+      width: 491px
+      height: 123px
+
+      input[type=text], input[type=email], input[type=password], textarea, select
+        width: 208px
+
+      input[type=submit]
+        position: absolute
+        right: 0
+        bottom: -100px
+
+    &.sign_up
+      display: none

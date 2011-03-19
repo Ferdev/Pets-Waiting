@@ -484,8 +484,12 @@
         subject: 'Petición de adopción para %{petname}'
 
   devise:
+    add_pet: 'Da de alta una mascota en petswaiting'
+    its_free: "Es gratis, merece la pena y solo te llevará 5 minutos."
     sign_up: 'Regístrate'
-    sign_in: 'Identifícate'
+    sign_in: 'Ya tengo una cuenta en petswaiting'
+    continue: 'Continuar'
+    form_label: 'Introduce tu %{field}'
     forgot_password: '¿Has olvidado tu contraseña?'
     didnt_receive_confirmation: '¿No has recibido las instrucciones de confirmación?'
     didnt_receive_unlock: "¿No has recibido las instrucciones de desbloqueo de tu cuenta?"
