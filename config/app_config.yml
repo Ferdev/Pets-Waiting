@@ -3,50 +3,37 @@ development:
     address: 'smtp.gmail.com'
     port: 587
     domain: 'petswaiting.com'
-    user_name: 'fur'
-    password: ''
     authentication: 'plain'
     enable_starttls_auto: true
-    aws_key: ''
-    aws_secret: ''
-    aws_bucket: ''
-    aws_region: 'eu-west-1'
+  aws_bucket: 'Pets-Waiting'
+  aws_region: 'eu-west-1'
+
 test:
   smtp_settings:
     address: 'smtp.gmail.com'
     port: 587
     domain: 'petswaiting.com'
-    user_name: 'fur'
-    password: ''
     authentication: 'plain'
     enable_starttls_auto: true
-    aws_key: ''
-    aws_secret: ''
-    aws_bucket: ''
-    aws_region: 'eu-west-1'
+  aws_bucket: 'Pets-Waiting'
+  aws_region: 'eu-west-1'
+
 staging:
   smtp_settings:
     address: 'smtp.gmail.com'
     port: 587
     domain: 'petswaiting.com'
-    user_name: 'fur'
-    password: ''
     authentication: 'plain'
     enable_starttls_auto: true
-    aws_key: ''
-    aws_secret: ''
-    aws_bucket: ''
-    aws_region: 'eu-west-1'
+  aws_bucket: 'Pets-Waiting'
+  aws_region: 'eu-west-1'
+
 production:
   smtp_settings:
     address: 'smtp.gmail.com'
     port: 587
     domain: 'petswaiting.com'
-    user_name: 'fur'
-    password: ''
     authentication: 'plain'
     enable_starttls_auto: true
-    aws_key: ''
-    aws_secret: ''
-    aws_bucket: ''
-    aws_region: 'eu-west-1'
+  aws_bucket: 'Pets-Waiting'
+  aws_region: 'eu-west-1'
