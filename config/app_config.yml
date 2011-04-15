@@ -21,7 +21,7 @@ staging:
     domain: 'petswaiting.com'
     authentication: 'plain'
     enable_starttls_auto: true
-  aws_bucket: 'pets_waiting_staging'
+  aws_bucket: 'petswaiting.staging'
 
 production:
   smtp_settings:
@@ -30,4 +30,4 @@ production:
     domain: 'petswaiting.com'
     authentication: 'plain'
     enable_starttls_auto: true
-  aws_bucket: 'pets_waiting_production'
+  aws_bucket: 'petswaiting.production'
