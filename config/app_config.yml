@@ -6,7 +6,6 @@ development:
     authentication: 'plain'
     enable_starttls_auto: true
   aws_bucket: 'pets_waiting'
-  aws_region: 'eu-west-1'
 
 test:
   smtp_settings:
@@ -16,7 +15,6 @@ test:
     authentication: 'plain'
     enable_starttls_auto: true
   aws_bucket: 'pets_waiting'
-  aws_region: 'eu-west-1'
 
 staging:
   smtp_settings:
@@ -26,7 +24,6 @@ staging:
     authentication: 'plain'
     enable_starttls_auto: true
   aws_bucket: 'pets_waiting'
-  aws_region: 'eu-west-1'
 
 production:
   smtp_settings:
@@ -36,4 +33,3 @@ production:
     authentication: 'plain'
     enable_starttls_auto: true
   aws_bucket: 'pets_waiting'
-  aws_region: 'eu-west-1'
