@@ -5,7 +5,7 @@ development:
     domain: 'petswaiting.com'
     authentication: 'plain'
     enable_starttls_auto: true
-  aws_bucket: 'Pets-Waiting'
+  aws_bucket: 'pets_waiting'
   aws_region: 'eu-west-1'
 
 test:
@@ -15,7 +15,7 @@ test:
     domain: 'petswaiting.com'
     authentication: 'plain'
     enable_starttls_auto: true
-  aws_bucket: 'Pets-Waiting'
+  aws_bucket: 'pets_waiting'
   aws_region: 'eu-west-1'
 
 staging:
@@ -25,7 +25,7 @@ staging:
     domain: 'petswaiting.com'
     authentication: 'plain'
     enable_starttls_auto: true
-  aws_bucket: 'Pets-Waiting'
+  aws_bucket: 'pets_waiting'
   aws_region: 'eu-west-1'
 
 production:
@@ -35,5 +35,5 @@ production:
     domain: 'petswaiting.com'
     authentication: 'plain'
     enable_starttls_auto: true
-  aws_bucket: 'Pets-Waiting'
+  aws_bucket: 'pets_waiting'
   aws_region: 'eu-west-1'
