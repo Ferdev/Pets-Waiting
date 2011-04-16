@@ -5,6 +5,7 @@ development:
     domain: 'petswaiting.com'
     authentication: 'plain'
     enable_starttls_auto: true
+  aws_bucket: 'petswaiting.development'
 
 test:
   smtp_settings:
@@ -13,6 +14,7 @@ test:
     domain: 'petswaiting.com'
     authentication: 'plain'
     enable_starttls_auto: true
+  aws_bucket: 'petswaiting.test'
 
 staging:
   smtp_settings:
